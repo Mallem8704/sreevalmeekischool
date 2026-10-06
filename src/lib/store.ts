@@ -1,5 +1,6 @@
 // Zustand store for admin state management
 import { create } from 'zustand';
+import { growthMilestones } from './data';
 
 export interface AdmissionEnquiry {
   id: string;
@@ -35,6 +36,16 @@ export interface NewsEvent {
   image: string | null;
 }
 
+export interface Milestone {
+  id: string;
+  year: string;
+  title: string;
+  caption: string;
+  image: string;
+  badge?: string;
+  order?: number;
+}
+
 export interface Achievement {
   id: string;
   title: string;
@@ -42,6 +53,10 @@ export interface Achievement {
   description: string;
   year: string;
   image: string | null;
+  studentName?: string;
+  classGrade?: string;
+  marksOrRank?: string;
+  level?: string;
 }
 
 export interface GalleryImage {
@@ -88,6 +103,7 @@ interface AdminStore {
   announcements: Announcement[];
   events: NewsEvent[];
   achievements: Achievement[];
+  milestones: Milestone[];
   gallery: GalleryImage[];
   testimonials: Testimonial[];
   heroContent: {
@@ -134,6 +150,9 @@ interface AdminStore {
   addAchievement: (achievement: Achievement) => void;
   deleteAchievement: (id: string) => void;
   removeAchievement: (id: string) => void;
+  addMilestone: (milestone: Milestone) => void;
+  updateMilestone: (id: string, milestone: Partial<Milestone>) => void;
+  deleteMilestone: (id: string) => void;
   addGalleryImage: (image: GalleryImage) => void;
   deleteGalleryImage: (id: string) => void;
   addGalleryItem: (item: { url: string; category: string; featured: boolean; caption?: string }) => void;
@@ -210,6 +229,7 @@ export const useAdminStore = create<AdminStore>((set) => ({
       image: null,
     },
   ],
+  milestones: growthMilestones,
   gallery: [],
   testimonials: [
     {
@@ -347,6 +367,14 @@ export const useAdminStore = create<AdminStore>((set) => ({
     set((state) => ({
       achievements: state.achievements.filter((a) => a.id !== id),
     })),
+  addMilestone: (milestone) =>
+    set((state) => ({ milestones: [...state.milestones, milestone] })),
+  updateMilestone: (id, milestone) =>
+    set((state) => ({
+      milestones: state.milestones.map((m) => (m.id === id ? { ...m, ...milestone } : m)),
+    })),
+  deleteMilestone: (id) =>
+    set((state) => ({ milestones: state.milestones.filter((m) => m.id !== id) })),
   addGalleryImage: (image) =>
     set((state) => ({ gallery: [image, ...state.gallery] })),
   deleteGalleryImage: (id) =>

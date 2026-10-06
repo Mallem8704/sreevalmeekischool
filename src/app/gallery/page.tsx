@@ -1,67 +1,363 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
-import Gallery from '@/components/sections/Gallery';
-import Link from 'next/link';
-import { Camera, ChevronRight, Sparkles } from 'lucide-react';
-import { InstagramIcon } from '@/components/ui/SocialIcons';
+import {
+  Sparkles,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Share2,
+  Maximize2,
+  Play,
+  Film,
+} from 'lucide-react';
+import { videoGalleryItems } from '@/lib/data';
 
-export const metadata: Metadata = {
-  title: 'Photo Gallery & Events | Sree Valmeeki E.M High School, Kadiri',
-  description: 'Explore authentic photos of Science Fairs, Annual Day dances, Valmeeki Premier League sports, and campus life at Sree Valmeeki School.',
-};
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  year: string;
+  image: string;
+  aspect: string; // Tailwind aspect or column span
+}
+
+const galleryCategories = [
+  'ALL',
+  'CAMPUS',
+  'CLASSROOMS',
+  'ACADEMICS',
+  'SPORTS',
+  'EVENTS',
+  'CELEBRATIONS',
+  'ACHIEVEMENTS',
+  'CULTURAL',
+  'STUDENT LIFE',
+];
+
+const galleryItems: GalleryItem[] = [
+  { id: 1, title: 'Annual Day Stage Dance', category: 'CULTURAL', year: '2026', image: '/images/school/school-event-4.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 2, title: 'Science Fair Experiments', category: 'ACADEMICS', year: '2025', image: '/images/school/school-event-9.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+  { id: 3, title: 'VPL Cricket Champions', category: 'SPORTS', year: '2026', image: '/images/school/school-event-2.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 4, title: 'Morning Prayer Assembly', category: 'CAMPUS', year: '2025', image: '/images/school/school-event-11.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+  { id: 5, title: 'Traditional Festival Attire', category: 'CELEBRATIONS', year: '2024', image: '/images/school/school-event-5.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 6, title: 'Interactive Smart Panel Lab', category: 'CLASSROOMS', year: '2026', image: '/images/school/school-event-12.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/9]' },
+  { id: 7, title: 'State Level Academic Awards', category: 'ACHIEVEMENTS', year: '2025', image: '/images/school/school-event-7.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+  { id: 8, title: 'Class 10 Farewell Gathering', category: 'EVENTS', year: '2025', image: '/images/school/school-event-8.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 9, title: 'STEM Physics Model Exhibition', category: 'ACADEMICS', year: '2025', image: '/images/school/school-event-1.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+  { id: 10, title: 'Campus Smiles & Team Spirit', category: 'STUDENT LIFE', year: '2026', image: '/images/school/school-event-3.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 11, title: 'Athletics Ground Sprint', category: 'SPORTS', year: '2024', image: '/images/school/school-event-6.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 12, title: 'Creative Art & Drawing Showcase', category: 'CULTURAL', year: '2025', image: '/images/school/school-event-10.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+];
 
 export default function GalleryPage() {
+  const [activeCategory, setActiveCategory] = useState('ALL');
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const filteredItems = galleryItems.filter(
+    (item) => activeCategory === 'ALL' || item.category === activeCategory
+  );
+
+  const currentItem = selectedIndex !== null ? filteredItems[selectedIndex] : null;
+
+  const handleNext = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex + 1) % filteredItems.length);
+  };
+
+  const handlePrev = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex - 1 + filteredItems.length) % filteredItems.length);
+  };
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'Escape') setSelectedIndex(null);
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
+  const handleShare = () => {
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      navigator.share({
+        title: currentItem?.title || 'Sree Valmeeki School Gallery',
+        url: window.location.href,
+      }).catch(() => {});
+    } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Gallery link copied to clipboard!');
+    }
+  };
+
   return (
-    <main className="min-h-screen flex flex-col bg-[#FAFAF7] font-[family-name:var(--font-body)]">
+    <main className="min-h-screen flex flex-col bg-[#050D1A] text-white selection:bg-[#D4A853] selection:text-[#0A1628]">
       <ScrollProgress />
       <Header />
-      
-      {/* Hero Banner */}
-      <section className="relative pt-36 pb-20 bg-[#0A1628] text-white overflow-hidden border-b-[4px] border-[#D4A853]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628] via-[#122244] to-[#0A1628] opacity-90" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4A853]/15 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
-          {/* Breadcrumb */}
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-white/70 mb-4 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15">
-            <Link href="/" className="hover:text-[#D4A853] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-[#D4A853]" />
-            <span className="text-[#D4A853]">Campus Gallery</span>
-          </div>
+      {/* Hero: LIFE AT VALMEEKI */}
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-36 pb-16 px-4">
+        {/* Background Visual Atmosphere */}
+        <div className="absolute inset-0 bg-radial-[circle_at_center,_rgba(21,45,94,0.4)_0%,_#050D1A_80%]" />
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-heading)] text-white mb-4">
-            Campus Life & Photo Gallery
-          </h1>
-          
-          <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto font-[family-name:var(--font-body)] leading-relaxed">
-            Authentic memories capturing 27 years of student achievements, annual day spectacles, science exhibitions, and athletic tournaments in Kadiri.
-          </p>
+        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-xs font-bold uppercase tracking-[0.25em] mb-4 shadow-lg"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>CAMPUS MEMORIES & MOMENTS</span>
+          </motion.div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="https://www.instagram.com/sree_valmeekischool_kadiri/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all"
-            >
-              <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
-              <span>Follow @sree_valmeekischool_kadiri</span>
-            </a>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-heading)] text-white tracking-tight leading-tight mb-3"
+          >
+            LIFE AT VALMEEKI
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-xl text-white/80 font-[family-name:var(--font-heading)]"
+          >
+            Not just classrooms. <span className="text-[#D4A853]">Thousands of moments.</span>
+          </motion.p>
         </div>
       </section>
 
-      {/* Main Interactive Gallery Section */}
-      <div className="flex-grow">
-        <Gallery />
-      </div>
+      {/* Category Filter Tabs */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {galleryCategories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                activeCategory === cat
+                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md shadow-[#D4A853]/25'
+                  : 'bg-white/5 hover:bg-white/15 text-white/70 hover:text-white border border-white/10'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Asymmetric Masonry Photo Grid */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow pb-16">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <AnimatePresence>
+            {filteredItems.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                onClick={() => setSelectedIndex(idx)}
+                className={`group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all duration-300 shadow-xl cursor-pointer ${item.aspect}`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+
+                {/* Dark Hover Overlay with Year & Title */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-[#0A1628]/30 to-transparent opacity-50 group-hover:opacity-90 transition-opacity" />
+
+                {/* Top Year & Category Badge */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4A853] text-[10px] font-mono font-bold uppercase border border-white/10">
+                    {item.year}
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-white/15 text-white text-[10px] font-bold uppercase hidden group-hover:inline-block transition-opacity">
+                    {item.category}
+                  </span>
+                </div>
+
+                {/* Bottom Title & Maximize Icon */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 flex items-end justify-between">
+                  <span className="text-sm sm:text-base font-bold font-[family-name:var(--font-heading)] text-white line-clamp-1 drop-shadow-md">
+                    {item.title}
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-2">
+                    <Maximize2 className="w-4 h-4" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </section>
+
+      {/* Video Gallery: VALMEEKI IN MOTION */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/40 text-[#D4A853] text-xs font-bold uppercase tracking-[0.25em] mb-4">
+              <Film className="w-3.5 h-3.5" />
+              <span>CINEMATIC STORIES</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-white">
+              VALMEEKI IN MOTION
+            </h2>
+          </div>
+          <span className="text-xs text-white/50 font-mono">
+            REELS • CELEBRATIONS • SPORTS
+          </span>
+        </div>
+
+        {/* 4 Video Cards (Vertical & Landscape Formats) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {videoGalleryItems.map((item) => (
+            <div
+              key={item.id}
+              className={`group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all shadow-xl flex flex-col justify-end ${
+                item.format === 'vertical' ? 'aspect-[9/16]' : 'aspect-[16/10]'
+              }`}
+            >
+              <video
+                src={item.videoUrl}
+                poster={item.poster}
+                muted
+                loop
+                playsInline
+                controls
+                className="w-full h-full object-cover"
+              />
+
+              <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4A853] text-[10px] font-mono font-bold uppercase border border-white/10 pointer-events-none">
+                {item.format === 'vertical' ? 'REEL' : 'FEATURE TOUR'}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Fullscreen Lightbox Modal with Next / Prev / Share / Keyboard Controls */}
+      <AnimatePresence>
+        {currentItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedIndex(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl select-none"
+          >
+            {/* Top Bar Controls */}
+            <div
+              className="absolute top-6 left-6 right-6 flex items-center justify-between z-50 pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono text-[#D4A853] font-bold">
+                  {selectedIndex! + 1} / {filteredItems.length}
+                </span>
+                <span className="text-xs text-white/50">• {currentItem.category}</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  aria-label="Share photo"
+                >
+                  <Share2 className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedIndex(null)}
+                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Left Nav Arrow */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer z-50"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Right Nav Arrow */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer z-50"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Main Center Image */}
+            <motion.div
+              key={currentItem.id}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl max-h-[80vh] w-full aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+            >
+              <Image
+                src={currentItem.image}
+                alt={currentItem.title}
+                fill
+                className="object-contain"
+                priority
+              />
+
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/90 to-transparent flex items-end justify-between">
+                <div>
+                  <span className="text-xs font-mono text-[#D4A853] block">
+                    {currentItem.year} • {currentItem.category}
+                  </span>
+                  <h3 className="text-lg sm:text-2xl font-bold font-[family-name:var(--font-heading)] text-white">
+                    {currentItem.title}
+                  </h3>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <FloatingButtons />
     </main>
   );
 }
-

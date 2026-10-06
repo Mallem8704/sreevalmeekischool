@@ -21,6 +21,7 @@ import Image from 'next/image';
 const navItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { name: 'Enquiries', href: '/admin/enquiries', icon: Users },
+  { name: 'Growth Timeline', href: '/admin/timeline', icon: CalendarDays },
   { name: 'Announcements', href: '/admin/announcements', icon: Megaphone },
   { name: 'Events', href: '/admin/events', icon: CalendarDays },
   { name: 'Achievements', href: '/admin/achievements', icon: Trophy },

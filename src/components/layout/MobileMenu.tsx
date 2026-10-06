@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { X, Phone, MapPin, GraduationCap } from 'lucide-react';
+import { X, Phone, MapPin, GraduationCap, ArrowRight, MessageCircle } from 'lucide-react';
 import { navLinks } from '@/lib/data';
 
 interface MobileMenuProps {
@@ -14,16 +14,6 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
-
-  const getHref = (href: string) => {
-    if (href === '/') {
-      return pathname === '/' ? '#' : '/';
-    }
-    if (href.startsWith('#')) {
-      return pathname === '/' ? href : `/${href}`;
-    }
-    return href;
-  };
 
   return (
     <AnimatePresence>
@@ -44,24 +34,24 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-[#0A1628] z-[70] shadow-2xl overflow-y-auto flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-[70] shadow-2xl overflow-y-auto flex flex-col"
           >
             {/* Header with Official Logo */}
-            <div className="flex items-center justify-between p-5 border-b border-white/10">
+            <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-white">
               <Link href="/" onClick={onClose} className="flex items-center">
-                <div className="relative h-11 w-48 bg-white/95 px-2.5 py-1 rounded-xl shadow-md border border-white/40 flex items-center">
+                <div className="relative h-11 w-48">
                   <Image
                     src="/sree-valmeeki-main-logo-transparent.png"
-                    alt="SREE VALMEEKI E.M SCHOOL — Since 1999"
+                    alt="SREE VALMEEKI E.M SCHOOL"
                     fill
-                    sizes="220px"
-                    className="object-contain"
+                    sizes="200px"
+                    className="object-contain object-left"
                   />
                 </div>
               </Link>
               <button
                 onClick={onClose}
-                className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+                className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -69,22 +59,31 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex-1 px-6 py-6 flex flex-col space-y-1">
+            <nav className="flex-1 px-4 py-4 flex flex-col space-y-1">
               {navLinks.map((link, i) => {
-                const targetHref = getHref(link.href);
+                const isActive =
+                  link.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(link.href);
+
                 return (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 15 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + i * 0.04 }}
+                    transition={{ delay: 0.05 + i * 0.03 }}
                   >
                     <Link
-                      href={targetHref}
+                      href={link.href}
                       onClick={onClose}
-                      className="block text-xl font-[family-name:var(--font-heading)] text-white/85 hover:text-[#D4A853] py-2.5 transition-colors border-b border-white/5"
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all ${
+                        isActive
+                          ? 'bg-amber-100 text-[#0A1628] font-bold'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-black'
+                      }`}
                     >
-                      {link.name}
+                      <span className="text-base">{link.name}</span>
+                      <ArrowRight className="w-4 h-4 text-slate-400" />
                     </Link>
                   </motion.div>
                 );
@@ -92,58 +91,40 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </nav>
 
             {/* Bottom Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="p-6 bg-white/5 space-y-3.5"
-            >
-              <a
-                href={pathname === '/' ? '#enquiry' : '/#enquiry'}
+            <div className="p-5 bg-slate-50 border-t border-slate-100 space-y-3">
+              <Link
+                href="/admissions"
                 onClick={onClose}
-                className="flex items-center justify-center w-full py-3.5 rounded-xl bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] text-[#0A1628] font-bold text-sm uppercase tracking-wider shadow-lg hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-bold text-sm uppercase tracking-wider rounded-full shadow-md transition-colors"
               >
-                <GraduationCap className="w-5 h-5 mr-2" />
-                Enquire Now
-              </a>
+                <GraduationCap className="w-5 h-5" />
+                <span>Enroll Now 2026–27</span>
+              </Link>
 
-              <a
-                href="tel:+919440468838"
-                className="flex items-center justify-center w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-colors"
-              >
-                <Phone className="w-4 h-4 mr-2.5 text-[#D4A853]" />
-                +91 94404 68838
-              </a>
-
-              <a
-                href="https://wa.me/919440468838"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full py-3 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/30 text-white font-semibold text-xs border border-[#25D366]/40 transition-all"
-              >
-                <span>Chat on WhatsApp: +91 94404 68838</span>
-              </a>
-
-              <a
-                href="https://www.instagram.com/sree_valmeekischool_kadiri/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full py-2.5 rounded-xl bg-white/5 hover:bg-[#E1306C]/20 text-white/80 hover:text-white font-semibold text-xs border border-white/10 transition-all"
-              >
-                <span>Instagram: @sree_valmeekischool_kadiri</span>
-              </a>
-
-              <div className="flex justify-center pt-2">
-                <Link
-                  href={pathname === '/' ? '#contact' : '/#contact'}
-                  onClick={onClose}
-                  className="flex items-center text-white/60 hover:text-[#D4A853] transition-colors text-xs"
+              <div className="grid grid-cols-2 gap-2.5">
+                <a
+                  href="tel:+919440468838"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-slate-200 text-slate-800 rounded-xl text-xs font-semibold shadow-xs hover:bg-slate-50 transition-colors"
                 >
-                  <MapPin className="w-3.5 h-3.5 mr-1.5 text-[#D4A853]" />
-                  Madanapalli Road, Kadiri, AP
-                </Link>
+                  <Phone className="w-4 h-4 text-[#D4A853]" />
+                  <span>Call Direct</span>
+                </a>
+                <a
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20am%20interested%20in%20Admissions%20for%202026-27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#25D366] text-white rounded-xl text-xs font-semibold shadow-xs hover:brightness-105 transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
-            </motion.div>
+
+              <div className="pt-2 text-center text-xs text-slate-500 flex items-center justify-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#D4A853]" />
+                <span>Bypass Road, Kadiri, Andhra Pradesh</span>
+              </div>
+            </div>
           </motion.div>
         </>
       )}

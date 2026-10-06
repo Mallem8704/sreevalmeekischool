@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, ChevronRight, Play, ExternalLink } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
-import { replayIntroVideo } from '@/components/ui/IntroVideoLauncher';
+import { replayIntroVideo } from '@/components/ui/CinematicIntro';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
