@@ -65,7 +65,7 @@ export default function CinematicHero() {
               transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-[family-name:var(--font-heading)] leading-[1.08] tracking-tight mb-3 sm:mb-4 text-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)]"
             >
-              Sree Valmeeki Group of Institutions
+              Sree Valmeeki High School
             </motion.h1>
 
             {/* Sub-headline */}
@@ -75,7 +75,7 @@ export default function CinematicHero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-white/95 text-base sm:text-lg md:text-xl font-bold tracking-wide mb-6 sm:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
             >
-              School • Nursery to Class 10 • Kadiri • Estd 1999
+              English Medium • Nursery to Class 10 • Kadiri • Estd 1999
             </motion.p>
 
             {/* High-Visibility Golden Enroll Now Button */}
