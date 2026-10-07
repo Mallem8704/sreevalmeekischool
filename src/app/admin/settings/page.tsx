@@ -5,24 +5,53 @@ import { useAdminStore } from '@/lib/store';
 import { Save } from 'lucide-react';
 
 export default function AdminSettings() {
-  const { siteSettings, updateSiteSettings } = useAdminStore();
+  const { 
+    heroContent, updateHeroContent,
+    contactInfo, updateContactInfo,
+    socialLinks, updateSocialLinks
+  } = useAdminStore();
   
-  const [formData, setFormData] = useState(siteSettings);
+  const [heroForm, setHeroForm] = useState(heroContent);
+  const [contactForm, setContactForm] = useState(contactInfo);
+  const [socialForm, setSocialForm] = useState(socialLinks);
   const [saveMessage, setSaveMessage] = useState('');
 
-  const handleSave = (section: string) => {
-    updateSiteSettings(formData);
-    setSaveMessage(`${section} updated successfully!`);
+  const handleSaveHero = () => {
+    updateHeroContent(heroForm);
+    setSaveMessage('Hero Content updated successfully!');
     setTimeout(() => setSaveMessage(''), 3000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, section: string, field: string) => {
-    setFormData({
-      ...formData,
-      [section]: {
-        ...(formData as any)[section],
-        [field]: e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value
-      }
+  const handleSaveContact = () => {
+    updateContactInfo(contactForm);
+    setSaveMessage('Contact Info updated successfully!');
+    setTimeout(() => setSaveMessage(''), 3000);
+  };
+
+  const handleSaveSocial = () => {
+    updateSocialLinks(socialForm);
+    setSaveMessage('Social Links updated successfully!');
+    setTimeout(() => setSaveMessage(''), 3000);
+  };
+
+  const handleHeroChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: string) => {
+    setHeroForm({
+      ...heroForm,
+      [field]: e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value
+    });
+  };
+
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: string) => {
+    setContactForm({
+      ...contactForm,
+      [field]: e.target.value
+    });
+  };
+
+  const handleSocialChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+    setSocialForm({
+      ...socialForm,
+      [field]: e.target.value
     });
   };
 
@@ -43,21 +72,12 @@ export default function AdminSettings() {
           <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">Contact Information</h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Phone Number 1</label>
+              <label className="block text-sm font-medium text-gray-700">Phone Number</label>
               <input
                 type="text"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.contact.phone1}
-                onChange={(e) => handleChange(e, 'contact', 'phone1')}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Phone Number 2 (Optional)</label>
-              <input
-                type="text"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.contact.phone2}
-                onChange={(e) => handleChange(e, 'contact', 'phone2')}
+                value={contactForm.phone}
+                onChange={(e) => handleContactChange(e, 'phone')}
               />
             </div>
             <div>
@@ -65,8 +85,8 @@ export default function AdminSettings() {
               <input
                 type="email"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.contact.email}
-                onChange={(e) => handleChange(e, 'contact', 'email')}
+                value={contactForm.email}
+                onChange={(e) => handleContactChange(e, 'email')}
               />
             </div>
             <div className="sm:col-span-2">
@@ -74,14 +94,14 @@ export default function AdminSettings() {
               <textarea
                 rows={2}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.contact.address}
-                onChange={(e) => handleChange(e, 'contact', 'address')}
+                value={contactForm.address}
+                onChange={(e) => handleContactChange(e, 'address')}
               />
             </div>
           </div>
           <div className="mt-5 flex justify-end">
             <button
-              onClick={() => handleSave('Contact Info')}
+              onClick={handleSaveContact}
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-slate-900 hover:bg-slate-800"
             >
               <Save className="h-4 w-4 mr-2" /> Save Contact Info
@@ -100,8 +120,8 @@ export default function AdminSettings() {
               <input
                 type="text"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.hero.badge}
-                onChange={(e) => handleChange(e, 'hero', 'badge')}
+                value={heroForm.badge}
+                onChange={(e) => handleHeroChange(e, 'badge')}
               />
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -110,8 +130,8 @@ export default function AdminSettings() {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                  value={formData.hero.headline1}
-                  onChange={(e) => handleChange(e, 'hero', 'headline1')}
+                  value={heroForm.headline1}
+                  onChange={(e) => handleHeroChange(e, 'headline1')}
                 />
               </div>
               <div>
@@ -119,8 +139,8 @@ export default function AdminSettings() {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                  value={formData.hero.headline2}
-                  onChange={(e) => handleChange(e, 'hero', 'headline2')}
+                  value={heroForm.headline2}
+                  onChange={(e) => handleHeroChange(e, 'headline2')}
                 />
               </div>
             </div>
@@ -129,8 +149,8 @@ export default function AdminSettings() {
               <textarea
                 rows={3}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.hero.description}
-                onChange={(e) => handleChange(e, 'hero', 'description')}
+                value={heroForm.description}
+                onChange={(e) => handleHeroChange(e, 'description')}
               />
             </div>
             <div className="flex items-center">
@@ -138,8 +158,8 @@ export default function AdminSettings() {
                 id="admissionBanner"
                 type="checkbox"
                 className="h-4 w-4 text-slate-900 focus:ring-slate-500 border-gray-300 rounded"
-                checked={formData.hero.showAdmissionBanner}
-                onChange={(e) => handleChange(e as any, 'hero', 'showAdmissionBanner')}
+                checked={heroForm.admissionBanner}
+                onChange={(e) => handleHeroChange(e, 'admissionBanner')}
               />
               <label htmlFor="admissionBanner" className="ml-2 block text-sm text-gray-900">
                 Show Admission Banner/Alert on Homepage
@@ -148,7 +168,7 @@ export default function AdminSettings() {
           </div>
           <div className="mt-5 flex justify-end">
             <button
-              onClick={() => handleSave('Hero Content')}
+              onClick={handleSaveHero}
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-slate-900 hover:bg-slate-800"
             >
               <Save className="h-4 w-4 mr-2" /> Save Hero Content
@@ -167,8 +187,8 @@ export default function AdminSettings() {
               <input
                 type="url"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.social.facebook}
-                onChange={(e) => handleChange(e, 'social', 'facebook')}
+                value={socialForm.facebook}
+                onChange={(e) => handleSocialChange(e, 'facebook')}
               />
             </div>
             <div>
@@ -176,8 +196,8 @@ export default function AdminSettings() {
               <input
                 type="url"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.social.instagram}
-                onChange={(e) => handleChange(e, 'social', 'instagram')}
+                value={socialForm.instagram}
+                onChange={(e) => handleSocialChange(e, 'instagram')}
               />
             </div>
             <div>
@@ -185,14 +205,14 @@ export default function AdminSettings() {
               <input
                 type="url"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-slate-500 focus:border-slate-500 sm:text-sm"
-                value={formData.social.youtube}
-                onChange={(e) => handleChange(e, 'social', 'youtube')}
+                value={socialForm.youtube}
+                onChange={(e) => handleSocialChange(e, 'youtube')}
               />
             </div>
           </div>
           <div className="mt-5 flex justify-end">
             <button
-              onClick={() => handleSave('Social Links')}
+              onClick={handleSaveSocial}
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-slate-900 hover:bg-slate-800"
             >
               <Save className="h-4 w-4 mr-2" /> Save Social Links

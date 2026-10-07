@@ -5,7 +5,7 @@ import { useAdminStore } from '@/lib/store';
 import { Plus, Trash2, ShieldCheck } from 'lucide-react';
 
 export default function AdminTestimonials() {
-  const { testimonials, addTestimonial, removeTestimonial } = useAdminStore();
+  const { testimonials, addTestimonial, deleteTestimonial } = useAdminStore();
   const [isAdding, setIsAdding] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -21,6 +21,7 @@ export default function AdminTestimonials() {
       ...formData,
       testimonial: formData.content,
       class: formData.role,
+      isDemo: false,
     });
     setIsAdding(false);
     setFormData({ name: '', role: 'Parent', content: '' });
@@ -103,12 +104,12 @@ export default function AdminTestimonials() {
         {testimonials.map((item) => (
           <div key={item.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 relative group">
             <div className="mb-4">
-              <p className="text-gray-600 italic">"{item.content || item.testimonial}"</p>
+              <p className="text-gray-600 italic">"{item.testimonial}"</p>
             </div>
             <div className="mt-4 flex items-center justify-between border-t pt-4">
               <div>
                 <p className="text-sm font-semibold text-gray-900">{item.name}</p>
-                <p className="text-xs text-gray-500">{item.role || item.class}</p>
+                <p className="text-xs text-gray-500">{item.class}</p>
               </div>
               {/* If it's a demo testimonial, mark it */}
               {(item.id === 't1' || item.id === 't2') && (
@@ -119,7 +120,7 @@ export default function AdminTestimonials() {
             </div>
             
             <button
-              onClick={() => removeTestimonial(item.id)}
+              onClick={() => deleteTestimonial(item.id)}
               className="absolute top-4 right-4 p-1.5 bg-gray-50 text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-50"
             >
               <Trash2 className="h-4 w-4" />
