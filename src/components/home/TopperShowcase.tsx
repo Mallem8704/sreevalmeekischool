@@ -21,6 +21,18 @@ interface TopperProfile {
 
 const toppers: TopperProfile[] = [
   {
+    year: '2026 BATCH',
+    name: 'D. Janani',
+    marks: '595',
+    total: '/ 600',
+    percentage: '99.2%',
+    rankBadge: 'Town 1st Rank',
+    board: 'SSC Board • Andhra Pradesh',
+    subjects: '100 in Maths • 100 in Physical Science • 99 in Social • 99 in English',
+    image: '/extracted/star_achievers/janani_card.jpg',
+    quote: '“Valmeeki taught us to understand every concept deeply rather than memorizing. That made scoring 595/600 a natural result.”',
+  },
+  {
     year: '2025 BATCH',
     name: 'V. Keerthana',
     marks: '592',

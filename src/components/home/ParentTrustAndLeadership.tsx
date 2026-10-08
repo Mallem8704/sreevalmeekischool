@@ -76,8 +76,8 @@ export default function ParentTrustAndLeadership() {
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#D4A853]/40 bg-[#050D1A] shadow-2xl">
                 <Image
-                  src="/images/school/school-event-7.jpg"
-                  alt="Mr. P. Pavan Kumar Reddy - Director"
+                  src="/extracted/leadership/director_pavan_reddy_portrait.jpg"
+                  alt="Dr. P.V Pavan Kumar Reddy - Director"
                   fill
                   className="object-cover object-top brightness-105"
                 />
@@ -88,9 +88,9 @@ export default function ParentTrustAndLeadership() {
                     Director & Leadership
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black text-white font-[family-name:var(--font-heading)]">
-                    Mr. P. Pavan Kumar Reddy
+                    Dr. P.V Pavan Kumar Reddy
                   </h3>
-                  <p className="text-xs text-white/80">Sree Valmeeki High School, Kadiri</p>
+                  <p className="text-xs text-white/80">Director • A.P Private School Association Working President</p>
                 </div>
               </div>
             </div>

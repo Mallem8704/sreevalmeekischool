@@ -10,6 +10,7 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 
 // Visual-First Digital Hall of Excellence Homepage Components
 import AchievementHero from '@/components/home/AchievementHero';
+import StarAchieversSection from '@/components/home/StarAchieversSection';
 import TopperShowcase from '@/components/home/TopperShowcase';
 import BigStatStory from '@/components/home/BigStatStory';
 import AchievementWall from '@/components/home/AchievementWall';
@@ -69,7 +70,10 @@ export default function HomePage() {
           {/* 1. Achievement-Led Hero: "RESULTS THAT SPEAK FOR US." */}
           <AchievementHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 2. Signature Section: 3 Years of Consistent Results (Horizontal Desktop / Mobile Stack) */}
+          {/* 2. Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
+          <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+
+          {/* 3. Signature Section: 3 Years of Consistent Results (Horizontal Desktop / Mobile Stack) */}
           <TopperShowcase />
 
           {/* 3. Big Proof Typography: 27 Years • 1999 • 3 Years • Nursery to X */}

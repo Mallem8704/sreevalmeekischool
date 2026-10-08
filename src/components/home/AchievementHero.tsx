@@ -146,8 +146,8 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
               {/* Hero Student Portrait in Magazine Profile Style */}
               <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-[#0F2044]">
                 <Image
-                  src="/images/school/school-event-7.jpg"
-                  alt="Sree Valmeeki School Top Ranker Celebration"
+                  src="/extracted/star_achievers/janani_face.jpg"
+                  alt="D. Janani - Sree Valmeeki School Town 1st Ranker"
                   fill
                   priority
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
@@ -158,17 +158,17 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
                 <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
                   <div>
                     <span className="inline-block px-2 py-0.5 rounded bg-[#D4A853] text-[#050D1A] text-[10px] font-black tracking-widest uppercase mb-1">
-                      District Rank 1
+                      Town 1st Rank
                     </span>
                     <h2 className="text-xl sm:text-2xl font-black text-white font-[family-name:var(--font-heading)] drop-shadow-md">
-                      V. Keerthana
+                      D. Janani
                     </h2>
-                    <span className="text-xs text-white/80 font-medium">Class 10 State Distinction</span>
+                    <span className="text-xs text-white/80 font-medium">SSC 2026 Town Record</span>
                   </div>
 
                   <div className="text-right">
                     <span className="block text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#FBBF24] leading-none">
-                      592
+                      595
                     </span>
                     <span className="text-[10px] text-white/70 uppercase tracking-widest">/ 600</span>
                   </div>
@@ -179,7 +179,7 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
               <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-white/10">
                 <div className="p-2 rounded-xl bg-white/[0.04]">
                   <span className="block text-base sm:text-lg font-black text-white font-[family-name:var(--font-heading)]">
-                    98.7%
+                    99.2%
                   </span>
                   <span className="block text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60">
                     Aggregate

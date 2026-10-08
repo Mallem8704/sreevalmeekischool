@@ -9,6 +9,7 @@ import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import { Sparkles, Trophy, Award, X, ChevronRight, Filter } from 'lucide-react';
 import { verifiedAchievements, academicToppers, AchievementItem } from '@/lib/data';
+import StarAchieversSection from '@/components/home/StarAchieversSection';
 
 const categories = [
   'ALL',
@@ -206,6 +207,9 @@ export default function AchievementsPage() {
           ))}
         </div>
       </section>
+
+      {/* Official Star Achievers & Hall of 250 Scholars Interactive Section */}
+      <StarAchieversSection />
 
       {/* Categories & Year Timeline Filter Controls */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
