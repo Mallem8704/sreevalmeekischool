@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X, Phone, MapPin, GraduationCap, ArrowRight, MessageCircle } from 'lucide-react';
 import { navLinks } from '@/lib/data';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -34,10 +35,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-[70] shadow-2xl overflow-y-auto flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white dark:bg-[#0A1628] text-[#0A1628] dark:text-white border-l border-slate-200 dark:border-white/10 z-[70] shadow-2xl overflow-y-auto flex flex-col"
           >
             {/* Header with Official Logo */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-white">
+            <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-white/10 bg-white dark:bg-[#0A1628]">
               <Link href="/" onClick={onClose} className="flex items-center">
                 <div className="relative h-11 w-48">
                   <Image
@@ -51,11 +52,19 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
               <button
                 onClick={onClose}
-                className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
+                className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-full transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
               </button>
+            </div>
+
+            {/* Quick Theme Switcher Strip */}
+            <div className="px-4 py-2.5 bg-slate-50 dark:bg-white/5 border-b border-slate-100 dark:border-white/10 flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Theme / Appearance
+              </span>
+              <ThemeToggle showLabel />
             </div>
 
             {/* Navigation Links */}
@@ -78,12 +87,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       onClick={onClose}
                       className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all ${
                         isActive
-                          ? 'bg-amber-100 text-[#0A1628] font-bold'
-                          : 'text-slate-700 hover:bg-slate-50 hover:text-black'
+                          ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'
+                          : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:text-black dark:hover:text-white'
                       }`}
                     >
                       <span className="text-base">{link.name}</span>
-                      <ArrowRight className="w-4 h-4 text-slate-400" />
+                      <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                     </Link>
                   </motion.div>
                 );
@@ -91,7 +100,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </nav>
 
             {/* Bottom Actions */}
-            <div className="p-5 bg-slate-50 border-t border-slate-100 space-y-3">
+            <div className="p-5 bg-slate-50 dark:bg-[#050D1A] border-t border-slate-100 dark:border-white/10 space-y-3">
               <Link
                 href="/admissions"
                 onClick={onClose}
@@ -104,7 +113,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <div className="grid grid-cols-2 gap-2.5">
                 <a
                   href="tel:+919440468838"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-slate-200 text-slate-800 rounded-xl text-xs font-semibold shadow-xs hover:bg-slate-50 transition-colors"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold shadow-xs hover:bg-slate-50 dark:hover:bg-white/10 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#D4A853]" />
                   <span>Call Direct</span>
@@ -120,7 +129,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </a>
               </div>
 
-              <div className="pt-2 text-center text-xs text-slate-500 flex items-center justify-center gap-1">
+              <div className="pt-2 text-center text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#D4A853]" />
                 <span>Bypass Road, Kadiri, Andhra Pradesh</span>
               </div>

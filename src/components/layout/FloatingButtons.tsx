@@ -36,7 +36,7 @@ export default function FloatingButtons() {
             className="pointer-events-auto"
           >
             <div className="relative group flex items-center justify-end">
-              <div className="absolute right-full mr-3 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-800 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-2 group-hover:translate-x-0 pointer-events-none whitespace-nowrap hidden sm:flex items-center gap-1.5">
+              <div className="absolute right-full mr-3 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-800 dark:text-white bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-2 group-hover:translate-x-0 pointer-events-none whitespace-nowrap hidden sm:flex items-center gap-1.5">
                 <span>Back to Top</span>
               </div>
 
@@ -44,10 +44,10 @@ export default function FloatingButtons() {
                 onClick={scrollToTop}
                 whileHover={{ scale: 1.08, y: -2 }}
                 whileTap={{ scale: 0.92 }}
-                className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 backdrop-blur-md border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
+                className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white dark:bg-[#0A1628]/90 dark:hover:bg-[#0A1628] text-slate-800 dark:text-white backdrop-blur-md border border-slate-200 dark:border-white/15 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
                 aria-label="Back to Top"
               >
-                <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
+                <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700 dark:text-slate-200" />
               </motion.button>
             </div>
           </motion.div>

@@ -10,7 +10,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A1628] text-white pt-20 pb-10 border-t-[6px] border-[#D4A853]">
+    <footer className="bg-[#0A1628] dark:bg-[#050D1A] text-white pt-20 pb-10 border-t-[6px] border-[#D4A853] transition-colors duration-200">
       <div className="container mx-auto px-4 md:px-6">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pb-12 border-b border-white/10 gap-8">

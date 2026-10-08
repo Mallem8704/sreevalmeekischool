@@ -40,12 +40,12 @@ export default function AchievementsPage() {
   });
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#050D1A] text-white selection:bg-[#D4A853] selection:text-[#0A1628]">
+    <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
       <Header />
 
       {/* Hero: THE WALL OF EXCELLENCE with Collage Background */}
-      <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-36 pb-20 px-4">
+      <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-36 pb-20 px-4 bg-[#0A1628] dark:bg-[#050D1A] border-b border-white/10 transition-colors duration-200">
         {/* Collage Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none opacity-25">
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 h-full w-full">
@@ -63,7 +63,7 @@ export default function AchievementsPage() {
         </div>
 
         {/* Ambient Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#050D1A]/85 to-[#050D1A]/95" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 to-[#0A1628]/95 dark:from-[#050D1A] dark:via-[#050D1A]/85 dark:to-[#050D1A]/95" />
         <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_20%,_#050D1A_80%]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
@@ -99,11 +99,11 @@ export default function AchievementsPage() {
 
       {/* Featured Achievement: 70% Image / 30% Information */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#D4A853] block mb-4">
+        <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#B8860B] dark:text-[#D4A853] block mb-4">
           FEATURED PRIDE OF VALMEEKI
         </span>
 
-        <div className="relative rounded-3xl overflow-hidden bg-[#0A1628] border border-[#D4A853]/50 shadow-2xl grid grid-cols-1 lg:grid-cols-12 group">
+        <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-[#D4A853]/50 shadow-xl dark:shadow-2xl grid grid-cols-1 lg:grid-cols-12 group transition-colors duration-200">
           {/* 70% Visual Frame */}
           <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:min-h-[460px] overflow-hidden">
             <Image
@@ -114,36 +114,36 @@ export default function AchievementsPage() {
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden" />
           </div>
 
           {/* 30% Information Frame */}
-          <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 bg-[#0A1628]">
+          <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A1628] transition-colors duration-200">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/20 text-[#D4A853] text-[11px] font-bold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#D4A853] text-[11px] font-bold uppercase tracking-wider mb-4">
                 <Award className="w-3.5 h-3.5" />
                 <span>{featured.level}</span>
               </div>
 
-              <span className="text-xs text-white/50 font-mono block mb-1">
+              <span className="text-xs text-slate-500 dark:text-white/50 font-mono block mb-1">
                 YEAR {featured.year} • {featured.category}
               </span>
 
-              <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-heading)] text-white mb-2 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white mb-2 leading-tight">
                 {featured.studentName}
               </h3>
-              <p className="text-xs text-[#D4A853] font-bold uppercase tracking-wider mb-4">
+              <p className="text-xs text-[#B8860B] dark:text-[#D4A853] font-bold uppercase tracking-wider mb-4">
                 {featured.classGrade} • {featured.marksOrRank}
               </p>
 
-              <p className="text-sm text-white/80 leading-relaxed font-[family-name:var(--font-body)]">
+              <p className="text-sm text-slate-600 dark:text-white/80 leading-relaxed font-[family-name:var(--font-body)]">
                 {featured.description}
               </p>
             </div>
 
-            <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-white/50">
+            <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs text-slate-500 dark:text-white/50">
               <span>Verified School Record</span>
-              <span className="text-[#D4A853] font-semibold">Distinction</span>
+              <span className="text-[#B8860B] dark:text-[#D4A853] font-semibold">Distinction</span>
             </div>
           </div>
         </div>
@@ -153,14 +153,14 @@ export default function AchievementsPage() {
       <section className="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex items-end justify-between mb-8">
           <div>
-            <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#D4A853] block mb-2">
+            <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#B8860B] dark:text-[#D4A853] block mb-2">
               BOARD MERIT LIST
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-white">
+            <h2 className="text-2xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
               ACADEMIC EXCELLENCE TOPPERS
             </h2>
           </div>
-          <span className="text-xs text-white/50 hidden sm:inline font-mono">
+          <span className="text-xs text-slate-500 dark:text-white/50 hidden sm:inline font-mono">
             MAGAZINE MERIT SERIES
           </span>
         </div>
@@ -173,7 +173,7 @@ export default function AchievementsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex-shrink-0 w-[240px] sm:w-[280px] snap-center group rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all shadow-xl flex flex-col justify-end aspect-[3/4] relative"
+              className="flex-shrink-0 w-[240px] sm:w-[280px] snap-center group rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/15 hover:border-[#D4A853] transition-all shadow-xl flex flex-col justify-end aspect-[3/4] relative"
             >
               <Image
                 src={topper.image}
@@ -182,7 +182,7 @@ export default function AchievementsPage() {
                 sizes="280px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
               {/* Magazine Header Overlay */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
@@ -212,7 +212,7 @@ export default function AchievementsPage() {
       <StarAchieversSection />
 
       {/* Categories & Year Timeline Filter Controls */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200 dark:border-white/10 transition-colors duration-200">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           {/* Category Filters */}
           <div className="flex flex-wrap gap-2">
@@ -224,7 +224,7 @@ export default function AchievementsPage() {
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-[#D4A853] text-[#0A1628] shadow-md shadow-[#D4A853]/20'
-                    : 'bg-white/5 hover:bg-white/15 text-white/70 hover:text-white border border-white/10'
+                    : 'bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/15 text-slate-700 dark:text-white/70 hover:text-[#0A1628] dark:hover:text-white border border-slate-200 dark:border-white/10'
                 }`}
               >
                 {cat}
@@ -234,7 +234,7 @@ export default function AchievementsPage() {
 
           {/* Year Timeline Selector */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0">
-            <span className="text-xs text-white/50 font-mono uppercase mr-1">Year:</span>
+            <span className="text-xs text-slate-500 dark:text-white/50 font-mono uppercase mr-1">Year:</span>
             {years.map((y) => (
               <button
                 key={y}
@@ -242,8 +242,8 @@ export default function AchievementsPage() {
                 onClick={() => setSelectedYear(y)}
                 className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
                   selectedYear === y
-                    ? 'bg-white/20 text-[#D4A853] border border-[#D4A853]/60'
-                    : 'text-white/50 hover:text-white'
+                    ? 'bg-slate-200 dark:bg-white/20 text-[#B8860B] dark:text-[#D4A853] border border-[#D4A853]/60'
+                    : 'text-slate-500 hover:text-slate-900 dark:text-white/50 dark:hover:text-white'
                 }`}
               >
                 {y}
@@ -261,7 +261,7 @@ export default function AchievementsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               onClick={() => setActiveModalItem(item)}
-              className="group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all duration-300 shadow-xl cursor-pointer flex flex-col aspect-[4/5]"
+              className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/15 hover:border-[#D4A853] transition-all duration-300 shadow-xl cursor-pointer flex flex-col aspect-[4/5]"
             >
               <Image
                 src={item.image}
@@ -270,7 +270,7 @@ export default function AchievementsPage() {
                 sizes="(max-width: 768px) 100vw, 400px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
               {/* Year & Category Header */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">

@@ -101,17 +101,17 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#FDFBF7] text-[#0A1628] selection:bg-[#D4A853] selection:text-[#0A1628]">
+    <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
       <Header />
 
       {/* Hero: LIFE AT VALMEEKI */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-36 pb-16 px-4 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] border-b border-slate-200/80">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-36 pb-16 px-4 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs font-bold uppercase tracking-[0.25em] mb-4 shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/20 border border-[#D4A853]/35 text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold uppercase tracking-[0.25em] mb-4 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>CAMPUS MEMORIES & MOMENTS</span>
@@ -121,7 +121,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] tracking-tight leading-tight mb-3"
+            className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white tracking-tight leading-tight mb-3"
           >
             LIFE AT VALMEEKI
           </motion.h1>
@@ -130,9 +130,9 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-600 font-[family-name:var(--font-heading)]"
+            className="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-[family-name:var(--font-heading)]"
           >
-            Not just classrooms. <span className="text-[#B8860B] font-bold">Thousands of moments.</span>
+            Not just classrooms. <span className="text-[#B8860B] dark:text-[#FBBF24] font-bold">Thousands of moments.</span>
           </motion.p>
         </div>
       </section>
@@ -147,8 +147,8 @@ export default function GalleryPage() {
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeCategory === cat
-                  ? 'bg-[#0A1628] text-[#D4A853] shadow-md shadow-[#0A1628]/10 border border-[#0A1628]'
-                  : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-[#0A1628] border border-slate-200 shadow-sm'
+                  ? 'bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] shadow-md border border-[#0A1628] dark:border-[#FBBF24]'
+                  : 'bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white border border-slate-200 dark:border-white/10 shadow-sm'
               }`}
             >
               {cat}
@@ -170,7 +170,7 @@ export default function GalleryPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => setSelectedIndex(idx)}
-                className={`group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl cursor-pointer ${item.aspect}`}
+                className={`group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#FBBF24]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_25px_rgba(0,0,0,0.3)] hover:shadow-xl cursor-pointer ${item.aspect}`}
               >
                 <Image
                   src={item.image}
@@ -209,18 +209,18 @@ export default function GalleryPage() {
       </section>
 
       {/* Video Gallery: VALMEEKI IN MOTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200/80">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200/80 dark:border-white/10 transition-colors duration-200">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs font-bold uppercase tracking-[0.25em] mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/20 border border-[#D4A853]/35 text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold uppercase tracking-[0.25em] mb-4">
               <Film className="w-3.5 h-3.5" />
               <span>CINEMATIC STORIES</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-[#0A1628]">
+            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
               VALMEEKI IN MOTION
             </h2>
           </div>
-          <span className="text-xs text-slate-500 font-mono">
+          <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
             REELS • CELEBRATIONS • SPORTS
           </span>
         </div>
@@ -230,7 +230,7 @@ export default function GalleryPage() {
           {videoGalleryItems.map((item) => (
             <div
               key={item.id}
-              className={`group relative rounded-3xl overflow-hidden bg-black border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl flex flex-col justify-end ${
+              className={`group relative rounded-3xl overflow-hidden bg-black border border-slate-200/80 dark:border-white/15 hover:border-[#D4A853]/60 dark:hover:border-[#FBBF24]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_25px_rgba(0,0,0,0.3)] hover:shadow-xl flex flex-col justify-end ${
                 item.format === 'vertical' ? 'aspect-[9/16]' : 'aspect-[16/10]'
               }`}
             >

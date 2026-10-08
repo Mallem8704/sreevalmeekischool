@@ -14,23 +14,23 @@ export default function AchievementWall() {
   const achievements = verifiedAchievements.slice(0, 6);
 
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#FDFBF7] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white border-t border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-200">
       {/* Background Ambience */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#D4A853]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#D4A853]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#D4A853]/5 dark:bg-[#D4A853]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#D4A853]/5 dark:bg-[#D4A853]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#B8860B] text-[11px] font-black tracking-widest uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase mb-3">
               <Trophy className="w-3.5 h-3.5" />
               <span>THE DIGITAL HALL OF EXCELLENCE</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-[#0A1628]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-[#0A1628] dark:text-white">
               OUR STUDENTS. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#C49A3C]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#C49A3C] dark:from-[#FBBF24] dark:via-[#D4A853] dark:to-[#E8C97D]">
                 OUR PROUDEST STORIES.
               </span>
             </h2>
@@ -38,10 +38,10 @@ export default function AchievementWall() {
 
           <Link
             href="/achievements"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-bold text-[#0A1628] uppercase tracking-wider transition-all cursor-pointer group shadow-sm hover:border-[#D4A853]/60"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-[#0A1628] hover:bg-slate-50 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-xs sm:text-sm font-bold text-[#0A1628] dark:text-white uppercase tracking-wider transition-all cursor-pointer group shadow-sm hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60"
           >
             <span>View All Achievements</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#B8860B]" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#B8860B] dark:text-[#FBBF24]" />
           </Link>
         </div>
 
@@ -54,7 +54,7 @@ export default function AchievementWall() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               onClick={() => setSelectedItem(achievements[0])}
-              className="md:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl bg-white"
+              className="md:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl bg-white dark:bg-[#0A1628]"
             >
               <Image
                 src={achievements[0].image}
@@ -89,7 +89,7 @@ export default function AchievementWall() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               onClick={() => setSelectedItem(achievements[1])}
-              className="md:col-span-5 relative aspect-[4/3] sm:aspect-auto rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl bg-white"
+              className="md:col-span-5 relative aspect-[4/3] sm:aspect-auto rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl bg-white dark:bg-[#0A1628]"
             >
               <Image
                 src={achievements[1].image}
@@ -124,7 +124,7 @@ export default function AchievementWall() {
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
               onClick={() => setSelectedItem(achievements[2])}
-              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl bg-white"
+              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl bg-white dark:bg-[#0A1628]"
             >
               <Image
                 src={achievements[2].image}
@@ -154,7 +154,7 @@ export default function AchievementWall() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               onClick={() => setSelectedItem(achievements[3])}
-              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl bg-white"
+              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl bg-white dark:bg-[#0A1628]"
             >
               <Image
                 src={achievements[3].image}
@@ -184,7 +184,7 @@ export default function AchievementWall() {
               viewport={{ once: true }}
               transition={{ delay: 0.25 }}
               onClick={() => setSelectedItem(achievements[4])}
-              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl bg-white"
+              className="md:col-span-4 relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer group border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl bg-white dark:bg-[#0A1628]"
             >
               <Image
                 src={achievements[4].image}
@@ -225,7 +225,7 @@ export default function AchievementWall() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden z-10 text-[#0A1628]"
+              className="relative w-full max-w-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden z-10 text-[#0A1628] dark:text-white"
             >
               <button
                 onClick={() => setSelectedItem(null)}
@@ -235,7 +235,7 @@ export default function AchievementWall() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="relative aspect-[16/10] w-full bg-slate-100">
+              <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-white/5">
                 <Image
                   src={selectedItem.image}
                   alt={selectedItem.achievement}
@@ -244,41 +244,41 @@ export default function AchievementWall() {
                 />
               </div>
 
-              <div className="p-6 sm:p-8 space-y-4 bg-white">
+              <div className="p-6 sm:p-8 space-y-4 bg-white dark:bg-[#0A1628]">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2.5 py-1 rounded bg-[#D4A853] text-[#0A1628] text-xs font-black uppercase tracking-wider">
                     {selectedItem.level} • {selectedItem.year}
                   </span>
-                  <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-semibold uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200 text-xs font-semibold uppercase tracking-wider">
                     {selectedItem.classGrade}
                   </span>
                   {selectedItem.marksOrRank && (
-                    <span className="px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+                    <span className="px-2.5 py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-300 text-xs font-bold">
                       {selectedItem.marksOrRank}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628]">
+                <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
                   {selectedItem.studentName}
                 </h3>
 
-                <h4 className="text-base sm:text-lg font-bold text-[#B8860B]">
+                <h4 className="text-base sm:text-lg font-bold text-[#B8860B] dark:text-[#FBBF24]">
                   {selectedItem.achievement}
                 </h4>
 
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {selectedItem.description}
                 </p>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs text-slate-400">Verified Sree Valmeeki School Archive</span>
+                <div className="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
+                  <span className="text-xs text-slate-400 dark:text-slate-500">Verified Sree Valmeeki School Archive</span>
                   <Link
                     href="/achievements"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1628] hover:text-[#B8860B] uppercase tracking-wider"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1628] dark:text-white hover:text-[#B8860B] dark:hover:text-[#FBBF24] uppercase tracking-wider transition-colors"
                   >
                     <span>Full Achievements Gallery</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#B8860B]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#FBBF24]" />
                   </Link>
                 </div>
               </div>

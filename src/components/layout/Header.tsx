@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Phone, Menu, ArrowRight, X } from 'lucide-react';
 import { navLinks } from '@/lib/data';
 import MobileMenu from './MobileMenu';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,7 +70,7 @@ export default function Header() {
 
         {/* Main Navbar - Pure Crisp White Floating Header matching reference */}
         <div
-          className={`w-full bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-slate-100 ${
+          className={`w-full bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md transition-all duration-300 border-b border-slate-100 dark:border-white/10 ${
             isScrolled ? 'shadow-md py-2' : 'shadow-sm py-2.5 sm:py-3'
           }`}
         >
@@ -103,8 +104,8 @@ export default function Header() {
                       href={link.href}
                       className={`text-sm font-semibold tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full ${
                         isActive
-                          ? 'bg-amber-100/90 text-[#0A1628] border border-amber-300/80 shadow-xs font-bold'
-                          : 'text-slate-700 hover:text-[#0A1628] hover:bg-slate-100/80'
+                          ? 'bg-amber-100/90 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] border border-amber-300/80 dark:border-[#D4A853]/40 shadow-xs font-bold'
+                          : 'text-slate-700 dark:text-slate-200 hover:text-[#0A1628] dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/10'
                       }`}
                     >
                       {link.name}
@@ -113,16 +114,19 @@ export default function Header() {
                 })}
               </nav>
 
-              {/* Right Actions: Phone + Enroll Now Pill */}
-              <div className="flex items-center gap-2 sm:gap-3.5">
+              {/* Right Actions: Phone + Theme Toggle + Enroll Now Pill */}
+              <div className="flex items-center gap-2 sm:gap-3">
                 <a
                   href="tel:+919440468838"
-                  className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 text-slate-800 hover:bg-slate-50 transition-all"
+                  className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 dark:border-white/20 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 transition-all"
                   aria-label="Call admissions"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#B8860B]" />
+                  <Phone className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#FBBF24]" />
                   <span>Call Us</span>
                 </a>
+
+                {/* Theme Toggle Button */}
+                <ThemeToggle />
 
                 <Link
                   href="/admissions"
@@ -134,7 +138,7 @@ export default function Header() {
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
-                  className="lg:hidden p-2 rounded-lg text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
                   aria-label="Open navigation menu"
                 >
                   <Menu className="w-6 h-6" />

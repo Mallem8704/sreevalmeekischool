@@ -18,19 +18,19 @@ export default function LegacyTimeline() {
   };
 
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#F8FAFC] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#F8FAFC] dark:bg-[#050D1A] text-[#0A1628] dark:text-white border-t border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#B8860B] text-[11px] font-black tracking-widest uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase mb-3">
             <History className="w-3.5 h-3.5" />
             <span>27-YEAR CHRONICLE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] mb-3">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] dark:text-white mb-3">
             FROM 1999 TO TODAY.
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm">
+          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">
             How a humble English medium school in Kadiri grew into an institution of academic distinction.
           </p>
         </div>
@@ -44,9 +44,9 @@ export default function LegacyTimeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl"
+              className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl"
             >
-              <div className="relative aspect-[16/10] w-full bg-slate-100">
+              <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-white/5">
                 <Image
                   src={m.image}
                   alt={m.title}
@@ -62,14 +62,14 @@ export default function LegacyTimeline() {
                 </div>
               </div>
 
-              <div className="p-6 space-y-2 text-left bg-white">
-                <span className="text-[10px] font-bold text-[#B8860B] uppercase tracking-wider block">
+              <div className="p-6 space-y-2 text-left bg-white dark:bg-[#0A1628]">
+                <span className="text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase tracking-wider block">
                   {m.badge || 'Milestone'}
                 </span>
-                <h3 className="text-lg font-black text-[#0A1628] font-[family-name:var(--font-heading)]">
+                <h3 className="text-lg font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)]">
                   {m.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                   {m.caption}
                 </p>
               </div>
@@ -78,21 +78,21 @@ export default function LegacyTimeline() {
         </div>
 
         {/* Interactive Then vs Now Comparison: "FROM A VISION TO A LEGACY" */}
-        <div className="mt-12 p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-[0_4px_25px_rgba(0,0,0,0.05)]">
+        <div className="mt-12 p-6 sm:p-10 rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-[11px] font-bold tracking-widest text-[#B8860B] uppercase block mb-1">
+            <span className="text-[11px] font-bold tracking-widest text-[#B8860B] dark:text-[#FBBF24] uppercase block mb-1">
               CAMPUS TRANSFORMATION
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#0A1628] font-[family-name:var(--font-heading)] uppercase">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase">
               FROM A VISION TO A LEGACY.
             </h3>
-            <p className="text-xs text-slate-600 mt-1">
+            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
               Drag the divider to compare foundational moments with current vibrant campus life.
             </p>
           </div>
 
           <div
-            className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-slate-200 shadow-xl"
+            className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-slate-200 dark:border-white/15 shadow-xl"
             onMouseMove={handleSliderMove}
             onTouchMove={handleSliderMove}
             onMouseDown={() => setIsDragging(true)}

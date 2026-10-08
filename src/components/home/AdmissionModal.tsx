@@ -76,16 +76,16 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg bg-[#0A1628] border border-[#D4A853]/40 rounded-2xl shadow-2xl p-6 sm:p-8 text-white z-10 overflow-hidden"
+            className="relative w-full max-w-lg bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-[#D4A853]/40 rounded-2xl shadow-2xl p-6 sm:p-8 text-[#0A1628] dark:text-white z-10 overflow-hidden transition-colors duration-200"
           >
             {/* Ambient Gold Glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#D4A853]/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#2563EB]/10 dark:bg-[#2563EB]/20 rounded-full blur-3xl pointer-events-none" />
 
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-500 hover:text-slate-900 dark:text-white/70 dark:hover:text-white transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -97,16 +97,16 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-10 text-center flex flex-col items-center justify-center"
               >
-                <div className="w-16 h-16 rounded-full bg-[#10B981]/20 border border-[#10B981]/50 flex items-center justify-center mb-4 text-[#10B981]">
+                <div className="w-16 h-16 rounded-full bg-[#10B981]/15 dark:bg-[#10B981]/20 border border-[#10B981]/40 flex items-center justify-center mb-4 text-[#10B981]">
                   <CheckCircle2 className="w-9 h-9" />
                 </div>
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-white mb-2">
+                <h3 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white mb-2">
                   Enquiry Received
                 </h3>
-                <p className="text-white/70 text-sm max-w-xs mb-3">
+                <p className="text-slate-600 dark:text-white/70 text-sm max-w-xs mb-3">
                   Thank you. The Sree Valmeeki Admissions Office in Kadiri will call you shortly.
                 </p>
-                <div className="text-xs text-[#D4A853] font-semibold tracking-wider uppercase">
+                <div className="text-xs text-[#B8860B] dark:text-[#D4A853] font-semibold tracking-wider uppercase">
                   Admissions 2026–27 • Nursery to Class 10
                 </div>
               </motion.div>
@@ -114,14 +114,14 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
               <div>
                 {/* Header */}
                 <div className="mb-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#D4A853] text-xs font-bold tracking-widest uppercase mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/20 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold tracking-widest uppercase mb-3">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Admissions 2026–27</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-white leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white leading-tight">
                     Start Your Child&apos;s Journey
                   </h3>
-                  <p className="text-white/70 text-xs sm:text-sm mt-1">
+                  <p className="text-slate-600 dark:text-white/70 text-xs sm:text-sm mt-1">
                     Connect directly with our admissions counselor in Kadiri.
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-white/80 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-white/80 uppercase tracking-wider mb-1.5">
                       Parent / Guardian Name *
                     </label>
                     <input
@@ -138,13 +138,13 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                       placeholder="e.g. Ramesh Reddy"
                       value={formData.parentName}
                       onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-white placeholder-white/40 text-sm outline-none transition-all"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-white/80 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-white/80 uppercase tracking-wider mb-1.5">
                         Student Name
                       </label>
                       <input
@@ -152,17 +152,17 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                         placeholder="Child's Name"
                         value={formData.studentName}
                         onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-white placeholder-white/40 text-sm outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-white/80 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-white/80 uppercase tracking-wider mb-1.5">
                         Class Seeking *
                       </label>
                       <select
                         value={formData.classSeeking}
                         onChange={(e) => setFormData({ ...formData, classSeeking: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg bg-[#0F2044] border border-white/15 focus:border-[#D4A853] text-white text-sm outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0F2044] border border-slate-200 dark:border-white/15 focus:border-[#D4A853] text-[#0A1628] dark:text-white text-sm outline-none transition-all"
                       >
                         <option value="Nursery">Nursery</option>
                         <option value="LKG">LKG</option>
@@ -177,7 +177,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/80 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-white/80 uppercase tracking-wider mb-1.5">
                       Phone Number *
                     </label>
                     <input
@@ -186,7 +186,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                       placeholder="+91 94404 68838"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-white placeholder-white/40 text-sm outline-none transition-all"
+                      className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
                     />
                   </div>
 
@@ -200,11 +200,11 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                 </form>
 
                 {/* Direct Call Link */}
-                <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/70">
+                <div className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs text-slate-600 dark:text-white/70">
                   <span>Prefer to speak immediately?</span>
                   <a
                     href="tel:+919440468838"
-                    className="inline-flex items-center gap-1.5 text-[#D4A853] font-bold hover:underline"
+                    className="inline-flex items-center gap-1.5 text-[#B8860B] dark:text-[#D4A853] font-bold hover:underline"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>+91 94404 68838</span>

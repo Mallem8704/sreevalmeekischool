@@ -145,13 +145,13 @@ export default function AcademicsPage() {
   const [activeWing, setActiveWing] = useState(0);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#0A1628] selection:bg-[#D4A853] selection:text-[#0A1628]">
+    <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
       <Header />
 
       <main className="pt-24 sm:pt-28">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden py-16 sm:py-24 border-b border-slate-200/80 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE]">
+        <section className="relative overflow-hidden py-16 sm:py-24 border-b border-slate-200/80 dark:border-white/10 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] transition-colors duration-200">
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/school/school-event-12.jpg"
@@ -159,10 +159,10 @@ export default function AcademicsPage() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center opacity-15 scale-105"
+              className="object-cover object-center opacity-15 dark:opacity-20 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FDFBF7] dark:from-[#050D1A] via-[#FDFBF7]/90 dark:via-[#050D1A]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] dark:from-[#050D1A] via-transparent to-transparent" />
           </div>
 
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,9 +171,9 @@ export default function AcademicsPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs sm:text-sm font-bold mb-6 tracking-wide uppercase"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/35 dark:border-[#D4A853]/50 text-[#B8860B] dark:text-[#FBBF24] text-xs sm:text-sm font-bold mb-6 tracking-wide uppercase"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#FBBF24]" />
                 <span>Nursery to Class 10 • Concept-First Pedagogy</span>
               </motion.div>
 
@@ -181,10 +181,10 @@ export default function AcademicsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#0A1628] leading-tight mb-6"
+                className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#0A1628] dark:text-white leading-tight mb-6"
               >
                 Igniting Intellect. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#C49A3C]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#C49A3C] dark:from-[#FBBF24] dark:via-[#D4A853] dark:to-[#E8C97D]">
                   Engineering Futures.
                 </span>
               </motion.h1>
@@ -193,7 +193,7 @@ export default function AcademicsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-slate-600 text-lg sm:text-xl font-normal leading-relaxed mb-8 max-w-2xl"
+                className="text-slate-600 dark:text-slate-300 text-lg sm:text-xl font-normal leading-relaxed mb-8 max-w-2xl"
               >
                 Where classroom concepts transform into working inventions, fearless stage speaking, and state-level board distinction.
               </motion.p>
@@ -206,16 +206,16 @@ export default function AcademicsPage() {
               >
                 <Link
                   href="/admissions"
-                  className="inline-flex items-center gap-2 bg-[#0A1628] text-[#D4A853] hover:text-white hover:bg-[#1E3A8A] font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] hover:text-white dark:hover:text-[#0A1628] hover:bg-[#1E3A8A] dark:hover:bg-[#F59E0B] font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:scale-[1.02] border border-[#0A1628] dark:border-[#FBBF24]"
                 >
                   <span>Enroll for 2026–27</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/academics/iit-foundation"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#0A1628] font-bold px-6 py-3.5 rounded-xl border border-slate-200 shadow-sm transition-all duration-300"
+                  className="inline-flex items-center gap-2 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 text-[#0A1628] dark:text-white font-bold px-6 py-3.5 rounded-xl border border-slate-200 dark:border-white/15 shadow-sm transition-all duration-300"
                 >
-                  <Brain className="w-4 h-4 text-[#B8860B]" />
+                  <Brain className="w-4 h-4 text-[#B8860B] dark:text-[#FBBF24]" />
                   <span>IIT Foundation Details</span>
                 </Link>
               </motion.div>
@@ -226,18 +226,18 @@ export default function AcademicsPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 pt-8 border-t border-slate-200/80"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 pt-8 border-t border-slate-200/80 dark:border-white/10"
             >
               {academicStats.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:border-[#D4A853]/60 transition-colors"
+                  className="bg-white dark:bg-[#0A1628] rounded-2xl p-5 border border-slate-200/90 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-colors"
                 >
-                  <p className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-black text-[#B8860B] mb-1">
+                  <p className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-black text-[#B8860B] dark:text-[#FBBF24] mb-1">
                     {item.value}
                   </p>
-                  <p className="text-[#0A1628] font-bold text-sm sm:text-base">{item.label}</p>
-                  <p className="text-slate-500 text-xs mt-0.5">{item.sub}</p>
+                  <p className="text-[#0A1628] dark:text-white font-bold text-sm sm:text-base">{item.label}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">{item.sub}</p>
                 </div>
               ))}
             </motion.div>
@@ -245,16 +245,16 @@ export default function AcademicsPage() {
         </section>
 
         {/* 4 LEARNING STAGES: INTERACTIVE SHOWCASE */}
-        <section className="py-20 bg-[#F8FAFC] border-b border-slate-200/80">
+        <section className="py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
+              <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                 PROGRESSIVE STAGES
               </span>
-              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] mt-1">
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] dark:text-white mt-1">
                 Structured Learning Wings
               </h2>
-              <p className="text-slate-600 text-sm mt-2">
+              <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">
                 Tailored cognitive milestones from Nursery through Class 10.
               </p>
             </div>
@@ -269,8 +269,8 @@ export default function AcademicsPage() {
                     onClick={() => setActiveWing(idx)}
                     className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? 'bg-[#0A1628] text-[#D4A853] shadow-md shadow-[#0A1628]/10 scale-105 border border-[#0A1628]'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 shadow-sm'
+                        ? 'bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] shadow-md shadow-[#0A1628]/10 scale-105 border border-[#0A1628] dark:border-[#FBBF24]'
+                        : 'bg-white dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/15 shadow-sm'
                     }`}
                   >
                     {wing.stage}
@@ -280,10 +280,10 @@ export default function AcademicsPage() {
             </div>
 
             {/* Selected Wing Detail Card */}
-            <div className="max-w-5xl mx-auto bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
+            <div className="max-w-5xl mx-auto bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Visual Image */}
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-md bg-slate-100 dark:bg-black/40">
                   <Image
                     src={learningWings[activeWing].image}
                     alt={learningWings[activeWing].headline}
@@ -292,27 +292,27 @@ export default function AcademicsPage() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-white/95 border border-slate-200 text-[#0A1628] text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <span className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-white/95 dark:bg-[#0A1628]/95 border border-slate-200 dark:border-white/10 text-[#0A1628] dark:text-white text-xs font-bold uppercase tracking-wider shadow-sm">
                     {learningWings[activeWing].grades}
                   </span>
                 </div>
 
                 {/* Content */}
                 <div>
-                  <span className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
+                  <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                     {learningWings[activeWing].stage}
                   </span>
-                  <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold text-[#0A1628] mt-1 mb-4">
+                  <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold text-[#0A1628] dark:text-white mt-1 mb-4">
                     {learningWings[activeWing].headline}
                   </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                  <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
                     {learningWings[activeWing].summary}
                   </p>
 
                   <div className="space-y-2.5 mb-8">
                     {learningWings[activeWing].highlights.map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 text-sm text-slate-700 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
+                      <div key={i} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-[#B8860B] dark:text-[#FBBF24] shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -320,7 +320,7 @@ export default function AcademicsPage() {
 
                   <Link
                     href="/admissions"
-                    className="inline-flex items-center gap-2 text-[#0A1628] hover:text-[#B8860B] font-bold text-sm group"
+                    className="inline-flex items-center gap-2 text-[#0A1628] dark:text-[#FBBF24] hover:text-[#B8860B] dark:hover:text-[#FCD34D] font-bold text-sm group transition-colors"
                   >
                     <span>Apply for {learningWings[activeWing].grades}</span>
                     <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -332,18 +332,18 @@ export default function AcademicsPage() {
         </section>
 
         {/* SPECIALIZED EXCELLENCE PILLARS */}
-        <section className="py-20 bg-[#FDFBF7] border-b border-slate-200/80">
+        <section className="py-20 bg-[#FDFBF7] dark:bg-[#0A1628] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
               <div>
-                <span className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
+                <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                   DISTINCTIVE PEDAGOGY
                 </span>
-                <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] mt-1">
+                <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] dark:text-white mt-1">
                   Signature Programs
                 </h2>
               </div>
-              <p className="text-slate-600 text-sm max-w-md">
+              <p className="text-slate-600 dark:text-slate-300 text-sm max-w-md">
                 Carefully engineered learning systems that give Valmeeki students a competitive head start.
               </p>
             </div>
@@ -352,9 +352,9 @@ export default function AcademicsPage() {
               {excellencePillars.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group bg-white border border-slate-200/80 rounded-3xl overflow-hidden hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl flex flex-col sm:flex-row"
+                  className="group bg-white dark:bg-[#050D1A] border border-slate-200/80 dark:border-white/10 rounded-3xl overflow-hidden hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl flex flex-col sm:flex-row"
                 >
-                  <div className="relative w-full sm:w-2/5 min-h-[220px] sm:min-h-full shrink-0 overflow-hidden bg-slate-100">
+                  <div className="relative w-full sm:w-2/5 min-h-[220px] sm:min-h-full shrink-0 overflow-hidden bg-slate-100 dark:bg-black/40">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -367,19 +367,19 @@ export default function AcademicsPage() {
                     </span>
                   </div>
 
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-white">
+                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-white dark:bg-[#050D1A]">
                     <div>
-                      <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[#0A1628] mb-2">
+                      <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[#0A1628] dark:text-white mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                      <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                         {item.desc}
                       </p>
                     </div>
 
                     <Link
                       href={item.actionHref}
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A1628] hover:text-[#B8860B] transition-colors"
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A1628] dark:text-[#FBBF24] hover:text-[#B8860B] dark:hover:text-[#FCD34D] transition-colors"
                     >
                       <span>{item.actionText}</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -392,16 +392,16 @@ export default function AcademicsPage() {
         </section>
 
         {/* HALL OF FAME / PROVEN RESULTS SNAPSHOT */}
-        <section className="py-20 bg-[#F8FAFC] border-b border-slate-200/80">
+        <section className="py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
+              <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                 PROVEN ACADEMIC DISTINCTION
               </span>
-              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] mt-1">
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-[#0A1628] dark:text-white mt-1">
                 Hall of Distinction
               </h2>
-              <p className="text-slate-600 text-sm mt-2">
+              <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">
                 Uncompromising scholastic consistency across state-level board exams.
               </p>
             </div>
@@ -410,9 +410,9 @@ export default function AcademicsPage() {
               {hallOfFame.map((student, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200/80 rounded-2xl p-5 hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl text-center flex flex-col items-center"
+                  className="bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 rounded-2xl p-5 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl text-center flex flex-col items-center"
                 >
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-[#D4A853] mb-4 shadow-md bg-slate-100">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-[#D4A853] mb-4 shadow-md bg-slate-100 dark:bg-black/40">
                     <Image
                       src={student.image}
                       alt={student.name}
@@ -421,14 +421,14 @@ export default function AcademicsPage() {
                       className="object-cover"
                     />
                   </div>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#D4A853]/15 text-[#B8860B] border border-[#D4A853]/30 font-bold mb-2">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 dark:border-[#D4A853]/40 font-bold mb-2">
                     {student.badge}
                   </span>
-                  <h4 className="font-bold text-[#0A1628] text-lg">{student.name}</h4>
-                  <p className="text-[#B8860B] font-black text-xl font-[family-name:var(--font-heading)] mt-1">
+                  <h4 className="font-bold text-[#0A1628] dark:text-white text-lg">{student.name}</h4>
+                  <p className="text-[#B8860B] dark:text-[#FBBF24] font-black text-xl font-[family-name:var(--font-heading)] mt-1">
                     {student.score}
                   </p>
-                  <p className="text-slate-500 text-xs mt-1">{student.exam}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">{student.exam}</p>
                 </div>
               ))}
             </div>
@@ -436,41 +436,41 @@ export default function AcademicsPage() {
             <div className="text-center mt-10">
               <Link
                 href="/achievements"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A1628] hover:text-[#B8860B] bg-white border border-slate-200 px-6 py-3 rounded-full hover:bg-slate-50 shadow-sm transition-colors"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A1628] dark:text-white hover:text-[#B8860B] dark:hover:text-[#FBBF24] bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/15 px-6 py-3 rounded-full hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm transition-colors"
               >
                 <span>View All Verified Student Achievements</span>
-                <ChevronRight className="w-4 h-4 text-[#B8860B]" />
+                <ChevronRight className="w-4 h-4 text-[#B8860B] dark:text-[#FBBF24]" />
               </Link>
             </div>
           </div>
         </section>
 
         {/* ACADEMIC CTA BANNER */}
-        <section className="py-20 bg-[#FDFBF7]">
+        <section className="py-20 bg-[#FDFBF7] dark:bg-[#050D1A] transition-colors duration-200">
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#D4A853]/15 text-[#B8860B] border border-[#D4A853]/30 text-xs font-bold uppercase tracking-wider mb-4">
+            <div className="bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-xs font-bold uppercase tracking-wider mb-4">
                 ADMISSIONS OPEN 2026–27
               </span>
-              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1628] mb-6">
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1628] dark:text-white mb-6">
                 Give Your Child the Valmeeki Academic Edge.
               </h2>
-              <p className="text-slate-600 text-base sm:text-lg mb-8 font-normal">
+              <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mb-8 font-normal">
                 Limited seats per section to ensure focused teacher mentorship and personalized doubt resolution.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/admissions"
-                  className="bg-[#0A1628] hover:bg-[#1E3A8A] text-[#D4A853] hover:text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-md hover:scale-105 inline-flex items-center gap-2 border border-[#0A1628]"
+                  className="bg-[#0A1628] dark:bg-[#FBBF24] hover:bg-[#1E3A8A] dark:hover:bg-[#F59E0B] text-[#D4A853] dark:text-[#0A1628] hover:text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-md hover:scale-105 inline-flex items-center gap-2 border border-[#0A1628] dark:border-[#FBBF24]"
                 >
                   <span>Apply for Admission</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="tel:+919440468838"
-                  className="bg-white hover:bg-slate-50 text-[#0A1628] font-bold px-7 py-4 rounded-xl border border-slate-200 shadow-sm transition-all duration-300 inline-flex items-center gap-2"
+                  className="bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 text-[#0A1628] dark:text-white font-bold px-7 py-4 rounded-xl border border-slate-200 dark:border-white/15 shadow-sm transition-all duration-300 inline-flex items-center gap-2"
                 >
-                  <Phone className="w-4 h-4 text-[#B8860B]" />
+                  <Phone className="w-4 h-4 text-[#B8860B] dark:text-[#FBBF24]" />
                   <span>Call Admissions: +91 94404 68838</span>
                 </a>
               </div>

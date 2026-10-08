@@ -40,12 +40,12 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#050D1A] text-white selection:bg-[#FBBF24] selection:text-[#0A1628]">
+    <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#FBBF24] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
       <Header />
 
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#0A1628]">
+      <section className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#0A1628] dark:bg-[#050D1A] border-b border-slate-200 dark:border-white/10">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/school/school-event-3.jpg"
@@ -54,7 +54,7 @@ export default function ContactPage() {
             priority
             className="object-cover opacity-25 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#0A1628]/80 to-[#0A1628]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] dark:from-[#050D1A] via-[#0A1628]/80 dark:via-[#0A1628]/80 to-[#0A1628]/90" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
@@ -77,25 +77,25 @@ export default function ContactPage() {
       </section>
 
       {/* Direct Contact Action Cards */}
-      <section className="py-12 bg-white/5 border-y border-white/10 backdrop-blur-md">
+      <section className="py-12 bg-slate-100/70 dark:bg-white/5 border-y border-slate-200 dark:border-white/10 backdrop-blur-md transition-colors duration-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Phone */}
             <a
               href="tel:+919440468838"
-              className="p-6 rounded-2xl bg-[#0A1628] border border-white/10 hover:border-[#FBBF24]/50 transition-all group flex items-start gap-4"
+              className="p-6 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-[#B8860B]/50 dark:hover:border-[#FBBF24]/50 shadow-sm hover:shadow-md transition-all group flex items-start gap-4"
             >
-              <div className="p-3 rounded-xl bg-[#FBBF24]/10 text-[#FBBF24] group-hover:bg-[#FBBF24] group-hover:text-[#0A1628] transition-colors shrink-0">
+              <div className="p-3 rounded-xl bg-amber-500/10 text-[#B8860B] dark:text-[#FBBF24] group-hover:bg-[#B8860B] dark:group-hover:bg-[#FBBF24] group-hover:text-white dark:group-hover:text-[#0A1628] transition-colors shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-[#FBBF24] block mb-1">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#B8860B] dark:text-[#FBBF24] block mb-1">
                   CALL ADMISSIONS
                 </span>
-                <span className="text-base font-bold text-white block">
+                <span className="text-base font-bold text-[#0A1628] dark:text-white block">
                   +91 94404 68838
                 </span>
-                <span className="text-xs text-white/60 block mt-0.5">
+                <span className="text-xs text-slate-500 dark:text-white/60 block mt-0.5">
                   Mon - Sat • 8:30 AM - 5:30 PM
                 </span>
               </div>
@@ -106,19 +106,19 @@ export default function ContactPage() {
               href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20have%20an%20enquiry%20regarding%20admissions"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-[#0A1628] border border-white/10 hover:border-emerald-400/50 transition-all group flex items-start gap-4"
+              className="p-6 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 shadow-sm hover:shadow-md transition-all group flex items-start gap-4"
             >
-              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors shrink-0">
+              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors shrink-0">
                 <MessageCircle className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-400 block mb-1">
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-1">
                   WHATSAPP CHAT
                 </span>
-                <span className="text-base font-bold text-white block">
+                <span className="text-base font-bold text-[#0A1628] dark:text-white block">
                   Instant Reply
                 </span>
-                <span className="text-xs text-white/60 block mt-0.5">
+                <span className="text-xs text-slate-500 dark:text-white/60 block mt-0.5">
                   Direct Counselor Chat
                 </span>
               </div>
@@ -127,19 +127,19 @@ export default function ContactPage() {
             {/* Email */}
             <a
               href="mailto:info@sreevalmeekischool.edu.in"
-              className="p-6 rounded-2xl bg-[#0A1628] border border-white/10 hover:border-blue-400/50 transition-all group flex items-start gap-4"
+              className="p-6 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-blue-500/50 shadow-sm hover:shadow-md transition-all group flex items-start gap-4"
             >
-              <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
+              <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-blue-400 block mb-1">
+                <span className="text-[11px] font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 block mb-1">
                   OFFICIAL EMAIL
                 </span>
-                <span className="text-sm font-bold text-white block truncate">
+                <span className="text-sm font-bold text-[#0A1628] dark:text-white block truncate">
                   info@sreevalmeeki.edu.in
                 </span>
-                <span className="text-xs text-white/60 block mt-0.5">
+                <span className="text-xs text-slate-500 dark:text-white/60 block mt-0.5">
                   24-Hour Response
                 </span>
               </div>
@@ -150,19 +150,19 @@ export default function ContactPage() {
               href="https://maps.google.com/?q=Kadiri,Andhra+Pradesh"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-[#0A1628] border border-white/10 hover:border-amber-400/50 transition-all group flex items-start gap-4"
+              className="p-6 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-amber-500/50 shadow-sm hover:shadow-md transition-all group flex items-start gap-4"
             >
-              <div className="p-3 rounded-xl bg-amber-500/10 text-[#FBBF24] group-hover:bg-[#FBBF24] group-hover:text-[#0A1628] transition-colors shrink-0">
+              <div className="p-3 rounded-xl bg-amber-500/10 text-[#B8860B] dark:text-[#FBBF24] group-hover:bg-[#B8860B] dark:group-hover:bg-[#FBBF24] group-hover:text-white dark:group-hover:text-[#0A1628] transition-colors shrink-0">
                 <Navigation className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-[#FBBF24] block mb-1">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#B8860B] dark:text-[#FBBF24] block mb-1">
                   CAMPUS ADDRESS
                 </span>
-                <span className="text-xs font-bold text-white block leading-snug">
+                <span className="text-xs font-bold text-[#0A1628] dark:text-white block leading-snug">
                   Madanapalli Road / Bypass, Kadiri, AP
                 </span>
-                <span className="text-xs text-[#FBBF24] font-semibold block mt-0.5">
+                <span className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold block mt-0.5">
                   Open in Google Maps ›
                 </span>
               </div>
@@ -172,33 +172,33 @@ export default function ContactPage() {
       </section>
 
       {/* Main Grid: Form + Interactive Map */}
-      <section className="py-20 sm:py-28 bg-[#050D1A]">
+      <section className="py-20 sm:py-28 bg-[#FDFBF7] dark:bg-[#050D1A] transition-colors duration-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Quick Form */}
-            <div className="lg:col-span-6 bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
-              <span className="text-[#FBBF24] text-xs font-black uppercase tracking-widest block mb-2">
+            <div className="lg:col-span-6 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-xl dark:shadow-2xl transition-colors duration-200">
+              <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs font-black uppercase tracking-widest block mb-2">
                 SEND A MESSAGE
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-white mb-2">
+              <h2 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white mb-2">
                 Get in Touch With Us
               </h2>
-              <p className="text-white/70 text-xs sm:text-sm mb-8">
+              <p className="text-slate-600 dark:text-white/70 text-xs sm:text-sm mb-8">
                 Fill this brief form and our team will get in touch with you right away.
               </p>
 
               {submitted ? (
-                <div className="py-12 text-center space-y-3 bg-white/5 rounded-2xl border border-emerald-500/30">
-                  <CheckCircle2 className="w-14 h-14 text-emerald-400 mx-auto" />
-                  <h3 className="text-xl font-bold text-white">Message Received!</h3>
-                  <p className="text-xs sm:text-sm text-white/70 max-w-sm mx-auto">
+                <div className="py-12 text-center space-y-3 bg-emerald-50 dark:bg-white/5 rounded-2xl border border-emerald-500/30">
+                  <CheckCircle2 className="w-14 h-14 text-emerald-500 dark:text-emerald-400 mx-auto" />
+                  <h3 className="text-xl font-bold text-[#0A1628] dark:text-white">Message Received!</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 max-w-sm mx-auto">
                     Thank you for reaching out. An admissions counselor will call you shortly.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-white/80 mb-1.5">
                       Your Name *
                     </label>
                     <input
@@ -207,13 +207,13 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ramesh Kumar"
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-[#FBBF24] focus:ring-1 focus:ring-[#FBBF24]"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-white/80 mb-1.5">
                         Phone Number *
                       </label>
                       <input
@@ -222,29 +222,29 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-[#FBBF24] focus:ring-1 focus:ring-[#FBBF24]"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-white/80 mb-1.5">
                         Grade of Interest
                       </label>
                       <select
                         value={formData.grade}
                         onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0A1628] border border-white/20 text-white text-sm focus:outline-none focus:border-[#FBBF24] focus:ring-1 focus:ring-[#FBBF24]"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#0A1628] border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                       >
-                        <option>Pre-Primary (Nursery, LKG, UKG)</option>
-                        <option>Primary (Classes 1 - 5)</option>
-                        <option>Middle (Classes 6 - 8)</option>
-                        <option>High School (Classes 9 - 10)</option>
+                        <option value="Pre-Primary (Nursery, LKG, UKG)">Pre-Primary (Nursery, LKG, UKG)</option>
+                        <option value="Primary (Classes 1 - 5)">Primary (Classes 1 - 5)</option>
+                        <option value="Middle (Classes 6 - 8)">Middle (Classes 6 - 8)</option>
+                        <option value="High School (Classes 9 - 10)">High School (Classes 9 - 10)</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-white/80 mb-1.5">
                       Your Query (Optional)
                     </label>
                     <textarea
@@ -252,13 +252,13 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Ask about admissions, fee structure, bus routes, or timings..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-[#FBBF24] focus:ring-1 focus:ring-[#FBBF24]"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-[#B8860B] hover:bg-[#996515] dark:bg-[#FBBF24] dark:hover:bg-[#F59E0B] text-white dark:text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
                     <span>Submit Query</span>
                     <Send className="w-4 h-4" />
@@ -269,7 +269,7 @@ export default function ContactPage() {
 
             {/* Right: Map & Directions */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="rounded-3xl overflow-hidden border border-white/10 h-[380px] sm:h-[420px] shadow-2xl relative">
+              <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 h-[380px] sm:h-[420px] shadow-xl dark:shadow-2xl relative">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15440.06173291583!2d78.15610816977539!3d14.111812899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb3b216521a00a1%3A0xc6822c9b2dcb5252!2sKadiri%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1689123456789!5m2!1sen!2sin"
                   width="100%"
@@ -283,16 +283,16 @@ export default function ContactPage() {
               </div>
 
               {/* Campus Hours Box */}
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-4">
+              <div className="p-6 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm flex flex-wrap items-center justify-between gap-4 transition-colors duration-200">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-[#FBBF24]/10 text-[#FBBF24]">
+                  <div className="p-2.5 rounded-xl bg-amber-500/10 text-[#B8860B] dark:text-[#FBBF24]">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-white block">
+                    <span className="text-xs font-bold text-[#0A1628] dark:text-white block">
                       Campus Office Hours
                     </span>
-                    <span className="text-xs text-white/60">
+                    <span className="text-xs text-slate-500 dark:text-white/60">
                       Monday to Saturday • 08:30 AM to 05:30 PM
                     </span>
                   </div>
@@ -300,7 +300,7 @@ export default function ContactPage() {
 
                 <a
                   href="tel:+919440468838"
-                  className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 text-[#FBBF24] font-bold text-xs uppercase tracking-wider border border-white/15"
+                  className="px-5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/20 text-[#B8860B] dark:text-[#FBBF24] font-bold text-xs uppercase tracking-wider border border-slate-200 dark:border-white/15 transition-colors"
                 >
                   Call Now
                 </a>
