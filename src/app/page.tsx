@@ -8,33 +8,35 @@ import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 
-import CinematicHero from '@/components/sections/CinematicHero';
-import FoundationShowcase from '@/components/sections/FoundationShowcase';
-import GrowthJourney from '@/components/sections/GrowthJourney';
-import BeforeAfterSlider from '@/components/sections/BeforeAfterSlider';
-import VisualChapters from '@/components/sections/VisualChapters';
-import OneDayAtValmeeki from '@/components/sections/OneDayAtValmeeki';
-import CampusStory from '@/components/sections/CampusStory';
-import NumbersSection from '@/components/sections/NumbersSection';
-import ProudMomentsPreview from '@/components/sections/ProudMomentsPreview';
-import HappeningAtValmeeki from '@/components/sections/HappeningAtValmeeki';
-import MemoriesWall from '@/components/sections/MemoriesWall';
-import PeopleOfValmeeki from '@/components/sections/PeopleOfValmeeki';
-import StudentStories from '@/components/sections/StudentStories';
-import MomentsCollagePreview from '@/components/sections/MomentsCollagePreview';
-import AdmissionsClimax from '@/components/sections/AdmissionsClimax';
+// Visual-First Digital Hall of Excellence Homepage Components
+import AchievementHero from '@/components/home/AchievementHero';
+import TopperShowcase from '@/components/home/TopperShowcase';
+import BigStatStory from '@/components/home/BigStatStory';
+import AchievementWall from '@/components/home/AchievementWall';
+import ResultsTimeline from '@/components/home/ResultsTimeline';
+import CultureOfExcellence from '@/components/home/CultureOfExcellence';
+import AcademicSystemStory from '@/components/home/AcademicSystemStory';
+import VisualLearningSequence from '@/components/home/VisualLearningSequence';
+import LegacyTimeline from '@/components/home/LegacyTimeline';
+import FacesOfValmeeki from '@/components/home/FacesOfValmeeki';
+import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
+import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
+import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
+import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
+import AdmissionModal from '@/components/home/AdmissionModal';
 
 export default function HomePage() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [isAdmissionsModalOpen, setIsAdmissionsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Check if returning visitor has already experienced the intro in this session
+    // Check if visitor has already experienced the intro in this session
     try {
       if (sessionStorage.getItem('svhs_intro_seen') === 'true') {
         setIntroComplete(true);
       }
     } catch {
-      // ignore
+      // ignore storage errors
     }
 
     const handleReplay = () => {
@@ -46,14 +48,14 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Cinematic Opening Sequence: SINCE 1999 -> 27 YEARS -> Logo -> SREE VALMEEKI */}
+      {/* 1. Cinematic Quick Intro Sequence (Session-Cached, Non-Intrusive) */}
       <AnimatePresence mode="wait">
         {!introComplete && (
           <CinematicIntro onComplete={() => setIntroComplete(true)} />
         )}
       </AnimatePresence>
 
-      {/* Main Visual Journey: "FROM 1999 TO THE FUTURE" */}
+      {/* Main Continuous Visual Journey: "A DIGITAL HALL OF EXCELLENCE" */}
       <motion.div
         initial={{ opacity: 0.95 }}
         animate={{ opacity: 1 }}
@@ -64,54 +66,57 @@ export default function HomePage() {
         <Header />
 
         <main>
-          {/* 2A. Hero Part 1: Visual-First Fullscreen Campus Video & Minimal Typography (Blue Moon layout) */}
-          <CinematicHero />
+          {/* 1. Achievement-Led Hero: "RESULTS THAT SPEAK FOR US." */}
+          <AchievementHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 2B. Hero Part 2: Building Strong Foundations • Creating Brighter Futures • Nurturing Students to (Premium Slides) */}
-          <FoundationShowcase />
+          {/* 2. Signature Section: 3 Years of Consistent Results (Horizontal Desktop / Mobile Stack) */}
+          <TopperShowcase />
 
-          {/* 3. School Growth Story: 1999 → 2026 Horizontal Timeline */}
-          <GrowthJourney />
+          {/* 3. Big Proof Typography: 27 Years • 1999 • 3 Years • Nursery to X */}
+          <BigStatStory />
 
-          {/* 4. Before & Now Visual: Interactive Then & Now Slider */}
-          <BeforeAfterSlider />
+          {/* 4. Achievement Wall: Dynamic Editorial Mosaic with Lightbox Modal */}
+          <AchievementWall />
 
-          {/* 5. Visual School Experience: 5 Full-Screen Chapters (Learn, Explore, Express, Achieve, Grow) */}
-          <VisualChapters />
+          {/* 5. Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
+          <ResultsTimeline />
 
-          {/* 6. One Day At Valmeeki: Chronological Time Story (08:30 AM to 04:00 PM) */}
+          {/* 6. Cinematic Transition: "NOT ONE RESULT. NOT ONE YEAR. A CULTURE OF EXCELLENCE." */}
+          <CultureOfExcellence />
+
+          {/* 7. The System Behind The Results: 6 Visual Panels */}
+          <AcademicSystemStory />
+
+          {/* 8. Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
+          <VisualLearningSequence />
+
+          {/* 9. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
+          <LegacyTimeline />
+
+          {/* 10. The Faces Behind The Results: Authentic Student Portraits */}
+          <FacesOfValmeeki />
+
+          {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
           <OneDayAtValmeeki />
 
-          {/* 7. Campus Story: Large Visual Slides (Smart Classes, Labs, Arena, Fleet) */}
-          <CampusStory />
+          {/* 12. Moments That Make Valmeeki: Real School Gallery Preview & Lightbox */}
+          <MomentsGalleryPreview />
 
-          {/* 8. Big Numbers: Motion Typography (27 Years, 1999, Nursery to X, 100%) */}
-          <NumbersSection />
+          {/* 13. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
+          <ParentTrustAndLeadership />
 
-          {/* 9. Proud Moments: Winning Student Photo & Achievement Previews */}
-          <ProudMomentsPreview />
-
-          {/* 10. Happening At Valmeeki: Large Editorial Event Photo Cards */}
-          <HappeningAtValmeeki />
-
-          {/* 11. Campus Memories Wall: Floating Photo Collage with Hover & Lightbox */}
-          <MemoriesWall />
-
-          {/* 12. People of Valmeeki: Director & Mentors Single-Quote Portraits */}
-          <PeopleOfValmeeki />
-
-          {/* 13. Student Stories: Authentic Student Voice Cards */}
-          <StudentStories />
-
-          {/* 14. Moments That Make Valmeeki: Irregular Gallery Photo Collage */}
-          <MomentsCollagePreview />
-
-          {/* 15. Admissions Climax: Your Child's Journey Begins Here • "THE STORY CONTINUES." */}
-          <AdmissionsClimax />
+          {/* 14. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
+          <AdmissionsClosingHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
         </main>
 
         <Footer />
         <FloatingButtons />
+
+        {/* Global Instant Admission Enquiry Modal */}
+        <AdmissionModal
+          isOpen={isAdmissionsModalOpen}
+          onClose={() => setIsAdmissionsModalOpen(false)}
+        />
       </motion.div>
     </>
   );
