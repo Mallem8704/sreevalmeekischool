@@ -198,11 +198,11 @@ export interface PersonProfile {
 
 export const peopleOfValmeeki: PersonProfile[] = [
   {
-    name: 'Mr. P. Pavan Kumar Reddy',
-    role: 'Director, Sree Valmeeki School',
+    name: 'Mr. Pavan Kumar Reddy',
+    role: 'Director, Sree Valmeeki High School',
     quote:
-      'Every child who walks through our gates carries limitless potential. Our mission is to nurture that spark with discipline, compassion, and academic rigor.',
-    image: '/images/school/school-event-7.jpg',
+      'Education is the most powerful tool to transform lives, empower communities, and build a brighter future.',
+    image: '/images/leadership/mr_pavan_kumar_reddy_director_square.png',
   },
   {
     name: 'Mrs. S. Lakshmi Devi',

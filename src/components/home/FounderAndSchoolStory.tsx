@@ -248,7 +248,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                 <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase">Founder & Chairman</span>
               </div>
               <div>
-                <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase">Dr. P.V Pavan Kumar Reddy</span>
+                <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase">Mr. Pavan Kumar Reddy</span>
                 <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase">Director</span>
               </div>
               <div>

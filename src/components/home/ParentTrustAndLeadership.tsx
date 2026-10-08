@@ -5,6 +5,8 @@ import { Quote, ArrowRight, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import DirectorFrame from '@/components/leadership/DirectorFrame';
+
 const parentVoices = [
   {
     quote: '“Valmeeki gave our daughter not just top board marks, but unmatched stage speaking confidence.”',
@@ -69,62 +71,9 @@ export default function ParentTrustAndLeadership() {
           </div>
         </div>
 
-        {/* Part B: Leadership - Director Mr. P. Pavan Kumar Reddy */}
-        <div className="relative rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 p-8 sm:p-12 lg:p-16 shadow-[0_10px_35px_rgba(0,0,0,0.06)] dark:shadow-none overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Director Visual Portrait */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#D4A853]/40 bg-slate-100 dark:bg-slate-900 shadow-xl">
-                <Image
-                  src="/extracted/leadership/director_pavan_reddy_portrait.jpg"
-                  alt="Dr. P.V Pavan Kumar Reddy - Director"
-                  fill
-                  className="object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-85" />
-
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block px-2.5 py-1 rounded bg-[#D4A853] text-[#0A1628] text-[10px] font-black uppercase tracking-wider mb-1">
-                    Director & Leadership
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-black text-white font-[family-name:var(--font-heading)]">
-                    Dr. P.V Pavan Kumar Reddy
-                  </h3>
-                  <p className="text-xs text-white/90">Director • A.P Private School Association Working President</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Director 2-Line Punchy Statement & CTA */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>LEADERSHIP VISION</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-4xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white leading-tight">
-                A VISION FOCUSED ON EVERY CHILD.
-              </h3>
-
-              <blockquote className="border-l-4 border-[#D4A853] pl-6 italic text-[#0A1628] dark:text-slate-100 text-base sm:text-xl font-medium leading-relaxed font-[family-name:var(--font-heading)]">
-                “Education should not only prepare children for examinations, but help them develop confidence, discipline, curiosity and character.”
-              </blockquote>
-
-              <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
-                Guiding students from their earliest formative steps in Nursery all the way to state board distinction and future competitive readiness.
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0A1628] dark:bg-[#D4A853] hover:bg-[#1E3A8A] dark:hover:bg-[#E8C97D] text-white dark:text-[#0A1628] font-bold text-xs sm:text-sm tracking-wider uppercase border border-[#0A1628] dark:border-[#D4A853] transition-all cursor-pointer group shadow-md"
-                >
-                  <span>Our Story & Philosophy</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#D4A853] dark:text-[#0A1628]" />
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* Part B: Executive Leadership Frame - Director Mr. Pavan Kumar Reddy */}
+        <div>
+          <DirectorFrame />
         </div>
       </div>
     </section>

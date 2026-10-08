@@ -24,6 +24,7 @@ import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
+import DirectorFrame from '@/components/leadership/DirectorFrame';
 
 const stats = [
   { value: '28', label: 'Years of Heritage', sub: 'Estd. 6th June 1999' },
@@ -326,54 +327,22 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* LEADERSHIP VOICE */}
-        <section className="py-20 bg-white dark:bg-[#050D1A] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+        {/* EXECUTIVE LEADERSHIP FRAME - DIRECTOR MR. PAVAN KUMAR REDDY */}
+        <section className="py-20 sm:py-24 bg-white dark:bg-[#050D1A] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-black">
-                  GUIDING PHILOSOPHY
-                </span>
-                <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-black text-[#0A1628] dark:text-white mt-1">
-                  Words from Our Leadership
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {leadershipQuotes.map((item, i) => (
-                  <div
-                    key={i}
-                    className="bg-[#FDFBF7] dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-md hover:border-[#D4A853] dark:hover:border-[#D4A853] transition-colors"
-                  >
-                    <div>
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#D4A853] shrink-0 shadow-md">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fill
-                            sizes="64px"
-                            className="object-cover object-top"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-black text-[#0A1628] dark:text-white text-lg font-[family-name:var(--font-heading)]">{item.name}</h4>
-                          <p className="text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold">{item.role}</p>
-                        </div>
-                      </div>
-                      <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base italic leading-relaxed">
-                        &ldquo;{item.quote}&rdquo;
-                      </p>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-slate-200 dark:border-white/10 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-                      <span>Dedicated to student welfare & ethical leadership</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-black block mb-2">
+                EXECUTIVE LEADERSHIP
+              </span>
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-5xl font-black text-[#0A1628] dark:text-white">
+                Leadership With Vision & Care
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-2">
+                Guiding our students, mentoring teachers, and partnering with parents to build a bright and confident future.
+              </p>
             </div>
+
+            <DirectorFrame className="max-w-6xl mx-auto" />
           </div>
         </section>
 
