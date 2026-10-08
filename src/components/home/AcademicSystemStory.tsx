@@ -51,17 +51,17 @@ const systems = [
 
 export default function AcademicSystemStory() {
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#050D1A] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#F8FAFC] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-[#D4A853] text-xs font-black tracking-[0.25em] uppercase block mb-3">
+          <span className="text-[#B8860B] text-xs font-black tracking-[0.25em] uppercase block mb-3">
             PEDAGOGY & METHODOLOGY
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] mb-4">
             THE SYSTEM BEHIND THE RESULTS.
           </h2>
-          <p className="text-white/70 text-xs sm:text-sm max-w-md mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-md mx-auto">
             Excellence is not an accident. It is engineered every day inside our classrooms.
           </p>
         </div>
@@ -75,40 +75,40 @@ export default function AcademicSystemStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/10 hover:border-[#D4A853]/50 transition-all shadow-xl"
+              className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl"
             >
               {/* Photo Area */}
-              <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#050D1A]">
+              <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-100">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/30 to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-80" />
 
                 {/* Number Badge */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="w-9 h-9 rounded-xl bg-[#050D1A]/90 border border-white/15 flex items-center justify-center text-xs font-black text-[#D4A853] font-[family-name:var(--font-heading)]">
+                  <span className="w-9 h-9 rounded-xl bg-white/95 border border-slate-200 flex items-center justify-center text-xs font-black text-[#0A1628] shadow-sm font-[family-name:var(--font-heading)]">
                     {item.num}
                   </span>
                 </div>
               </div>
 
               {/* Minimal Text Area */}
-              <div className="p-6 space-y-2 text-left">
-                <div className="flex items-center gap-2 text-[#D4A853] mb-1">
+              <div className="p-6 space-y-2 text-left bg-white">
+                <div className="flex items-center gap-2 text-[#B8860B] mb-1">
                   <item.icon className="w-4 h-4" />
                   <span className="text-[11px] font-black uppercase tracking-wider">
                     Core Pillar
                   </span>
                 </div>
 
-                <h3 className="text-xl font-black text-white font-[family-name:var(--font-heading)]">
+                <h3 className="text-xl font-black text-[#0A1628] font-[family-name:var(--font-heading)]">
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {item.shortLine}
                 </p>
               </div>

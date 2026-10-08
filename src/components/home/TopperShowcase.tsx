@@ -96,23 +96,23 @@ export default function TopperShowcase() {
   const current = toppers[currentIndex];
 
   return (
-    <section id="signature-results" className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#050D1A] text-white overflow-hidden border-t border-white/10">
+    <section id="signature-results" className="relative w-full py-20 sm:py-28 lg:py-32 bg-white text-[#0A1628] overflow-hidden border-t border-slate-200">
       {/* Background Accent Grid & Watermark */}
-      <div className="absolute inset-0 bg-[radial-gradient(#D4A853_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#D4A853_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#D4A853]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#D4A853] text-[11px] font-black tracking-widest uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#B8860B] text-[11px] font-black tracking-widest uppercase mb-3 shadow-sm">
               <Award className="w-3.5 h-3.5" />
-              <span>CONSISTENCY • 27 YEARS</span>
+              <span>CONSISTENCY • 28 YEARS</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-white">
-              3 YEARS. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A853] via-[#FBBF24] to-[#E8C97D]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-[#0A1628]">
+              5 YEARS. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#8C6D23]">
                 A CONSISTENT STANDARD.
               </span>
             </h2>
@@ -120,15 +120,15 @@ export default function TopperShowcase() {
 
           {/* Year Switcher Pills & Carousel Controls */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center bg-[#0A1628] p-1 rounded-xl border border-white/10">
+            <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
               {toppers.map((t, idx) => (
                 <button
                   key={t.year}
                   onClick={() => setCurrentIndex(idx)}
                   className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     currentIndex === idx
-                      ? 'bg-[#D4A853] text-[#050D1A] shadow-md shadow-[#D4A853]/20 font-black'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#D4A853] text-[#0A1628] shadow-md font-black'
+                      : 'text-slate-600 hover:text-[#0A1628] hover:bg-white/60'
                   }`}
                 >
                   {t.year.split(' ')[0]}
@@ -139,14 +139,14 @@ export default function TopperShowcase() {
             <div className="flex items-center gap-1.5 ml-auto">
               <button
                 onClick={prevTopper}
-                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white/80 hover:text-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 flex items-center justify-center text-slate-700 transition-all cursor-pointer"
                 aria-label="Previous Topper"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextTopper}
-                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white/80 hover:text-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 flex items-center justify-center text-slate-700 transition-all cursor-pointer"
                 aria-label="Next Topper"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -163,34 +163,34 @@ export default function TopperShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-gradient-to-br from-[#0A1628] to-[#061122] border border-[#D4A853]/30 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden"
+            className="relative bg-gradient-to-br from-white via-[#FDFBF7] to-white border-2 border-[#D4A853]/40 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl overflow-hidden text-[#0A1628]"
           >
             {/* Subtle Editorial Watermark Number */}
-            <div className="absolute top-4 right-8 text-[120px] sm:text-[200px] font-black font-[family-name:var(--font-heading)] text-white/[0.02] select-none pointer-events-none leading-none">
+            <div className="absolute top-4 right-8 text-[120px] sm:text-[200px] font-black font-[family-name:var(--font-heading)] text-slate-900/[0.03] select-none pointer-events-none leading-none">
               {current.marks}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Side: Large Clean Portrait (Luxury Editorial Framing) */}
               <div className="lg:col-span-5 relative">
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853]/40 bg-[#0F2044] shadow-2xl group">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853]/50 bg-slate-100 shadow-xl group">
                   <Image
                     src={current.image}
                     alt={`${current.name} - ${current.rankBadge}`}
                     fill
                     className="object-cover object-center brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-85" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
 
                   {/* Clean Bottom Label */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 rounded bg-[#D4A853] text-[#050D1A] text-xs font-black tracking-widest uppercase mb-1 shadow-md">
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="inline-block px-3 py-1 rounded bg-[#D4A853] text-[#0A1628] text-xs font-black tracking-widest uppercase mb-1 shadow-md">
                       {current.rankBadge}
                     </span>
-                    <h3 className="text-2xl font-black text-white font-[family-name:var(--font-heading)]">
+                    <h3 className="text-2xl font-black font-[family-name:var(--font-heading)]">
                       {current.name}
                     </h3>
-                    <p className="text-xs text-white/80">{current.board}</p>
+                    <p className="text-xs text-white/90 font-medium">{current.board}</p>
                   </div>
                 </div>
               </div>
@@ -199,42 +199,42 @@ export default function TopperShowcase() {
               <div className="lg:col-span-7 space-y-6 text-left">
                 {/* Year + Board Tag */}
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="px-3 py-1 rounded-md bg-white/10 text-[#D4A853] font-black text-xs tracking-widest uppercase">
+                  <span className="px-3 py-1 rounded-md bg-[#D4A853]/15 text-[#B8860B] font-black text-xs tracking-widest uppercase border border-[#D4A853]/30">
                     {current.year}
                   </span>
-                  <span className="text-xs font-semibold text-white/70 uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                     {current.board}
                   </span>
                 </div>
 
                 {/* Oversized Result Number */}
                 <div>
-                  <span className="block text-xs uppercase tracking-[0.25em] text-white/50 font-bold mb-1">
+                  <span className="block text-xs uppercase tracking-[0.25em] text-slate-500 font-bold mb-1">
                     Aggregate Board Score
                   </span>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#D4A853] leading-none">
+                    <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-[#0A1628] via-[#0A1628] to-[#B8860B] leading-none">
                       {current.marks}
                     </span>
-                    <span className="text-2xl sm:text-3xl font-bold text-white/50">{current.total}</span>
-                    <span className="ml-4 px-3 py-1 rounded-lg bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-sm sm:text-base font-black">
+                    <span className="text-2xl sm:text-3xl font-bold text-slate-500">{current.total}</span>
+                    <span className="ml-4 px-3 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm sm:text-base font-black">
                       {current.percentage}
                     </span>
                   </div>
                 </div>
 
                 {/* Subject Distinctions */}
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
-                  <span className="block text-[10px] uppercase font-bold tracking-widest text-[#D4A853]">
+                <div className="p-4 rounded-xl bg-[#FDFBF7] border border-slate-200 space-y-1">
+                  <span className="block text-[10px] uppercase font-bold tracking-widest text-[#B8860B]">
                     Verified Subject Distinction
                   </span>
-                  <p className="text-sm font-semibold text-white/90">
+                  <p className="text-sm font-semibold text-slate-800">
                     {current.subjects}
                   </p>
                 </div>
 
                 {/* Student Quote (Magazine Style) */}
-                <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-white/80 text-sm sm:text-base leading-relaxed">
+                <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-slate-700 text-sm sm:text-base leading-relaxed">
                   {current.quote}
                 </blockquote>
 
@@ -242,7 +242,7 @@ export default function TopperShowcase() {
                 <div className="pt-2 flex items-center gap-4">
                   <Link
                     href="/achievements"
-                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#D4A853] hover:text-white uppercase tracking-wider transition-colors group cursor-pointer"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#B8860B] hover:text-[#0A1628] uppercase tracking-wider transition-colors group cursor-pointer"
                   >
                     <span>View All Batch Distinctions</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

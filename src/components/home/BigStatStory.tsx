@@ -28,16 +28,16 @@ const statStories = [
 
 export default function BigStatStory() {
   return (
-    <section className="relative w-full py-24 sm:py-32 bg-[#050D1A] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-24 sm:py-32 bg-[#FDFBF7] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#D4A853]/5 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-[#D4A853] text-xs font-black tracking-[0.25em] uppercase block mb-3">
+          <span className="text-[#B8860B] text-xs font-black tracking-[0.25em] uppercase block mb-3">
             VERIFIED PROOF & HISTORY
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628]">
             NUMBERS THAT REFLECT DEDICATION.
           </h2>
         </div>
@@ -51,28 +51,28 @@ export default function BigStatStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="relative p-8 sm:p-10 rounded-3xl bg-[#0A1628]/80 border border-white/10 hover:border-[#D4A853]/50 transition-all group overflow-hidden"
+              className="relative p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-[#D4A853]/60 transition-all group overflow-hidden"
             >
               <div className="relative z-10">
                 {/* Big Proof Number */}
                 <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#D4A853] leading-none tracking-tight group-hover:to-[#FBBF24] transition-all">
+                  <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] group-hover:text-[#B8860B] transition-colors leading-none tracking-tight">
                     {stat.num}
                   </span>
                   {stat.suffix && (
-                    <span className="text-xl sm:text-2xl font-black text-[#D4A853] tracking-widest uppercase">
+                    <span className="text-xl sm:text-2xl font-black text-[#B8860B] tracking-widest uppercase">
                       {stat.suffix}
                     </span>
                   )}
                 </div>
 
                 {/* Bold Label */}
-                <h3 className="text-lg sm:text-xl font-black text-white uppercase tracking-wider mb-2 font-[family-name:var(--font-heading)]">
+                <h3 className="text-lg sm:text-xl font-black text-[#0A1628] uppercase tracking-wider mb-2 font-[family-name:var(--font-heading)]">
                   {stat.label}
                 </h3>
 
                 {/* Short Subtext */}
-                <p className="text-white/70 text-xs sm:text-sm leading-relaxed max-w-md">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md">
                   {stat.subtext}
                 </p>
               </div>

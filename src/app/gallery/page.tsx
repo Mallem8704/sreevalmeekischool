@@ -101,20 +101,17 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#050D1A] text-white selection:bg-[#D4A853] selection:text-[#0A1628]">
+    <main className="min-h-screen flex flex-col bg-[#FDFBF7] text-[#0A1628] selection:bg-[#D4A853] selection:text-[#0A1628]">
       <ScrollProgress />
       <Header />
 
       {/* Hero: LIFE AT VALMEEKI */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-36 pb-16 px-4">
-        {/* Background Visual Atmosphere */}
-        <div className="absolute inset-0 bg-radial-[circle_at_center,_rgba(21,45,94,0.4)_0%,_#050D1A_80%]" />
-
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-36 pb-16 px-4 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] border-b border-slate-200/80">
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-xs font-bold uppercase tracking-[0.25em] mb-4 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs font-bold uppercase tracking-[0.25em] mb-4 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>CAMPUS MEMORIES & MOMENTS</span>
@@ -124,7 +121,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-heading)] text-white tracking-tight leading-tight mb-3"
+            className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] tracking-tight leading-tight mb-3"
           >
             LIFE AT VALMEEKI
           </motion.h1>
@@ -133,15 +130,15 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-xl text-white/80 font-[family-name:var(--font-heading)]"
+            className="text-base sm:text-xl text-slate-600 font-[family-name:var(--font-heading)]"
           >
-            Not just classrooms. <span className="text-[#D4A853]">Thousands of moments.</span>
+            Not just classrooms. <span className="text-[#B8860B] font-bold">Thousands of moments.</span>
           </motion.p>
         </div>
       </section>
 
       {/* Category Filter Tabs */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full mb-10">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full my-10">
         <div className="flex flex-wrap items-center justify-center gap-2">
           {galleryCategories.map((cat) => (
             <button
@@ -150,8 +147,8 @@ export default function GalleryPage() {
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeCategory === cat
-                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md shadow-[#D4A853]/25'
-                  : 'bg-white/5 hover:bg-white/15 text-white/70 hover:text-white border border-white/10'
+                  ? 'bg-[#0A1628] text-[#D4A853] shadow-md shadow-[#0A1628]/10 border border-[#0A1628]'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-[#0A1628] border border-slate-200 shadow-sm'
               }`}
             >
               {cat}
@@ -173,25 +170,25 @@ export default function GalleryPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => setSelectedIndex(idx)}
-                className={`group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all duration-300 shadow-xl cursor-pointer ${item.aspect}`}
+                className={`group relative rounded-3xl overflow-hidden bg-white border border-slate-200/80 hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl cursor-pointer ${item.aspect}`}
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
                 {/* Dark Hover Overlay with Year & Title */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-[#0A1628]/30 to-transparent opacity-50 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-40 group-hover:opacity-90 transition-opacity" />
 
                 {/* Top Year & Category Badge */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
                   <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4A853] text-[10px] font-mono font-bold uppercase border border-white/10">
                     {item.year}
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-white/15 text-white text-[10px] font-bold uppercase hidden group-hover:inline-block transition-opacity">
+                  <span className="px-2.5 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase hidden group-hover:inline-block transition-opacity">
                     {item.category}
                   </span>
                 </div>
@@ -212,18 +209,18 @@ export default function GalleryPage() {
       </section>
 
       {/* Video Gallery: VALMEEKI IN MOTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200/80">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/40 text-[#D4A853] text-xs font-bold uppercase tracking-[0.25em] mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs font-bold uppercase tracking-[0.25em] mb-4">
               <Film className="w-3.5 h-3.5" />
               <span>CINEMATIC STORIES</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-white">
+            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-[#0A1628]">
               VALMEEKI IN MOTION
             </h2>
           </div>
-          <span className="text-xs text-white/50 font-mono">
+          <span className="text-xs text-slate-500 font-mono">
             REELS • CELEBRATIONS • SPORTS
           </span>
         </div>
@@ -233,7 +230,7 @@ export default function GalleryPage() {
           {videoGalleryItems.map((item) => (
             <div
               key={item.id}
-              className={`group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/15 hover:border-[#D4A853] transition-all shadow-xl flex flex-col justify-end ${
+              className={`group relative rounded-3xl overflow-hidden bg-black border border-slate-200/80 hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl flex flex-col justify-end ${
                 item.format === 'vertical' ? 'aspect-[9/16]' : 'aspect-[16/10]'
               }`}
             >

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Trophy,
   Award,
@@ -82,26 +82,26 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
   };
 
   return (
-    <section id="star-achievers" className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#050D1A] text-white border-t border-white/10 overflow-hidden">
+    <section id="star-achievers" className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#FDFBF7] text-[#0A1628] border-t border-slate-200 overflow-hidden">
       {/* Background Ambience Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#D4A853]/5 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#1E3A8A]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#D4A853]/10 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#1E3A8A]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#D4A853] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 shadow-lg">
-            <Trophy className="w-3.5 h-3.5 text-[#FBBF24]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/40 text-[#B8860B] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 shadow-sm">
+            <Trophy className="w-3.5 h-3.5 text-[#B8860B]" />
             <span>OFFICIAL SSC BOARD RECORD 2026</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] mb-4">
             OUR STAR ACHIEVERS. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A853] via-[#FBBF24] to-[#E8C97D]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#8C6D23]">
               TOWN 1ST & 2ND RANKS.
             </span>
           </h2>
-          <p className="text-white/70 text-xs sm:text-sm max-w-xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
             Click on any student photograph or card to open the verified official board certificate & distinction breakdown.
           </p>
 
@@ -111,8 +111,8 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
               onClick={() => setActiveTab('STAR_ACHIEVERS')}
               className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                 activeTab === 'STAR_ACHIEVERS'
-                  ? 'bg-[#D4A853] text-[#050D1A] shadow-lg shadow-[#D4A853]/20 scale-105'
-                  : 'bg-[#0A1628] hover:bg-white/10 text-white/70 hover:text-white border border-white/10'
+                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
               }`}
             >
               Star Achievers (590+ Club)
@@ -121,8 +121,8 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
               onClick={() => setActiveTab('TOP_SCORERS')}
               className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                 activeTab === 'TOP_SCORERS'
-                  ? 'bg-[#D4A853] text-[#050D1A] shadow-lg shadow-[#D4A853]/20 scale-105'
-                  : 'bg-[#0A1628] hover:bg-white/10 text-white/70 hover:text-white border border-white/10'
+                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
               }`}
             >
               Top Board Scorers (588–581)
@@ -131,8 +131,8 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
               onClick={() => setActiveTab('ALL_SCHOLARS')}
               className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === 'ALL_SCHOLARS'
-                  ? 'bg-[#D4A853] text-[#050D1A] shadow-lg shadow-[#D4A853]/20 scale-105'
-                  : 'bg-[#0A1628] hover:bg-white/10 text-white/70 hover:text-white border border-white/10'
+                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
               }`}
             >
               <Users className="w-3.5 h-3.5" />
@@ -142,8 +142,8 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
               onClick={() => setActiveTab('CHAMPIONS')}
               className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                 activeTab === 'CHAMPIONS'
-                  ? 'bg-[#D4A853] text-[#050D1A] shadow-lg shadow-[#D4A853]/20 scale-105'
-                  : 'bg-[#0A1628] hover:bg-white/10 text-white/70 hover:text-white border border-white/10'
+                  ? 'bg-[#D4A853] text-[#0A1628] shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
               }`}
             >
               National & State Honors
@@ -152,7 +152,7 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
         </div>
 
         {/* 2026 High-Level Result Summary Bar */}
-        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0A1628] via-[#0F2044] to-[#0A1628] border border-[#D4A853]/40 shadow-2xl">
+        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0A1628] via-[#0F2044] to-[#0A1628] text-white border border-[#D4A853]/40 shadow-2xl">
           <div className="text-center mb-6">
             <span className="text-[10px] font-black tracking-[0.25em] text-[#D4A853] uppercase block">
               SSC 2026 RESULT SUMMARY
@@ -163,44 +163,44 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10">
               <span className="block text-3xl sm:text-4xl font-black font-[family-name:var(--font-heading)] text-[#FBBF24]">
                 7
               </span>
               <span className="block text-xs font-bold text-white uppercase tracking-wider mt-1">
                 590+ ABOVE
               </span>
-              <span className="block text-[10px] text-white/50">Town Record</span>
+              <span className="block text-[10px] text-white/60">Town Record</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10">
               <span className="block text-3xl sm:text-4xl font-black font-[family-name:var(--font-heading)] text-white">
                 30
               </span>
               <span className="block text-xs font-bold text-white uppercase tracking-wider mt-1">
                 580+ ABOVE
               </span>
-              <span className="block text-[10px] text-white/50">State Distinction</span>
+              <span className="block text-[10px] text-white/60">State Distinction</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10">
               <span className="block text-3xl sm:text-4xl font-black font-[family-name:var(--font-heading)] text-[#FBBF24]">
                 115
               </span>
               <span className="block text-xs font-bold text-white uppercase tracking-wider mt-1">
                 550+ ABOVE
               </span>
-              <span className="block text-[10px] text-white/50">High First Class</span>
+              <span className="block text-[10px] text-white/60">High First Class</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10">
               <span className="block text-3xl sm:text-4xl font-black font-[family-name:var(--font-heading)] text-[#10B981]">
                 250+
               </span>
               <span className="block text-xs font-bold text-white uppercase tracking-wider mt-1">
                 500+ ABOVE
               </span>
-              <span className="block text-[10px] text-white/50">98% Total Pass</span>
+              <span className="block text-[10px] text-white/60">98% Total Pass</span>
             </div>
           </div>
         </div>
@@ -217,19 +217,19 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedStudent(s)}
-                  className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A1628] to-[#061122] border-2 border-[#D4A853] hover:border-[#FBBF24] transition-all cursor-pointer shadow-2xl p-6 sm:p-8"
+                  className="group relative rounded-3xl overflow-hidden bg-white border-2 border-[#D4A853] hover:border-[#B8860B] transition-all cursor-pointer shadow-xl p-6 sm:p-8 text-[#0A1628]"
                 >
-                  <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-[#D4A853] text-[#050D1A] text-xs font-black uppercase tracking-wider shadow">
+                  <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-4">
+                    <span className="px-3 py-1 rounded-full bg-[#D4A853] text-[#0A1628] text-xs font-black uppercase tracking-wider shadow">
                       {s.rankBadge}
                     </span>
-                    <span className="text-xs font-bold text-[#FBBF24] group-hover:underline">
+                    <span className="text-xs font-bold text-[#B8860B] group-hover:underline">
                       Click To Open Full Card →
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-                    <div className="sm:col-span-5 relative aspect-[3/4] rounded-2xl overflow-hidden border border-[#D4A853]/60 bg-[#050D1A] group-hover:scale-105 transition-transform duration-500">
+                    <div className="sm:col-span-5 relative aspect-[3/4] rounded-2xl overflow-hidden border border-[#D4A853]/60 bg-slate-100 group-hover:scale-105 transition-transform duration-500 shadow-md">
                       <Image
                         src={s.portraitImage || s.cardImage}
                         alt={s.name}
@@ -239,25 +239,25 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                     </div>
 
                     <div className="sm:col-span-7 space-y-3 text-left">
-                      <h3 className="text-2xl sm:text-3xl font-black text-white font-[family-name:var(--font-heading)] uppercase">
+                      <h3 className="text-2xl sm:text-3xl font-black text-[#0A1628] font-[family-name:var(--font-heading)] uppercase">
                         {s.name}
                       </h3>
 
                       <div className="flex items-baseline gap-2">
-                        <span className="text-4xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#D4A853]">
+                        <span className="text-4xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-[#0A1628] to-[#B8860B]">
                           {s.marks}
                         </span>
-                        <span className="text-lg text-white/50">/ {s.maxMarks}</span>
-                        <span className="ml-auto px-2 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] text-xs font-black">
+                        <span className="text-lg text-slate-500 font-bold">/ {s.maxMarks}</span>
+                        <span className="ml-auto px-2 py-0.5 rounded bg-[#10B981]/15 text-[#059669] text-xs font-black">
                           {s.percentage}
                         </span>
                       </div>
 
-                      <p className="text-xs text-white/80 font-medium">
+                      <p className="text-xs text-slate-600 font-medium">
                         {s.honorDetails}
                       </p>
 
-                      <div className="pt-2 text-[11px] text-[#D4A853] font-bold">
+                      <div className="pt-2 text-[11px] text-[#B8860B] font-bold">
                         {s.subjects}
                       </div>
                     </div>
@@ -268,7 +268,7 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
 
             {/* Next 5 Star Achievers (591/600 & 590/600) */}
             <div>
-              <h3 className="text-lg font-bold text-white/80 uppercase tracking-widest mb-4">
+              <h3 className="text-lg font-bold text-slate-700 uppercase tracking-widest mb-4">
                 590+ Board Super Distinction Scholars
               </h3>
 
@@ -280,9 +280,9 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     onClick={() => setSelectedStudent(s)}
-                    className="group relative rounded-2xl overflow-hidden bg-[#0A1628] border border-white/10 hover:border-[#D4A853] transition-all cursor-pointer shadow-lg p-3 text-center"
+                    className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-[#D4A853] transition-all cursor-pointer shadow-md hover:shadow-xl p-3 text-center"
                   >
-                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-white/10 bg-[#050D1A]">
+                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-slate-200 bg-slate-50">
                       <Image
                         src={s.cardImage}
                         alt={s.name}
@@ -291,15 +291,15 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                       />
                     </div>
 
-                    <h4 className="text-xs sm:text-sm font-black text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
+                    <h4 className="text-xs sm:text-sm font-black text-[#0A1628] font-[family-name:var(--font-heading)] uppercase line-clamp-1">
                       {s.name}
                     </h4>
 
-                    <div className="text-sm sm:text-base font-black text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                      {s.marks} <span className="text-[10px] text-white/50">/ 600</span>
+                    <div className="text-sm sm:text-base font-black text-[#B8860B] font-[family-name:var(--font-heading)] mt-0.5">
+                      {s.marks} <span className="text-[10px] text-slate-500">/ 600</span>
                     </div>
 
-                    <span className="inline-block px-2 py-0.5 rounded bg-white/5 text-[9px] font-bold text-[#10B981] mt-1">
+                    <span className="inline-block px-2 py-0.5 rounded bg-emerald-50 text-[9px] font-bold text-emerald-700 border border-emerald-200 mt-1">
                       {s.percentage}
                     </span>
                   </motion.div>
@@ -319,9 +319,9 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 onClick={() => setSelectedStudent(s)}
-                className="group relative rounded-2xl overflow-hidden bg-[#0A1628] border border-white/10 hover:border-[#D4A853] transition-all cursor-pointer shadow-lg p-3 text-center"
+                className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-[#D4A853] transition-all cursor-pointer shadow-md hover:shadow-xl p-3 text-center"
               >
-                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-white/10 bg-[#050D1A]">
+                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-slate-200 bg-slate-50">
                   <Image
                     src={s.cardImage}
                     alt={s.name}
@@ -330,15 +330,15 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                   />
                 </div>
 
-                <h4 className="text-xs sm:text-sm font-black text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
+                <h4 className="text-xs sm:text-sm font-black text-[#0A1628] font-[family-name:var(--font-heading)] uppercase line-clamp-1">
                   {s.name}
                 </h4>
 
-                <div className="text-sm sm:text-base font-black text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                  {s.marks} <span className="text-[10px] text-white/50">/ 600</span>
+                <div className="text-sm sm:text-base font-black text-[#B8860B] font-[family-name:var(--font-heading)] mt-0.5">
+                  {s.marks} <span className="text-[10px] text-slate-500">/ 600</span>
                 </div>
 
-                <span className="inline-block px-2 py-0.5 rounded bg-white/5 text-[9px] font-bold text-[#D4A853] mt-1">
+                <span className="inline-block px-2 py-0.5 rounded bg-[#D4A853]/15 text-[9px] font-bold text-[#B8860B] mt-1 border border-[#D4A853]/30">
                   {s.percentage}
                 </span>
               </motion.div>
@@ -350,10 +350,10 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
         {activeTab === 'ALL_SCHOLARS' && (
           <div className="space-y-6">
             {/* Filter Bar */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#0A1628] border border-white/10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
               {/* Search input */}
               <div className="relative flex-1">
-                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40" />
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -362,13 +362,13 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                     setVisibleCount(24);
                   }}
                   placeholder="Search by student name, roll, or score..."
-                  className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853]"
+                  className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-[#0A1628] placeholder-slate-400 focus:outline-none focus:border-[#D4A853]"
                 />
               </div>
 
               {/* Score filter pills */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[11px] font-bold uppercase text-white/50 mr-1 flex items-center gap-1">
+                <span className="text-[11px] font-bold uppercase text-slate-500 mr-1 flex items-center gap-1">
                   <Filter className="w-3 h-3" /> Filter:
                 </span>
                 {[
@@ -385,8 +385,8 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                     }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                       scoreFilter === f.id
-                        ? 'bg-[#D4A853] text-[#050D1A]'
-                        : 'bg-white/5 text-white/70 hover:text-white border border-white/10'
+                        ? 'bg-[#D4A853] text-[#0A1628] shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:text-[#0A1628] border border-slate-200'
                     }`}
                   >
                     {f.label}
@@ -396,11 +396,11 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
             </div>
 
             {/* Counter info */}
-            <div className="flex items-center justify-between text-xs text-white/60 px-1">
+            <div className="flex items-center justify-between text-xs text-slate-500 px-1">
               <span>
                 Showing {Math.min(visibleCount, filteredScholars.length)} of {filteredScholars.length} student cards
               </span>
-              <span className="text-[#D4A853]">Click any photo to open premium certificate</span>
+              <span className="text-[#B8860B] font-bold">Click any photo to open premium certificate</span>
             </div>
 
             {/* Grid of Student Cards */}
@@ -412,9 +412,9 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedStudent(s)}
-                  className="group relative rounded-xl overflow-hidden bg-[#0A1628] border border-white/10 hover:border-[#D4A853] transition-all cursor-pointer shadow-md p-2.5 text-center flex flex-col justify-between"
+                  className="group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-[#D4A853] transition-all cursor-pointer shadow-sm hover:shadow-lg p-2.5 text-center flex flex-col justify-between"
                 >
-                  <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden mb-2 border border-white/10 bg-[#050D1A]">
+                  <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden mb-2 border border-slate-200 bg-slate-50">
                     <Image
                       src={s.cardImage}
                       alt={s.name}
@@ -425,15 +425,15 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                   </div>
 
                   <div>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
+                    <h4 className="text-[11px] sm:text-xs font-bold text-[#0A1628] font-[family-name:var(--font-heading)] uppercase line-clamp-1">
                       {s.name}
                     </h4>
 
-                    <div className="text-xs sm:text-sm font-black text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                      {s.marks} <span className="text-[9px] text-white/50">/ 600</span>
+                    <div className="text-xs sm:text-sm font-black text-[#B8860B] font-[family-name:var(--font-heading)] mt-0.5">
+                      {s.marks} <span className="text-[9px] text-slate-500">/ 600</span>
                     </div>
 
-                    <span className="inline-block px-1.5 py-0.5 rounded bg-white/5 text-[8px] font-bold text-[#10B981] mt-0.5">
+                    <span className="inline-block px-1.5 py-0.5 rounded bg-emerald-50 text-[8px] font-bold text-emerald-700 border border-emerald-200 mt-0.5">
                       {s.percentage}
                     </span>
                   </div>
@@ -446,7 +446,7 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
               <div className="text-center pt-6">
                 <button
                   onClick={() => setVisibleCount((prev) => prev + 24)}
-                  className="px-8 py-3 rounded-xl bg-white/5 hover:bg-[#D4A853] hover:text-[#050D1A] border border-white/15 text-xs font-black uppercase tracking-wider transition-all cursor-pointer shadow-lg"
+                  className="px-8 py-3 rounded-xl bg-white hover:bg-[#D4A853] hover:text-[#0A1628] border border-slate-300 text-xs font-black uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Load More Scholars ({filteredScholars.length - visibleCount} remaining)
                 </button>
@@ -464,32 +464,32 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative rounded-3xl overflow-hidden bg-[#0A1628] border border-white/10 hover:border-[#D4A853]/50 transition-all shadow-xl"
+                className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-[#D4A853] transition-all shadow-md hover:shadow-xl"
               >
-                <div className="relative aspect-[16/10] w-full bg-[#050D1A]">
+                <div className="relative aspect-[16/10] w-full bg-slate-100">
                   <Image
                     src={c.image}
                     alt={c.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                   <div className="absolute top-4 left-4">
-                    <span className="px-2.5 py-1 rounded bg-[#D4A853] text-[#050D1A] text-[10px] font-black uppercase tracking-wider">
+                    <span className="px-2.5 py-1 rounded bg-[#D4A853] text-[#0A1628] text-[10px] font-black uppercase tracking-wider shadow">
                       {c.rank}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6 space-y-2 text-left">
-                  <span className="text-[10px] font-bold text-[#FBBF24] uppercase tracking-wider block">
+                  <span className="text-[10px] font-bold text-[#B8860B] uppercase tracking-wider block">
                     {c.level}
                   </span>
-                  <h3 className="text-lg font-black text-white font-[family-name:var(--font-heading)]">
+                  <h3 className="text-lg font-black text-[#0A1628] font-[family-name:var(--font-heading)]">
                     {c.title}
                   </h3>
-                  <p className="text-xs text-white/70 leading-relaxed font-medium">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {c.description}
                   </p>
                 </div>

@@ -25,18 +25,18 @@ const parentVoices = [
 
 export default function ParentTrustAndLeadership() {
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#050D1A] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#FDFBF7] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-20 sm:space-y-24">
         {/* Part A: Parent Trust - 3 Punchy Voice Cards */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <span className="text-[#D4A853] text-xs font-black tracking-[0.25em] uppercase block mb-3">
+            <span className="text-[#B8860B] text-xs font-black tracking-[0.25em] uppercase block mb-3">
               PARENT TESTIMONY
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white mb-2">
+            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] mb-2">
               TRUST BUILT OVER GENERATIONS.
             </h2>
-            <p className="text-white/70 text-xs sm:text-sm">
+            <p className="text-slate-600 text-xs sm:text-sm">
               Why families across Kadiri have entrusted their children to Sree Valmeeki for over 27 years.
             </p>
           </div>
@@ -49,20 +49,20 @@ export default function ParentTrustAndLeadership() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 sm:p-8 rounded-3xl bg-[#0A1628] border border-white/10 flex flex-col justify-between hover:border-[#D4A853]/40 transition-all shadow-xl"
+                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 flex flex-col justify-between hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl"
               >
                 <div className="space-y-4 mb-6">
-                  <Quote className="w-8 h-8 text-[#D4A853]/50" />
-                  <p className="text-sm sm:text-base font-medium text-white/90 italic leading-relaxed">
+                  <Quote className="w-8 h-8 text-[#D4A853]" />
+                  <p className="text-sm sm:text-base font-medium text-slate-700 italic leading-relaxed">
                     {item.quote}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10">
-                  <h3 className="text-sm font-bold text-white font-[family-name:var(--font-heading)]">
+                <div className="pt-4 border-t border-slate-100">
+                  <h3 className="text-sm font-bold text-[#0A1628] font-[family-name:var(--font-heading)]">
                     {item.parent}
                   </h3>
-                  <p className="text-xs text-[#D4A853] font-semibold">{item.child}</p>
+                  <p className="text-xs text-[#B8860B] font-semibold">{item.child}</p>
                 </div>
               </motion.div>
             ))}
@@ -70,57 +70,57 @@ export default function ParentTrustAndLeadership() {
         </div>
 
         {/* Part B: Leadership - Director Mr. P. Pavan Kumar Reddy */}
-        <div className="relative rounded-3xl bg-gradient-to-br from-[#0A1628] to-[#0F2044] border border-[#D4A853]/30 p-8 sm:p-12 lg:p-16 shadow-2xl overflow-hidden">
+        <div className="relative rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-12 lg:p-16 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Director Visual Portrait */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#D4A853]/40 bg-[#050D1A] shadow-2xl">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#D4A853]/40 bg-slate-100 shadow-xl">
                 <Image
                   src="/extracted/leadership/director_pavan_reddy_portrait.jpg"
                   alt="Dr. P.V Pavan Kumar Reddy - Director"
                   fill
-                  className="object-cover object-top brightness-105"
+                  className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-85" />
 
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block px-2.5 py-1 rounded bg-[#D4A853] text-[#050D1A] text-[10px] font-black uppercase tracking-wider mb-1">
+                  <span className="inline-block px-2.5 py-1 rounded bg-[#D4A853] text-[#0A1628] text-[10px] font-black uppercase tracking-wider mb-1">
                     Director & Leadership
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black text-white font-[family-name:var(--font-heading)]">
                     Dr. P.V Pavan Kumar Reddy
                   </h3>
-                  <p className="text-xs text-white/80">Director • A.P Private School Association Working President</p>
+                  <p className="text-xs text-white/90">Director • A.P Private School Association Working President</p>
                 </div>
               </div>
             </div>
 
             {/* Director 2-Line Punchy Statement & CTA */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#D4A853] text-[11px] font-black tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#B8860B] text-[11px] font-black tracking-widest uppercase">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>LEADERSHIP VISION</span>
               </div>
 
-              <h3 className="text-2xl sm:text-4xl font-black font-[family-name:var(--font-heading)] uppercase text-white leading-tight">
+              <h3 className="text-2xl sm:text-4xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] leading-tight">
                 A VISION FOCUSED ON EVERY CHILD.
               </h3>
 
-              <blockquote className="border-l-4 border-[#D4A853] pl-6 italic text-white/90 text-base sm:text-xl font-medium leading-relaxed font-[family-name:var(--font-heading)]">
+              <blockquote className="border-l-4 border-[#D4A853] pl-6 italic text-[#0A1628] text-base sm:text-xl font-medium leading-relaxed font-[family-name:var(--font-heading)]">
                 “Education should not only prepare children for examinations, but help them develop confidence, discipline, curiosity and character.”
               </blockquote>
 
-              <p className="text-white/60 text-xs sm:text-sm font-medium leading-relaxed max-w-xl">
+              <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
                 Guiding students from their earliest formative steps in Nursery all the way to state board distinction and future competitive readiness.
               </p>
 
               <div className="pt-2">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-[#D4A853] text-white hover:text-[#050D1A] font-bold text-xs sm:text-sm tracking-wider uppercase border border-white/20 transition-all cursor-pointer group"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0A1628] hover:bg-[#1E3A8A] text-white hover:text-white font-bold text-xs sm:text-sm tracking-wider uppercase border border-[#0A1628] transition-all cursor-pointer group shadow-md"
                 >
                   <span>Our Story & Philosophy</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#D4A853]" />
                 </Link>
               </div>
             </div>

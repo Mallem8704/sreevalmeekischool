@@ -19,6 +19,7 @@ import CultureOfExcellence from '@/components/home/CultureOfExcellence';
 import AcademicSystemStory from '@/components/home/AcademicSystemStory';
 import VisualLearningSequence from '@/components/home/VisualLearningSequence';
 import LegacyTimeline from '@/components/home/LegacyTimeline';
+import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
 import FacesOfValmeeki from '@/components/home/FacesOfValmeeki';
 import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
 import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
@@ -61,7 +62,7 @@ export default function HomePage() {
         initial={{ opacity: 0.95 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="min-h-screen bg-[#050D1A] text-white selection:bg-[#D4A853] selection:text-[#0A1628]"
+        className="min-h-screen bg-[#FDFBF7] text-[#0A1628] selection:bg-[#D4A853] selection:text-[#0A1628]"
       >
         <ScrollProgress />
         <Header />
@@ -97,7 +98,10 @@ export default function HomePage() {
           {/* 9. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
           <LegacyTimeline />
 
-          {/* 10. The Faces Behind The Results: Authentic Student Portraits */}
+          {/* 10. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
+          <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+
+          {/* 11. The Faces Behind The Results: Authentic Student Portraits */}
           <FacesOfValmeeki />
 
           {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}

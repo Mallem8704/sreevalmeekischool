@@ -85,12 +85,12 @@ export default function CampusPage() {
   const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#050D1A] text-white selection:bg-[#FBBF24] selection:text-[#0A1628]">
+    <main className="min-h-screen flex flex-col bg-[#FDFBF7] text-[#0A1628] selection:bg-[#D4A853] selection:text-[#0A1628]">
       <ScrollProgress />
       <Header />
 
       {/* Hero: High Visual Campus Presentation */}
-      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#0A1628]">
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE]">
         {/* Campus Photo Background */}
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -98,9 +98,9 @@ export default function CampusPage() {
             alt="Sree Valmeeki Campus"
             fill
             priority
-            className="object-cover opacity-35 scale-105"
+            className="object-cover opacity-15 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#0A1628]/80 to-[#0A1628]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] via-[#FDFBF7]/80 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
@@ -108,7 +108,7 @@ export default function CampusPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#FBBF24] text-xs font-black uppercase tracking-[0.2em] mb-4"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/35 text-[#B8860B] text-xs font-black uppercase tracking-[0.2em] mb-4 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Campus & World-Class Facilities</span>
@@ -118,10 +118,10 @@ export default function CampusPage() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] leading-tight text-white mb-4"
+            className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] leading-tight text-[#0A1628] mb-4"
           >
             A Space Designed for{' '}
-            <span className="bg-gradient-to-r from-[#FBBF24] via-[#E8C97D] to-[#D4A853] bg-clip-text text-transparent">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#C49A3C]">
               Growth & Discovery.
             </span>
           </motion.h1>
@@ -130,7 +130,7 @@ export default function CampusPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto font-medium mb-8"
+            className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-normal mb-8"
           >
             From modern science labs and digital smart boards to our vibrant sports arena — every inch of Sree Valmeeki inspires curiosity.
           </motion.p>
@@ -139,16 +139,16 @@ export default function CampusPage() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/admissions"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-black text-xs uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#0A1628] hover:bg-[#1E3A8A] text-[#D4A853] hover:text-white font-black text-xs uppercase tracking-wider shadow-md transition-all hover:scale-105 border border-[#0A1628]"
             >
               <span>Schedule a Campus Visit</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
             </Link>
             <a
               href="tel:+919440468838"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-sm transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-[#0A1628] font-bold text-xs uppercase tracking-wider border border-slate-200 shadow-sm transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#FBBF24]" />
+              <Phone className="w-3.5 h-3.5 text-[#B8860B]" />
               <span>Call Helpline</span>
             </a>
           </div>
@@ -156,18 +156,18 @@ export default function CampusPage() {
       </section>
 
       {/* Stats Counter Bar */}
-      <section className="bg-white/5 border-y border-white/10 py-8 backdrop-blur-md">
+      <section className="bg-white border-y border-slate-200/80 py-8 shadow-xs">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {campusStats.map((stat, i) => (
               <div key={i} className="text-center">
-                <span className="text-3xl sm:text-4xl font-black text-[#FBBF24] font-[family-name:var(--font-heading)] block mb-1">
+                <span className="text-3xl sm:text-4xl font-black text-[#B8860B] font-[family-name:var(--font-heading)] block mb-1">
                   {stat.value}
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-white block">
+                <span className="text-xs sm:text-sm font-bold text-[#0A1628] block">
                   {stat.label}
                 </span>
-                <span className="text-[11px] text-white/50 block mt-0.5">
+                <span className="text-[11px] text-slate-500 block mt-0.5">
                   {stat.sub}
                 </span>
               </div>
@@ -177,13 +177,13 @@ export default function CampusPage() {
       </section>
 
       {/* Facilities Grid: Photographic Cards */}
-      <section className="py-20 sm:py-28 bg-[#050D1A]">
+      <section className="py-20 sm:py-28 bg-[#F8FAFC]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-left">
-            <span className="text-[#FBBF24] text-xs font-black tracking-widest uppercase block mb-2">
+            <span className="text-[#B8860B] text-xs font-black tracking-widest uppercase block mb-2">
               CAMPUS HIGHLIGHTS
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] leading-tight">
               Where Technology Meets Character.
             </h2>
           </div>
@@ -196,11 +196,11 @@ export default function CampusPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-all duration-300 flex flex-col justify-between shadow-xl"
+                className="group bg-white border border-slate-200/80 rounded-3xl overflow-hidden hover:border-[#D4A853]/60 transition-all duration-300 flex flex-col justify-between shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl"
               >
                 <div>
                   {/* Photo Container */}
-                  <div className="relative h-56 w-full overflow-hidden">
+                  <div className="relative h-56 w-full overflow-hidden bg-slate-100">
                     <Image
                       src={facility.image}
                       alt={facility.title}
@@ -208,25 +208,25 @@ export default function CampusPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent" />
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-black uppercase tracking-wider text-[#FBBF24] border border-white/15">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#D4A853] text-[#0A1628] text-[10px] font-black uppercase tracking-wider shadow-sm">
                       {facility.category}
                     </span>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-black font-[family-name:var(--font-heading)] text-white mb-2 group-hover:text-[#FBBF24] transition-colors">
+                  <div className="p-6 bg-white">
+                    <h3 className="text-xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] mb-2 group-hover:text-[#B8860B] transition-colors">
                       {facility.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-5">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5 font-normal">
                       {facility.tagline}
                     </p>
 
-                    <ul className="space-y-2 pt-2 border-t border-white/10">
+                    <ul className="space-y-2 pt-2 border-t border-slate-100">
                       {facility.highlights.map((h, i) => (
-                        <li key={i} className="flex items-center gap-2 text-xs text-white/90 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#FBBF24] shrink-0" />
+                        <li key={i} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -234,10 +234,10 @@ export default function CampusPage() {
                   </div>
                 </div>
 
-                <div className="p-6 pt-0">
+                <div className="p-6 pt-0 bg-white">
                   <Link
                     href="/admissions"
-                    className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-white/5 hover:bg-[#FBBF24] text-white/80 hover:text-[#0A1628] font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-transparent transition-all"
+                    className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-50 hover:bg-[#0A1628] text-slate-700 hover:text-[#D4A853] font-bold text-xs uppercase tracking-wider border border-slate-200 hover:border-[#0A1628] transition-all"
                   >
                     <span>Tour this Facility</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -250,22 +250,22 @@ export default function CampusPage() {
       </section>
 
       {/* Climax Campus Banner */}
-      <section className="py-20 bg-gradient-to-b from-[#050D1A] to-[#0A1628] border-t border-white/10">
+      <section className="py-20 bg-[#FDFBF7] border-t border-slate-200/80">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <div className="bg-gradient-to-r from-[#0A1628] via-[#152D5E] to-[#0A1628] border border-[#FBBF24]/30 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
-            <span className="text-[#FBBF24] text-xs font-black uppercase tracking-[0.25em] block mb-3">
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
+            <span className="text-[#B8860B] text-xs font-black uppercase tracking-[0.25em] block mb-3">
               EXPERIENCE VALMEEKI IN PERSON
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-white mb-4">
+            <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] mb-4">
               Book Your Guided Campus Tour.
             </h2>
-            <p className="text-white/80 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-normal">
               See the classrooms, meet the faculty, and discover how 27 years of educational heritage can shape your child&apos;s journey.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/admissions"
-                className="px-8 py-3.5 rounded-full bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-[#0A1628] hover:bg-[#1E3A8A] text-[#D4A853] hover:text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform hover:scale-105 border border-[#0A1628]"
               >
                 Enroll Now for 2026–27
               </Link>
@@ -273,7 +273,7 @@ export default function CampusPage() {
                 href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20book%20a%20Campus%20Tour"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform hover:scale-105"
               >
                 Book via WhatsApp
               </a>

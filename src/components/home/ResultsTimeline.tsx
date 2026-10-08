@@ -142,19 +142,19 @@ export default function ResultsTimeline() {
   const years = ['2026', '2025', '2024', '2023', '2022'];
 
   return (
-    <section className="relative w-full py-20 sm:py-28 bg-[#050D1A] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 bg-[#F8FAFC] text-[#0A1628] border-t border-slate-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#D4A853] text-[11px] font-black tracking-widest uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 text-[#B8860B] text-[11px] font-black tracking-widest uppercase mb-3">
             <Calendar className="w-3.5 h-3.5" />
             <span>ARCHIVE OF EXCELLENCE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] mb-4">
             RESULTS THROUGH THE YEARS
           </h2>
-          <p className="text-white/70 text-xs sm:text-sm">
+          <p className="text-slate-600 text-xs sm:text-sm">
             Select any year to view verified batch highlights, centum scores, and academic milestones.
           </p>
 
@@ -166,8 +166,8 @@ export default function ResultsTimeline() {
                 onClick={() => setSelectedYear(y)}
                 className={`px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
                   selectedYear === y
-                    ? 'bg-[#D4A853] text-[#050D1A] shadow-lg shadow-[#D4A853]/25 scale-105'
-                    : 'bg-[#0A1628] hover:bg-white/10 text-white/70 hover:text-white border border-white/10'
+                    ? 'bg-[#0A1628] text-[#D4A853] shadow-md shadow-[#0A1628]/10 scale-105 border border-[#0A1628]'
+                    : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-[#0A1628] border border-slate-200 shadow-sm'
                 }`}
               >
                 {y}
@@ -184,22 +184,22 @@ export default function ResultsTimeline() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            className="bg-[#0A1628] border border-[#D4A853]/30 rounded-3xl p-6 sm:p-10 shadow-2xl"
+            className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06)]"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Column: Top Student of Selected Year */}
               <div className="lg:col-span-5 relative">
-                <div className="relative aspect-[4/3] sm:aspect-square rounded-2xl overflow-hidden border border-white/15 bg-[#0F2044]">
+                <div className="relative aspect-[4/3] sm:aspect-square rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
                   <Image
                     src={record.topStudent.image}
                     alt={record.topStudent.name}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
 
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-2.5 py-0.5 rounded bg-[#D4A853] text-[#050D1A] text-[10px] font-black uppercase tracking-wider mb-1.5">
+                    <span className="inline-block px-2.5 py-0.5 rounded bg-[#D4A853] text-[#0A1628] text-[10px] font-black uppercase tracking-wider mb-1.5">
                       {record.topStudent.rank}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white font-[family-name:var(--font-heading)]">
@@ -216,34 +216,34 @@ export default function ResultsTimeline() {
               <div className="lg:col-span-7 space-y-6 text-left">
                 {/* Batch Tag */}
                 <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded bg-white/10 text-[#D4A853] text-xs font-black tracking-widest uppercase">
+                  <span className="px-3 py-1 rounded bg-slate-100 border border-slate-200 text-[#0A1628] text-xs font-black tracking-widest uppercase">
                     {record.year} • {record.batchTag}
                   </span>
                 </div>
 
                 {/* 3 Key Batch Metric Stats */}
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
-                    <span className="block text-2xl sm:text-3xl font-black text-white font-[family-name:var(--font-heading)]">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
+                    <span className="block text-2xl sm:text-3xl font-black text-[#0A1628] font-[family-name:var(--font-heading)]">
                       {record.metrics.passRate}
                     </span>
-                    <span className="block text-[10px] uppercase font-bold text-white/60 tracking-wider">
+                    <span className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">
                       Pass Rate
                     </span>
                   </div>
-                  <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
-                    <span className="block text-2xl sm:text-3xl font-black text-[#D4A853] font-[family-name:var(--font-heading)]">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
+                    <span className="block text-2xl sm:text-3xl font-black text-[#B8860B] font-[family-name:var(--font-heading)]">
                       {record.metrics.distinctions}
                     </span>
-                    <span className="block text-[10px] uppercase font-bold text-white/60 tracking-wider">
+                    <span className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">
                       Distinction Rate
                     </span>
                   </div>
-                  <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 text-center">
-                    <span className="block text-2xl sm:text-3xl font-black text-white font-[family-name:var(--font-heading)]">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
+                    <span className="block text-2xl sm:text-3xl font-black text-[#0A1628] font-[family-name:var(--font-heading)]">
                       {record.metrics.perfectCentums}
                     </span>
-                    <span className="block text-[10px] uppercase font-bold text-white/60 tracking-wider">
+                    <span className="block text-[10px] uppercase font-bold text-slate-500 tracking-wider">
                       Centums / Top Ranks
                     </span>
                   </div>
@@ -251,16 +251,16 @@ export default function ResultsTimeline() {
 
                 {/* Subject Toppers Table */}
                 <div className="space-y-2">
-                  <span className="block text-xs uppercase font-bold tracking-widest text-[#D4A853]">
+                  <span className="block text-xs uppercase font-bold tracking-widest text-[#B8860B]">
                     Subject-Wise High Benchmarks
                   </span>
-                  <div className="divide-y divide-white/10 rounded-xl bg-white/[0.02] border border-white/10 overflow-hidden">
+                  <div className="divide-y divide-slate-100 rounded-xl bg-slate-50/60 border border-slate-200/80 overflow-hidden">
                     {record.subjectToppers.map((st) => (
                       <div key={st.subject} className="p-3 sm:p-3.5 flex items-center justify-between text-xs sm:text-sm">
-                        <span className="font-semibold text-white/90">{st.subject}</span>
+                        <span className="font-semibold text-[#0A1628]">{st.subject}</span>
                         <div className="flex items-center gap-3">
-                          <span className="text-white/60 text-xs hidden sm:inline">{st.students}</span>
-                          <span className="font-black text-[#FBBF24] px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                          <span className="text-slate-500 text-xs hidden sm:inline">{st.students}</span>
+                          <span className="font-black text-[#0A1628] px-2 py-0.5 rounded bg-white border border-slate-200 shadow-xs">
                             {st.score}
                           </span>
                         </div>
@@ -270,7 +270,7 @@ export default function ResultsTimeline() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-white/70 text-xs sm:text-sm">
+                <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-slate-600 text-xs sm:text-sm">
                   {record.topStudent.quote}
                 </blockquote>
               </div>
