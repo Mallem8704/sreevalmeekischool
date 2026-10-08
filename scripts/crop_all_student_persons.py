@@ -22,32 +22,30 @@ print("Extracting pure person portraits from Poster 2...")
 im2 = cv2.imread(img2_path)
 
 # D. Janani (Town 1st, 595/600)
-janani_person = im2[2275:2960, 575:1060]
-cv2.imwrite(os.path.join(stars_dir, "janani_pure_person.jpg"), janani_person, [cv2.IMWRITE_JPEG_QUALITY, 95])
-cv2.imwrite(os.path.join(stars_dir, "janani_face.jpg"), janani_person, [cv2.IMWRITE_JPEG_QUALITY, 95])
+janani_person = im2[2270:2970, 370:1060]
+cv2.imwrite(os.path.join(stars_dir, "janani_pure_person.jpg"), janani_person, [cv2.IMWRITE_JPEG_QUALITY, 96])
+cv2.imwrite(os.path.join(stars_dir, "janani_face.jpg"), janani_person, [cv2.IMWRITE_JPEG_QUALITY, 96])
 
 # B. Mounika Bai (Town 2nd, 594/600)
-mounika_person = im2[2275:2960, 2650:3135]
-cv2.imwrite(os.path.join(stars_dir, "mounika_pure_person.jpg"), mounika_person, [cv2.IMWRITE_JPEG_QUALITY, 95])
-cv2.imwrite(os.path.join(stars_dir, "mounika_face.jpg"), mounika_person, [cv2.IMWRITE_JPEG_QUALITY, 95])
+mounika_person = im2[2270:2970, 2260:2960]
+cv2.imwrite(os.path.join(stars_dir, "mounika_pure_person.jpg"), mounika_person, [cv2.IMWRITE_JPEG_QUALITY, 96])
+cv2.imwrite(os.path.join(stars_dir, "mounika_face.jpg"), mounika_person, [cv2.IMWRITE_JPEG_QUALITY, 96])
 
-# 5 Star Achievers in Row (591/600 - 590/600)
+# 5 Star Achievers in Row (591/600 - 590/600) - exact coordinates matching reference card
 row5 = [
-    {"name": "shafiya", "x1": 210, "x2": 1020},
-    {"name": "karthika", "x1": 1030, "x2": 1840},
-    {"name": "rumman", "x1": 1850, "x2": 2650},
-    {"name": "sai_harsha", "x1": 2660, "x2": 3460},
-    {"name": "bhanu_prakash", "x1": 3470, "x2": 4270},
+    {"name": "shafiya", "x1": 184, "x2": 819},
+    {"name": "karthika", "x1": 947, "x2": 1582},
+    {"name": "rumman", "x1": 1723, "x2": 2358},
+    {"name": "sai_harsha", "x1": 2500, "x2": 3135},
+    {"name": "bhanu_prakash", "x1": 3275, "x2": 3910},
 ]
 
 for item in row5:
-    card = im2[3350:4320, item["x1"]:item["x2"]]
-    # The pure student photo inside the card
-    person = card[40:570, 80:730]
+    person = im2[3068:3705, item["x1"]:item["x2"]]
     out_path = os.path.join(stars_dir, item["name"] + "_pure_person.jpg")
     out_face = os.path.join(stars_dir, item["name"] + "_face.jpg")
-    cv2.imwrite(out_path, person, [cv2.IMWRITE_JPEG_QUALITY, 95])
-    cv2.imwrite(out_face, person, [cv2.IMWRITE_JPEG_QUALITY, 95])
+    cv2.imwrite(out_path, person, [cv2.IMWRITE_JPEG_QUALITY, 96])
+    cv2.imwrite(out_face, person, [cv2.IMWRITE_JPEG_QUALITY, 96])
 
 print("Star achievers pure person portraits saved!")
 
