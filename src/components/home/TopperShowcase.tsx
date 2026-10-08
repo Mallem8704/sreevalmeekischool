@@ -29,7 +29,7 @@ const toppers: TopperProfile[] = [
     rankBadge: 'Town 1st Rank',
     board: 'SSC Board • Andhra Pradesh',
     subjects: '100 in Maths • 100 in Physical Science • 99 in Social • 99 in English',
-    image: '/extracted/star_achievers/janani_card.jpg',
+    image: '/extracted/star_achievers/janani_pure_person.jpg',
     quote: '“Valmeeki taught us to understand every concept deeply rather than memorizing. That made scoring 595/600 a natural result.”',
   },
   {

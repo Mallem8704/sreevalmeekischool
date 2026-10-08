@@ -106,14 +106,14 @@ export default function PremiumStudentCardModal({
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
               {/* Photo Display (Original Extracted Card or Portrait) */}
               <div className="sm:col-span-5 flex justify-center">
-                <div className="relative w-48 sm:w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853] bg-slate-50 dark:bg-slate-900 shadow-xl group">
+                <div className="relative w-48 sm:w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853] bg-gradient-to-b from-slate-100 to-slate-200 dark:from-white/10 dark:to-white/5 shadow-xl group">
                   <Image
-                    src={student.cardImage || student.portraitImage || '/images/school/school-event-7.jpg'}
+                    src={student.portraitImage || student.cardImage || '/images/school/school-event-7.jpg'}
                     alt={student.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute top-2 left-2">
                     <span className="px-2 py-0.5 rounded bg-[#D4A853] text-[#0A1628] text-[9px] font-black uppercase tracking-wider shadow">
                       Verified

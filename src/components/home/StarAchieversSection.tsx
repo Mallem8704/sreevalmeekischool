@@ -23,6 +23,7 @@ import {
   HallOfFameStudent,
 } from '@/lib/hallOfFameData';
 import PremiumStudentCardModal from './PremiumStudentCardModal';
+import StudentHonorCard from '@/components/achievements/StudentHonorCard';
 
 interface StarAchieversSectionProps {
   onOpenAdmissions?: () => void;
@@ -211,58 +212,13 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
             {/* Top 2 Heroes: Town 1st & Town 2nd */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {starAchievers.slice(0, 2).map((s) => (
-                <motion.div
+                <StudentHonorCard
                   key={s.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  onClick={() => setSelectedStudent(s)}
-                  className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border-2 border-[#D4A853] hover:border-[#B8860B] dark:hover:border-[#FBBF24] transition-all cursor-pointer shadow-xl p-6 sm:p-8 text-[#0A1628] dark:text-white"
-                >
-                  <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-white/10 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-[#D4A853] text-[#0A1628] text-xs font-black uppercase tracking-wider shadow">
-                      {s.rankBadge}
-                    </span>
-                    <span className="text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] group-hover:underline">
-                      Click To Open Full Card →
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-                    <div className="sm:col-span-5 relative aspect-[3/4] rounded-2xl overflow-hidden border border-[#D4A853]/60 bg-slate-100 dark:bg-white/5 group-hover:scale-105 transition-transform duration-500 shadow-md">
-                      <Image
-                        src={s.portraitImage || s.cardImage}
-                        alt={s.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-
-                    <div className="sm:col-span-7 space-y-3 text-left">
-                      <h3 className="text-2xl sm:text-3xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase">
-                        {s.name}
-                      </h3>
-
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl sm:text-5xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-[#0A1628] to-[#B8860B] dark:from-white dark:to-[#FBBF24]">
-                          {s.marks}
-                        </span>
-                        <span className="text-lg text-slate-500 dark:text-slate-400 font-bold">/ {s.maxMarks}</span>
-                        <span className="ml-auto px-2 py-0.5 rounded bg-[#10B981]/15 dark:bg-[#10B981]/25 text-[#059669] dark:text-[#34D399] text-xs font-black">
-                          {s.percentage}
-                        </span>
-                      </div>
-
-                      <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
-                        {s.honorDetails}
-                      </p>
-
-                      <div className="pt-2 text-[11px] text-[#B8860B] dark:text-[#FBBF24] font-bold">
-                        {s.subjects}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                  student={s}
+                  onClick={setSelectedStudent}
+                  featured
+                  priority
+                />
               ))}
             </div>
 
@@ -274,35 +230,11 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
 
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {starAchievers.slice(2).map((s) => (
-                  <motion.div
+                  <StudentHonorCard
                     key={s.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    onClick={() => setSelectedStudent(s)}
-                    className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-[#D4A853] dark:hover:border-[#D4A853] transition-all cursor-pointer shadow-md hover:shadow-xl p-3 text-center"
-                  >
-                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
-                      <Image
-                        src={s.cardImage}
-                        alt={s.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-
-                    <h4 className="text-xs sm:text-sm font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
-                      {s.name}
-                    </h4>
-
-                    <div className="text-sm sm:text-base font-black text-[#B8860B] dark:text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                      {s.marks} <span className="text-[10px] text-slate-500 dark:text-slate-400">/ 600</span>
-                    </div>
-
-                    <span className="inline-block px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-[9px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50 mt-1">
-                      {s.percentage}
-                    </span>
-                  </motion.div>
+                    student={s}
+                    onClick={setSelectedStudent}
+                  />
                 ))}
               </div>
             </div>
@@ -313,35 +245,11 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
         {activeTab === 'TOP_SCORERS' && (
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4">
             {topTierStudents.map((s) => (
-              <motion.div
+              <StudentHonorCard
                 key={s.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                onClick={() => setSelectedStudent(s)}
-                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-[#D4A853] dark:hover:border-[#D4A853] transition-all cursor-pointer shadow-md hover:shadow-xl p-3 text-center"
-              >
-                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3 border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
-                  <Image
-                    src={s.cardImage}
-                    alt={s.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                <h4 className="text-xs sm:text-sm font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
-                  {s.name}
-                </h4>
-
-                <div className="text-sm sm:text-base font-black text-[#B8860B] dark:text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                  {s.marks} <span className="text-[10px] text-slate-500 dark:text-slate-400">/ 600</span>
-                </div>
-
-                <span className="inline-block px-2 py-0.5 rounded bg-[#D4A853]/15 dark:bg-[#D4A853]/20 text-[9px] font-bold text-[#B8860B] dark:text-[#FBBF24] mt-1 border border-[#D4A853]/30 dark:border-[#D4A853]/40">
-                  {s.percentage}
-                </span>
-              </motion.div>
+                student={s}
+                onClick={setSelectedStudent}
+              />
             ))}
           </div>
         )}
@@ -406,38 +314,11 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
             {/* Grid of Student Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
               {filteredScholars.slice(0, visibleCount).map((s) => (
-                <motion.div
+                <StudentHonorCard
                   key={s.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  onClick={() => setSelectedStudent(s)}
-                  className="group relative rounded-xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-[#D4A853] dark:hover:border-[#D4A853] transition-all cursor-pointer shadow-sm hover:shadow-lg p-2.5 text-center flex flex-col justify-between"
-                >
-                  <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden mb-2 border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
-                    <Image
-                      src={s.cardImage}
-                      alt={s.name}
-                      fill
-                      sizes="(max-width: 640px) 150px, 200px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  <div>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase line-clamp-1">
-                      {s.name}
-                    </h4>
-
-                    <div className="text-xs sm:text-sm font-black text-[#B8860B] dark:text-[#FBBF24] font-[family-name:var(--font-heading)] mt-0.5">
-                      {s.marks} <span className="text-[9px] text-slate-500 dark:text-slate-400">/ 600</span>
-                    </div>
-
-                    <span className="inline-block px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-[8px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50 mt-0.5">
-                      {s.percentage}
-                    </span>
-                  </div>
-                </motion.div>
+                  student={s}
+                  onClick={setSelectedStudent}
+                />
               ))}
             </div>
 
