@@ -24,6 +24,7 @@ import FacesOfValmeeki from '@/components/home/FacesOfValmeeki';
 import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
 import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
 import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
+import ExploreValmeekiSection from '@/components/home/campus/ExploreValmeekiSection';
 import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
 import AdmissionModal from '@/components/home/AdmissionModal';
 
@@ -98,22 +99,25 @@ export default function HomePage() {
           {/* 9. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
           <LegacyTimeline />
 
-          {/* 10. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
+          {/* 10. NEW SIGNATURE SECTION: EXPLORE SREE VALMEEKI (Digital Campus Tour Experience) */}
+          <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+
+          {/* 11. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
           <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 11. The Faces Behind The Results: Authentic Student Portraits */}
+          {/* 12. The Faces Behind The Results: Authentic Student Portraits */}
           <FacesOfValmeeki />
 
-          {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
+          {/* 13. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
           <OneDayAtValmeeki />
 
-          {/* 12. Moments That Make Valmeeki: Real School Gallery Preview & Lightbox */}
+          {/* 14. Moments That Make Valmeeki: Real School Gallery Highlights */}
           <MomentsGalleryPreview />
 
-          {/* 13. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
+          {/* 15. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
           <ParentTrustAndLeadership />
 
-          {/* 14. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
+          {/* 16. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
           <AdmissionsClosingHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
         </main>
 
