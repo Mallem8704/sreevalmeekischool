@@ -173,7 +173,52 @@ export default function ContactPage() {
 
       {/* Main Grid: Form + Interactive Map */}
       <section className="py-20 sm:py-28 bg-[#FDFBF7] dark:bg-[#050D1A] transition-colors duration-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Correspondent's Administrative Office Strip */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0A1628] border-2 border-[#D4A853]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#D4A853] shadow-md shrink-0 bg-[#0F2044]">
+                <Image
+                  src="/images/leadership/sri_p_anil_kumar_reddy_correspondent_square.jpg"
+                  alt="Sri P. Anil Kumar Reddy - Correspondent"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-1 text-left">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24]">
+                  ADMINISTRATIVE SECRETARIAT • LEADERSHIP
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white uppercase">
+                  Sri P. Anil Kumar Reddy
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-bold">
+                  Correspondent, Sree Valmeeki High School
+                </p>
+                <p className="text-xs text-slate-600 dark:text-slate-300 italic hidden sm:block pt-1">
+                  “We welcome parents to visit our campus and experience the warmth, discipline, and dedication that defines Sree Valmeeki.”
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto shrink-0">
+              <a
+                href="tel:+919440468838"
+                className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0A1628] hover:bg-[#1E3A8A] dark:bg-[#D4A853] dark:hover:bg-[#E8C97D] text-white dark:text-[#0A1628] text-xs font-black uppercase tracking-wider shadow-md transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call: +91 94404 68838</span>
+              </a>
+              <Link
+                href="/about#correspondent-profile"
+                className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-[#0A1628] dark:text-white text-xs font-bold uppercase tracking-wider border border-slate-200 dark:border-white/15 transition-all"
+              >
+                <span>View Profile</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Quick Form */}
             <div className="lg:col-span-6 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-xl dark:shadow-2xl transition-colors duration-200">

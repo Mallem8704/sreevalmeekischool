@@ -198,6 +198,13 @@ export interface PersonProfile {
 
 export const peopleOfValmeeki: PersonProfile[] = [
   {
+    name: 'Sri P. Jaya Rami Reddy',
+    role: 'Founder & Chairman, Sree Valmeeki School',
+    quote:
+      'The sacred motto of our institution is to provide quality education with a basic fee structure, ensuring financial background never limits any child.',
+    image: '/images/founder/sri_p_jaya_rami_reddy_founder.png',
+  },
+  {
     name: 'Mr. Pavan Kumar Reddy',
     role: 'Director, Sree Valmeeki High School',
     quote:
@@ -205,18 +212,11 @@ export const peopleOfValmeeki: PersonProfile[] = [
     image: '/images/leadership/mr_pavan_kumar_reddy_director_square.png',
   },
   {
-    name: 'Mrs. S. Lakshmi Devi',
-    role: 'Head of Academics & IIT Foundation',
+    name: 'Sri P. Anil Kumar Reddy',
+    role: 'Correspondent, Sree Valmeeki High School',
     quote:
-      'We do not simply teach for examinations; we train young minds to reason logically, question fearlessly, and solve problems independently.',
-    image: '/images/school/school-event-1.jpg',
-  },
-  {
-    name: 'K. Venkat Rao',
-    role: 'Parent of Class 10 Distinction Student',
-    quote:
-      'Valmeeki gave our daughter not just top marks, but unmatched stage speaking confidence and moral character that will guide her life.',
-    image: '/images/school/school-event-8.jpg',
+      'True institutional excellence is built on trust, impeccable discipline, and unwavering care for every child who walks through our gates.',
+    image: '/images/leadership/sri_p_anil_kumar_reddy_correspondent_square.jpg',
   },
 ];
 

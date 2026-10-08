@@ -20,6 +20,7 @@ import {
   GraduationCap,
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface FounderAndSchoolStoryProps {
   onOpenAdmissions?: () => void;
@@ -242,18 +243,61 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
             </div>
 
             {/* Leadership Trinity Plaque */}
-            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 grid grid-cols-3 gap-3 text-center">
-              <div>
-                <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase">Sri P. Jaya Rami Reddy</span>
-                <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase">Founder & Chairman</span>
-              </div>
-              <div>
-                <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase">Mr. Pavan Kumar Reddy</span>
-                <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase">Director</span>
-              </div>
-              <div>
-                <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase">Sri P. Anil Kumar Reddy</span>
-                <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase">Correspondent</span>
+            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
+              <span className="block text-center text-[10px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] mb-4">
+                THE THREE PILLARS OF SREE VALMEEKI
+              </span>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="flex flex-col items-center">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-[#D4A853] mb-2 shadow-md">
+                    <Image
+                      src="/images/founder/sri_p_jaya_rami_reddy_founder.png"
+                      alt="Sri P. Jaya Rami Reddy"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase leading-tight">
+                    Sri P. Jaya Rami Reddy
+                  </span>
+                  <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase mt-0.5">
+                    Founder & Chairman
+                  </span>
+                </div>
+
+                <Link href="#director-profile" className="flex flex-col items-center group">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-[#D4A853] mb-2 shadow-md group-hover:scale-105 transition-transform">
+                    <Image
+                      src="/images/leadership/mr_pavan_kumar_reddy_director_square.png"
+                      alt="Mr. Pavan Kumar Reddy"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase leading-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+                    Mr. Pavan Kumar Reddy
+                  </span>
+                  <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase mt-0.5">
+                    Director
+                  </span>
+                </Link>
+
+                <Link href="#correspondent-profile" className="flex flex-col items-center group">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-[#D4A853] mb-2 shadow-md group-hover:scale-105 transition-transform">
+                    <Image
+                      src="/images/leadership/sri_p_anil_kumar_reddy_correspondent_square.jpg"
+                      alt="Sri P. Anil Kumar Reddy"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <span className="block text-xs font-black text-[#0A1628] dark:text-white uppercase leading-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+                    Sri P. Anil Kumar Reddy
+                  </span>
+                  <span className="block text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase mt-0.5">
+                    Correspondent
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
