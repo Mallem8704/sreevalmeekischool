@@ -25,8 +25,6 @@ import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
-import DirectorFrame from '@/components/leadership/DirectorFrame';
-import CorrespondentFrame from '@/components/leadership/CorrespondentFrame';
 
 const stats = [
   { value: '28', label: 'Years of Heritage', sub: 'Estd. 6th June 1999' },
@@ -84,8 +82,6 @@ const leadershipQuotes = [
 ];
 
 export default function AboutPage() {
-  const [activeLeader, setActiveLeader] = useState<'DIRECTOR' | 'CORRESPONDENT'>('DIRECTOR');
-
   return (
     <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
@@ -331,73 +327,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* EXECUTIVE LEADERSHIP SHOWCASE - DIRECTOR & CORRESPONDENT */}
-        <section className="py-20 sm:py-24 bg-white dark:bg-[#050D1A] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-              <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-black block mb-2">
-                EXECUTIVE LEADERSHIP & GOVERNANCE
-              </span>
-              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-5xl font-black text-[#0A1628] dark:text-white">
-                Leadership With Vision & Care
-              </h2>
-              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-2">
-                Guiding our students, mentoring teachers, and partnering with parents to build a bright and confident future.
-              </p>
 
-              {/* Leadership Switcher Tabs */}
-              <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 shadow-inner">
-                <button
-                  type="button"
-                  onClick={() => setActiveLeader('DIRECTOR')}
-                  className={`flex items-center gap-2.5 px-4 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    activeLeader === 'DIRECTOR'
-                      ? 'bg-[#0A1628] text-white dark:bg-[#D4A853] dark:text-[#0A1628] shadow-md'
-                      : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white'
-                  }`}
-                >
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden border border-current shrink-0">
-                    <Image
-                      src="/images/leadership/mr_pavan_kumar_reddy_director_square.png"
-                      alt="Director Mr. Pavan Kumar Reddy"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <span>Mr. Pavan Kumar Reddy • Director</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveLeader('CORRESPONDENT')}
-                  className={`flex items-center gap-2.5 px-4 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    activeLeader === 'CORRESPONDENT'
-                      ? 'bg-[#0A1628] text-white dark:bg-[#D4A853] dark:text-[#0A1628] shadow-md'
-                      : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white'
-                  }`}
-                >
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden border border-current shrink-0">
-                    <Image
-                      src="/images/leadership/sri_p_anil_kumar_reddy_correspondent_square.jpg"
-                      alt="Correspondent Sri P. Anil Kumar Reddy"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <span>Sri P. Anil Kumar Reddy • Correspondent</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="max-w-6xl mx-auto transition-all duration-300">
-              {activeLeader === 'DIRECTOR' ? (
-                <DirectorFrame />
-              ) : (
-                <CorrespondentFrame />
-              )}
-            </div>
-          </div>
-        </section>
 
         {/* FINAL HIGH-VISUAL CTA */}
         <section className="py-20 relative overflow-hidden bg-gradient-to-r from-[#0A1628] via-[#0F2044] to-[#0A1628] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] text-white transition-colors duration-200">
