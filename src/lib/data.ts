@@ -1,12 +1,17 @@
-export const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Academics', href: '/academics' },
-  { name: 'Campus Life', href: '/campus' },
-  { name: 'Results', href: '/achievements' },
-  { name: 'Admissions', href: '/admissions' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact', href: '/contact' },
+export interface NavLink {
+  name: string;
+  href: string;
+  id: string;
+}
+
+export const navLinks: NavLink[] = [
+  { name: 'Home', href: '/#home', id: 'home' },
+  { name: 'About', href: '/#about', id: 'about' },
+  { name: 'Academics', href: '/#academics', id: 'academics' },
+  { name: 'Results', href: '/#results', id: 'results' },
+  { name: 'Campus Life', href: '/#campus', id: 'campus' },
+  { name: 'Gallery', href: '/#gallery', id: 'gallery' },
+  { name: 'Contact', href: '/#contact', id: 'contact' },
 ];
 
 export interface Milestone {

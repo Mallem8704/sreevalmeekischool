@@ -11,10 +11,51 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  activeSection?: string;
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: MobileMenuProps) {
   const pathname = usePathname();
+
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      onClose();
+      setTimeout(() => {
+        if (id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.history.pushState(null, '', '/');
+          return;
+        }
+        const element = document.getElementById(id);
+        if (element) {
+          const headerOffset = 70;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+          window.history.pushState(null, '', `#${id}`);
+        }
+      }, 200);
+    } else {
+      onClose();
+    }
+  };
+
+  const isLinkActive = (link: { id: string; href: string }) => {
+    if (pathname === '/') {
+      return activeSection === link.id;
+    }
+    if (link.id === 'about' && (pathname.startsWith('/about') || pathname.startsWith('/leadership'))) return true;
+    if (link.id === 'academics' && pathname.startsWith('/academics')) return true;
+    if (link.id === 'results' && pathname.startsWith('/achievements')) return true;
+    if (link.id === 'campus' && pathname.startsWith('/campus')) return true;
+    if (link.id === 'gallery' && pathname.startsWith('/gallery')) return true;
+    if (link.id === 'contact' && (pathname.startsWith('/contact') || pathname.startsWith('/admissions'))) return true;
+    return false;
+  };
 
   return (
     <AnimatePresence>
@@ -78,10 +119,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {/* Navigation Links */}
             <nav className="flex-1 px-4 py-4 flex flex-col space-y-1">
               {navLinks.map((link, i) => {
-                const isActive =
-                  link.href === '/'
-                    ? pathname === '/'
-                    : pathname.startsWith(link.href);
+                const isActive = isLinkActive(link);
 
                 return (
                   <motion.div
@@ -92,8 +130,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   >
                     <Link
                       href={link.href}
-                      onClick={onClose}
-                      className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all ${
+                      onClick={(e) => handleMobileNavClick(e, link.id)}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all cursor-pointer ${
                         isActive
                           ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'
                           : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:text-black dark:hover:text-white'

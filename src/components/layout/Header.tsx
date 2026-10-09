@@ -13,18 +13,106 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAnnouncement, setShowAnnouncement] = useState(true);
+  const [activeSection, setActiveSection] = useState('home');
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Dynamic Active Section Scroll-Spy for Homepage
+      if (pathname === '/') {
+        // If near the top
+        if (window.scrollY < 200) {
+          setActiveSection('home');
+          return;
+        }
+
+        // If reached bottom of the page
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+          setActiveSection('contact');
+          return;
+        }
+
+        const sectionIds = ['home', 'about', 'academics', 'results', 'campus', 'gallery', 'contact'];
+        const scrollPosition = window.scrollY + 180; // Offset for header height and margin
+
+        for (let i = sectionIds.length - 1; i >= 0; i--) {
+          const id = sectionIds[i];
+          const element = document.getElementById(id);
+          if (element) {
+            const top = element.offsetTop;
+            if (scrollPosition >= top) {
+              setActiveSection(id);
+              break;
+            }
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
+
+  // Handle URL hash on initial load or route change
+  useEffect(() => {
+    if (pathname === '/' && typeof window !== 'undefined' && window.location.hash) {
+      const hashId = window.location.hash.replace('#', '');
+      const element = document.getElementById(hashId);
+      if (element) {
+        setTimeout(() => {
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+          setActiveSection(hashId);
+        }, 150);
+      }
+    }
+  }, [pathname]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      setActiveSection(id);
+      if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState(null, '', '/');
+        return;
+      }
+      const element = document.getElementById(id);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+        window.history.pushState(null, '', `#${id}`);
+      }
+    }
+  };
+
+  const isLinkActive = (link: { id: string; href: string }) => {
+    if (pathname === '/') {
+      return activeSection === link.id;
+    }
+    // Subpage matching
+    if (link.id === 'about' && (pathname.startsWith('/about') || pathname.startsWith('/leadership'))) return true;
+    if (link.id === 'academics' && pathname.startsWith('/academics')) return true;
+    if (link.id === 'results' && pathname.startsWith('/achievements')) return true;
+    if (link.id === 'campus' && pathname.startsWith('/campus')) return true;
+    if (link.id === 'gallery' && pathname.startsWith('/gallery')) return true;
+    if (link.id === 'contact' && (pathname.startsWith('/contact') || pathname.startsWith('/admissions'))) return true;
+    return false;
+  };
 
   return (
     <>
@@ -98,21 +186,19 @@ export default function Header() {
                 </div>
               </Link>
 
-              {/* Desktop Navigation Links with Pill Highlight */}
+              {/* Desktop Navigation Links with Active Scroll-Spy Pill Highlight */}
               <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
                 {navLinks.map((link) => {
-                  const isActive =
-                    link.href === '/'
-                      ? pathname === '/'
-                      : pathname.startsWith(link.href);
+                  const isActive = isLinkActive(link);
 
                   return (
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`text-sm font-semibold tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full ${
+                      onClick={(e) => handleNavClick(e, link.id)}
+                      className={`text-sm font-semibold tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full cursor-pointer ${
                         isActive
-                          ? 'bg-amber-100/90 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] border border-amber-300/80 dark:border-[#D4A853]/40 shadow-xs font-bold'
+                          ? 'bg-amber-100/90 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] border border-amber-300/80 dark:border-[#D4A853]/40 shadow-xs font-bold scale-[1.02]'
                           : 'text-slate-700 dark:text-slate-200 hover:text-[#0A1628] dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/10'
                       }`}
                     >
@@ -161,6 +247,7 @@ export default function Header() {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        activeSection={activeSection}
       />
     </>
   );

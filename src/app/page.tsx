@@ -10,18 +10,17 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 
 // Visual-First Digital Hall of Excellence Homepage Components
 import DualHeroSection from '@/components/home/DualHeroSection';
-import StarAchieversSection from '@/components/home/StarAchieversSection';
-import TopperShowcase from '@/components/home/TopperShowcase';
-import BigStatStory from '@/components/home/BigStatStory';
-import ResultsTimeline from '@/components/home/ResultsTimeline';
-import CultureOfExcellence from '@/components/home/CultureOfExcellence';
-import AcademicSystemStory from '@/components/home/AcademicSystemStory';
-import VisualLearningSequence from '@/components/home/VisualLearningSequence';
 import LegacyTimeline from '@/components/home/LegacyTimeline';
 import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
-import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
-import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
+import AcademicSystemStory from '@/components/home/AcademicSystemStory';
+import VisualLearningSequence from '@/components/home/VisualLearningSequence';
+import StarAchieversSection from '@/components/home/StarAchieversSection';
+import TopperShowcase from '@/components/home/TopperShowcase';
+import ResultsTimeline from '@/components/home/ResultsTimeline';
 import ExploreValmeekiSection from '@/components/home/campus/ExploreValmeekiSection';
+import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
+import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
+import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
 import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
 import AdmissionModal from '@/components/home/AdmissionModal';
 
@@ -66,47 +65,77 @@ export default function HomePage() {
         <Header />
 
         <main>
-          {/* 1. Slidable Dual Hero Experience: Slide 1 (Campus Film) & Slide 2 (Proven Results) */}
-          <DualHeroSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          {/* =========================================================================
+              1. HOME: Slidable Dual Hero Experience (Film & Proven Results)
+          ========================================================================= */}
+          <section id="home" className="scroll-mt-24">
+            <DualHeroSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          </section>
 
-          {/* 2. Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
-          <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          {/* =========================================================================
+              2. ABOUT: 28-Year Heritage & Executive Leadership Frame
+          ========================================================================= */}
+          <section id="about" className="scroll-mt-24">
+            {/* School Legacy & Then vs Now Comparison: 1999 to 2026 */}
+            <LegacyTimeline />
 
-          {/* 3. Signature Section: 3 Years of Consistent Results (Horizontal Desktop / Mobile Stack) */}
-          <TopperShowcase />
+            {/* The Visionary Founder, Director & Correspondent: Executive Leadership Frame */}
+            <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          </section>
 
-          {/* 3. Big Proof Typography: 27 Years • 1999 • 3 Years • Nursery to X */}
-          <BigStatStory />
+          {/* =========================================================================
+              3. ACADEMICS: Pedagogical Pillars & 5-Step Visual Learning Flow
+          ========================================================================= */}
+          <section id="academics" className="scroll-mt-24">
+            {/* The System Behind The Results: 6 Visual Panels */}
+            <AcademicSystemStory />
 
-          {/* 4. Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
-          <ResultsTimeline />
+            {/* Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
+            <VisualLearningSequence />
+          </section>
 
-          {/* 5. Cinematic Transition: "NOT ONE RESULT. NOT ONE YEAR. A CULTURE OF EXCELLENCE." */}
-          <CultureOfExcellence />
+          {/* =========================================================================
+              4. RESULTS: Star Achievers, Toppers & Historical Results Archive
+          ========================================================================= */}
+          <section id="results" className="scroll-mt-24">
+            {/* Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
+            <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 6. The System Behind The Results: 6 Visual Panels */}
-          <AcademicSystemStory />
+            {/* Signature Section: 3 Years of Consistent Results */}
+            <TopperShowcase />
 
-          {/* 7. Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
-          <VisualLearningSequence />
+            {/* Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
+            <ResultsTimeline />
+          </section>
 
-          {/* 8. School Legacy & Then vs Now Comparison: 1999 to 2026 (The About/History Section) */}
-          <LegacyTimeline />
+          {/* =========================================================================
+              5. CAMPUS LIFE: Signature Campus Tour & Daily Schedule
+          ========================================================================= */}
+          <section id="campus" className="scroll-mt-24">
+            {/* Signature Campus Experience: Explore Sree Valmeeki */}
+            <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 9. The Visionary Founder, Director & Correspondent: Executive Leadership Frame */}
-          <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+            {/* Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
+            <OneDayAtValmeeki />
+          </section>
 
-          {/* 10. SIGNATURE CAMPUS EXPERIENCE: EXPLORE SREE VALMEEKI (Zero Repeating Photos) */}
-          <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          {/* =========================================================================
+              6. GALLERY: Visual Archive of Valmeeki Moments
+          ========================================================================= */}
+          <section id="gallery" className="scroll-mt-24">
+            <MomentsGalleryPreview />
+          </section>
 
-          {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
-          <OneDayAtValmeeki />
+          {/* =========================================================================
+              7. CONTACT: Parent Trust & Admissions Closing Hero
+          ========================================================================= */}
+          <section id="contact" className="scroll-mt-24">
+            {/* Parent Trust & Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
+            <ParentTrustAndLeadership />
 
-          {/* 12. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
-          <ParentTrustAndLeadership />
-
-          {/* 13. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
-          <AdmissionsClosingHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+            {/* Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
+            <AdmissionsClosingHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          </section>
         </main>
 
         <Footer />
