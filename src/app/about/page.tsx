@@ -25,6 +25,7 @@ import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
+import AdmissionModal from '@/components/home/AdmissionModal';
 
 const stats = [
   { value: '28', label: 'Years of Heritage', sub: 'Estd. 6th June 1999' },
@@ -82,6 +83,8 @@ const leadershipQuotes = [
 ];
 
 export default function AboutPage() {
+  const [isAdmissionsModalOpen, setIsAdmissionsModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
@@ -139,6 +142,13 @@ export default function AboutPage() {
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
+                  href="#founder-story"
+                  className="inline-flex items-center gap-2 bg-[#0A1628] hover:bg-[#1E3A8A] dark:bg-white/10 dark:hover:bg-white/15 text-white font-bold px-6 py-3.5 rounded-xl border border-[#0A1628] dark:border-white/15 transition-all duration-300"
+                >
+                  <Users className="w-4 h-4 text-[#D4A853]" />
+                  <span>Executive Leadership</span>
+                </Link>
+                <Link
                   href="/campus"
                   className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/15 text-slate-800 dark:text-white font-bold px-6 py-3.5 rounded-xl border border-slate-300 dark:border-white/15 transition-all duration-300"
                 >
@@ -170,11 +180,6 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
-
-        {/* =========================================================================
-            FEATURED CENTERPIECE: FOUNDER EXECUTIVE FRAME & 28-YEAR STORY
-        ========================================================================= */}
-        <FounderAndSchoolStory />
 
         {/* MISSION & VISION DUAL VISUAL CARDS */}
         <section className="py-20 bg-white dark:bg-[#050D1A] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
@@ -327,7 +332,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-
+        {/* =========================================================================
+            EXECUTIVE LEADERSHIP FRAME (Directly After About Section)
+            Founder Sri Palavala Jaya Rami Reddy (Top)
+            Director Mr. Pavan Kumar Reddy (Bottom Left)
+            Correspondent Sri P. Anil Kumar Reddy (Bottom Right)
+        ========================================================================= */}
+        <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
         {/* FINAL HIGH-VISUAL CTA */}
         <section className="py-20 relative overflow-hidden bg-gradient-to-r from-[#0A1628] via-[#0F2044] to-[#0A1628] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] text-white transition-colors duration-200">
@@ -365,6 +376,12 @@ export default function AboutPage() {
 
       <Footer />
       <FloatingButtons />
+
+      {/* Global Admission Modal */}
+      <AdmissionModal
+        isOpen={isAdmissionsModalOpen}
+        onClose={() => setIsAdmissionsModalOpen(false)}
+      />
     </div>
   );
 }

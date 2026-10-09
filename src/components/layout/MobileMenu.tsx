@@ -105,6 +105,25 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </motion.div>
                 );
               })}
+
+              <motion.div
+                initial={{ opacity: 0, x: 15 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link
+                  href="/leadership"
+                  onClick={onClose}
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all ${
+                    pathname === '/leadership'
+                      ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'
+                      : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:text-black dark:hover:text-white'
+                  }`}
+                >
+                  <span className="text-base">Leadership</span>
+                  <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                </Link>
+              </motion.div>
             </nav>
 
             {/* Bottom Actions */}

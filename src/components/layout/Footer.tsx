@@ -98,13 +98,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               {[
-                { name: 'About School', href: '/#about' },
-                { name: 'Academic Curriculum', href: '/#academics' },
+                { name: 'About School', href: '/about' },
+                { name: 'Leadership & Governance', href: '/leadership' },
+                { name: 'Academic Curriculum', href: '/academics' },
                 { name: 'IIT Foundation Program', href: '/academics/iit-foundation' },
-                { name: 'Campus Facilities', href: '/#campus' },
+                { name: 'Campus Facilities', href: '/campus' },
                 { name: 'Photo Gallery', href: '/gallery' },
                 { name: 'Admissions 2026–27', href: '/admissions' },
-                { name: 'Online Enquiry', href: '/#enquiry' },
+                { name: 'Online Enquiry', href: '/admissions#enquiry' },
               ].map((item) => (
                 <li key={item.name}>
                   <Link 

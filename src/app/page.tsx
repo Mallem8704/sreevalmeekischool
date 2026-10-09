@@ -90,14 +90,14 @@ export default function HomePage() {
           {/* 7. Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
           <VisualLearningSequence />
 
-          {/* 8. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
+          {/* 8. School Legacy & Then vs Now Comparison: 1999 to 2026 (The About/History Section) */}
           <LegacyTimeline />
 
-          {/* 9. SIGNATURE CAMPUS EXPERIENCE: EXPLORE SREE VALMEEKI (Zero Repeating Photos) */}
-          <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
-
-          {/* 10. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
+          {/* 9. The Visionary Founder, Director & Correspondent: Executive Leadership Frame */}
           <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+
+          {/* 10. SIGNATURE CAMPUS EXPERIENCE: EXPLORE SREE VALMEEKI (Zero Repeating Photos) */}
+          <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
           {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
           <OneDayAtValmeeki />
