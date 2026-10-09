@@ -9,7 +9,7 @@ import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 
 // Visual-First Digital Hall of Excellence Homepage Components
-import AchievementHero from '@/components/home/AchievementHero';
+import DualHeroSection from '@/components/home/DualHeroSection';
 import StarAchieversSection from '@/components/home/StarAchieversSection';
 import TopperShowcase from '@/components/home/TopperShowcase';
 import BigStatStory from '@/components/home/BigStatStory';
@@ -66,8 +66,8 @@ export default function HomePage() {
         <Header />
 
         <main>
-          {/* 1. Achievement-Led Hero: "RESULTS THAT SPEAK FOR US." */}
-          <AchievementHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+          {/* 1. Slidable Dual Hero Experience: Slide 1 (Campus Film) & Slide 2 (Proven Results) */}
+          <DualHeroSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
           {/* 2. Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
           <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
