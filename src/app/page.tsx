@@ -13,16 +13,13 @@ import AchievementHero from '@/components/home/AchievementHero';
 import StarAchieversSection from '@/components/home/StarAchieversSection';
 import TopperShowcase from '@/components/home/TopperShowcase';
 import BigStatStory from '@/components/home/BigStatStory';
-import AchievementWall from '@/components/home/AchievementWall';
 import ResultsTimeline from '@/components/home/ResultsTimeline';
 import CultureOfExcellence from '@/components/home/CultureOfExcellence';
 import AcademicSystemStory from '@/components/home/AcademicSystemStory';
 import VisualLearningSequence from '@/components/home/VisualLearningSequence';
 import LegacyTimeline from '@/components/home/LegacyTimeline';
 import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
-import FacesOfValmeeki from '@/components/home/FacesOfValmeeki';
 import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
-import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
 import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
 import ExploreValmeekiSection from '@/components/home/campus/ExploreValmeekiSection';
 import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
@@ -81,43 +78,34 @@ export default function HomePage() {
           {/* 3. Big Proof Typography: 27 Years • 1999 • 3 Years • Nursery to X */}
           <BigStatStory />
 
-          {/* 4. Achievement Wall: Dynamic Editorial Mosaic with Lightbox Modal */}
-          <AchievementWall />
-
-          {/* 5. Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
+          {/* 4. Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
           <ResultsTimeline />
 
-          {/* 6. Cinematic Transition: "NOT ONE RESULT. NOT ONE YEAR. A CULTURE OF EXCELLENCE." */}
+          {/* 5. Cinematic Transition: "NOT ONE RESULT. NOT ONE YEAR. A CULTURE OF EXCELLENCE." */}
           <CultureOfExcellence />
 
-          {/* 7. The System Behind The Results: 6 Visual Panels */}
+          {/* 6. The System Behind The Results: 6 Visual Panels */}
           <AcademicSystemStory />
 
-          {/* 8. Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
+          {/* 7. Visual Learning Sequence: Understand -> Practice -> Explore -> Improve -> Achieve */}
           <VisualLearningSequence />
 
-          {/* 9. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
+          {/* 8. School Legacy & Then vs Now Comparison: 1999 to 2026 */}
           <LegacyTimeline />
 
-          {/* 10. NEW SIGNATURE SECTION: EXPLORE SREE VALMEEKI (Digital Campus Tour Experience) */}
+          {/* 9. SIGNATURE CAMPUS EXPERIENCE: EXPLORE SREE VALMEEKI (Zero Repeating Photos) */}
           <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 11. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
+          {/* 10. The Visionary Founder & 28-Year Saga: Sri P. Jaya Rami Reddy & Abhigna Foundation */}
           <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-          {/* 12. The Faces Behind The Results: Authentic Student Portraits */}
-          <FacesOfValmeeki />
-
-          {/* 13. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
+          {/* 11. Beyond The Result Sheet: One Day. A Thousand Moments (08:30 AM to 03:30 PM) */}
           <OneDayAtValmeeki />
 
-          {/* 14. Moments That Make Valmeeki: Real School Gallery Highlights */}
-          <MomentsGalleryPreview />
-
-          {/* 15. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
+          {/* 12. Parent Trust & Director Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
           <ParentTrustAndLeadership />
 
-          {/* 16. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
+          {/* 13. Admissions Hero Closing: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
           <AdmissionsClosingHero onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
         </main>
 
