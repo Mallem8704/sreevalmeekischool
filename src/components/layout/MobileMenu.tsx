@@ -39,15 +39,23 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {/* Header with Official Logo */}
             <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-white/10 bg-white dark:bg-[#0A1628]">
-              <Link href="/" onClick={onClose} className="flex items-center">
-                <div className="relative h-11 w-48">
+              <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
+                <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
                   <Image
-                    src="/sree-valmeeki-main-logo-transparent.png"
-                    alt="SREE VALMEEKI E.M SCHOOL"
+                    src="/images/logo/valmeeki_emblem.png"
+                    alt="Sree Valmeeki Emblem"
                     fill
-                    sizes="200px"
-                    className="object-contain object-left"
+                    sizes="40px"
+                    className="object-contain rounded-lg"
                   />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-[family-name:var(--font-heading)] font-black text-sm text-[#0A1628] dark:text-white leading-tight">
+                    Sree Valmeeki E.M High School
+                  </span>
+                  <span className="text-[10px] font-bold text-[#B8860B] dark:text-[#D4A853]">
+                    (Est. 1999 - 27 Years of Excellence)
+                  </span>
                 </div>
               </Link>
               <button

@@ -77,16 +77,24 @@ export default function Header() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between">
               {/* Main Official Logo (Header Brand) */}
-              <Link href="/" className="flex items-center group shrink-0">
-                <div className="relative h-10 sm:h-12 md:h-13 w-48 sm:w-56 md:w-64 transition-all duration-300">
+              <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+                <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
                   <Image
-                    src="/sree-valmeeki-main-logo-transparent.png"
-                    alt="SREE VALMEEKI E.M SCHOOL — Since 1999 — 27 YEARS OF EXCELLENCE"
+                    src="/images/logo/valmeeki_emblem.png"
+                    alt="Sree Valmeeki E.M High School"
                     fill
-                    sizes="(max-width: 768px) 190px, 280px"
-                    className="object-contain object-left"
+                    sizes="48px"
+                    className="object-contain rounded-lg"
                     priority
                   />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-[family-name:var(--font-heading)] font-black text-sm sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+                    Sree Valmeeki E.M High School
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider">
+                    (Est. 1999 - 27 Years of Excellence)
+                  </span>
                 </div>
               </Link>
 
