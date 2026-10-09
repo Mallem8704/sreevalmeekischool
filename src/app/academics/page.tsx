@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,6 +10,7 @@ import {
   Brain,
   CheckCircle2,
   ChevronRight,
+  ChevronLeft,
   Compass,
   GraduationCap,
   Layers,
@@ -19,6 +20,9 @@ import {
   Sparkles,
   Trophy,
   Users,
+  Pause,
+  Play,
+  ArrowRight,
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -75,38 +79,107 @@ const learningWings = [
   },
 ];
 
-const excellencePillars = [
+interface ExcellencePillar {
+  id: string;
+  num: string;
+  title: string;
+  tabTitle: string;
+  badge: string;
+  desc: string;
+  detailedText: string;
+  highlights: string[];
+  metric: string;
+  metricLabel: string;
+  image: string;
+  actionText: string;
+  actionHref: string;
+  icon: typeof Brain;
+}
+
+const excellencePillars: ExcellencePillar[] = [
   {
+    id: 'iit-jee',
+    num: '01',
     title: 'IIT-JEE & NEET Foundation',
+    tabTitle: 'IIT & NEET Prep',
     badge: 'Flagship Program',
     desc: 'Integrated with regular syllabus from Class 6 onwards to train analytical problem-solving and numerical speed.',
+    detailedText:
+      'Our early competitive foundation equips students with mathematical deduction, physics principles, and analytical logic. With daily concept problem sets, students build competitive exam aptitude long before high school boards.',
+    highlights: [
+      'Advanced Mathematics, Physics & Chemistry from Class 6',
+      'Timed speed-drills & multiple-choice analytical logic',
+      'Seamless alignment with SSC State & National syllabus',
+    ],
+    metric: 'Classes 6 to 10',
+    metricLabel: 'Eligibility Stage',
     image: '/images/school/school-event-1.jpg',
     actionText: 'Explore IIT Curriculum',
     actionHref: '/academics/iit-foundation',
+    icon: Brain,
   },
   {
+    id: 'spoken-english',
+    num: '02',
     title: 'Spoken English & Stage Fluency',
+    tabTitle: 'Stage & English',
     badge: 'Confidence Focus',
     desc: 'Daily morning stage assemblies train every child in elocution, debate, and fluent English presentation.',
+    detailedText:
+      'Speaking without fear is a superpower taught from day one. Every child regularly ascends the podium to host assemblies, deliver speeches, and recite poetry, backed by 100% English campus communication.',
+    highlights: [
+      'Daily morning mic rotation for every student',
+      'Inter-house parliamentary debating & extempore',
+      'Accent training & active conversational immersion',
+    ],
+    metric: 'Daily Mic Turns',
+    metricLabel: 'Public Speaking',
     image: '/images/school/school-event-4.jpg',
     actionText: 'View Language Pedagogy',
     actionHref: '/about',
+    icon: Users,
   },
   {
+    id: 'smart-classrooms',
+    num: '03',
     title: 'Smart Digital Classrooms',
+    tabTitle: 'Digital Classrooms',
     badge: 'Interactive Tech',
     desc: 'High-definition digital smart boards bring complex physics, biology, and math concepts to life in 3D.',
+    detailedText:
+      'Abstract formulas and biological mechanisms become intuitive through high-definition interactive animations. Teachers demonstrate live simulations so students visualize concepts instead of memorizing text.',
+    highlights: [
+      'Interactive touch displays in all academic sections',
+      '3D audio-visual diagrams and scientific animations',
+      'Enhanced student retention & interactive participation',
+    ],
+    metric: '100% Smart Boards',
+    metricLabel: 'Tech Infrastructure',
     image: '/images/school/school-event-12.jpg',
     actionText: 'See Smart Labs',
     actionHref: '/campus',
+    icon: Sparkles,
   },
   {
+    id: 'science-expo',
+    num: '04',
     title: 'Hands-on Science & STEM Expo',
+    tabTitle: 'STEM Science Expo',
     badge: 'Practical Science',
     desc: 'Students create functioning working models in robotics, solar energy, and electronics at our annual Science Fair.',
+    detailedText:
+      'We believe science is best learned with hands covered in experiment materials. Students invent working solar circuits, hydraulic lifts, and botanical exhibits presented to parents and community judges.',
+    highlights: [
+      'Dedicated physics, chemistry, and biology experimental kits',
+      'Annual science exhibition featuring student-built working models',
+      'Scientific method: hypothesis, observation & conclusion',
+    ],
+    metric: 'Annual Expo',
+    metricLabel: 'Practical Innovation',
     image: '/images/school/school-event-9.jpg',
     actionText: 'Browse Science Expo',
     actionHref: '/gallery',
+    icon: Microscope,
   },
 ];
 
@@ -143,6 +216,83 @@ const hallOfFame = [
 
 export default function AcademicsPage() {
   const [activeWing, setActiveWing] = useState(0);
+
+  // Excellence Pillars Slider State
+  const [activePillar, setActivePillar] = useState(0);
+  const [pillarDirection, setPillarDirection] = useState(1);
+  const [isPillarPaused, setIsPillarPaused] = useState(false);
+  const [pillarProgress, setPillarProgress] = useState(0);
+  const pillarDuration = 5000; // 5s slide rotation
+
+  const currentPillar = excellencePillars[activePillar];
+  const PillarIcon = currentPillar.icon;
+
+  const goToPillar = (idx: number) => {
+    if (idx === activePillar) return;
+    setPillarDirection(idx > activePillar ? 1 : -1);
+    setActivePillar(idx);
+    setPillarProgress(0);
+  };
+
+  const handleNextPillar = () => {
+    setPillarDirection(1);
+    setActivePillar((prev) => (prev + 1) % excellencePillars.length);
+    setPillarProgress(0);
+  };
+
+  const handlePrevPillar = () => {
+    setPillarDirection(-1);
+    setActivePillar((prev) => (prev - 1 + excellencePillars.length) % excellencePillars.length);
+    setPillarProgress(0);
+  };
+
+  // Auto-play timer for excellence pillars
+  useEffect(() => {
+    if (isPillarPaused) return;
+
+    const stepMs = 50;
+    const stepIncrement = (stepMs / pillarDuration) * 100;
+
+    const timer = setInterval(() => {
+      setPillarProgress((prev) => {
+        if (prev >= 100) {
+          setPillarDirection(1);
+          setActivePillar((c) => (c + 1) % excellencePillars.length);
+          return 0;
+        }
+        return prev + stepIncrement;
+      });
+    }, stepMs);
+
+    return () => clearInterval(timer);
+  }, [activePillar, isPillarPaused]);
+
+  const pillarVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: 'spring' as const, stiffness: 280, damping: 28 },
+        opacity: { duration: 0.35 },
+        scale: { duration: 0.35 },
+      },
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -50 : 50,
+      opacity: 0,
+      scale: 0.98,
+      transition: {
+        x: { type: 'spring' as const, stiffness: 280, damping: 28 },
+        opacity: { duration: 0.25 },
+      },
+    }),
+  };
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
@@ -245,9 +395,9 @@ export default function AcademicsPage() {
         </section>
 
         {/* 4 LEARNING STAGES: INTERACTIVE SHOWCASE */}
-        <section className="py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
+        <section className="py-16 sm:py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                 PROGRESSIVE STAGES
               </span>
@@ -260,7 +410,7 @@ export default function AcademicsPage() {
             </div>
 
             {/* Stage Selector Pills */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
               {learningWings.map((wing, idx) => {
                 const isActive = activeWing === idx;
                 return (
@@ -331,10 +481,18 @@ export default function AcademicsPage() {
           </div>
         </section>
 
-        {/* SPECIALIZED EXCELLENCE PILLARS */}
-        <section className="py-20 bg-[#FDFBF7] dark:bg-[#0A1628] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
+        {/* SPECIALIZED EXCELLENCE PILLARS: INTERACTIVE SLIDING SHOWCASE */}
+        <section
+          aria-label="Signature Programs and Excellence Pillars"
+          className="py-16 sm:py-20 bg-[#FDFBF7] dark:bg-[#0A1628] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200 overflow-hidden"
+          onMouseEnter={() => setIsPillarPaused(true)}
+          onMouseLeave={() => setIsPillarPaused(false)}
+          onTouchStart={() => setIsPillarPaused(true)}
+          onTouchEnd={() => setIsPillarPaused(false)}
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
               <div>
                 <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                   DISTINCTIVE PEDAGOGY
@@ -343,58 +501,272 @@ export default function AcademicsPage() {
                   Signature Programs
                 </h2>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-sm max-w-md">
+              <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm max-w-md">
                 Carefully engineered learning systems that give Valmeeki students a competitive head start.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {excellencePillars.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group bg-white dark:bg-[#050D1A] border border-slate-200/80 dark:border-white/10 rounded-3xl overflow-hidden hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-xl flex flex-col sm:flex-row"
-                >
-                  <div className="relative w-full sm:w-2/5 min-h-[220px] sm:min-h-full shrink-0 overflow-hidden bg-slate-100 dark:bg-black/40">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 30vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#D4A853] text-[#0A1628] text-xs font-bold shadow-sm">
-                      {item.badge}
-                    </span>
-                  </div>
+            {/* Top Interactive Program Selector Tabs */}
+            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-none mb-6 sm:mb-8">
+              {excellencePillars.map((item, idx) => {
+                const isActive = activePillar === idx;
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => goToPillar(idx)}
+                    className={`group shrink-0 flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
+                      isActive
+                        ? 'bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] shadow-md shadow-[#0A1628]/10 scale-105 border border-[#0A1628] dark:border-[#FBBF24]'
+                        : 'bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10'
+                    }`}
+                    aria-label={`View ${item.title}`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#D4A853] dark:text-[#0A1628]' : 'text-[#B8860B] dark:text-[#FBBF24]'}`} />
+                    <span>{item.tabTitle}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-white dark:bg-[#050D1A]">
-                    <div>
-                      <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[#0A1628] dark:text-white mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                        {item.desc}
-                      </p>
+            {/* Interactive Showcase Card (Compact Height, Slide Animated) */}
+            <div className="relative bg-white dark:bg-[#050D1A] border border-slate-200/90 dark:border-white/10 rounded-3xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_35px_rgba(0,0,0,0.4)]">
+              {/* Progress Bar Indicator */}
+              <div className="w-full h-1 bg-slate-100 dark:bg-white/10">
+                <div
+                  className="h-full bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#FBBF24] transition-all duration-75"
+                  style={{ width: `${pillarProgress}%` }}
+                />
+              </div>
+
+              {/* Animated Slide Body */}
+              <div className="relative min-h-[460px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
+                <AnimatePresence custom={pillarDirection} mode="wait">
+                  <motion.div
+                    key={currentPillar.id}
+                    custom={pillarDirection}
+                    variants={pillarVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="w-full grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch"
+                  >
+                    {/* Left Image Showcase Column */}
+                    <div className="lg:col-span-5 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto min-h-[250px] sm:min-h-[280px] lg:min-h-[440px] overflow-hidden bg-slate-100 dark:bg-black/40">
+                      <Image
+                        src={currentPillar.image}
+                        alt={currentPillar.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 42vw"
+                        priority
+                        className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A]/85 via-black/20 to-transparent" />
+
+                      {/* Top Badges */}
+                      <div className="absolute top-4 left-4 flex items-center gap-2">
+                        <span className="w-9 h-9 rounded-xl bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-xs font-black text-[#0A1628] dark:text-white shadow-sm font-[family-name:var(--font-heading)]">
+                          {currentPillar.num}
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-[#D4A853] text-[#0A1628] text-xs font-bold shadow-sm">
+                          {currentPillar.badge}
+                        </span>
+                      </div>
+
+                      {/* Floating Metric Pill */}
+                      <div className="absolute bottom-4 left-4 right-4 sm:right-auto p-3 rounded-2xl bg-white/95 dark:bg-[#0A1628]/90 backdrop-blur-md border border-slate-200 dark:border-white/15 shadow-md">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-xl bg-[#D4A853]/20 dark:bg-[#D4A853]/25 flex items-center justify-center text-[#B8860B] dark:text-[#FBBF24]">
+                            <PillarIcon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">
+                              {currentPillar.metricLabel}
+                            </span>
+                            <span className="text-xs sm:text-sm font-bold text-[#0A1628] dark:text-white">
+                              {currentPillar.metric}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <Link
-                      href={item.actionHref}
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A1628] dark:text-[#FBBF24] hover:text-[#B8860B] dark:hover:text-[#FCD34D] transition-colors"
+                    {/* Right Content Details Column */}
+                    <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white dark:bg-[#050D1A]">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="inline-flex items-center gap-2 text-[#B8860B] dark:text-[#FBBF24]">
+                            <PillarIcon className="w-4 h-4" />
+                            <span className="text-xs font-black uppercase tracking-wider">
+                              Signature Program {currentPillar.num} of 04
+                            </span>
+                          </div>
+                          <span className="text-xs font-mono text-slate-400 dark:text-slate-500 font-semibold">
+                            0{activePillar + 1} / 0{excellencePillars.length}
+                          </span>
+                        </div>
+
+                        <div>
+                          <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold text-[#0A1628] dark:text-white mb-1">
+                            {currentPillar.title}
+                          </h3>
+                          <p className="text-xs sm:text-sm font-medium text-[#B8860B] dark:text-[#FBBF24]">
+                            {currentPillar.desc}
+                          </p>
+                        </div>
+
+                        <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
+                          {currentPillar.detailedText}
+                        </p>
+
+                        {/* Bullet Highlights */}
+                        <div className="space-y-2 pt-1 pb-2">
+                          {currentPillar.highlights.map((item, idx) => (
+                            <div key={idx} className="flex items-start gap-2.5">
+                              <CheckCircle2 className="w-4 h-4 text-[#B8860B] dark:text-[#FBBF24] shrink-0 mt-0.5" />
+                              <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                                {item}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Footer Controls & Navigation */}
+                      <div className="pt-6 mt-4 border-t border-slate-100 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+                        {/* Action Link */}
+                        <Link
+                          href={currentPillar.actionHref}
+                          className="inline-flex items-center gap-2 bg-[#0A1628] dark:bg-[#FBBF24] hover:bg-[#1E3A8A] dark:hover:bg-[#F59E0B] text-[#D4A853] dark:text-[#0A1628] hover:text-white dark:hover:text-[#0A1628] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all duration-300 shadow-sm border border-[#0A1628] dark:border-[#FBBF24] active:scale-95"
+                        >
+                          <span>{currentPillar.actionText}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+
+                        {/* Slide Navigation Controls */}
+                        <div className="flex items-center gap-3">
+                          {/* Left Arrow */}
+                          <button
+                            type="button"
+                            onClick={handlePrevPillar}
+                            className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#0A1628] hover:text-white dark:hover:bg-[#FBBF24] dark:hover:text-[#0A1628] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/15 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm active:scale-95"
+                            aria-label="Previous Program"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+
+                          {/* Pagination Dots */}
+                          <div className="flex items-center gap-1.5" role="tablist" aria-label="Program slide pagination">
+                            {excellencePillars.map((item, idx) => {
+                              const isDotActive = idx === activePillar;
+                              return (
+                                <button
+                                  key={item.id}
+                                  type="button"
+                                  onClick={() => goToPillar(idx)}
+                                  role="tab"
+                                  aria-selected={isDotActive}
+                                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                                    isDotActive
+                                      ? 'w-7 bg-[#B8860B] dark:bg-[#FBBF24]'
+                                      : 'w-2.5 bg-slate-300 dark:bg-white/20 hover:bg-slate-400 dark:hover:bg-white/40'
+                                  }`}
+                                  aria-label={`Go to ${item.title}`}
+                                />
+                              );
+                            })}
+                          </div>
+
+                          {/* Right Arrow */}
+                          <button
+                            type="button"
+                            onClick={handleNextPillar}
+                            className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#0A1628] hover:text-white dark:hover:bg-[#FBBF24] dark:hover:text-[#0A1628] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/15 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm active:scale-95"
+                            aria-label="Next Program"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+
+                          {/* Pause / Play Button */}
+                          <button
+                            type="button"
+                            onClick={() => setIsPillarPaused((prev) => !prev)}
+                            className="w-8 h-8 rounded-full bg-transparent hover:bg-slate-100 dark:hover:bg-white/10 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 flex items-center justify-center transition-colors cursor-pointer"
+                            aria-label={isPillarPaused ? 'Resume auto-sliding' : 'Pause auto-sliding'}
+                            title={isPillarPaused ? 'Play' : 'Pause'}
+                          >
+                            {isPillarPaused ? <Play className="w-3 h-3" /> : <Pause className="w-3 h-3" />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Quick Preview Thumbnail Strip (Allows parents to see and jump to any program) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6">
+              {excellencePillars.map((item, idx) => {
+                const isActive = idx === activePillar;
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => goToPillar(idx)}
+                    className={`text-left p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                      isActive
+                        ? 'bg-[#0A1628] dark:bg-[#FBBF24] text-white dark:text-[#0A1628] border-[#0A1628] dark:border-[#FBBF24] shadow-md scale-[1.02]'
+                        : 'bg-white dark:bg-[#0A1628] text-slate-700 dark:text-slate-300 border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+                          isActive
+                            ? 'bg-[#D4A853] dark:bg-[#0A1628] text-[#0A1628] dark:text-[#FBBF24]'
+                            : 'bg-[#D4A853]/15 text-[#B8860B] dark:text-[#FBBF24]'
+                        }`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span
+                        className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                          isActive
+                            ? 'bg-white/20 dark:bg-black/20 text-white dark:text-[#0A1628]'
+                            : 'bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-400'
+                        }`}
+                      >
+                        {item.num}
+                      </span>
+                    </div>
+                    <p
+                      className={`text-xs sm:text-sm font-bold line-clamp-1 ${
+                        isActive ? 'text-[#D4A853] dark:text-[#0A1628]' : 'text-[#0A1628] dark:text-white'
+                      }`}
                     >
-                      <span>{item.actionText}</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+                      {item.title}
+                    </p>
+                    <p
+                      className={`text-[11px] line-clamp-1 mt-0.5 ${
+                        isActive ? 'text-white/80 dark:text-[#0A1628]/80' : 'text-slate-500 dark:text-slate-400'
+                      }`}
+                    >
+                      {item.badge}
+                    </p>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* HALL OF FAME / PROVEN RESULTS SNAPSHOT */}
-        <section className="py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
+        <section className="py-16 sm:py-20 bg-[#F8FAFC] dark:bg-[#050D1A] border-b border-slate-200/80 dark:border-white/10 transition-colors duration-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-bold">
                 PROVEN ACADEMIC DISTINCTION
               </span>
@@ -446,7 +818,7 @@ export default function AcademicsPage() {
         </section>
 
         {/* ACADEMIC CTA BANNER */}
-        <section className="py-20 bg-[#FDFBF7] dark:bg-[#050D1A] transition-colors duration-200">
+        <section className="py-16 sm:py-20 bg-[#FDFBF7] dark:bg-[#050D1A] transition-colors duration-200">
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
             <div className="bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
               <span className="inline-block px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-xs font-bold uppercase tracking-wider mb-4">

@@ -1,15 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Award,
   BookOpen,
   Calendar,
   CheckCircle2,
   ChevronRight,
+  ChevronLeft,
   Compass,
   GraduationCap,
   HeartHandshake,
@@ -41,6 +42,7 @@ const pillars = [
     desc: 'Rigorous conceptual clarity from primary classes through high school, backed by IIT foundation and Olympiad coaching.',
     image: '/images/school/school-event-12.jpg',
     badge: 'IIT Foundation',
+    highlights: ['Concept clarity over rote memorization', 'Early Olympiad & NTSE readiness', 'Specialized faculty coaching'],
   },
   {
     title: 'Unwavering Discipline',
@@ -48,6 +50,7 @@ const pillars = [
     desc: 'Instilling respect, punctuality, and cultural integrity in every student since our inception in 1999.',
     image: '/images/school/school-event-11.jpg',
     badge: 'Values First',
+    highlights: ['Punctuality and structured routines', 'Respect for mentors and peers', 'Deep-rooted cultural grounding'],
   },
   {
     title: 'Fearless Stage Expression',
@@ -55,6 +58,7 @@ const pillars = [
     desc: 'Daily morning stage assemblies train every student to overcome fear and speak with effortless poise and confidence.',
     image: '/images/school/school-event-4.jpg',
     badge: 'Confidence',
+    highlights: ['Daily podium assembly practice', 'Public speaking and debate culture', 'English conversational mastery'],
   },
   {
     title: 'Athletic Resilience',
@@ -62,6 +66,7 @@ const pillars = [
     desc: 'Spacious grounds, cricket tournaments, volleyball, and physical fitness forge teamwork, grit, and endurance.',
     image: '/images/school/school-event-2.jpg',
     badge: 'Sports Arena',
+    highlights: ['Annual VPL cricket tournaments', 'Spacious athletic fields & volleyball', 'Team spirit, resilience & grit'],
   },
 ];
 
@@ -84,6 +89,62 @@ const leadershipQuotes = [
 
 export default function AboutPage() {
   const [isAdmissionsModalOpen, setIsAdmissionsModalOpen] = useState(false);
+  const [activePillarIndex, setActivePillarIndex] = useState(0);
+  const [pillarDirection, setPillarDirection] = useState(1);
+  const [isPillarPaused, setIsPillarPaused] = useState(false);
+
+  const totalPillars = pillars.length;
+  const currentPillar = pillars[activePillarIndex];
+
+  const goToPillar = (index: number) => {
+    setPillarDirection(index > activePillarIndex ? 1 : -1);
+    setActivePillarIndex(index);
+  };
+
+  const handlePrevPillar = () => {
+    setPillarDirection(-1);
+    setActivePillarIndex((prev) => (prev - 1 + totalPillars) % totalPillars);
+  };
+
+  const handleNextPillar = () => {
+    setPillarDirection(1);
+    setActivePillarIndex((prev) => (prev + 1) % totalPillars);
+  };
+
+  useEffect(() => {
+    if (isPillarPaused) return;
+    const interval = setInterval(() => {
+      setPillarDirection(1);
+      setActivePillarIndex((prev) => (prev + 1) % totalPillars);
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [isPillarPaused, totalPillars]);
+
+  const pillarVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 40 : -40,
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+    exit: (dir: number) => ({
+      x: dir < 0 ? 40 : -40,
+      opacity: 0,
+      scale: 0.98,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    }),
+  };
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
@@ -276,13 +337,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 4 CORE PILLARS WITH REAL IMAGERY */}
-        <section className="py-20 bg-[#FDFBF7] dark:bg-[#0A1628] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+        {/* 4 CORE PILLARS SLIDER SHOWCASE (INTERACTIVE SLIDES TO PREVENT LENGTHY SCROLL) */}
+        <section className="py-16 sm:py-24 bg-[#FDFBF7] dark:bg-[#0A1628] border-b border-slate-200 dark:border-white/10 transition-colors duration-200 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
               <div>
                 <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs uppercase tracking-widest font-black">
-                  FOUNDATIONAL PILLARS
+                  FOUNDATIONAL PILLARS OF EXCELLENCE
                 </span>
                 <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-black text-[#0A1628] dark:text-white mt-1">
                   What Sets Valmeeki Apart
@@ -293,41 +354,158 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {pillars.map((pillar, i) => (
-                <div
-                  key={i}
-                  className="group bg-white dark:bg-[#050D1A] rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 hover:border-[#D4A853] dark:hover:border-[#D4A853] transition-all duration-300 flex flex-col shadow-md hover:shadow-xl"
-                >
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    <span className="absolute top-3 right-3 bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/40 text-xs font-black px-2.5 py-0.5 rounded-full shadow">
-                      {pillar.badge}
-                    </span>
-                  </div>
+            {/* Interactive Tab Switcher */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 mb-6 sm:mb-8">
+              {pillars.map((pillar, idx) => {
+                const isActive = activePillarIndex === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => goToPillar(idx)}
+                    className={`relative flex items-center justify-center gap-2 px-3 sm:px-4 py-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm font-black tracking-wider uppercase transition-all duration-300 cursor-pointer text-center ${
+                      isActive
+                        ? 'bg-[#D4A853] text-[#0A1628] shadow-lg shadow-[#D4A853]/25 border-2 border-[#D4A853] scale-[1.01]'
+                        : 'bg-white dark:bg-[#050D1A] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-[#D4A853]/50 hover:text-[#0A1628] dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5'
+                    }`}
+                    aria-label={`Select ${pillar.title}`}
+                  >
+                    <span className="truncate">0{idx + 1} {pillar.title}</span>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0A1628] shrink-0" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
 
-                  <div className="p-6 flex flex-col justify-between flex-1">
-                    <div>
-                      <span className="text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold uppercase tracking-wider block mb-1">
-                        {pillar.short}
-                      </span>
-                      <h3 className="font-[family-name:var(--font-heading)] text-xl font-black text-[#0A1628] dark:text-white mb-2">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                        {pillar.desc}
-                      </p>
+            {/* Compact Luxury Pillar Slider Card (~460px Viewport) */}
+            <div
+              className="relative rounded-3xl bg-white dark:bg-[#050D1A] border border-slate-200 dark:border-white/10 shadow-xl overflow-hidden"
+              onMouseEnter={() => setIsPillarPaused(true)}
+              onMouseLeave={() => setIsPillarPaused(false)}
+            >
+              <div className="relative min-h-[460px] lg:h-[460px] w-full">
+                <AnimatePresence mode="wait" custom={pillarDirection}>
+                  <motion.div
+                    key={activePillarIndex}
+                    custom={pillarDirection}
+                    variants={pillarVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="w-full h-full lg:grid lg:grid-cols-12 flex flex-col"
+                  >
+                    {/* Left: Real Event Image */}
+                    <div className="relative w-full h-64 sm:h-72 lg:h-full lg:col-span-6 overflow-hidden bg-slate-900 group">
+                      <Image
+                        src={currentPillar.image}
+                        alt={currentPillar.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+
+                      {/* Top Badges */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                        <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-black tracking-widest uppercase">
+                          PILLAR 0{activePillarIndex + 1}
+                        </span>
+                        <span className="bg-[#D4A853] text-[#0A1628] text-xs font-black px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                          {currentPillar.badge}
+                        </span>
+                      </div>
+
+                      {/* Bottom Image Overlay */}
+                      <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                        <p className="text-xs font-black uppercase tracking-wider text-[#F5E6C0] mb-1">
+                          {currentPillar.short}
+                        </p>
+                        <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-white drop-shadow-sm">
+                          {currentPillar.title}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+
+                    {/* Right: Rich Details, Bullet points, Navigation */}
+                    <div className="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between space-y-6 flex-1 bg-white dark:bg-[#050D1A]">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black tracking-widest uppercase text-[#B8860B] dark:text-[#FBBF24]">
+                            CORE FOUNDATION 0{activePillarIndex + 1} OF 04
+                          </span>
+                          <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                            {isPillarPaused ? 'Paused' : 'Auto-advancing'}
+                          </span>
+                        </div>
+
+                        <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
+                          {currentPillar.title}
+                        </h3>
+
+                        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                          {currentPillar.desc}
+                        </p>
+
+                        {/* Bullet Highlights */}
+                        <div className="pt-3 border-t border-slate-200 dark:border-white/10 space-y-2.5">
+                          <span className="text-[10px] font-black tracking-widest uppercase text-[#B8860B] dark:text-[#FBBF24] block">
+                            KEY PILLAR HIGHLIGHTS
+                          </span>
+                          <ul className="space-y-2">
+                            {currentPillar.highlights.map((item, hIdx) => (
+                              <li key={hIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-200">
+                                <CheckCircle2 className="w-4 h-4 text-[#D4A853] shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Bottom Controls: Prev/Next & Dots */}
+                      <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={handlePrevPillar}
+                            className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-[#D4A853] hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer"
+                            aria-label="Previous pillar"
+                          >
+                            <ChevronLeft className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+                          </button>
+                          <button
+                            onClick={handleNextPillar}
+                            className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-[#D4A853] hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer"
+                            aria-label="Next pillar"
+                          >
+                            <ChevronRight className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+                          </button>
+                          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 ml-2">
+                            0{activePillarIndex + 1} / 04
+                          </span>
+                        </div>
+
+                        {/* Pagination Dots */}
+                        <div className="flex items-center gap-1.5">
+                          {pillars.map((_, dotIdx) => (
+                            <button
+                              key={dotIdx}
+                              onClick={() => goToPillar(dotIdx)}
+                              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                                dotIdx === activePillarIndex
+                                  ? 'w-6 bg-[#D4A853]'
+                                  : 'w-2 bg-slate-300 dark:bg-white/20 hover:bg-slate-400 dark:hover:bg-white/40'
+                              }`}
+                              aria-label={`Jump to pillar ${dotIdx + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </section>
