@@ -24,6 +24,7 @@ import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership
 import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
 import AdmissionModal from '@/components/home/AdmissionModal';
 import TrustStrip from '@/components/sections/TrustStrip';
+import SSCFelicitationShowcase from '@/components/home/SSCFelicitationShowcase';
 
 export default function HomePage() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -80,6 +81,8 @@ export default function HomePage() {
           <section id="home" className="scroll-mt-24">
             <DualHeroSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
             <TrustStrip />
+            {/* 2026 SSC Academic Achievements & Felicitation Proof */}
+            <SSCFelicitationShowcase />
           </section>
 
           {/* =========================================================================

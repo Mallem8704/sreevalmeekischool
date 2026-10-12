@@ -7,9 +7,28 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
-import { Sparkles, Trophy, Award, X, ChevronRight, Filter } from 'lucide-react';
+import { Sparkles, Trophy, Award, X, ChevronRight, ChevronLeft, Filter } from 'lucide-react';
 import { verifiedAchievements, academicToppers, AchievementItem } from '@/lib/data';
 import StarAchieversSection from '@/components/home/StarAchieversSection';
+
+const ceremonyPhotos = [
+  {
+    id: 'hero',
+    src: '/images/achievements/ssc_2026_felicitation_hero.jpg',
+    title: 'Town 1st Rank Felicitation',
+    student: 'D. Janani • 595 / 600',
+    description: 'Receiving the official 2026 AP SSC felicitation memento from Founder Sri P. Jaya Rami Reddy & Director Mr. P. Pavan Kumar Reddy.',
+    tag: '595 / 600 • TOWN 1ST RANK',
+  },
+  {
+    id: 'ceremony',
+    src: '/images/achievements/ssc_2026_felicitation_ceremony.jpg',
+    title: 'Official Campus Felicitation Ceremony',
+    student: '2026 AP SSC Board Rankers',
+    description: 'Celebrating exceptional results with distinction students, parents, and faculty on the Sree Valmeeki School campus.',
+    tag: 'OFFICIAL 2026 BANNER PROOF',
+  },
+];
 
 const categories = [
   'ALL',
@@ -28,6 +47,7 @@ export default function AchievementsPage() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [selectedYear, setSelectedYear] = useState('ALL YEARS');
   const [activeModalItem, setActiveModalItem] = useState<AchievementItem | null>(null);
+  const [activeCeremonyIndex, setActiveCeremonyIndex] = useState<number | null>(null);
 
   const featured = verifiedAchievements[0];
 
@@ -146,6 +166,75 @@ export default function AchievementsPage() {
               <span className="text-[#B8860B] dark:text-[#D4A853] font-semibold">Distinction</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Subsection: Celebrating Excellence — 2026 AP SSC Felicitation Ceremony */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-xs font-black tracking-widest uppercase mb-2.5">
+              <Trophy className="w-3.5 h-3.5" />
+              <span>2026 AP SSC BOARD PROOF</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white uppercase tracking-tight">
+              Celebrating Excellence
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-sm max-w-xl mt-1 font-normal">
+              Official felicitation ceremony honoring Kadiri town 1st and top distinction achievers on campus.
+            </p>
+          </div>
+          <span className="text-xs text-slate-500 dark:text-white/50 font-mono hidden sm:inline">
+            VERIFIED PHOTOGRAPHIC RECORD
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {ceremonyPhotos.map((c, i) => (
+            <motion.div
+              key={c.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              onClick={() => setActiveCeremonyIndex(i)}
+              className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 hover:border-[#D4A853]/60 transition-all shadow-xl cursor-pointer flex flex-col justify-between"
+            >
+              <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-900">
+                <Image
+                  src={c.src}
+                  alt={c.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 rounded-full bg-[#0A1628]/85 backdrop-blur-md text-[#FBBF24] border border-[#D4A853]/50 text-xs font-black uppercase tracking-wider shadow-md">
+                    {c.tag}
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6 bg-white dark:bg-[#0A1628] flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+                    {c.title}
+                  </h3>
+                  <span className="block text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase tracking-wider mt-1 mb-2">
+                    {c.student}
+                  </span>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                    {c.description}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 dark:border-white/5 mt-4 flex items-center justify-between text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold">
+                  <span>Click to view full photo</span>
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -358,6 +447,90 @@ export default function AchievementsPage() {
                 </p>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Ceremony Photos Fullscreen Lightbox Modal */}
+      <AnimatePresence>
+        {activeCeremonyIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveCeremonyIndex(null)}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8"
+          >
+            <div
+              className="flex items-center justify-between w-full max-w-6xl mx-auto z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="px-3 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#FBBF24] text-xs font-black uppercase tracking-wider">
+                {ceremonyPhotos[activeCeremonyIndex].tag}
+              </span>
+              <button
+                type="button"
+                onClick={() => setActiveCeremonyIndex(null)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/20"
+                aria-label="Close Lightbox"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div
+              className="relative flex-1 flex items-center justify-center my-4 max-w-6xl w-full mx-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full h-[60vh] sm:h-[75vh] max-h-[850px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <Image
+                  src={ceremonyPhotos[activeCeremonyIndex].src}
+                  alt={ceremonyPhotos[activeCeremonyIndex].title}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveCeremonyIndex((prev) =>
+                    prev === null ? 0 : (prev - 1 + ceremonyPhotos.length) % ceremonyPhotos.length
+                  )
+                }
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-[#D4A853] text-white hover:text-[#0A1628] border border-white/20 flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Previous Photo"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveCeremonyIndex((prev) =>
+                    prev === null ? 0 : (prev + 1) % ceremonyPhotos.length
+                  )
+                }
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-[#D4A853] text-white hover:text-[#0A1628] border border-white/20 flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Next Photo"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div
+              className="w-full max-w-2xl mx-auto text-center z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h4 className="text-white text-base sm:text-lg font-bold font-[family-name:var(--font-heading)]">
+                {ceremonyPhotos[activeCeremonyIndex].title}
+              </h4>
+              <p className="text-white/75 text-xs sm:text-sm mt-1">
+                {ceremonyPhotos[activeCeremonyIndex].description}
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
