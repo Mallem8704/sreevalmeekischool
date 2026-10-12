@@ -23,6 +23,7 @@ import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
 import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
 import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
 import AdmissionModal from '@/components/home/AdmissionModal';
+import TrustStrip from '@/components/sections/TrustStrip';
 
 export default function HomePage() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -41,8 +42,16 @@ export default function HomePage() {
     const handleReplay = () => {
       setIntroComplete(false);
     };
+    const handleOpenAdmissions = () => {
+      setIsAdmissionsModalOpen(true);
+    };
+
     window.addEventListener('svhs_replay_intro', handleReplay);
-    return () => window.removeEventListener('svhs_replay_intro', handleReplay);
+    window.addEventListener('svhs_open_admissions', handleOpenAdmissions);
+    return () => {
+      window.removeEventListener('svhs_replay_intro', handleReplay);
+      window.removeEventListener('svhs_open_admissions', handleOpenAdmissions);
+    };
   }, []);
 
   return (
@@ -70,6 +79,7 @@ export default function HomePage() {
           ========================================================================= */}
           <section id="home" className="scroll-mt-24">
             <DualHeroSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+            <TrustStrip />
           </section>
 
           {/* =========================================================================

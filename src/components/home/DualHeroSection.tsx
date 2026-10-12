@@ -93,7 +93,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
   };
 
   const handleScrollDown = () => {
-    const target = document.getElementById('star-achievers') || document.getElementById('signature-results');
+    const target = document.getElementById('about');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     } else {
@@ -436,7 +436,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
 
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[11px] sm:text-xs font-bold tracking-widest uppercase">
                       <Trophy className="w-3.5 h-3.5 text-[#FBBF24]" />
-                      27 YEARS OF EXCELLENCE
+                      28 YEARS OF EXCELLENCE
                     </span>
                   </motion.div>
 
@@ -462,7 +462,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     transition={{ delay: 0.35, duration: 0.6 }}
                     className="text-white/80 text-base sm:text-lg md:text-xl font-medium tracking-wide max-w-xl leading-relaxed"
                   >
-                    <strong className="text-white font-bold">27 Years.</strong> Generations of Students. A Legacy of Achievement in Kadiri.
+                    <strong className="text-white font-bold">28 Years.</strong> Generations of Students. A Legacy of Achievement in Kadiri.
                   </motion.p>
 
                   {/* Actions */}

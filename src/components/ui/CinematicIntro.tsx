@@ -42,16 +42,26 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
   };
 
   useEffect(() => {
-    const t0 = setTimeout(() => setStage(1), 1400); // 1.4s -> 27 Years
-    const t1 = setTimeout(() => setStage(2), 3000); // 3.0s -> Official Logo
-    const t2 = setTimeout(() => setStage(3), 4600); // 4.6s -> Full Name
-    const t3 = setTimeout(() => handleFinish(), 6500); // 6.5s -> Smooth Dissolve
+    const t0 = setTimeout(() => setStage(1), 700);
+    const t1 = setTimeout(() => setStage(2), 1400);
+    const t2 = setTimeout(() => handleFinish(), 2200);
+
+    // Instant bypass on any user interaction (scroll, touch, key, click)
+    const onUserInteract = () => {
+      handleFinish();
+    };
+
+    window.addEventListener('wheel', onUserInteract, { passive: true, once: true });
+    window.addEventListener('touchmove', onUserInteract, { passive: true, once: true });
+    window.addEventListener('keydown', onUserInteract, { passive: true, once: true });
 
     return () => {
       clearTimeout(t0);
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(t3);
+      window.removeEventListener('wheel', onUserInteract);
+      window.removeEventListener('touchmove', onUserInteract);
+      window.removeEventListener('keydown', onUserInteract);
     };
   }, []);
 
@@ -118,46 +128,31 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-[family-name:var(--font-heading)] bg-gradient-to-r from-[#FFF5DC] via-[#E8C97D] to-[#D4A853] bg-clip-text text-transparent">
-                27 YEARS OF EXCELLENCE
+                28 YEARS OF EXCELLENCE
               </h2>
             </motion.div>
           )}
 
-          {stage === 2 && (
+          {stage >= 2 && (
             <motion.div
               key="stage-2"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05, y: -15 }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-5"
+              initial={{ opacity: 0, scale: 0.9, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 1.05, filter: 'blur(8px)' }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col items-center gap-4"
             >
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white/10 p-3 backdrop-blur-xl border border-white/30 shadow-[0_0_50px_rgba(212,168,83,0.4)]">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/10 p-2 backdrop-blur-xl border border-white/30 shadow-[0_0_40px_rgba(212,168,83,0.4)]">
                 <Image
                   src="/logo-256.png"
                   alt="Sree Valmeeki School Emblem"
                   fill
-                  sizes="144px"
-                  className="object-contain p-2"
+                  sizes="96px"
+                  className="object-contain p-1.5"
                   priority
                 />
               </div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4A853]">
-                ACADEMIC LEGACY
-              </span>
-            </motion.div>
-          )}
-
-          {stage >= 3 && (
-            <motion.div
-              key="stage-3"
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 1.08, filter: 'blur(10px)' }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center"
-            >
-              <div className="relative w-64 sm:w-80 h-16 sm:h-20 bg-white/95 px-4 py-2 rounded-2xl shadow-2xl border border-white/60 mb-5">
+              <div className="relative w-64 sm:w-80 h-14 sm:h-16 bg-white/95 px-4 py-1.5 rounded-2xl shadow-2xl border border-white/60">
                 <Image
                   src="/sree-valmeeki-main-logo-transparent.png"
                   alt="Sree Valmeeki E.M School"
@@ -167,11 +162,8 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
                   priority
                 />
               </div>
-              <span className="text-sm sm:text-base font-semibold tracking-widest uppercase text-white/90 mb-1">
-                KADIRI, ANDHRA PRADESH
-              </span>
-              <span className="text-xs text-[#D4A853] font-medium tracking-[0.2em] uppercase">
-                WHERE EVERY JOURNEY BEGINS WITH A STRONG FOUNDATION
+              <span className="text-xs text-[#D4A853] font-semibold tracking-[0.25em] uppercase">
+                ESTD. 1999 • KADIRI, AP
               </span>
             </motion.div>
           )}
@@ -183,7 +175,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
         <motion.div
           initial={{ width: '0%' }}
           animate={{ width: '100%' }}
-          transition={{ duration: 6.5, ease: 'linear' }}
+          transition={{ duration: 2.2, ease: 'linear' }}
           className="h-full bg-gradient-to-r from-[#D4A853] via-[#FFF5DC] to-[#B8860B] shadow-[0_0_12px_rgba(212,168,83,0.9)]"
         />
       </div>

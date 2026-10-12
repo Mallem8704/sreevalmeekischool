@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 const statStories = [
   {
-    num: '27',
+    num: '28',
     label: 'YEARS OF EXCELLENCE',
-    subtext: 'Nurturing knowledge, character, and board toppers in Kadiri since 1999.',
+    subtext: 'Nurturing knowledge, character, and board toppers in Kadiri since 1999 (Estd. 1999).',
   },
   {
     num: '1999',
