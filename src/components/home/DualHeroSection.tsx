@@ -269,7 +269,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       <AnimatePresence initial={false} custom={direction} mode="wait">
         {activeSlide === 0 ? (
           /* ===================================================================
-              SLIDE 1: CINEMATIC CAMPUS VIDEO HERO
+              SLIDE 1: BLUE MOON STYLE EXPANSIVE CAMPUS HERO
           =================================================================== */
           <motion.div
             key="slide-video"
@@ -278,7 +278,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
             initial="enter"
             animate="center"
             exit="exit"
-            className="relative w-full min-h-[100svh] flex flex-col justify-between pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 z-10"
+            className="relative w-full min-h-[100svh] flex flex-col justify-end pt-28 sm:pt-32 pb-14 sm:pb-20 px-4 sm:px-8 lg:px-12 z-10"
           >
             {/* Background Video Layer with Instant Poster First */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -288,7 +288,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover w-full h-full scale-105 opacity-85 brightness-95 contrast-105"
+                className="object-cover w-full h-full scale-105 opacity-90 brightness-100 contrast-105"
               />
               <video
                 ref={videoRef}
@@ -297,154 +297,67 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                 loop
                 playsInline
                 preload="metadata"
-                className="object-cover w-full h-full scale-105 opacity-85 brightness-95 contrast-105 filter"
+                className="object-cover w-full h-full scale-105 opacity-90 brightness-100 contrast-105 filter"
               >
                 <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
                 <source src="/hero-desktop.mp4" type="video/mp4" />
               </video>
 
-              {/* Overlays for Rich Contrast */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#050D1A]/95 via-[#050D1A]/75 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-transparent to-[#050D1A]/70" />
+              {/* Asymmetric Scrim: Preserves bright open campus on right while ensuring 100% readable text on left */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#050D1A]/85 via-[#050D1A]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A]/95 via-transparent to-black/20" />
             </div>
 
-            {/* Main Content Area */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto my-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Left Column: Bold Cinematic Statement */}
-                <div className="lg:col-span-7 xl:col-span-8 text-left space-y-5">
-                  {/* Badges */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="flex flex-wrap items-center gap-2.5"
-                  >
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-[10px] sm:text-xs font-black tracking-widest uppercase">
-                      <Sparkles className="w-3.5 h-3.5 text-[#D4A853]" />
-                      ESTD. 1999 • KADIRI
-                    </span>
-
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
-                      <Film className="w-3.5 h-3.5 text-[#FBBF24]" />
-                      OFFICIAL CAMPUS TOUR FILM
-                    </span>
-                  </motion.div>
-
-                  {/* Primary Cinematic Headline */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.7 }}
-                  >
-                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-[family-name:var(--font-heading)] leading-[1.06] tracking-tight uppercase text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)] max-w-3xl">
-                      <span>BUILDING STRONG</span>{' '}
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A853] via-[#FBBF24] to-[#E8C97D]">
-                        FOUNDATIONS.
-                      </span>{' '}
-                      <br className="hidden sm:inline" />
-                      <span className="text-white/95">CREATING BRIGHTER FUTURES.</span>
-                    </h1>
-                  </motion.div>
-
-                  {/* Supporting Paragraph */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35, duration: 0.6 }}
-                    className="text-white/85 text-sm sm:text-base md:text-lg font-medium tracking-wide max-w-xl leading-relaxed"
-                  >
-                    For over <strong className="text-white font-bold">28 years</strong>, Sree Valmeeki High School has nurtured knowledge, discipline, and confidence — preparing students for school, competitive examinations, and life beyond the classroom.
-                  </motion.p>
-
-                  {/* Action CTAs */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                    className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4"
-                  >
-                    <button
-                      type="button"
-                      onClick={onOpenAdmissions}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] hover:from-[#E8C97D] hover:to-[#D4A853] text-[#050D1A] font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl hover:shadow-[0_10px_35px_rgba(212,168,83,0.4)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
-                    >
-                      <span>Apply For Admission 2026–27</span>
-                      <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={nextSlide}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm tracking-wider uppercase border border-white/25 backdrop-blur-md transition-all cursor-pointer hover:border-white/50"
-                    >
-                      <span>Slide To Proven Results →</span>
-                    </button>
-                  </motion.div>
+            {/* Blue Moon Style Hero Block: Anchored in Lower-Left with Wide Open Campus */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="max-w-2xl text-left space-y-3 sm:space-y-4"
+              >
+                {/* Yellow/Gold Eyebrow Badge (Exact Blue Moon Style) */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[#FBBF24] font-black text-xs sm:text-sm tracking-[0.2em] uppercase drop-shadow-md">
+                    ADMISSIONS OPEN 2026–27
+                  </span>
                 </div>
 
-                {/* Right Column: Floating Campus Quality Card */}
-                <div className="lg:col-span-5 xl:col-span-4 hidden lg:block">
-                  <div className="p-6 rounded-3xl bg-[#0A1628]/85 border border-[#D4A853]/40 shadow-2xl backdrop-blur-xl space-y-5">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                      <div className="flex items-center gap-2">
-                        <GraduationCap className="w-5 h-5 text-[#D4A853]" />
-                        <span className="text-xs font-black uppercase tracking-wider text-white">
-                          ADMISSIONS 2026–27
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-bold text-[#10B981] bg-[#10B981]/20 px-2 py-0.5 rounded-full border border-[#10B981]/40">
-                        Open Now
-                      </span>
-                    </div>
+                {/* Main Institution Title (Bold, Monumental, Crisp) */}
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-white tracking-tight leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                  Sree Valmeeki <br className="hidden sm:inline" />
+                  <span className="text-white">High School</span>
+                </h1>
 
-                    <div className="space-y-3 text-xs sm:text-sm">
-                      <div className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                        <span className="text-white/85">Nursery to Class 10 (AP State Board)</span>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                        <span className="text-white/85">Integrated IIT Foundation & Olympiad Wings</span>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                        <span className="text-white/85">4K Smart Digital Classrooms & Science Labs</span>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                        <span className="text-white/85">Safe GPS-Monitored Bus Fleet across Kadiri</span>
-                      </div>
-                    </div>
+                {/* Subtitle / Focus Areas (Exact Blue Moon Style) */}
+                <p className="text-sm sm:text-base md:text-lg text-white/95 font-bold tracking-wide drop-shadow-md">
+                  Building Strong Foundations • Creating Brighter Futures
+                </p>
 
-                    <div className="pt-2">
-                      <button
-                        type="button"
-                        onClick={onOpenAdmissions}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#050D1A] font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer shadow-md"
-                      >
-                        Enquire For Seat Now
-                      </button>
-                    </div>
-                  </div>
+                <p className="text-xs sm:text-sm text-white/80 font-semibold tracking-wider uppercase drop-shadow-sm">
+                  Nursery to Class 10 • AP State Board • IIT Foundation &amp; Olympiad Academy • Kadiri
+                </p>
+
+                {/* Action CTA Buttons (Vibrant Gold Rounded Pill like Blue Moon) */}
+                <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+                  <button
+                    type="button"
+                    onClick={onOpenAdmissions}
+                    className="px-7 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#FBBF24]/30 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
+                  >
+                    Enroll Now
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/25 backdrop-blur-md hover:border-white/50 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer flex items-center gap-2"
+                  >
+                    <Trophy className="w-4 h-4 text-[#FBBF24]" />
+                    <span>Proven Results →</span>
+                  </button>
                 </div>
-              </div>
-            </div>
-
-            {/* Bottom Quick Strip on Video Slide */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto pt-4 border-t border-white/10 hidden md:flex items-center justify-between text-xs text-white/60">
-              <div className="flex items-center gap-6">
-                <span>ESTD. 1999 • KADIRI</span>
-                <span>•</span>
-                <span>ENGLISH MEDIUM</span>
-                <span>•</span>
-                <span>100% BOARD PASS BENCHMARK</span>
-                <span>•</span>
-                <span>TOWN 1ST & 2ND RECORD RANKS</span>
-              </div>
-              <div className="text-[#D4A853] font-bold">
-                Slide 01 of 02 • Campus Film
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         ) : (
@@ -705,6 +618,22 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
           <MoveDown className="w-4 h-4 text-[#D4A853] animate-bounce" />
         </button>
       </div>
+
+      {/* =======================================================================
+          PINNED RIGHT EDGE VERTICAL TAB (BLUE MOON SIGNATURE CONVERSION ELEMENT)
+      ======================================================================= */}
+      <button
+        type="button"
+        onClick={onOpenAdmissions}
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#0A1628]/95 hover:bg-[#FBBF24] text-white hover:text-[#0A1628] border-l border-y border-[#D4A853]/50 rounded-l-xl py-3.5 px-2 shadow-2xl transition-all cursor-pointer group flex flex-col items-center gap-1.5 active:scale-95"
+        title="Open Admissions Enquiry"
+        aria-label="Enroll Now"
+      >
+        <span className="text-[10px] font-black tracking-widest uppercase [writing-mode:vertical-rl] rotate-180 group-hover:tracking-wider transition-all">
+          Enroll Now
+        </span>
+        <ChevronRight className="w-3.5 h-3.5 text-[#FBBF24] group-hover:text-[#0A1628] transition-colors" />
+      </button>
     </div>
   );
 }

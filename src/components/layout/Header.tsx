@@ -139,7 +139,7 @@ export default function Header() {
                   Admissions Open 2026–27
                 </span>
                 <span className="text-white/90 font-medium text-xs">
-                  Sree Valmeeki E.M School • 27 Years of Educational Excellence • Kadiri
+                  Sree Valmeeki E.M School • 28 Years of Educational Excellence • Kadiri
                 </span>
               </div>
 
@@ -205,7 +205,7 @@ export default function Header() {
                     Sree Valmeeki High School
                   </span>
                   <span className="text-[9px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider truncate">
-                    (Est. 1999 • 27 Yrs of Excellence)
+                    (Est. 1999 • 28 Yrs of Excellence)
                   </span>
                 </div>
               </Link>
