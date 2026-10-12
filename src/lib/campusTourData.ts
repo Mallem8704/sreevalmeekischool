@@ -330,6 +330,22 @@ export const PHOTO_MOSAIC: MosaicPhoto[] = [
     span: 'col-span-1 row-span-1',
   },
   {
+    id: 'mosaic-5g',
+    title: '1st AP State U-13 Futsal Champions',
+    category: 'SPORTS',
+    caption: 'Official 1st AP State Mini Boys Inter-District Futsal Championship presentation on stage.',
+    image: '/images/sports/ap_state_u13_futsal_championship_2019.jpg',
+    span: 'col-span-2 row-span-1',
+  },
+  {
+    id: 'mosaic-5h',
+    title: 'ACA Inter-School Cricket Champions',
+    category: 'SPORTS',
+    caption: 'Victorious cricket squad at the ACA South Zone Inter-School Tournament in Kadapa.',
+    image: '/images/sports/aca_inter_school_cricket_champions.jpg',
+    span: 'col-span-2 row-span-1',
+  },
+  {
     id: 'mosaic-6',
     title: 'Mass Yoga Morning Assembly',
     category: 'ACTIVITIES',

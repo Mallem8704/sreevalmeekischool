@@ -65,6 +65,10 @@ const galleryItems: GalleryItem[] = [
   { id: 21, title: 'Science Fair Experiments', category: 'ACTIVITIES', year: '2025', image: '/images/school/school-event-9.jpg', aspect: 'col-span-1 aspect-[4/5]' },
   { id: 22, title: 'National Handwriting Champion', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/handwriting_national_champion.jpg', aspect: 'col-span-1 aspect-[4/3]' },
   { id: 23, title: 'State Science 1st Rank Ceremony', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/science_experiments_state_1st_rank.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 24, title: '1st AP State Mini U-13 Boys Futsal Champions 2019', category: 'SPORTS', year: '2019', image: '/images/sports/ap_state_u13_futsal_championship_2019.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 25, title: 'ACA SZ Inter-School Cricket Champions @ Kadapa', category: 'SPORTS', year: '2026', image: '/images/sports/aca_inter_school_cricket_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 26, title: 'Inter-School Cricket Match Pitch Umpire Toss', category: 'SPORTS', year: '2026', image: '/images/sports/cricket_match_pitch_umpire_toss.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 27, title: 'Inter-School Sports Champions & Trophy Honors', category: 'SPORTS', year: '2026', image: '/images/sports/sports_trophy_winners_felicitation.jpg', aspect: 'col-span-1 aspect-[3/4]' },
 ];
 
 export default function GalleryPage() {
