@@ -135,11 +135,12 @@ export default function IntroVideoLauncher({
         <div className="flex items-center gap-3">
           <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-1 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(212,168,83,0.35)] shrink-0">
             <Image
-              src="/logo-256.png"
+              src="/images/logo/valmeeki_emblem_v3.png"
               alt="Sree Valmeeki School Crest"
               fill
               sizes="44px"
               className="object-contain p-0.5"
+              unoptimized
             />
           </div>
           <div className="flex flex-col">

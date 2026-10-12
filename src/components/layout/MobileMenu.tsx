@@ -84,11 +84,12 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
               <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
                 <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
                   <Image
-                    src="/images/logo/valmeeki_emblem.png"
+                    src="/images/logo/valmeeki_emblem_v3.png"
                     alt="Sree Valmeeki Emblem"
                     fill
                     sizes="40px"
                     className="object-contain rounded-lg"
+                    unoptimized
                   />
                 </div>
                 <div className="flex flex-col">
