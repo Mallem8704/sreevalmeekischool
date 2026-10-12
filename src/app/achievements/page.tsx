@@ -10,6 +10,7 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 import { Sparkles, Trophy, Award, X, ChevronRight, ChevronLeft, Filter } from 'lucide-react';
 import { verifiedAchievements, academicToppers, AchievementItem } from '@/lib/data';
 import StarAchieversSection from '@/components/home/StarAchieversSection';
+import GirinathReddyHeroSpotlight from '@/components/sports/GirinathReddyHeroSpotlight';
 
 const ceremonyPhotos = [
   {
@@ -342,6 +343,13 @@ export default function AchievementsPage() {
             ))}
           </div>
         </div>
+
+        {/* Dynamic VIP Spotlight for SPORTS: Meet our Ranji Player Girinath Reddy */}
+        {selectedCategory === 'SPORTS' && (
+          <div className="mb-10">
+            <GirinathReddyHeroSpotlight />
+          </div>
+        )}
 
         {/* Masonry / Pinterest Style Visual Achievement Wall */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

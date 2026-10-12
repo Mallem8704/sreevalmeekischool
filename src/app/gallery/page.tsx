@@ -18,6 +18,7 @@ import {
   Film,
 } from 'lucide-react';
 import { videoGalleryItems } from '@/lib/data';
+import GirinathReddyHeroSpotlight from '@/components/sports/GirinathReddyHeroSpotlight';
 
 interface GalleryItem {
   id: number;
@@ -50,26 +51,36 @@ const galleryItems: GalleryItem[] = [
   { id: 6, title: 'Yellow Bus Transit Fleet', category: 'TRANSPORT', year: '2026', image: '/images/campus/transport_fleet_buses.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/9]' },
   { id: 7, title: 'Mass Yoga Morning Assembly', category: 'ACTIVITIES', year: '2026', image: '/images/campus/yoga_assembly.jpg', aspect: 'col-span-1 aspect-[4/3]' },
   { id: 8, title: 'Senior Faculty Science Mentorship', category: 'CLASSROOMS', year: '2026', image: '/images/campus/science_lab_faculty.jpg', aspect: 'col-span-1 aspect-[4/5]' },
-  { id: 9, title: 'AP State Futsal Champions', category: 'SPORTS', year: '2026', image: '/images/sports/futsal_state_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
-  { id: 10, title: 'Valmeeki Boys Championship Sweep (15+ Shields)', category: 'SPORTS', year: '2019', image: '/images/sports/valmeeki_boys_champions_2019.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
-  { id: 11, title: 'Valmeeki Girls Sports Championship (15+ Shields)', category: 'SPORTS', year: '2019', image: '/images/sports/valmeeki_girls_champions_2019.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 12, title: 'Inter-School Girls Kho-Kho Tournament', category: 'SPORTS', year: '2026', image: '/images/sports/girls_kho_kho_tournament.jpg', aspect: 'col-span-1 aspect-[16/9]' },
-  { id: 13, title: '4x100m Relay Sprint Champions', category: 'SPORTS', year: '2026', image: '/images/sports/relay_sprint_champions.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 14, title: 'Athletics Gold Medalist Presentation', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_gold_podium_presentation.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 15, title: 'Track & Field Podium Winners (1-2-3)', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_podium_ceremony.jpg', aspect: 'col-span-1 aspect-[3/4]' },
-  { id: 16, title: 'Annual Athletics Meet Podium Honors', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_podium_presentation_ceremony.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 17, title: 'Playground Drone Aerial', category: 'SPORTS', year: '2026', image: '/images/campus/playground_drone_aerial.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
-  { id: 18, title: 'Cricket Match On School Grounds', category: 'SPORTS', year: '2026', image: '/images/campus/sports_cricket_ground.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 19, title: 'Annual Day Stage Dance', category: 'EVENTS', year: '2026', image: '/images/campus/cultural_dance_stage.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 20, title: 'Digital Classrooms & Pedagogy', category: 'CLASSROOMS', year: '2026', image: '/images/campus/digital_classroom.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 21, title: 'Science Fair Experiments', category: 'ACTIVITIES', year: '2025', image: '/images/school/school-event-9.jpg', aspect: 'col-span-1 aspect-[4/5]' },
-  { id: 22, title: 'National Handwriting Champion', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/handwriting_national_champion.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 23, title: 'State Science 1st Rank Ceremony', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/science_experiments_state_1st_rank.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 24, title: '1st AP State Mini U-13 Boys Futsal Champions 2019', category: 'SPORTS', year: '2019', image: '/images/sports/ap_state_u13_futsal_championship_2019.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
-  { id: 25, title: 'ACA SZ Inter-School Cricket Champions @ Kadapa', category: 'SPORTS', year: '2026', image: '/images/sports/aca_inter_school_cricket_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
-  { id: 26, title: 'Inter-School Cricket Match Pitch Umpire Toss', category: 'SPORTS', year: '2026', image: '/images/sports/cricket_match_pitch_umpire_toss.jpg', aspect: 'col-span-1 aspect-[4/3]' },
-  { id: 27, title: 'Inter-School Sports Champions & Trophy Honors', category: 'SPORTS', year: '2026', image: '/images/sports/sports_trophy_winners_felicitation.jpg', aspect: 'col-span-1 aspect-[3/4]' },
-  { id: 28, title: 'Valmeeki Cricket Squad Field Celebration', category: 'SPORTS', year: '2026', image: '/images/sports/valmeeki_cricket_squad_field_celebration.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 9, title: 'Meet Ranji Star Girinath Reddy with MS Dhoni', category: 'SPORTS', year: '2026', image: '/images/sports/girinath_reddy_with_ms_dhoni.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 10, title: 'Ranji Star Girinath Reddy with Virat Kohli (BCCI)', category: 'SPORTS', year: '2026', image: '/images/sports/girinath_reddy_with_virat_kohli.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 11, title: 'Girinath Reddy — First-Class Ranji Pitch Action', category: 'SPORTS', year: '2026', image: '/images/sports/girinath_reddy_ranji_cricket_action.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 12, title: 'Boys & Girls All Round Championship (25+ Trophies)', category: 'SPORTS', year: '2026', image: '/images/sports/valmeeki_all_round_championship_girls_boys.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 13, title: 'Grand All Round Championship Victory Celebration', category: 'SPORTS', year: '2026', image: '/images/sports/valmeeki_all_round_championship_grand_celebration.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 14, title: 'AP State Futsal Champions', category: 'SPORTS', year: '2026', image: '/images/sports/futsal_state_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 15, title: 'Valmeeki Boys Championship Sweep (15+ Shields)', category: 'SPORTS', year: '2019', image: '/images/sports/valmeeki_boys_champions_2019.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 16, title: 'Valmeeki Girls Sports Championship (15+ Shields)', category: 'SPORTS', year: '2019', image: '/images/sports/valmeeki_girls_champions_2019.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 17, title: 'Inter-School Girls Kho-Kho Tournament', category: 'SPORTS', year: '2026', image: '/images/sports/girls_kho_kho_tournament.jpg', aspect: 'col-span-1 aspect-[16/9]' },
+  { id: 18, title: '4x100m Relay Sprint Champions', category: 'SPORTS', year: '2026', image: '/images/sports/relay_sprint_champions.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 19, title: 'Athletics Gold Medalist Presentation', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_gold_podium_presentation.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 20, title: 'Track & Field Podium Winners (1-2-3)', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_podium_ceremony.jpg', aspect: 'col-span-1 aspect-[3/4]' },
+  { id: 21, title: 'Annual Athletics Meet Podium Honors', category: 'SPORTS', year: '2026', image: '/images/sports/athletics_podium_presentation_ceremony.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 22, title: '1st AP State Mini U-13 Boys Futsal Champions 2019', category: 'SPORTS', year: '2019', image: '/images/sports/ap_state_u13_futsal_championship_2019.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 23, title: 'ACA SZ Inter-School Cricket Champions @ Kadapa', category: 'SPORTS', year: '2026', image: '/images/sports/aca_inter_school_cricket_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 24, title: 'Inter-School Cricket Match Pitch Umpire Toss', category: 'SPORTS', year: '2026', image: '/images/sports/cricket_match_pitch_umpire_toss.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 25, title: 'Inter-School Sports Champions & Trophy Honors', category: 'SPORTS', year: '2026', image: '/images/sports/sports_trophy_winners_felicitation.jpg', aspect: 'col-span-1 aspect-[3/4]' },
+  { id: 26, title: 'Valmeeki Cricket Squad Field Celebration', category: 'SPORTS', year: '2026', image: '/images/sports/valmeeki_cricket_squad_field_celebration.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 27, title: 'Playground Drone Aerial', category: 'SPORTS', year: '2026', image: '/images/campus/playground_drone_aerial.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
+  { id: 28, title: 'Cricket Match On School Grounds', category: 'SPORTS', year: '2026', image: '/images/campus/sports_cricket_ground.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 29, title: 'Agricultural Nursery Botanical Field Study', category: 'ACTIVITIES', year: '2026', image: '/images/activities/agricultural_nursery_field_study.jpg', aspect: 'col-span-1 aspect-[3/4]' },
+  { id: 30, title: 'Botany & Plant Science Field Observations', category: 'ACTIVITIES', year: '2026', image: '/images/activities/botany_plant_science_investigation.jpg', aspect: 'col-span-1 aspect-[3/4]' },
+  { id: 31, title: 'Horticulture & Greenhouse Nursery Workshop', category: 'ACTIVITIES', year: '2026', image: '/images/activities/horticulture_greenhouse_learning.jpg', aspect: 'col-span-1 aspect-[9/16]' },
+  { id: 32, title: 'Telugu Bhasha Dinotsavam Cultural Honors', category: 'ACTIVITIES', year: '2026', image: '/images/activities/telugu_bhasha_dinotsavam_celebration.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/9]' },
+  { id: 33, title: 'Annual Day Synchronized Patriotic Stage Drama', category: 'ACTIVITIES', year: '2026', image: '/images/activities/annual_day_stage_performance_pyramid.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 34, title: 'Annual Day Stage Dance', category: 'EVENTS', year: '2026', image: '/images/campus/cultural_dance_stage.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 35, title: 'Digital Classrooms & Pedagogy', category: 'CLASSROOMS', year: '2026', image: '/images/campus/digital_classroom.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 36, title: 'Science Fair Experiments', category: 'ACTIVITIES', year: '2025', image: '/images/school/school-event-9.jpg', aspect: 'col-span-1 aspect-[4/5]' },
+  { id: 37, title: 'National Handwriting Champion', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/handwriting_national_champion.jpg', aspect: 'col-span-1 aspect-[4/3]' },
+  { id: 38, title: 'State Science 1st Rank Ceremony', category: 'ACHIEVEMENTS', year: '2026', image: '/extracted/champions/science_experiments_state_1st_rank.jpg', aspect: 'col-span-1 aspect-[4/3]' },
 ];
 
 export default function GalleryPage() {
@@ -172,6 +183,13 @@ export default function GalleryPage() {
           ))}
         </div>
       </section>
+
+      {/* Dynamic VIP Spotlight for SPORTS: Meet our Ranji Player Girinath Reddy */}
+      {activeCategory === 'SPORTS' && (
+        <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full mb-8">
+          <GirinathReddyHeroSpotlight />
+        </section>
+      )}
 
       {/* Asymmetric Masonry Photo Grid */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow pb-16">
