@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Phone, Sparkles, Send } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { useAdminStore } from '@/lib/store';
 
 interface AdmissionModalProps {
@@ -202,16 +203,28 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                   </button>
                 </form>
 
-                {/* Direct Call Link */}
-                <div className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs text-slate-600 dark:text-white/70">
-                  <span>Prefer to speak immediately?</span>
-                  <a
-                    href="tel:+919440468838"
-                    className="inline-flex items-center gap-1.5 text-[#B8860B] dark:text-[#D4A853] font-bold hover:underline"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>+91 94404 68838</span>
-                  </a>
+                {/* Direct Call & WhatsApp Link */}
+                <div className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 dark:text-white/70">
+                  <span>Prefer instant conversation?</span>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[#25D366] font-bold hover:underline"
+                    >
+                      <WhatsAppIcon className="w-3.5 h-3.5" />
+                      <span>WhatsApp</span>
+                    </a>
+                    <span className="text-slate-300 dark:text-white/20">•</span>
+                    <a
+                      href="tel:+919440468838"
+                      className="inline-flex items-center gap-1.5 text-[#B8860B] dark:text-[#D4A853] font-bold hover:underline"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call Desk</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             )}

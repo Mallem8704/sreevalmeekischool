@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { X, Phone, MapPin, GraduationCap, ArrowRight, MessageCircle } from 'lucide-react';
+import { X, Phone, MapPin, GraduationCap, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { navLinks } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
@@ -189,7 +190,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#25D366] text-white rounded-xl text-xs font-semibold shadow-xs hover:brightness-105 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
               </div>

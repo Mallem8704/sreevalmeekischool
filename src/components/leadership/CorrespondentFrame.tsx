@@ -17,10 +17,10 @@ import {
   X,
   Phone,
   GraduationCap,
-  MessageCircle,
   Clock,
   Compass,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 
 interface CorrespondentFrameProps {
   className?: string;
@@ -231,7 +231,7 @@ export default function CorrespondentFrame({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shadow-sm"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp</span>
               </a>
             </div>

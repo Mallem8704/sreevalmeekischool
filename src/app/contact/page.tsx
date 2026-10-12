@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import {
   MapPin,
   Phone,
-  MessageCircle,
   Mail,
   Clock,
   Navigation,
@@ -16,6 +15,7 @@ import {
   Sparkles,
   ArrowRight,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
@@ -110,7 +110,7 @@ export default function ContactPage() {
               className="p-6 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 shadow-sm hover:shadow-md transition-all group flex items-start gap-4"
             >
               <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors shrink-0">
-                <MessageCircle className="w-6 h-6" />
+                <WhatsAppIcon className="w-6 h-6" />
               </div>
               <div>
                 <span className="text-[11px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-1">

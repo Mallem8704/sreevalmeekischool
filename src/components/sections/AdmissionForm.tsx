@@ -8,7 +8,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   CheckCircle2,
   Phone,
-  MessageCircle,
   MapPin,
   Clock,
   ShieldCheck,
@@ -18,6 +17,7 @@ import {
   PhoneCall,
   ArrowRight,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { useAdminStore } from '@/lib/store';
 
 const formSchema = z.object({
@@ -228,7 +228,7 @@ export default function AdmissionForm() {
                     className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white transition-all group shadow-md"
                   >
                     <div className="w-11 h-11 rounded-xl bg-black/10 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                      <MessageCircle className="w-5 h-5" />
+                      <WhatsAppIcon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
                       <span className="text-[11px] text-white/90 font-bold tracking-wider uppercase block">
@@ -296,7 +296,7 @@ export default function AdmissionForm() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#20BD5A] transition-colors shadow-md"
                         >
-                          <MessageCircle className="w-4 h-4" />
+                          <WhatsAppIcon className="w-4 h-4" />
                           Chat on WhatsApp
                         </a>
                       </div>

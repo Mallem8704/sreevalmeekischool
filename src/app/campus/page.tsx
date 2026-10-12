@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
@@ -150,9 +151,10 @@ export default function CampusPage() {
                 href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20book%20a%20Campus%20Tour"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform hover:scale-105 inline-flex items-center gap-2"
               >
-                Book via WhatsApp
+                <WhatsAppIcon className="w-4 h-4" />
+                <span>Book via WhatsApp</span>
               </a>
             </div>
           </div>

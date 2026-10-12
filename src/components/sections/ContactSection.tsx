@@ -1,6 +1,7 @@
 'use client';
 
-import { MapPin, Phone, MessageCircle, Navigation, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Navigation, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 
 export default function ContactSection() {
   return (
@@ -51,10 +52,15 @@ export default function ContactSection() {
                 <Phone size={18} />
                 <span>Call School</span>
               </button>
-              <button className="flex items-center justify-center gap-2 py-4 px-6 bg-[#25D366] text-white hover:bg-[#1EBE5C] transition-colors rounded">
-                <MessageCircle size={18} />
+              <a 
+                href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-4 px-6 bg-[#25D366] text-white hover:bg-[#1EBE5C] transition-colors rounded"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
                 <span>WhatsApp</span>
-              </button>
+              </a>
               <button className="flex items-center justify-center gap-2 py-4 px-6 border border-[#0A1628] text-[#0A1628] hover:bg-[#FAFAF7] transition-colors rounded">
                 <Navigation size={18} />
                 <span>Get Directions</span>

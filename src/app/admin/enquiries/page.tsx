@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { useAdminStore } from '@/lib/store';
-import { Search, ChevronDown, ChevronUp, Phone, MessageCircle } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 
 const STATUSES = ['All', 'New', 'Contacted', 'Campus Visit', 'Follow Up', 'Admitted', 'Closed'];
 
@@ -158,7 +159,7 @@ export default function AdminEnquiries() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
                               >
-                                <MessageCircle className="h-4 w-4 mr-2" />
+                                <WhatsAppIcon className="h-4 w-4 mr-2" />
                                 WhatsApp
                               </a>
                             </div>

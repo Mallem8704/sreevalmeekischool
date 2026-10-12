@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageCircle, ArrowUp, Bot, GraduationCap, MapPin } from 'lucide-react';
+import { Phone, ArrowUp, GraduationCap, MapPin } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -68,7 +69,7 @@ export default function FloatingButtons() {
             className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-transform"
             aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            <WhatsAppIcon className="w-5 h-5" />
             <span>WhatsApp</span>
           </a>
 
@@ -151,10 +152,10 @@ export default function FloatingButtons() {
                 href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 bg-[#1E3A8A] hover:bg-[#172554] text-white rounded-full shadow-xl hover:shadow-[0_8px_25px_rgba(30,58,138,0.5)] border-2 border-white/30 transition-all duration-300"
-                aria-label="Chat with School Assistant"
+                className="flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-xl hover:shadow-[0_8px_25px_rgba(37,211,102,0.5)] border-2 border-white transition-all duration-300"
+                aria-label="Chat with School Admissions on WhatsApp"
               >
-                <Bot className="w-6 h-6 sm:w-7 sm:h-7 text-[#FBBF24]" />
+                <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8" />
               </Link>
             </motion.div>
           </div>

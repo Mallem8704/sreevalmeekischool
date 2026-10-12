@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, ChevronRight, Play, ExternalLink } from 'lucide-react';
-import { InstagramIcon, FacebookIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
+import { InstagramIcon, FacebookIcon, YoutubeIcon, WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { replayIntroVideo } from '@/components/ui/CinematicIntro';
 
 export default function Footer() {
@@ -65,6 +65,15 @@ export default function Footer() {
               className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300 shadow-lg hover:scale-105"
             >
               <YoutubeIcon className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with Sree Valmeeki School on WhatsApp"
+              className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 shadow-lg hover:scale-105"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -167,6 +176,17 @@ export default function Footer() {
                   className="text-gray-300 hover:text-[#D4A853] transition-colors font-medium"
                 >
                   +91 94404 68838
+                </a>
+              </li>
+              <li className="flex items-center">
+                <WhatsAppIcon className="w-5 h-5 mr-3 shrink-0" />
+                <a 
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#25D366] transition-colors font-medium flex items-center gap-1.5"
+                >
+                  WhatsApp: +91 94404 68838
                 </a>
               </li>
               <li className="flex items-center">

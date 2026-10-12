@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, MoveDown, Phone, MessageCircle, X, CheckCircle, GraduationCap } from 'lucide-react';
+import { ArrowRight, MoveDown, Phone, X, CheckCircle, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CinematicHero() {

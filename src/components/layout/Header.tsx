@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Phone, Menu, ArrowRight, X } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { navLinks } from '@/lib/data';
 import MobileMenu from './MobileMenu';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -155,6 +156,16 @@ export default function Header() {
                 >
                   <Phone className="w-3 h-3 text-[#FBBF24]" />
                   <span>+91 94404 68838</span>
+                </a>
+                <a
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-[#25D366] transition-colors inline-flex items-center gap-1"
+                  title="Chat on WhatsApp"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">WhatsApp</span>
                 </a>
                 <button
                   onClick={() => setShowAnnouncement(false)}
