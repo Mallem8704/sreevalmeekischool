@@ -22,7 +22,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'ACADEMIC RIGOR',
     title: 'Concept-First Learning',
     description: 'Deep understanding, analytical thinking, and academic discipline in every classroom.',
-    image: '/images/school/school-event-3.jpg',
+    image: '/images/campus/classroom_interaction.jpg',
     href: '/academics',
   },
   {
@@ -31,7 +31,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'SMART CLASSROOMS',
     title: 'Interactive Technology',
     description: 'Visual learning panels, 3D simulations, and multimedia resources that engage curiosity.',
-    image: '/images/school/school-event-12.jpg',
+    image: '/images/campus/digital_classroom.jpg',
     href: '/campus',
   },
   {
@@ -40,7 +40,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'CAMPUS ENVIRONMENT',
     title: 'Spacious Infrastructure',
     description: 'Airy classrooms, green surroundings, and dedicated facilities designed for daily focus.',
-    image: '/images/school/school-event-5.jpg',
+    image: '/images/campus/campus_drone_aerial.jpg',
     href: '/campus',
   },
   {
@@ -49,7 +49,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'COMPETITIVE EDGE',
     title: 'IIT & Olympiad Foundation',
     description: 'Early analytical problem-solving and competitive exam aptitude integrated from Class 6.',
-    image: '/images/school/school-event-9.jpg',
+    image: '/images/campus/science_lab_faculty.jpg',
     href: '/academics/iit-foundation',
   },
   {
@@ -58,7 +58,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'DISCIPLINE & CHARACTER',
     title: 'Values That Endure',
     description: 'Instilling integrity, mutual respect, and personal responsibility alongside marks.',
-    image: '/images/school/school-event-1.jpg',
+    image: '/images/campus/yoga_assembly.jpg',
     href: '/about',
   },
   {
@@ -67,7 +67,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'STUDENT LIFE',
     title: 'Confidence & Expression',
     description: 'Daily stage assemblies, elocution, and stage presentation for confident communicators.',
-    image: '/images/school/school-event-4.jpg',
+    image: '/images/campus/cultural_dance_stage.jpg',
     href: '/gallery',
   },
 ];
