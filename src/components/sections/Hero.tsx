@@ -122,7 +122,7 @@ export default function Hero() {
               </motion.div>
 
               {/* Grand School Name Headline */}
-              <h1 className="text-2xl sm:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-heading)] leading-[1.15] tracking-tight mb-3.5 sm:mb-4">
+              <h1 className="text-[clamp(1.75rem,7vw,3.75rem)] sm:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-heading)] leading-[1.12] tracking-tight mb-3.5 sm:mb-4">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6 text-xs font-semibold"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 mb-6 text-xs font-semibold"
               >
                 <div className="px-3 py-2.5 rounded-xl bg-white/10 border border-[#D4A853]/40 backdrop-blur-sm text-center flex flex-col items-center justify-center gap-0.5 shadow-sm group hover:border-[#D4A853] transition-colors">
                   <span className="text-[#D4A853] font-bold text-sm tracking-wide">27+ Years</span>
@@ -181,11 +181,11 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.95, duration: 0.6 }}
-                className="flex flex-wrap items-center gap-3"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3"
               >
                 <a
                   href="#philosophy"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#0A1628] bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] rounded-xl shadow-lg hover:shadow-xl hover:brightness-105 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[46px] text-xs sm:text-sm font-bold tracking-wider uppercase text-[#0A1628] bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] rounded-xl shadow-lg hover:shadow-xl hover:brightness-105 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   Explore Philosophy
                   <ArrowRight className="w-4 h-4" />
@@ -193,14 +193,14 @@ export default function Hero() {
 
                 <a
                   href="#campus"
-                  className="inline-flex items-center justify-center px-6 py-3 text-xs sm:text-sm font-semibold tracking-wide text-white border border-white/30 bg-white/10 hover:bg-white/20 hover:border-white/60 transition-all duration-200 rounded-xl backdrop-blur-sm"
+                  className="inline-flex items-center justify-center px-6 py-3 min-h-[46px] text-xs sm:text-sm font-semibold tracking-wide text-white border border-white/30 bg-white/10 hover:bg-white/20 hover:border-white/60 transition-all duration-200 rounded-xl backdrop-blur-sm"
                 >
                   Campus Life
                 </a>
 
                 <a
                   href="tel:+919440468838"
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-semibold text-white/90 hover:text-white bg-white/5 hover:bg-white/15 border border-white/15 rounded-xl transition-all"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-3 min-h-[46px] text-xs font-semibold text-white/90 hover:text-white bg-white/5 hover:bg-white/15 border border-white/15 rounded-xl transition-all"
                 >
                   <PhoneCall className="w-3.5 h-3.5 text-[#D4A853]" />
                   <span>+91 94404 68838</span>
@@ -287,12 +287,13 @@ export default function Hero() {
                       <input
                         type="text"
                         required
+                        autoComplete="name"
                         value={formData.studentName}
                         onChange={(e) =>
                           setFormData({ ...formData, studentName: e.target.value })
                         }
                         placeholder="e.g. R. Rahul Reddy"
-                        className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
+                        className="w-full pl-9 pr-3 py-2.5 min-h-[46px] text-base sm:text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
                       />
                     </div>
                   </div>
@@ -309,7 +310,7 @@ export default function Hero() {
                         onChange={(e) =>
                           setFormData({ ...formData, grade: e.target.value })
                         }
-                        className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-[#0E1E36] border border-white/20 text-white focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all cursor-pointer"
+                        className="w-full pl-9 pr-3 py-2.5 min-h-[46px] text-base sm:text-xs rounded-xl bg-[#0E1E36] border border-white/20 text-white focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all cursor-pointer"
                       >
                         {grades.map((grade) => (
                           <option key={grade} value={grade} className="bg-[#0A1628] text-white">
@@ -330,13 +331,15 @@ export default function Hero() {
                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40" />
                         <input
                           type="tel"
+                          inputMode="tel"
+                          autoComplete="tel"
                           required
                           value={formData.phone}
                           onChange={(e) =>
                             setFormData({ ...formData, phone: e.target.value })
                           }
                           placeholder="+91 94404 68838"
-                          className="w-full pl-8 pr-2.5 py-2 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
+                          className="w-full pl-8 pr-2.5 py-2.5 min-h-[46px] text-base sm:text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
                         />
                       </div>
                     </div>
@@ -349,12 +352,13 @@ export default function Hero() {
                         <MessageSquare className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40" />
                         <input
                           type="tel"
+                          inputMode="tel"
                           value={formData.whatsapp}
                           onChange={(e) =>
                             setFormData({ ...formData, whatsapp: e.target.value })
                           }
                           placeholder="WhatsApp number"
-                          className="w-full pl-8 pr-2.5 py-2 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
+                          className="w-full pl-8 pr-2.5 py-2.5 min-h-[46px] text-base sm:text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] transition-all"
                         />
                       </div>
                     </div>
@@ -365,7 +369,7 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm tracking-wide text-[#0A1628] bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#C49A3C] hover:brightness-105 active:scale-98 shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                      className="w-full py-3.5 px-4 min-h-[48px] rounded-xl font-bold text-xs sm:text-sm tracking-wide text-[#0A1628] bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#C49A3C] hover:brightness-105 active:scale-98 shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                     >
                       {isSubmitting ? (
                         <span>Submitting Enquiry...</span>

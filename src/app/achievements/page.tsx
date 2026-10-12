@@ -307,13 +307,13 @@ export default function AchievementsPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200 dark:border-white/10 transition-colors duration-200">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           {/* Category Filters */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                className={`shrink-0 px-3.5 py-1.5 min-h-[38px] rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-[#D4A853] text-[#0A1628] shadow-md shadow-[#D4A853]/20'
                     : 'bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/15 text-slate-700 dark:text-white/70 hover:text-[#0A1628] dark:hover:text-white border border-slate-200 dark:border-white/10'
@@ -325,14 +325,14 @@ export default function AchievementsPage() {
           </div>
 
           {/* Year Timeline Selector */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0">
-            <span className="text-xs text-slate-500 dark:text-white/50 font-mono uppercase mr-1">Year:</span>
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+            <span className="text-xs text-slate-500 dark:text-white/50 font-mono uppercase mr-1 shrink-0">Year:</span>
             {years.map((y) => (
               <button
                 key={y}
                 type="button"
                 onClick={() => setSelectedYear(y)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
+                className={`shrink-0 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
                   selectedYear === y
                     ? 'bg-slate-200 dark:bg-white/20 text-[#B8860B] dark:text-[#D4A853] border border-[#D4A853]/60'
                     : 'text-slate-500 hover:text-slate-900 dark:text-white/50 dark:hover:text-white'

@@ -51,7 +51,7 @@ export default function PremiumStudentCardModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.92, y: 25 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-2xl bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] dark:from-[#0A1628] dark:via-[#0F2044] dark:to-[#0A1628] border-2 border-[#D4A853] rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.35)] overflow-hidden z-10 text-[#0A1628] dark:text-white transition-colors duration-200"
+          className="relative w-full max-w-2xl max-h-[90dvh] overflow-y-auto bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] dark:from-[#0A1628] dark:via-[#0F2044] dark:to-[#0A1628] border-2 border-[#D4A853] rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.35)] z-10 text-[#0A1628] dark:text-white transition-colors duration-200"
         >
           {/* Subtle Ambient Gold Glow */}
           <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#D4A853]/15 rounded-full blur-3xl pointer-events-none" />
@@ -62,7 +62,7 @@ export default function PremiumStudentCardModal({
             {onPrev && (
               <button
                 onClick={onPrev}
-                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#D4A853] hover:text-[#0A1628] dark:hover:bg-[#D4A853] dark:hover:text-[#0A1628] border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#D4A853] hover:text-[#0A1628] dark:hover:bg-[#D4A853] dark:hover:text-[#0A1628] border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
                 aria-label="Previous Student"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function PremiumStudentCardModal({
             {onNext && (
               <button
                 onClick={onNext}
-                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#D4A853] hover:text-[#0A1628] dark:hover:bg-[#D4A853] dark:hover:text-[#0A1628] border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-slate-100 dark:bg-white/10 hover:bg-[#D4A853] hover:text-[#0A1628] dark:hover:bg-[#D4A853] dark:hover:text-[#0A1628] border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
                 aria-label="Next Student"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -79,7 +79,7 @@ export default function PremiumStudentCardModal({
             )}
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-red-500 hover:text-white border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
+              className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-slate-100 dark:bg-white/10 hover:bg-red-500 hover:text-white border border-slate-300 dark:border-white/15 flex items-center justify-center transition-colors cursor-pointer text-slate-700 dark:text-slate-200 shadow-sm"
               aria-label="Close"
             >
               <X className="w-5 h-5" />

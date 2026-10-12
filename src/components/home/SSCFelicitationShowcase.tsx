@@ -305,18 +305,18 @@ export default function SSCFelicitationShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 shadow-[0_4px_25px_rgba(0,0,0,0.04)] dark:shadow-none"
+          className="p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 shadow-[0_4px_25px_rgba(0,0,0,0.04)] dark:shadow-none"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-white/5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 lg:gap-8">
             {VERIFIED_STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`flex flex-col items-center justify-center text-center ${
-                  i > 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
+                className={`p-3.5 sm:p-4 rounded-2xl bg-slate-50/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 flex flex-col items-center justify-center text-center shadow-xs ${
+                  i === 4 ? 'col-span-2 sm:col-span-1' : ''
                 }`}
               >
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl sm:text-4xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] leading-none">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] leading-none">
                     {stat.value}
                   </span>
                   <span className="text-xs sm:text-sm font-black text-[#B8860B] dark:text-[#FBBF24]">
@@ -342,7 +342,7 @@ export default function SSCFelicitationShowcase() {
 
             <Link
               href="/achievements"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#0A1628] dark:bg-[#D4A853] hover:bg-[#1E3A8A] dark:hover:bg-[#E8C97D] text-white dark:text-[#0A1628] text-xs font-black uppercase tracking-wider transition-all duration-200 shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A1628] dark:bg-[#D4A853] hover:bg-[#1E3A8A] dark:hover:bg-[#E8C97D] text-white dark:text-[#0A1628] text-xs font-black uppercase tracking-wider transition-all duration-200 shadow-md min-h-[44px]"
             >
               <span>View All 2026 Achievements</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -361,7 +361,7 @@ export default function SSCFelicitationShowcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8 select-none"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col justify-between p-3 sm:p-8 select-none overflow-y-auto max-h-[100dvh]"
             onClick={closeLightbox}
           >
             {/* Lightbox Top Bar */}

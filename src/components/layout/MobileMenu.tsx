@@ -101,7 +101,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
               </Link>
               <button
                 onClick={onClose}
-                className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-full transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -131,7 +131,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                     <Link
                       href={link.href}
                       onClick={(e) => handleMobileNavClick(e, link.id)}
-                      className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all cursor-pointer ${
+                      className={`flex items-center justify-between px-4 py-3 min-h-[48px] rounded-xl font-semibold transition-all cursor-pointer ${
                         isActive
                           ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'
                           : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:text-black dark:hover:text-white'
@@ -152,7 +152,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                 <Link
                   href="/leadership"
                   onClick={onClose}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold transition-all ${
+                  className={`flex items-center justify-between px-4 py-3 min-h-[48px] rounded-xl font-semibold transition-all ${
                     pathname === '/leadership'
                       ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'
                       : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:text-black dark:hover:text-white'
@@ -164,8 +164,8 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
               </motion.div>
             </nav>
 
-            {/* Bottom Actions */}
-            <div className="p-5 bg-slate-50 dark:bg-[#050D1A] border-t border-slate-100 dark:border-white/10 space-y-3">
+            {/* Bottom Actions with Safe Area Inset Support */}
+            <div className="p-5 bg-slate-50 dark:bg-[#050D1A] border-t border-slate-100 dark:border-white/10 space-y-3 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
               <Link
                 href="/admissions"
                 onClick={onClose}

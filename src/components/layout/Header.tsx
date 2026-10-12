@@ -165,8 +165,8 @@ export default function Header() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between">
               {/* Main Official Logo (Header Brand) */}
-              <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-                <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
+              <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
+                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
                   <Image
                     src="/images/logo/valmeeki_emblem.png"
                     alt="Sree Valmeeki E.M High School"
@@ -176,12 +176,12 @@ export default function Header() {
                     priority
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-[family-name:var(--font-heading)] font-black text-sm sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
-                    Sree Valmeeki E.M High School
+                <div className="flex flex-col min-w-0">
+                  <span className="font-[family-name:var(--font-heading)] font-black text-xs sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors truncate max-w-[145px] sm:max-w-none">
+                    Sree Valmeeki High School
                   </span>
-                  <span className="text-[10px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider">
-                    (Est. 1999 - 27 Years of Excellence)
+                  <span className="text-[9px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider truncate">
+                    (Est. 1999 • 27 Yrs of Excellence)
                   </span>
                 </div>
               </Link>
@@ -209,7 +209,7 @@ export default function Header() {
               </nav>
 
               {/* Right Actions: Phone + Theme Toggle + Enroll Now Pill */}
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                 <a
                   href="tel:+919440468838"
                   className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 dark:border-white/20 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 transition-all"
@@ -224,15 +224,15 @@ export default function Header() {
 
                 <Link
                   href="/admissions"
-                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 text-xs font-black uppercase tracking-wider text-[#0A1628] bg-[#FBBF24] hover:bg-[#F59E0B] rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                  className="hidden sm:inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 text-xs font-black uppercase tracking-wider text-[#0A1628] bg-[#FBBF24] hover:bg-[#F59E0B] rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
                 >
                   Enroll Now
                 </Link>
 
-                {/* Mobile Menu Button */}
+                {/* Mobile Menu Button with 44px+ Touch Target */}
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
-                  className="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                  className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
                   aria-label="Open navigation menu"
                 >
                   <Menu className="w-6 h-6" />

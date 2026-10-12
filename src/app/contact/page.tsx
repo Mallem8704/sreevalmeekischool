@@ -249,10 +249,11 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ramesh Kumar"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
+                      className="w-full px-4 py-3 min-h-[48px] rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-base sm:text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                     />
                   </div>
 
@@ -263,11 +264,13 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
+                        className="w-full px-4 py-3 min-h-[48px] rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-base sm:text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                       />
                     </div>
 
@@ -278,7 +281,7 @@ export default function ContactPage() {
                       <select
                         value={formData.grade}
                         onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#0A1628] border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
+                        className="w-full px-4 py-3 min-h-[48px] rounded-xl bg-slate-50 dark:bg-[#0A1628] border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-base sm:text-sm focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors cursor-pointer"
                       >
                         <option value="Pre-Primary (Nursery, LKG, UKG)">Pre-Primary (Nursery, LKG, UKG)</option>
                         <option value="Primary (Classes 1 - 5)">Primary (Classes 1 - 5)</option>
@@ -297,13 +300,13 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Ask about admissions, fee structure, bus routes, or timings..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-base sm:text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#B8860B] hover:bg-[#996515] dark:bg-[#FBBF24] dark:hover:bg-[#F59E0B] text-white dark:text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-3.5 min-h-[48px] rounded-full bg-[#B8860B] hover:bg-[#996515] dark:bg-[#FBBF24] dark:hover:bg-[#F59E0B] text-white dark:text-[#0A1628] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
                     <span>Submit Query</span>
                     <Send className="w-4 h-4" />

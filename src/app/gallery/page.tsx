@@ -165,14 +165,14 @@ export default function GalleryPage() {
       </section>
 
       {/* Category Filter Tabs */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full my-10">
-        <div className="flex flex-wrap items-center justify-center gap-2">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full my-6 sm:my-10">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap sm:justify-center">
           {galleryCategories.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`shrink-0 px-4 py-2 min-h-[40px] rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] shadow-md border border-[#0A1628] dark:border-[#FBBF24]'
                   : 'bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white border border-slate-200 dark:border-white/10 shadow-sm'

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageCircle, ArrowUp, Bot, GraduationCap } from 'lucide-react';
+import { Phone, MessageCircle, ArrowUp, Bot, GraduationCap, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -38,16 +38,16 @@ export default function FloatingButtons() {
   return (
     <>
       {/* =======================================================================
-          1. PERSISTENT MOBILE BOTTOM ACTION BAR (Strict Mobile Conversion UX)
-          Visible only on screens below 640px (sm)
+          1. PERSISTENT MOBILE BOTTOM ACTION BAR (Strict Mobile-First Conversion UX)
+          Visible only on screens below 640px (sm) with Safe Area Support
       ======================================================================= */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 px-3 py-2 shadow-[0_-8px_30px_rgba(0,0,0,0.12)]">
-        <div className="flex items-center gap-2 max-w-md mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] shadow-[0_-8px_30px_rgba(0,0,0,0.12)]">
+        <div className="grid grid-cols-4 gap-1.5 max-w-md mx-auto">
           {/* 1. Call Admissions Direct */}
           <a
             href="tel:+919440468838"
-            className="flex-1 flex items-center justify-center gap-1.5 h-11 min-h-[44px] rounded-xl bg-amber-50 dark:bg-white/5 border border-amber-300 dark:border-[#D4A853]/40 text-[#0A1628] dark:text-white font-bold text-xs uppercase tracking-wider active:scale-95 transition-transform"
-            aria-label="Call Sree Valmeeki Admissions Direct"
+            className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-amber-50 dark:bg-white/5 border border-amber-300/80 dark:border-[#D4A853]/40 text-[#0A1628] dark:text-white font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-transform"
+            aria-label="Call Admissions Direct"
           >
             <Phone className="w-4 h-4 text-[#D4A853]" />
             <span>Call</span>
@@ -58,22 +58,34 @@ export default function FloatingButtons() {
             href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 h-11 min-h-[44px] rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 font-bold text-xs uppercase tracking-wider active:scale-95 transition-transform"
-            aria-label="Chat with Admissions on WhatsApp"
+            className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-transform"
+            aria-label="Chat on WhatsApp"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <span>WhatsApp</span>
           </a>
 
-          {/* 3. Enquire Online / Admissions Modal */}
+          {/* 3. Campus Directions / Map */}
+          <a
+            href="https://maps.google.com/?q=Sree+Valmeeki+High+School+Kadiri"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-300/70 dark:border-blue-500/40 text-blue-900 dark:text-blue-300 font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-transform"
+            aria-label="Directions to Campus"
+          >
+            <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span>Map</span>
+          </a>
+
+          {/* 4. Enquire / Admissions Modal */}
           <Link
             href="/admissions"
             onClick={handleEnquireClick}
-            className="flex-1 flex items-center justify-center gap-1.5 h-11 min-h-[44px] rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] font-black text-xs uppercase tracking-wider shadow-md shadow-[#D4A853]/30 active:scale-95 transition-transform cursor-pointer"
+            className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] font-black text-[10px] uppercase tracking-wider shadow-md shadow-[#D4A853]/30 active:scale-95 transition-transform cursor-pointer"
             aria-label="Enquire for Admissions 2026-27"
           >
             <GraduationCap className="w-4 h-4 text-[#0A1628]" />
-            <span>Enquire</span>
+            <span>Apply</span>
           </Link>
         </div>
       </div>
@@ -81,7 +93,7 @@ export default function FloatingButtons() {
       {/* =======================================================================
           2. FLOATING CONTROLS (Back to Top + Desktop Floating Circles)
       ======================================================================= */}
-      <div className="fixed bottom-16 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-none">
+      <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-3 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-none">
         {/* Back to Top Button */}
         <AnimatePresence>
           {showBackToTop && (

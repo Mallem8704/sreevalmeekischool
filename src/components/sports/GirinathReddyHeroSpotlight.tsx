@@ -76,28 +76,28 @@ export default function GirinathReddyHeroSpotlight() {
   }, [isPaused]);
 
   return (
-    <section className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1628] via-[#0F2044] to-[#1E3A8A] text-white p-6 sm:p-10 md:p-12 border border-[#D4A853]/40 shadow-2xl my-8">
+    <section className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1628] via-[#0F2044] to-[#1E3A8A] text-white p-4 sm:p-8 md:p-12 border border-[#D4A853]/40 shadow-2xl my-6 sm:my-8">
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4A853]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Top Banner / Eyebrow */}
-      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#D4A853]/20 border border-[#D4A853]/50 flex items-center justify-center text-[#D4A853] shrink-0">
             <Trophy className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#D4A853] block">
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#D4A853] block">
               PRIDE OF SREE VALMEEKI • FIRST-CLASS CRICKET
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black font-[family-name:var(--font-heading)] text-white tracking-tight">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-black font-[family-name:var(--font-heading)] text-white tracking-tight break-words">
               MEET OUR RANJI PLAYER: GIRINATH REDDY
             </h2>
           </div>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-sm">
           <Star className="w-3.5 h-3.5 fill-[#D4A853] text-[#D4A853]" />
           <span>Ranji Trophy Star Alumnus</span>
         </div>

@@ -76,7 +76,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-[#D4A853]/40 rounded-2xl shadow-2xl p-6 sm:p-8 text-[#0A1628] dark:text-white z-10 overflow-hidden transition-colors duration-200"
+            className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-[#D4A853]/40 rounded-2xl shadow-2xl p-5 sm:p-8 text-[#0A1628] dark:text-white z-10 transition-colors duration-200"
           >
             {/* Ambient Gold Glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#D4A853]/15 rounded-full blur-3xl pointer-events-none" />
@@ -85,7 +85,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-500 hover:text-slate-900 dark:text-white/70 dark:hover:text-white transition-colors cursor-pointer"
+              className="absolute top-4 right-4 w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-500 hover:text-slate-900 dark:text-white/70 dark:hover:text-white transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -135,10 +135,11 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                     <input
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="e.g. Ramesh Reddy"
                       value={formData.parentName}
                       onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
+                      className="w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-base sm:text-sm outline-none transition-all"
                     />
                   </div>
 
@@ -152,7 +153,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                         placeholder="Child's Name"
                         value={formData.studentName}
                         onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
+                        className="w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-base sm:text-sm outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -162,7 +163,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                       <select
                         value={formData.classSeeking}
                         onChange={(e) => setFormData({ ...formData, classSeeking: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0F2044] border border-slate-200 dark:border-white/15 focus:border-[#D4A853] text-[#0A1628] dark:text-white text-sm outline-none transition-all"
+                        className="w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-[#0F2044] border border-slate-200 dark:border-white/15 focus:border-[#D4A853] text-[#0A1628] dark:text-white text-base sm:text-sm outline-none transition-all cursor-pointer"
                       >
                         <option value="Nursery">Nursery</option>
                         <option value="LKG">LKG</option>
@@ -182,11 +183,13 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                     </label>
                     <input
                       type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
                       required
                       placeholder="+91 94404 68838"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-sm outline-none transition-all"
+                      className="w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-base sm:text-sm outline-none transition-all"
                     />
                   </div>
 

@@ -329,7 +329,8 @@ export default function AdmissionForm() {
                           </label>
                           <input
                             {...register('studentName')}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                            autoComplete="name"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                             placeholder="e.g. S. Ananya"
                           />
                           {errors.studentName && (
@@ -346,7 +347,7 @@ export default function AdmissionForm() {
                           </label>
                           <select
                             {...register('class')}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-[#0A1628] transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 cursor-pointer"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-[#0A1628] transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 cursor-pointer"
                           >
                             <option value="">Select Grade / Class</option>
                             <option value="Nursery">Nursery</option>
@@ -377,7 +378,8 @@ export default function AdmissionForm() {
                           </label>
                           <input
                             {...register('parentName')}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                            autoComplete="name"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                             placeholder="e.g. Ramesh Kumar"
                           />
                           {errors.parentName && (
@@ -398,8 +400,11 @@ export default function AdmissionForm() {
                             </span>
                             <input
                               {...register('phone')}
+                              type="tel"
+                              inputMode="tel"
+                              autoComplete="tel"
                               maxLength={10}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                              className="w-full pl-12 pr-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                               placeholder="94404 68838"
                             />
                           </div>
@@ -432,9 +437,11 @@ export default function AdmissionForm() {
                             </span>
                             <input
                               {...register('whatsappNumber')}
+                              type="tel"
+                              inputMode="tel"
                               maxLength={10}
                               disabled={sameAsPhone}
-                              className={`w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 ${
+                              className={`w-full pl-12 pr-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 ${
                                 sameAsPhone ? 'bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-slate-400 cursor-not-allowed' : ''
                               }`}
                               placeholder={sameAsPhone ? (enteredPhone || 'Same as mobile number') : '94404 68838'}
@@ -455,7 +462,9 @@ export default function AdmissionForm() {
                           <input
                             {...register('email')}
                             type="email"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                            inputMode="email"
+                            autoComplete="email"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                             placeholder="parent@example.com"
                           />
                           {errors.email && (
@@ -475,7 +484,7 @@ export default function AdmissionForm() {
                             type="number"
                             min="3"
                             max="18"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                             placeholder="e.g. 5"
                           />
                         </div>
@@ -487,7 +496,7 @@ export default function AdmissionForm() {
                           </label>
                           <input
                             {...register('location')}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
+                            className="w-full px-4 py-3 min-h-[48px] rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20"
                             placeholder="e.g. Near Clock Tower, Kadiri"
                           />
                         </div>
@@ -498,30 +507,30 @@ export default function AdmissionForm() {
                         <label className="block text-xs font-bold uppercase tracking-wider text-[#1A1A2E] dark:text-slate-200 mb-2.5">
                           School Bus Transport Facility Required? <span className="text-red-500">*</span>
                         </label>
-                        <div className="grid grid-cols-2 gap-4 max-w-sm">
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-sm">
                           <button
                             type="button"
                             onClick={() => setValue('transport', 'yes')}
-                            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold transition-all cursor-pointer ${
+                            className={`flex items-center justify-center gap-2 py-3 px-3 sm:px-4 min-h-[48px] rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                               selectedTransport === 'yes'
                                 ? 'border-[#0A1628] dark:border-[#FBBF24] bg-[#0A1628] dark:bg-[#FBBF24] text-white dark:text-[#0A1628] shadow-sm'
                                 : 'border-gray-200 dark:border-white/15 bg-white dark:bg-white/5 text-[#64748B] dark:text-slate-300 hover:border-gray-300 dark:hover:border-white/25'
                             }`}
                           >
                             <Bus className="w-4 h-4 text-[#D4A853] dark:text-[#0A1628]" />
-                            Yes, Bus Needed
+                            <span>Yes, Bus Needed</span>
                           </button>
 
                           <button
                             type="button"
                             onClick={() => setValue('transport', 'no')}
-                            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold transition-all cursor-pointer ${
+                            className={`flex items-center justify-center gap-2 py-3 px-3 sm:px-4 min-h-[48px] rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                               selectedTransport === 'no'
                                 ? 'border-[#0A1628] dark:border-[#FBBF24] bg-[#0A1628] dark:bg-[#FBBF24] text-white dark:text-[#0A1628] shadow-sm'
                                 : 'border-gray-200 dark:border-white/15 bg-white dark:bg-white/5 text-[#64748B] dark:text-slate-300 hover:border-gray-300 dark:hover:border-white/25'
                             }`}
                           >
-                            No, Own Transport
+                            <span>No, Own Transport</span>
                           </button>
                         </div>
                       </div>
@@ -534,7 +543,7 @@ export default function AdmissionForm() {
                         <textarea
                           {...register('message')}
                           rows={3}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 resize-none"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/15 text-base sm:text-sm text-[#1A1A2E] dark:text-white bg-white dark:bg-white/5 transition-all focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-2 focus:ring-[#D4A853]/20 dark:focus:ring-[#FBBF24]/20 resize-none"
                           placeholder="Any queries regarding fee structure, syllabus, timings, or scholarships..."
                         />
                       </div>
@@ -544,7 +553,7 @@ export default function AdmissionForm() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full py-4 px-8 rounded-xl bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] text-[#0A1628] font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+                          className="w-full py-4 px-8 min-h-[50px] rounded-xl bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] text-[#0A1628] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:shadow-xl hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
                         >
                           {isSubmitting ? (
                             <>
