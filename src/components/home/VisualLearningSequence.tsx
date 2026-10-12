@@ -9,31 +9,31 @@ const steps = [
     step: '01',
     word: 'UNDERSTAND.',
     caption: 'Teacher breaks complex ideas into intuitive, real-world mental models.',
-    image: '/images/school/school-event-12.jpg',
+    image: '/images/learning/step_01_understand.jpg',
   },
   {
     step: '02',
     word: 'PRACTICE.',
     caption: 'Structured problem sets strengthen calculation speed and analytical grasp.',
-    image: '/images/school/school-event-10.jpg',
+    image: '/images/learning/step_02_practice.jpg',
   },
   {
     step: '03',
     word: 'EXPLORE.',
     caption: 'Hands-on experiments in science labs verify theories in action.',
-    image: '/images/school/school-event-9.jpg',
+    image: '/images/learning/step_03_explore.jpg',
   },
   {
     step: '04',
     word: 'IMPROVE.',
     caption: 'Continuous diagnostic assessments guide personal revision without exam fear.',
-    image: '/images/school/school-event-11.jpg',
+    image: '/images/learning/step_04_improve.jpg',
   },
   {
     step: '05',
     word: 'ACHIEVE.',
     caption: 'State distinction, stage confidence, and lifelong academic leadership.',
-    image: '/images/school/school-event-7.jpg',
+    image: '/images/learning/step_05_achieve.jpg',
   },
 ];
 
