@@ -189,7 +189,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               {/* Main Official Logo (Header Brand) */}
               <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
-                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white shrink-0 flex items-center justify-center p-0.5">
+                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white dark:bg-white/10 shrink-0 flex items-center justify-center p-0.5">
                   <Image
                     src="/images/logo/valmeeki_emblem.png"
                     alt="Sree Valmeeki E.M High School"
