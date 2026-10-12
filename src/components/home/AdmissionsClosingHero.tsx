@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, MapPin, Sparkles } from 'lucide-react';
 import Link from 'next/link';
@@ -9,20 +10,48 @@ interface AdmissionsClosingHeroProps {
 }
 
 export default function AdmissionsClosingHero({ onOpenAdmissions }: AdmissionsClosingHeroProps) {
+  const containerRef = useRef<HTMLElement>(null);
+  const [nearViewport, setNearViewport] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setNearViewport(true);
+        }
+      },
+      { rootMargin: '250px 0px', threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative min-h-[90vh] w-full flex items-center justify-center bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] text-[#0A1628] dark:text-white py-24 sm:py-32 overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors duration-200">
+    <section ref={containerRef} className="relative min-h-[90vh] w-full flex items-center justify-center bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] text-[#0A1628] dark:text-white py-24 sm:py-32 overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors duration-200">
       {/* Background Campus Footage Layer */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/school/school-event-4.jpg"
-          className="object-cover w-full h-full opacity-15 dark:opacity-25 scale-105 filter"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        {nearViewport && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/school/school-event-4.jpg"
+            className="object-cover w-full h-full opacity-15 dark:opacity-25 scale-105 filter"
+          >
+            <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+            <source src="/hero-desktop.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Cinematic Light Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#F5F3EE] via-[#FDFBF7]/85 to-[#F8FAFC]/90 dark:from-[#050D1A] dark:via-[#0A1628]/85 dark:to-[#050D1A]/90" />

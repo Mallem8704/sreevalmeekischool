@@ -87,7 +87,6 @@ export default function CorrespondentFrame({
                     src="/images/leadership/sri_p_anil_kumar_reddy_correspondent_portrait.jpg"
                     alt="Sri P. Anil Kumar Reddy - Correspondent, Sree Valmeeki High School"
                     fill
-                    priority
                     sizes="(max-width: 640px) 300px, 380px"
                     className="object-cover object-top transition-transform duration-700 group-hover/photo:scale-105"
                   />
@@ -317,7 +316,7 @@ export default function CorrespondentFrame({
                   alt="Sri P. Anil Kumar Reddy - Correspondent"
                   fill
                   className="object-contain"
-                  priority
+                  sizes="100vw"
                 />
               </div>
 

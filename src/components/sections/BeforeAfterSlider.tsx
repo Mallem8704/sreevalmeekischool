@@ -82,7 +82,6 @@ export default function BeforeAfterSlider({
               fill
               sizes="(max-width: 1024px) 100vw, 1100px"
               className="object-cover"
-              priority
             />
             {/* Tag Badge */}
             <div className="absolute top-5 right-5 z-10 px-4 py-1.5 rounded-full bg-[#0A1628]/80 backdrop-blur-md border border-[#D4A853]/50 text-[#D4A853] text-xs font-bold tracking-widest uppercase">
@@ -101,7 +100,6 @@ export default function BeforeAfterSlider({
               fill
               sizes="(max-width: 1024px) 100vw, 1100px"
               className="object-cover sepia-[0.35] contrast-105"
-              priority
             />
             {/* Tag Badge */}
             <div className="absolute top-5 left-5 z-10 px-4 py-1.5 rounded-full bg-[#0A1628]/80 backdrop-blur-md border border-white/40 text-white text-xs font-bold tracking-widest uppercase">

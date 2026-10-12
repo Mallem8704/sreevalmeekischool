@@ -1,30 +1,35 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
-import CinematicIntro from '@/components/ui/CinematicIntro';
+
+// Above-the-fold critical components (statically imported for instant shell render)
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
-
-// Visual-First Digital Hall of Excellence Homepage Components
 import DualHeroSection from '@/components/home/DualHeroSection';
-import LegacyTimeline from '@/components/home/LegacyTimeline';
-import FounderAndSchoolStory from '@/components/home/FounderAndSchoolStory';
-import AcademicSystemStory from '@/components/home/AcademicSystemStory';
-import VisualLearningSequence from '@/components/home/VisualLearningSequence';
-import StarAchieversSection from '@/components/home/StarAchieversSection';
-import TopperShowcase from '@/components/home/TopperShowcase';
-import ResultsTimeline from '@/components/home/ResultsTimeline';
-import ExploreValmeekiSection from '@/components/home/campus/ExploreValmeekiSection';
-import OneDayAtValmeeki from '@/components/home/OneDayAtValmeeki';
-import MomentsGalleryPreview from '@/components/home/MomentsGalleryPreview';
-import ParentTrustAndLeadership from '@/components/home/ParentTrustAndLeadership';
-import AdmissionsClosingHero from '@/components/home/AdmissionsClosingHero';
-import AdmissionModal from '@/components/home/AdmissionModal';
 import TrustStrip from '@/components/sections/TrustStrip';
-import SSCFelicitationShowcase from '@/components/home/SSCFelicitationShowcase';
+
+// Dynamically imported on-demand dialogs & intro
+const CinematicIntro = dynamic(() => import('@/components/ui/CinematicIntro'), { ssr: false });
+const AdmissionModal = dynamic(() => import('@/components/home/AdmissionModal'), { ssr: false });
+
+// Progressively loaded below-the-fold sections
+const SSCFelicitationShowcase = dynamic(() => import('@/components/home/SSCFelicitationShowcase'));
+const LegacyTimeline = dynamic(() => import('@/components/home/LegacyTimeline'));
+const FounderAndSchoolStory = dynamic(() => import('@/components/home/FounderAndSchoolStory'));
+const AcademicSystemStory = dynamic(() => import('@/components/home/AcademicSystemStory'));
+const VisualLearningSequence = dynamic(() => import('@/components/home/VisualLearningSequence'));
+const StarAchieversSection = dynamic(() => import('@/components/home/StarAchieversSection'));
+const TopperShowcase = dynamic(() => import('@/components/home/TopperShowcase'));
+const ResultsTimeline = dynamic(() => import('@/components/home/ResultsTimeline'));
+const ExploreValmeekiSection = dynamic(() => import('@/components/home/campus/ExploreValmeekiSection'));
+const OneDayAtValmeeki = dynamic(() => import('@/components/home/OneDayAtValmeeki'));
+const MomentsGalleryPreview = dynamic(() => import('@/components/home/MomentsGalleryPreview'));
+const ParentTrustAndLeadership = dynamic(() => import('@/components/home/ParentTrustAndLeadership'));
+const AdmissionsClosingHero = dynamic(() => import('@/components/home/AdmissionsClosingHero'));
 
 export default function HomePage() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -99,7 +104,7 @@ export default function HomePage() {
           {/* =========================================================================
               3. ACADEMICS: Pedagogical Pillars & 5-Step Visual Learning Flow
           ========================================================================= */}
-          <section id="academics" className="scroll-mt-24">
+          <section id="academics" className="scroll-mt-24 section-content-visibility">
             {/* The System Behind The Results: 6 Visual Panels */}
             <AcademicSystemStory />
 
@@ -110,7 +115,7 @@ export default function HomePage() {
           {/* =========================================================================
               4. RESULTS: Star Achievers, Toppers & Historical Results Archive
           ========================================================================= */}
-          <section id="results" className="scroll-mt-24">
+          <section id="results" className="scroll-mt-24 section-content-visibility">
             {/* Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
             <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
@@ -124,7 +129,7 @@ export default function HomePage() {
           {/* =========================================================================
               5. CAMPUS LIFE: Signature Campus Tour & Daily Schedule
           ========================================================================= */}
-          <section id="campus" className="scroll-mt-24">
+          <section id="campus" className="scroll-mt-24 section-content-visibility">
             {/* Signature Campus Experience: Explore Sree Valmeeki */}
             <ExploreValmeekiSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
@@ -135,14 +140,14 @@ export default function HomePage() {
           {/* =========================================================================
               6. GALLERY: Visual Archive of Valmeeki Moments
           ========================================================================= */}
-          <section id="gallery" className="scroll-mt-24">
+          <section id="gallery" className="scroll-mt-24 section-content-visibility">
             <MomentsGalleryPreview />
           </section>
 
           {/* =========================================================================
               7. CONTACT: Parent Trust & Admissions Closing Hero
           ========================================================================= */}
-          <section id="contact" className="scroll-mt-24">
+          <section id="contact" className="scroll-mt-24 section-content-visibility">
             {/* Parent Trust & Leadership: Punchy Quotes & Mr. P. Pavan Kumar Reddy */}
             <ParentTrustAndLeadership />
 

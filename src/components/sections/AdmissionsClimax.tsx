@@ -42,7 +42,6 @@ export default function AdmissionsClimax() {
           fill
           sizes="100vw"
           className="object-cover opacity-45 brightness-90 contrast-110"
-          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#050D1A]/70 to-[#050D1A]/85" />
         <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_30%,_#050D1A_90%]" />

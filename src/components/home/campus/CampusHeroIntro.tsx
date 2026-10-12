@@ -21,20 +21,41 @@ interface CampusHeroIntroProps {
 }
 
 export default function CampusHeroIntro({ onExploreClick }: CampusHeroIntroProps) {
+  const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [nearViewport, setNearViewport] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay may be restricted in some browsers
-        setIsPlaying(false);
-      });
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setNearViewport(true);
+      return;
     }
-  }, []);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setNearViewport(true);
+          if (videoRef.current && isPlaying) {
+            videoRef.current.play().catch(() => setIsPlaying(false));
+          }
+        } else {
+          if (videoRef.current) {
+            videoRef.current.pause();
+          }
+        }
+      },
+      { rootMargin: '300px 0px', threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -67,7 +88,7 @@ export default function CampusHeroIntro({ onExploreClick }: CampusHeroIntroProps
   };
 
   return (
-    <section className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628] text-white">
+    <section ref={containerRef} className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628] text-white">
       {/* 1. Background Video with Fallback Poster Image */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
         {/* High-Resolution Fallback Poster Image */}
@@ -75,28 +96,30 @@ export default function CampusHeroIntro({ onExploreClick }: CampusHeroIntroProps
           src="/images/campus/campus_drone_aerial.jpg"
           alt="Sree Valmeeki Campus Drone Aerial View"
           fill
-          priority
           sizes="100vw"
           className={`object-cover object-center transition-opacity duration-1000 ${
             videoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
           }`}
         />
 
-        {/* Cinematic Background Video */}
-        {!videoError && (
+        {/* Cinematic Background Video (Lazy loaded near viewport, paused off-screen) */}
+        {!videoError && nearViewport && (
           <video
             ref={videoRef}
-            src="/hero-video.mp4"
             muted={isMuted}
             loop
             playsInline
             autoPlay
+            preload="metadata"
             onLoadedData={() => setVideoLoaded(true)}
             onError={() => setVideoError(true)}
             className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
-          />
+          >
+            <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+            <source src="/hero-desktop.mp4" type="video/mp4" />
+          </video>
         )}
 
         {/* Multi-Layer Cinematic Contrast Gradients */}

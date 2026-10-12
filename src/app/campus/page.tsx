@@ -43,6 +43,7 @@ export default function CampusPage() {
             src="/images/campus/campus_drone_aerial.jpg"
             alt="Sree Valmeeki Campus Drone Aerial"
             fill
+            sizes="100vw"
             priority
             className="object-cover opacity-20 dark:opacity-25 scale-105"
           />

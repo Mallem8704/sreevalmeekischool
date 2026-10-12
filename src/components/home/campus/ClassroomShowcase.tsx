@@ -128,7 +128,6 @@ export default function ClassroomShowcase() {
                 src={heroItem.image}
                 alt={heroItem.title}
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
               />

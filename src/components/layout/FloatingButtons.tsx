@@ -11,12 +11,19 @@ export default function FloatingButtons() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowBackToTop(window.scrollY > 300);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    setShowBackToTop(window.scrollY > 300);
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

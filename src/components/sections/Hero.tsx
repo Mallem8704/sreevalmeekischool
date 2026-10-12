@@ -93,9 +93,12 @@ export default function Hero() {
           muted
           loop
           playsInline
+          preload="metadata"
+          poster="/hero-poster.webp"
           className="object-cover w-full h-full opacity-90 scale-105 brightness-95 contrast-105 transition-opacity duration-700"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+          <source src="/hero-desktop.mp4" type="video/mp4" />
         </video>
 
         {/* Subtle Vignette Overlay - Keeps Video Clear & Vibrant while Blending Gracefully */}

@@ -18,10 +18,12 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
           muted
           loop
           playsInline
+          preload="metadata"
           poster="/images/school/school-event-3.jpg"
           className="object-cover w-full h-full scale-105 opacity-40 brightness-90 contrast-110 filter"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+          <source src="/hero-desktop.mp4" type="video/mp4" />
         </video>
 
         {/* Cinematic Deep Navy Gradient Overlays */}
@@ -150,6 +152,7 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
                   alt="D. Janani - Sree Valmeeki School Town 1st Ranker"
                   fill
                   priority
+                  sizes="(max-width: 640px) 100vw, 420px"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90" />

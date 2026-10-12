@@ -499,7 +499,6 @@ export default function AchievementsPage() {
                   fill
                   className="object-contain"
                   sizes="100vw"
-                  priority
                 />
               </div>
 

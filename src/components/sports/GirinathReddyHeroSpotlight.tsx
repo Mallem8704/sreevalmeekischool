@@ -143,7 +143,6 @@ export default function GirinathReddyHeroSpotlight() {
                   src={current.image}
                   alt={current.title}
                   fill
-                  priority
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 700px"
                 />

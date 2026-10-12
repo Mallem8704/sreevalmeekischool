@@ -23,6 +23,7 @@ export default function EventsIndexPage() {
             src="/images/school/school-event-4.jpg"
             alt="School Events & Celebrations"
             fill
+            sizes="100vw"
             priority
             className="object-cover opacity-25 scale-105"
           />

@@ -22,7 +22,6 @@ export default function Footer() {
                 fill
                 sizes="80px"
                 className="object-contain rounded-xl"
-                priority
               />
             </div>
             <div className="flex flex-col">

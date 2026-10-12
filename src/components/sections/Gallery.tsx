@@ -436,7 +436,7 @@ export default function Gallery() {
                   src={currentItem.image}
                   alt={currentItem.title}
                   fill
-                  priority
+                  sizes="(max-width: 1024px) 100vw, 900px"
                   className="object-contain sm:object-cover"
                 />
               </div>

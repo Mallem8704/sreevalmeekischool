@@ -176,7 +176,6 @@ export default function FoundationShowcase() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent lg:hidden" />
                 

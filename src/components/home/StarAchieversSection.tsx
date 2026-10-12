@@ -217,7 +217,6 @@ export default function StarAchieversSection({ onOpenAdmissions }: StarAchievers
                   student={s}
                   onClick={setSelectedStudent}
                   featured
-                  priority
                 />
               ))}
             </div>

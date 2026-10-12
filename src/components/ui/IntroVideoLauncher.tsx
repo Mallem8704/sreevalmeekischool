@@ -140,7 +140,6 @@ export default function IntroVideoLauncher({
               fill
               sizes="44px"
               className="object-contain p-0.5"
-              priority
             />
           </div>
           <div className="flex flex-col">

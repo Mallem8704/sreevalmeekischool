@@ -151,7 +151,6 @@ export default function CampusAerialSection() {
                   src={activeView.image}
                   alt={activeView.name}
                   fill
-                  priority
                   sizes="(max-width: 1280px) 100vw, 1280px"
                   className="object-cover group-hover:scale-104 transition-transform duration-1000 ease-out"
                 />

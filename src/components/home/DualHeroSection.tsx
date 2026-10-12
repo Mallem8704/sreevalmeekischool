@@ -33,6 +33,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Touch Swipe Handling for Mobile
   const touchStartX = useRef<number | null>(null);
@@ -111,6 +112,26 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Pause video when scrolled out of viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry.isIntersecting && videoRef.current) {
+          videoRef.current.pause();
+        } else if (entry.isIntersecting && isPlaying && videoRef.current) {
+          videoRef.current.play().catch(() => {});
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isPlaying]);
+
   // Slide animation variants
   const slideVariants: Variants = {
     enter: (dir: number) => ({
@@ -141,6 +162,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
 
   return (
     <div
+      ref={containerRef}
       className="relative w-full min-h-screen overflow-hidden bg-[#050D1A] text-white select-none"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -204,18 +226,27 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
             exit="exit"
             className="relative w-full min-h-screen flex flex-col justify-between pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 z-10"
           >
-            {/* Background Video Layer */}
+            {/* Background Video Layer with Instant Poster First */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+              <Image
+                src="/hero-poster.webp"
+                alt="Sree Valmeeki School Campus"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover w-full h-full scale-105 opacity-85 brightness-95 contrast-105"
+              />
               <video
                 ref={videoRef}
                 autoPlay
                 muted={isMuted}
                 loop
                 playsInline
-                poster="/images/campus/campus_drone_aerial.jpg"
+                preload="metadata"
                 className="object-cover w-full h-full scale-105 opacity-85 brightness-95 contrast-105 filter"
               >
-                <source src="/hero-video.mp4" type="video/mp4" />
+                <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+                <source src="/hero-desktop.mp4" type="video/mp4" />
               </video>
 
               {/* Overlays for Rich Contrast */}
@@ -399,16 +430,13 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
           >
             {/* Background Photographic & Ambient Layer */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/images/school/school-event-3.jpg"
+              <Image
+                src="/images/school/school-event-3.jpg"
+                alt="Sree Valmeeki School Celebration"
+                fill
+                sizes="100vw"
                 className="object-cover w-full h-full scale-105 opacity-40 brightness-90 contrast-110 filter"
-              >
-                <source src="/hero-video.mp4" type="video/mp4" />
-              </video>
+              />
 
               <div className="absolute inset-0 bg-gradient-to-r from-[#050D1A] via-[#050D1A]/85 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-transparent to-[#050D1A]/70" />
@@ -530,7 +558,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                         src="/extracted/star_achievers/janani_face.jpg"
                         alt="D. Janani - Sree Valmeeki School Town 1st Ranker"
                         fill
-                        priority
+                        sizes="(max-width: 640px) 100vw, 420px"
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90" />

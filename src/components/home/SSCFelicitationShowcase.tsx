@@ -195,7 +195,6 @@ export default function SSCFelicitationShowcase() {
                 src={FELICITATION_PHOTOS[0].src}
                 alt={FELICITATION_PHOTOS[0].alt}
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover object-top sm:object-[center_20%] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
@@ -400,7 +399,6 @@ export default function SSCFelicitationShowcase() {
                   fill
                   className="object-contain"
                   sizes="100vw"
-                  priority
                 />
               </div>
 

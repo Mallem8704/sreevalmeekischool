@@ -141,7 +141,6 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           src="/images/founder/sri_p_jaya_rami_reddy_founder.png"
                           alt="Sri Palavala Jaya Rami Reddy - Founder & Chairman"
                           fill
-                          priority
                           sizes="(max-width: 640px) 280px, 360px"
                           className="object-cover object-top filter contrast-[1.05]"
                         />

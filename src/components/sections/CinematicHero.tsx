@@ -34,9 +34,12 @@ export default function CinematicHero() {
             muted
             loop
             playsInline
+            preload="metadata"
+            poster="/hero-poster.webp"
             className="object-cover w-full h-full scale-100 brightness-100 contrast-105 transition-transform duration-1000 ease-out"
           >
-            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+            <source src="/hero-desktop.mp4" type="video/mp4" />
           </video>
 
           {/* Bottom-Left Targeted Gradient Overlay (preserves 85% campus visibility like Blue Moon reference) */}

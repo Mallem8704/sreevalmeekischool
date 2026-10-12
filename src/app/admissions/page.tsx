@@ -65,6 +65,7 @@ export default function AdmissionsPage() {
             src="/images/school/school-event-4.jpg"
             alt="Sree Valmeeki Admissions"
             fill
+            sizes="100vw"
             priority
             className="object-cover opacity-30 scale-105"
           />

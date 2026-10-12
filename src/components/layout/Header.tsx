@@ -17,7 +17,9 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScrollSpy = () => {
       setIsScrolled(window.scrollY > 20);
 
       // Dynamic Active Section Scroll-Spy for Homepage
@@ -25,12 +27,14 @@ export default function Header() {
         // If near the top
         if (window.scrollY < 200) {
           setActiveSection('home');
+          ticking = false;
           return;
         }
 
         // If reached bottom of the page
         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
           setActiveSection('contact');
+          ticking = false;
           return;
         }
 
@@ -49,10 +53,18 @@ export default function Header() {
           }
         }
       }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollSpy);
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    updateScrollSpy();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);

@@ -92,14 +92,17 @@ export default function SchoolVideo() {
           <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
             {/* Background preview video playing silently in a loop for dynamic preview */}
             <video
-              src="/hero-video.mp4"
               muted
               loop
               autoPlay
               playsInline
-              preload="metadata"
+              preload="none"
+              poster="/hero-poster.webp"
               className="w-full h-full object-cover opacity-60 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 pointer-events-none"
-            />
+            >
+              <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+              <source src="/hero-desktop.mp4" type="video/mp4" />
+            </video>
 
             {/* Dark & Golden Vignette Gradients */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-transparent pointer-events-none" />
@@ -279,11 +282,12 @@ export default function SchoolVideo() {
               onClick={(e) => e.stopPropagation()}
             >
               <video
-                src="/hero-video.mp4"
                 controls
                 autoPlay
                 className="w-full h-full object-contain"
-              />
+              >
+                <source src="/hero-desktop.mp4" type="video/mp4" />
+              </video>
             </motion.div>
           </motion.div>
         )}

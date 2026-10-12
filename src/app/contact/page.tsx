@@ -51,6 +51,7 @@ export default function ContactPage() {
             src="/images/school/school-event-3.jpg"
             alt="Sree Valmeeki Campus"
             fill
+            sizes="100vw"
             priority
             className="object-cover opacity-25 scale-105"
           />

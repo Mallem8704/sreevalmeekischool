@@ -369,7 +369,7 @@ export default function GalleryPage() {
                 alt={currentItem.title}
                 fill
                 className="object-contain"
-                priority
+                sizes="(max-width: 1280px) 100vw, 1280px"
               />
 
               <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/90 to-transparent flex items-end justify-between">

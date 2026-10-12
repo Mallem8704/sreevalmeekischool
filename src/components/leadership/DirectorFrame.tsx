@@ -85,7 +85,6 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                     src="/images/leadership/mr_pavan_kumar_reddy_director_portrait.png"
                     alt="Mr. Pavan Kumar Reddy - Director, Sree Valmeeki High School"
                     fill
-                    priority
                     sizes="(max-width: 640px) 300px, 380px"
                     className="object-cover object-top transition-transform duration-700 group-hover/photo:scale-105"
                   />
@@ -313,7 +312,7 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                   alt="Mr. Pavan Kumar Reddy - Director"
                   fill
                   className="object-contain"
-                  priority
+                  sizes="100vw"
                 />
               </div>
 

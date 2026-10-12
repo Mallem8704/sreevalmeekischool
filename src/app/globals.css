@@ -400,3 +400,25 @@ input:focus, textarea:focus, select:focus {
   }
 }
 
+/* ===== Performance Optimization Utilities ===== */
+.section-content-visibility {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* Hardware accelerated transform for smooth scrolling on lower-end devices */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Tame expensive blur on mobile to maintain 60fps */
+@media (max-width: 768px) {
+  .backdrop-blur-3xl,
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+}
+
+

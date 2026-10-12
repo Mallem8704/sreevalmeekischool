@@ -307,7 +307,6 @@ export default function AcademicsPage() {
               src="/images/school/school-event-12.jpg"
               alt="Sree Valmeeki School Interactive Science and Academic Learning"
               fill
-              priority
               sizes="100vw"
               className="object-cover object-center opacity-15 dark:opacity-20 scale-105"
             />
@@ -559,7 +558,6 @@ export default function AcademicsPage() {
                         alt={currentPillar.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 42vw"
-                        priority
                         className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A]/85 via-black/20 to-transparent" />

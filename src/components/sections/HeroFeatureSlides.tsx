@@ -343,7 +343,6 @@ export default function HeroFeatureSlides() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
-                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/20 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628] via-transparent to-transparent lg:block hidden" />

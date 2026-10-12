@@ -309,7 +309,6 @@ export default function ThisIsValmeekiMosaic() {
                   src={activePhoto.image}
                   alt={activePhoto.title}
                   fill
-                  priority
                   sizes="(max-width: 1280px) 100vw, 1280px"
                   className="object-contain"
                 />
