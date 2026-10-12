@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, Play, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX, Sparkles } from 'lucide-react';
 
 interface CinematicIntroProps {
   onComplete: () => void;
@@ -136,35 +136,6 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] rounded-full border border-[#D4A853]/15 pointer-events-none animate-spin" style={{ animationDuration: '60s' }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[580px] h-[420px] sm:h-[580px] rounded-full border border-white/5 pointer-events-none animate-spin" style={{ animationDuration: '90s', animationDirection: 'reverse' }} />
 
-          {/* Top Controls: Enter Website & Campus Film */}
-          <div className="absolute top-5 right-5 sm:top-7 sm:right-8 z-30 flex items-center gap-2.5 pointer-events-auto">
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setMode('video');
-              }}
-              className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/15 backdrop-blur-md text-[11px] sm:text-xs font-semibold tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
-              aria-label="Watch School Video"
-            >
-              <Play className="w-3 h-3 text-[#D4A853] fill-[#D4A853]" />
-              <span className="hidden sm:inline">Watch Campus Film</span>
-              <span className="sm:hidden">Film</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleFinish();
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#D4A853] to-[#B8860B] hover:from-[#E8C97D] hover:to-[#D4A853] text-[#0A1628] font-black text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-lg shadow-[#D4A853]/25 active:scale-95 cursor-pointer"
-              aria-label="Enter Website Immediately"
-            >
-              <span>Enter Site</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
 
           {/* Centerpiece: Sree Valmeeki School Prestige Heraldic Composition */}
           <motion.div

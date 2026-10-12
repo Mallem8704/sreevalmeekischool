@@ -169,43 +169,97 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       onTouchEnd={handleTouchEnd}
     >
       {/* =======================================================================
-          TOP FLOATING DUAL SLIDE SWITCHER TABS
+          TOP FLOATING DUAL SLIDE SWITCHER & CONTROLS (UNIFIED HARMONIOUS BAR)
       ======================================================================= */}
-      <div className="absolute top-24 sm:top-28 left-0 right-0 z-30 flex items-center justify-center px-4 pointer-events-none">
-        <div className="pointer-events-auto inline-flex items-center gap-1.5 p-1 rounded-full bg-[#0A1628]/80 backdrop-blur-xl border border-[#D4A853]/40 shadow-[0_10px_35px_rgba(0,0,0,0.6)]">
-          {/* Tab 0: Cinematic Video */}
+      <div className="absolute top-20 sm:top-24 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none">
+        {/* Left: Subtle Tour Status Indicator */}
+        <div className="hidden md:flex items-center gap-2 pointer-events-auto">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A1628]/80 backdrop-blur-md border border-[#D4A853]/30 text-[#D4A853] text-[10px] sm:text-[11px] font-black tracking-widest uppercase">
+            <Sparkles className="w-3 h-3 text-[#D4A853]" />
+            {activeSlide === 0 ? 'SLIDE 01 • CAMPUS FILM' : 'SLIDE 02 • PROVEN RESULTS'}
+          </span>
+        </div>
+
+        {/* Center: Slide Switcher Tabs with integrated Chevron controls */}
+        <div className="pointer-events-auto inline-flex items-center gap-1 p-1 rounded-full bg-[#0A1628]/85 backdrop-blur-xl border border-[#D4A853]/40 shadow-[0_10px_35px_rgba(0,0,0,0.6)] mx-auto md:mx-0">
+          <button
+            type="button"
+            onClick={prevSlide}
+            className="p-1.5 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-all cursor-pointer active:scale-95"
+            title="Previous Slide"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft className="w-3.5 h-3.5" />
+          </button>
+
           <button
             type="button"
             onClick={() => {
               setDirection(-1);
               setActiveSlide(0);
             }}
-            className={`flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
               activeSlide === 0
                 ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#050D1A] shadow-md shadow-[#D4A853]/30 scale-[1.02]'
                 : 'text-white/70 hover:text-white hover:bg-white/10'
             }`}
           >
-            <Film className="w-3.5 h-3.5" />
+            <Film className="w-3 h-3" />
             <span>01 Campus Film</span>
           </button>
 
-          {/* Tab 1: Hall of Excellence Results */}
           <button
             type="button"
             onClick={() => {
               setDirection(1);
               setActiveSlide(1);
             }}
-            className={`flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
               activeSlide === 1
                 ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#050D1A] shadow-md shadow-[#D4A853]/30 scale-[1.02]'
                 : 'text-white/70 hover:text-white hover:bg-white/10'
             }`}
           >
-            <Trophy className="w-3.5 h-3.5" />
+            <Trophy className="w-3 h-3" />
             <span>02 Proven Results</span>
           </button>
+
+          <button
+            type="button"
+            onClick={nextSlide}
+            className="p-1.5 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-all cursor-pointer active:scale-95"
+            title="Next Slide"
+            aria-label="Next Slide"
+          >
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* Right: Sound & Playback Controls for Video */}
+        <div className="flex items-center gap-1.5 sm:gap-2 pointer-events-auto">
+          {activeSlide === 0 && (
+            <>
+              <button
+                type="button"
+                onClick={toggleSound}
+                className="p-1.5 sm:p-2 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-md transition-all cursor-pointer active:scale-95"
+                title={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
+                aria-label={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
+              >
+                {isMuted ? <VolumeX className="w-3.5 h-3.5 text-white/70" /> : <Volume2 className="w-3.5 h-3.5 text-[#D4A853]" />}
+              </button>
+
+              <button
+                type="button"
+                onClick={togglePlayback}
+                className="p-1.5 sm:p-2 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-md transition-all cursor-pointer active:scale-95"
+                title={isPlaying ? 'Pause Video' : 'Play Video'}
+                aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
+              >
+                {isPlaying ? <Pause className="w-3.5 h-3.5 text-white/70" /> : <Play className="w-3.5 h-3.5 text-[#D4A853]" />}
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -224,7 +278,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
             initial="enter"
             animate="center"
             exit="exit"
-            className="relative w-full min-h-screen flex flex-col justify-between pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 z-10"
+            className="relative w-full min-h-[100svh] flex flex-col justify-between pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 z-10"
           >
             {/* Background Video Layer with Instant Poster First */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -254,34 +308,11 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
               <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-transparent to-[#050D1A]/70" />
             </div>
 
-            {/* Video Controls (Audio Toggle & Pause) */}
-            <div className="absolute top-24 sm:top-28 right-4 sm:right-8 z-30 flex items-center gap-2">
-              <button
-                type="button"
-                onClick={toggleSound}
-                className="p-2 sm:p-2.5 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-lg transition-all cursor-pointer"
-                title={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
-                aria-label={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
-              >
-                {isMuted ? <VolumeX className="w-4 h-4 text-white/70" /> : <Volume2 className="w-4 h-4 text-[#D4A853]" />}
-              </button>
-
-              <button
-                type="button"
-                onClick={togglePlayback}
-                className="p-2 sm:p-2.5 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-lg transition-all cursor-pointer"
-                title={isPlaying ? 'Pause Video' : 'Play Video'}
-                aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
-              >
-                {isPlaying ? <Pause className="w-4 h-4 text-white/70" /> : <Play className="w-4 h-4 text-[#D4A853]" />}
-              </button>
-            </div>
-
             {/* Main Content Area */}
             <div className="relative z-10 w-full max-w-7xl mx-auto my-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left Column: Bold Cinematic Statement */}
-                <div className="lg:col-span-7 xl:col-span-8 text-left space-y-6">
+                <div className="lg:col-span-7 xl:col-span-8 text-left space-y-5">
                   {/* Badges */}
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
@@ -289,12 +320,12 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     transition={{ delay: 0.1 }}
                     className="flex flex-wrap items-center gap-2.5"
                   >
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-[11px] sm:text-xs font-black tracking-widest uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-[10px] sm:text-xs font-black tracking-widest uppercase">
                       <Sparkles className="w-3.5 h-3.5 text-[#D4A853]" />
                       ESTD. 1999 • KADIRI
                     </span>
 
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[11px] sm:text-xs font-bold tracking-widest uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
                       <Film className="w-3.5 h-3.5 text-[#FBBF24]" />
                       OFFICIAL CAMPUS TOUR FILM
                     </span>
@@ -306,12 +337,13 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.7 }}
                   >
-                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] leading-[0.98] tracking-tight uppercase text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)]">
-                      <span>BUILDING STRONG</span> <br />
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-[family-name:var(--font-heading)] leading-[1.06] tracking-tight uppercase text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)] max-w-3xl">
+                      <span>BUILDING STRONG</span>{' '}
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A853] via-[#FBBF24] to-[#E8C97D]">
                         FOUNDATIONS.
-                      </span> <br />
-                      <span>CREATING BRIGHTER FUTURES.</span>
+                      </span>{' '}
+                      <br className="hidden sm:inline" />
+                      <span className="text-white/95">CREATING BRIGHTER FUTURES.</span>
                     </h1>
                   </motion.div>
 
@@ -320,7 +352,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35, duration: 0.6 }}
-                    className="text-white/85 text-base sm:text-lg md:text-xl font-medium tracking-wide max-w-2xl leading-relaxed"
+                    className="text-white/85 text-sm sm:text-base md:text-lg font-medium tracking-wide max-w-xl leading-relaxed"
                   >
                     For over <strong className="text-white font-bold">28 years</strong>, Sree Valmeeki High School has nurtured knowledge, discipline, and confidence — preparing students for school, competitive examinations, and life beyond the classroom.
                   </motion.p>
@@ -426,7 +458,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
             initial="enter"
             animate="center"
             exit="exit"
-            className="relative w-full min-h-screen flex flex-col justify-between pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 z-10"
+            className="relative w-full min-h-[100svh] flex flex-col justify-between pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 z-10"
           >
             {/* Background Photographic & Ambient Layer */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -449,7 +481,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
             <div className="relative z-10 w-full max-w-7xl mx-auto my-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left Column: Results Headline & Proof */}
-                <div className="lg:col-span-7 xl:col-span-7 text-left space-y-6">
+                <div className="lg:col-span-7 xl:col-span-7 text-left space-y-5">
                   {/* Badges */}
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
@@ -457,12 +489,12 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     transition={{ delay: 0.1 }}
                     className="flex flex-wrap items-center gap-2.5 sm:gap-3"
                   >
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#D4A853] text-[11px] sm:text-xs font-black tracking-widest uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#D4A853] text-[10px] sm:text-xs font-black tracking-widest uppercase">
                       <Sparkles className="w-3.5 h-3.5 text-[#D4A853]" />
                       EST. 1999 • KADIRI
                     </span>
 
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[11px] sm:text-xs font-bold tracking-widest uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
                       <Trophy className="w-3.5 h-3.5 text-[#FBBF24]" />
                       28 YEARS OF EXCELLENCE
                     </span>
@@ -474,12 +506,11 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.7 }}
                   >
-                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] leading-[0.98] tracking-tight uppercase text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)]">
-                      <span>RESULTS</span> <br />
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black font-[family-name:var(--font-heading)] leading-[1.06] tracking-tight uppercase text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)] max-w-3xl">
+                      <span>RESULTS THAT</span> <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A853] via-[#FBBF24] to-[#E8C97D]">
-                        THAT SPEAK
-                      </span> <br />
-                      <span>FOR US.</span>
+                        SPEAK FOR US.
+                      </span>
                     </h1>
                   </motion.div>
 
@@ -488,7 +519,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35, duration: 0.6 }}
-                    className="text-white/80 text-base sm:text-lg md:text-xl font-medium tracking-wide max-w-xl leading-relaxed"
+                    className="text-white/80 text-sm sm:text-base md:text-lg font-medium tracking-wide max-w-xl leading-relaxed"
                   >
                     <strong className="text-white font-bold">28 Years.</strong> Generations of Students. A Legacy of Achievement in Kadiri.
                   </motion.p>
@@ -637,26 +668,26 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       {/* =======================================================================
           FLOATING LEFT & RIGHT SLIDE NAVIGATION ARROWS
       ======================================================================= */}
-      {/* Left Arrow (Slide Left) */}
+      {/* Left Arrow (Slide Left) - Displayed only on ultra-wide screens where side margins are spacious */}
       <button
         type="button"
         onClick={prevSlide}
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+        className="hidden 2xl:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
         title={activeSlide === 0 ? 'Switch to Results' : 'Switch to Campus Film'}
         aria-label="Previous Hero Slide"
       >
-        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+        <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
       </button>
 
-      {/* Right Arrow (Slide Right) */}
+      {/* Right Arrow (Slide Right) - Displayed only on ultra-wide screens where side margins are spacious */}
       <button
         type="button"
         onClick={nextSlide}
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+        className="hidden 2xl:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
         title={activeSlide === 0 ? 'Switch to Results' : 'Switch to Campus Film'}
         aria-label="Next Hero Slide"
       >
-        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+        <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
       </button>
 
       {/* =======================================================================
