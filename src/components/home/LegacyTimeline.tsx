@@ -1,144 +1,185 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Sparkles, ChevronRight, History } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { growthMilestones } from '@/lib/data';
+import Link from 'next/link';
+
+interface ExperiencePillar {
+  id: string;
+  pill: string;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+const experiencePillars: ExperiencePillar[] = [
+  {
+    id: 'academics',
+    pill: '01',
+    category: 'ACADEMIC RIGOR',
+    title: 'Concept-First Learning',
+    description: 'Deep understanding, analytical thinking, and academic discipline in every classroom.',
+    image: '/images/school/school-event-3.jpg',
+    href: '/academics',
+  },
+  {
+    id: 'digital',
+    pill: '02',
+    category: 'SMART CLASSROOMS',
+    title: 'Interactive Technology',
+    description: 'Visual learning panels, 3D simulations, and multimedia resources that engage curiosity.',
+    image: '/images/school/school-event-12.jpg',
+    href: '/campus',
+  },
+  {
+    id: 'campus',
+    pill: '03',
+    category: 'CAMPUS ENVIRONMENT',
+    title: 'Spacious Infrastructure',
+    description: 'Airy classrooms, green surroundings, and dedicated facilities designed for daily focus.',
+    image: '/images/school/school-event-5.jpg',
+    href: '/campus',
+  },
+  {
+    id: 'competitive',
+    pill: '04',
+    category: 'COMPETITIVE EDGE',
+    title: 'IIT & Olympiad Foundation',
+    description: 'Early analytical problem-solving and competitive exam aptitude integrated from Class 6.',
+    image: '/images/school/school-event-9.jpg',
+    href: '/academics/iit-foundation',
+  },
+  {
+    id: 'values',
+    pill: '05',
+    category: 'DISCIPLINE & CHARACTER',
+    title: 'Values That Endure',
+    description: 'Instilling integrity, mutual respect, and personal responsibility alongside marks.',
+    image: '/images/school/school-event-1.jpg',
+    href: '/about',
+  },
+  {
+    id: 'community',
+    pill: '06',
+    category: 'STUDENT LIFE',
+    title: 'Confidence & Expression',
+    description: 'Daily stage assemblies, elocution, and stage presentation for confident communicators.',
+    image: '/images/school/school-event-4.jpg',
+    href: '/gallery',
+  },
+];
 
 export default function LegacyTimeline() {
-  const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-
-  const handleSliderMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const pos = ((clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.max(10, Math.min(90, pos)));
-  };
-
   return (
     <section className="relative w-full py-20 sm:py-28 lg:py-32 bg-[#F8FAFC] dark:bg-[#050D1A] text-[#0A1628] dark:text-white border-t border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
+      {/* Subtle Ambient Background Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4A853]/5 dark:bg-[#D4A853]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#1E3A8A]/5 dark:bg-[#1E3A8A]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+        {/* =======================================================================
+            EDITORIAL PRESENT-FOCUSED SECTION HEADER
+        ======================================================================= */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase mb-3">
-            <History className="w-3.5 h-3.5" />
-            <span>27-YEAR CHRONICLE</span>
+          {/* Eyebrow: Softly fades in */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A853]/10 dark:bg-[#D4A853]/20 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[10px] sm:text-xs font-bold tracking-[0.22em] uppercase mb-4 sm:mb-5 shadow-sm"
+          >
+            <Sparkles className="w-3 h-3 text-[#B8860B] dark:text-[#FBBF24]" />
+            <span>THE VALMEEKI EXPERIENCE</span>
+          </motion.div>
+
+          {/* Heading: Subtle text-mask/clip reveal */}
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: '100%', opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[clamp(1.9rem,4.8vw,3.75rem)] font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] dark:text-white leading-[1.08] mb-4 sm:mb-5"
+            >
+              WHERE LEARNING <br className="hidden sm:inline" />
+              MEETS POSSIBILITY.
+            </motion.h2>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight text-[#0A1628] dark:text-white mb-3">
-            FROM 1999 TO TODAY.
-          </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">
-            How a humble English medium school in Kadiri grew into an institution of academic distinction.
-          </p>
+          {/* Subheading: Softly fades upward */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-[700px] mx-auto font-normal tracking-wide"
+          >
+            Explore the academics, achievements, campus, student life and values that shape Sree Valmeeki today.
+          </motion.p>
         </div>
 
-        {/* Milestone Cards Timeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {growthMilestones.map((m, idx) => (
+        {/* =======================================================================
+            VISUAL PILLARS GRID (6 PRESENT-DAY FACETS, EXISTING IMAGES)
+        ======================================================================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {experiencePillars.map((pillar, idx) => (
             <motion.div
-              key={m.year}
+              key={pillar.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-xl"
+              transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 hover:border-[#D4A853]/60 dark:hover:border-[#D4A853]/60 transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.04)] dark:shadow-none hover:shadow-xl flex flex-col justify-between"
             >
-              <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-white/5">
+              {/* Card Image Visual */}
+              <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-white/5 overflow-hidden">
                 <Image
-                  src={m.image}
-                  alt={m.title}
+                  src={pillar.image}
+                  alt={pillar.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-80" />
 
+                {/* Index Pill */}
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 rounded-lg bg-[#D4A853] text-[#0A1628] text-xs font-black tracking-wider uppercase shadow-md">
-                    {m.year}
+                    {pillar.pill}
                   </span>
                 </div>
               </div>
 
-              <div className="p-6 space-y-2 text-left bg-white dark:bg-[#0A1628]">
-                <span className="text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase tracking-wider block">
-                  {m.badge || 'Milestone'}
-                </span>
-                <h3 className="text-lg font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)]">
-                  {m.title}
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                  {m.caption}
-                </p>
+              {/* Card Content */}
+              <div className="p-6 sm:p-7 space-y-2 text-left bg-white dark:bg-[#0A1628] flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-[#B8860B] dark:text-[#FBBF24] uppercase tracking-wider block mb-1">
+                    {pillar.category}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mt-1.5">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 dark:border-white/5 mt-4">
+                  <Link
+                    href={pillar.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1628] dark:text-white group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors"
+                  >
+                    <span>Discover More</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Interactive Then vs Now Comparison: "FROM A VISION TO A LEGACY" */}
-        <div className="mt-12 p-6 sm:p-10 rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200/80 dark:border-white/10 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
-          <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-[11px] font-bold tracking-widest text-[#B8860B] dark:text-[#FBBF24] uppercase block mb-1">
-              CAMPUS TRANSFORMATION
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] uppercase">
-              FROM A VISION TO A LEGACY.
-            </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
-              Drag the divider to compare foundational moments with current vibrant campus life.
-            </p>
-          </div>
-
-          <div
-            className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-slate-200 dark:border-white/15 shadow-xl"
-            onMouseMove={handleSliderMove}
-            onTouchMove={handleSliderMove}
-            onMouseDown={() => setIsDragging(true)}
-            onMouseUp={() => setIsDragging(false)}
-          >
-            {/* Right Image (Today / Current Campus) */}
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src="/images/school/school-event-4.jpg"
-                alt="Sree Valmeeki School Today"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-4 right-4 px-3 py-1 rounded bg-[#0A1628]/85 text-[#D4A853] text-xs font-black uppercase tracking-wider backdrop-blur-md">
-                Today • 27 Years
-              </div>
-            </div>
-
-            {/* Left Image (Foundations) with Clip */}
-            <div
-              className="absolute inset-0 h-full overflow-hidden"
-              style={{ width: `${sliderPosition}%` }}
-            >
-              <div className="relative w-full h-full min-w-full">
-                <Image
-                  src="/images/school/school-event-12.jpg"
-                  alt="Sree Valmeeki School Beginnings"
-                  fill
-                  className="object-cover filter grayscale contrast-125"
-                />
-                <div className="absolute bottom-4 left-4 px-3 py-1 rounded bg-[#0A1628]/85 text-white text-xs font-black uppercase tracking-wider backdrop-blur-md">
-                  Foundations • 1999
-                </div>
-              </div>
-            </div>
-
-            {/* Draggable Divider Line */}
-            <div
-              className="absolute top-0 bottom-0 w-1 bg-[#D4A853] shadow-[0_0_15px_rgba(212,168,83,0.8)] pointer-events-none"
-              style={{ left: `${sliderPosition}%` }}
-            >
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#D4A853] text-[#050D1A] flex items-center justify-center font-black text-xs shadow-lg">
-                ↔
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
