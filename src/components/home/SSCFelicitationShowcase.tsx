@@ -32,24 +32,24 @@ const FELICITATION_PHOTOS: FelicitationPhoto[] = [
   {
     id: 'photo-hero',
     src: '/images/achievements/ssc_2026_felicitation_hero.jpg',
-    alt: 'D. Janani receiving AP SSC 2026 Town 1st Rank felicitation memento from Sree Valmeeki School leadership',
+    alt: 'D. Janani receiving AP SSC 2026 Town 1st Rank felicitation memento from MLA Kandikunta Venkata Prasad and Sree Valmeeki School leadership',
     tag: 'TOWN 1ST FELICITATION',
     badge: '595 / 600 • TOWN 1ST RANK',
     title: 'Recognizing Town Benchmark Excellence',
     description:
-      'D. Janani receiving the official AP SSC 2026 felicitation memento (595/600) from Founder Sri P. Jaya Rami Reddy, Director Mr. P. Pavan Kumar Reddy, and school leadership.',
-    caption: 'D. Janani (595/600) • Kadiri Town 1st Rank Felicitation',
+      'D. Janani receiving the official AP SSC 2026 felicitation memento (595/600) from Kadiri MLA Sri Kandikunta Venkata Prasad alongside Founder Sri P. Jaya Rami Reddy, Director Mr. P. Pavan Kumar Reddy, and Correspondent Sri P. Anil Kumar Reddy.',
+    caption: 'D. Janani (595/600) • Kadiri Town 1st Rank Felicitation with MLA Kandikunta Venkata Prasad',
   },
   {
     id: 'photo-ceremony',
     src: '/images/achievements/ssc_2026_felicitation_ceremony.jpg',
-    alt: 'Sree Valmeeki School AP SSC 10th Class Results 2026 official felicitation ceremony on campus',
+    alt: 'Sree Valmeeki School AP SSC 10th Class Results 2026 official felicitation ceremony on campus with MLA Kandikunta Venkata Prasad',
     tag: 'CAMPUS CEREMONY',
     badge: 'OFFICIAL 2026 BANNER PROOF',
     title: 'Proud Moments of Excellence',
     description:
-      'The official Sree Valmeeki School felicitation ceremony celebrating student achievements in the AP SSC (10th Class) Results 2026 on MPL Road, Kadiri.',
-    caption: 'Official AP SSC 2026 Results Felicitation Ceremony • Sree Valmeeki Campus',
+      'The official Sree Valmeeki School felicitation ceremony celebrating student achievements in the AP SSC (10th Class) Results 2026 with Kadiri MLA Sri Kandikunta Venkata Prasad and school leadership on MPL Road, Kadiri.',
+    caption: 'Official AP SSC 2026 Results Felicitation Ceremony with MLA Kandikunta Venkata Prasad • Sree Valmeeki Campus',
   },
 ];
 
@@ -227,7 +227,7 @@ export default function SSCFelicitationShowcase() {
                   D. Janani • 595 / 600
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm mt-1 max-w-lg line-clamp-2">
-                  Receiving the official 2026 honor memento from Founder Sri P. Jaya Rami Reddy & Director Mr. P. Pavan Kumar Reddy.
+                  Receiving the official 2026 honor memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jaya Rami Reddy & Director Mr. P. Pavan Kumar Reddy.
                 </p>
                 <div className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] text-[#D4A853] font-semibold">
                   <span>Click to view full photograph</span>
@@ -286,7 +286,7 @@ export default function SSCFelicitationShowcase() {
                   Celebrating Top Scholastic Ranks
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm mt-1 line-clamp-2">
-                  Official stage felicitation of top SSC scorers with town rankers and faculty mentors on campus.
+                  Official stage felicitation of top SSC scorers with MLA Kandikunta Venkata Prasad, school leadership, and faculty on campus.
                 </p>
                 <div className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] text-[#D4A853] font-semibold">
                   <span>Click to inspect ceremony</span>

@@ -17,7 +17,8 @@ const ceremonyPhotos = [
     src: '/images/achievements/ssc_2026_felicitation_hero.jpg',
     title: 'Town 1st Rank Felicitation',
     student: 'D. Janani • 595 / 600',
-    description: 'Receiving the official 2026 AP SSC felicitation memento from Founder Sri P. Jaya Rami Reddy & Director Mr. P. Pavan Kumar Reddy.',
+    description:
+      'Receiving the official 2026 AP SSC felicitation memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jaya Rami Reddy & Director Mr. P. Pavan Kumar Reddy.',
     tag: '595 / 600 • TOWN 1ST RANK',
   },
   {
@@ -25,7 +26,8 @@ const ceremonyPhotos = [
     src: '/images/achievements/ssc_2026_felicitation_ceremony.jpg',
     title: 'Official Campus Felicitation Ceremony',
     student: '2026 AP SSC Board Rankers',
-    description: 'Celebrating exceptional results with distinction students, parents, and faculty on the Sree Valmeeki School campus.',
+    description:
+      'Celebrating exceptional results with MLA Kandikunta Venkata Prasad, distinction students, parents, and faculty on the Sree Valmeeki School campus.',
     tag: 'OFFICIAL 2026 BANNER PROOF',
   },
 ];
