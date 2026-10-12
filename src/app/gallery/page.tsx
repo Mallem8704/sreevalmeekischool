@@ -69,6 +69,7 @@ const galleryItems: GalleryItem[] = [
   { id: 25, title: 'ACA SZ Inter-School Cricket Champions @ Kadapa', category: 'SPORTS', year: '2026', image: '/images/sports/aca_inter_school_cricket_champions.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
   { id: 26, title: 'Inter-School Cricket Match Pitch Umpire Toss', category: 'SPORTS', year: '2026', image: '/images/sports/cricket_match_pitch_umpire_toss.jpg', aspect: 'col-span-1 aspect-[4/3]' },
   { id: 27, title: 'Inter-School Sports Champions & Trophy Honors', category: 'SPORTS', year: '2026', image: '/images/sports/sports_trophy_winners_felicitation.jpg', aspect: 'col-span-1 aspect-[3/4]' },
+  { id: 28, title: 'Valmeeki Cricket Squad Field Celebration', category: 'SPORTS', year: '2026', image: '/images/sports/valmeeki_cricket_squad_field_celebration.jpg', aspect: 'col-span-1 md:col-span-2 aspect-[16/10]' },
 ];
 
 export default function GalleryPage() {

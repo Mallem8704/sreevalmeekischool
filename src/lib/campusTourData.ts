@@ -346,6 +346,14 @@ export const PHOTO_MOSAIC: MosaicPhoto[] = [
     span: 'col-span-2 row-span-1',
   },
   {
+    id: 'mosaic-5i',
+    title: 'Cricket Squad Field Celebration',
+    category: 'SPORTS',
+    caption: 'Sree Valmeeki cricket players and sports directors celebrating victory on the cricket field.',
+    image: '/images/sports/valmeeki_cricket_squad_field_celebration.jpg',
+    span: 'col-span-2 row-span-1',
+  },
+  {
     id: 'mosaic-6',
     title: 'Mass Yoga Morning Assembly',
     category: 'ACTIVITIES',
