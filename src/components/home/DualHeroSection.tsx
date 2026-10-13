@@ -112,6 +112,30 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Trackpad / Horizontal wheel slide scrolling
+  useEffect(() => {
+    let lastScrollTime = 0;
+    const handleWheel = (e: WheelEvent) => {
+      const now = Date.now();
+      if (now - lastScrollTime < 700) return;
+      if (Math.abs(e.deltaX) > 40) {
+        if (e.deltaX > 40) {
+          nextSlide();
+          lastScrollTime = now;
+        } else if (e.deltaX < -40) {
+          prevSlide();
+          lastScrollTime = now;
+        }
+      }
+    };
+
+    const el = containerRef.current;
+    if (el) {
+      el.addEventListener('wheel', handleWheel, { passive: true });
+      return () => el.removeEventListener('wheel', handleWheel);
+    }
+  }, []);
+
   // Pause video when scrolled out of viewport
   useEffect(() => {
     const el = containerRef.current;
@@ -169,99 +193,30 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       onTouchEnd={handleTouchEnd}
     >
       {/* =======================================================================
-          TOP FLOATING DUAL SLIDE SWITCHER & CONTROLS (UNIFIED HARMONIOUS BAR)
+          DESKTOP AUDIO & PLAYBACK CONTROLS (DISCREET TOP-RIGHT)
       ======================================================================= */}
-      <div className="hidden md:flex absolute top-20 sm:top-24 left-0 right-0 z-30 items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pointer-events-none">
-        {/* Left: Subtle Tour Status Indicator */}
-        <div className="hidden md:flex items-center gap-2 pointer-events-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A1628]/80 backdrop-blur-md border border-[#D4A853]/30 text-[#D4A853] text-[10px] sm:text-[11px] font-black tracking-widest uppercase">
-            <Sparkles className="w-3 h-3 text-[#D4A853]" />
-            {activeSlide === 0 ? 'SLIDE 01 • CAMPUS FILM' : 'SLIDE 02 • PROVEN RESULTS'}
-          </span>
-        </div>
-
-        {/* Center: Slide Switcher Tabs with integrated Chevron controls */}
-        <div className="pointer-events-auto inline-flex items-center gap-1 p-1 rounded-full bg-[#0A1628]/85 backdrop-blur-xl border border-[#D4A853]/40 shadow-[0_10px_35px_rgba(0,0,0,0.6)] mx-auto md:mx-0">
+      {activeSlide === 0 && (
+        <div className="hidden md:flex absolute top-20 sm:top-24 right-6 sm:right-8 lg:right-12 z-30 items-center gap-2 pointer-events-auto">
           <button
             type="button"
-            onClick={prevSlide}
-            className="p-1.5 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-all cursor-pointer active:scale-95"
-            title="Previous Slide"
-            aria-label="Previous Slide"
+            onClick={toggleSound}
+            className="p-2 sm:p-2.5 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#FBBF24] border border-[#FBBF24]/40 backdrop-blur-md shadow-lg transition-all cursor-pointer active:scale-95"
+            title={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
+            aria-label={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
           >
-            <ChevronLeft className="w-3.5 h-3.5" />
+            {isMuted ? <VolumeX className="w-4 h-4 text-white/70" /> : <Volume2 className="w-4 h-4 text-[#FBBF24]" />}
           </button>
-
           <button
             type="button"
-            onClick={() => {
-              setDirection(-1);
-              setActiveSlide(0);
-            }}
-            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-              activeSlide === 0
-                ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#050D1A] shadow-md shadow-[#D4A853]/30 scale-[1.02]'
-                : 'text-white/70 hover:text-white hover:bg-white/10'
-            }`}
+            onClick={togglePlayback}
+            className="p-2 sm:p-2.5 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#FBBF24] border border-[#FBBF24]/40 backdrop-blur-md shadow-lg transition-all cursor-pointer active:scale-95"
+            title={isPlaying ? 'Pause Video' : 'Play Video'}
+            aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
           >
-            <Film className="w-3 h-3" />
-            <span>01 Campus Film</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              setDirection(1);
-              setActiveSlide(1);
-            }}
-            className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-              activeSlide === 1
-                ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#050D1A] shadow-md shadow-[#D4A853]/30 scale-[1.02]'
-                : 'text-white/70 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            <Trophy className="w-3 h-3" />
-            <span>02 Proven Results</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            className="p-1.5 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-all cursor-pointer active:scale-95"
-            title="Next Slide"
-            aria-label="Next Slide"
-          >
-            <ChevronRight className="w-3.5 h-3.5" />
+            {isPlaying ? <Pause className="w-4 h-4 text-white/70" /> : <Play className="w-4 h-4 text-[#FBBF24]" />}
           </button>
         </div>
-
-        {/* Right: Sound & Playback Controls for Video */}
-        <div className="flex items-center gap-1.5 sm:gap-2 pointer-events-auto">
-          {activeSlide === 0 && (
-            <>
-              <button
-                type="button"
-                onClick={toggleSound}
-                className="p-1.5 sm:p-2 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-md transition-all cursor-pointer active:scale-95"
-                title={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
-                aria-label={isMuted ? 'Unmute Campus Film' : 'Mute Campus Film'}
-              >
-                {isMuted ? <VolumeX className="w-3.5 h-3.5 text-white/70" /> : <Volume2 className="w-3.5 h-3.5 text-[#D4A853]" />}
-              </button>
-
-              <button
-                type="button"
-                onClick={togglePlayback}
-                className="p-1.5 sm:p-2 rounded-full bg-[#0A1628]/80 hover:bg-[#0A1628] text-white/90 hover:text-[#D4A853] border border-[#D4A853]/40 backdrop-blur-md shadow-md transition-all cursor-pointer active:scale-95"
-                title={isPlaying ? 'Pause Video' : 'Play Video'}
-                aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
-              >
-                {isPlaying ? <Pause className="w-3.5 h-3.5 text-white/70" /> : <Play className="w-3.5 h-3.5 text-[#D4A853]" />}
-              </button>
-            </>
-          )}
-        </div>
-      </div>
+      )}
 
       {/* =======================================================================
           SLIDE CONTAINER WITH ANIMATE PRESENCE (HORIZONTAL SLIDING)
@@ -678,22 +633,22 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       {/* =======================================================================
           FLOATING LEFT & RIGHT SLIDE NAVIGATION ARROWS
       ======================================================================= */}
-      {/* Left Arrow (Slide Left) - Displayed only on ultra-wide screens where side margins are spacious */}
+      {/* Left Arrow (Slide Left) */}
       <button
         type="button"
         onClick={prevSlide}
-        className="hidden 2xl:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-[#0A1628]/80 hover:bg-[#FBBF24] text-white hover:text-[#0A1628] border border-[#FBBF24]/40 backdrop-blur-xl items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
         title={activeSlide === 0 ? 'Switch to Results' : 'Switch to Campus Film'}
         aria-label="Previous Hero Slide"
       >
         <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
       </button>
 
-      {/* Right Arrow (Slide Right) - Displayed only on ultra-wide screens where side margins are spacious */}
+      {/* Right Arrow (Slide Right) */}
       <button
         type="button"
         onClick={nextSlide}
-        className="hidden 2xl:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0A1628]/75 hover:bg-[#D4A853] text-white hover:text-[#050D1A] border border-[#D4A853]/40 backdrop-blur-xl items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-[#0A1628]/80 hover:bg-[#FBBF24] text-white hover:text-[#0A1628] border border-[#FBBF24]/40 backdrop-blur-xl items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
         title={activeSlide === 0 ? 'Switch to Results' : 'Switch to Campus Film'}
         aria-label="Next Hero Slide"
       >
@@ -701,18 +656,51 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
       </button>
 
       {/* =======================================================================
-          BOTTOM FLOATING DOWNWARD SLIDE BUTTON ("SLIDE DOWN TO EXPLORE")
+          BOTTOM SLIDE PAGINATION & DOWNWARD SCROLL CONTROLS
       ======================================================================= */}
-      <div className="hidden md:flex absolute bottom-4 sm:bottom-6 left-0 right-0 z-30 items-center justify-center pointer-events-none">
+      <div className="hidden md:flex absolute bottom-5 sm:bottom-7 left-0 right-0 z-30 flex-col items-center gap-2 pointer-events-none">
+        {/* Minimal Slide Pagination Indicator */}
+        <div className="pointer-events-auto flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#0A1628]/70 backdrop-blur-md border border-white/10 shadow-lg">
+          <button
+            type="button"
+            onClick={() => {
+              setDirection(-1);
+              setActiveSlide(0);
+            }}
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              activeSlide === 0
+                ? 'w-7 bg-[#FBBF24] shadow-md shadow-[#FBBF24]/50'
+                : 'w-2 bg-white/40 hover:bg-white/80'
+            }`}
+            title="Slide 01 • Campus Film"
+            aria-label="Slide 01 • Campus Film"
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setDirection(1);
+              setActiveSlide(1);
+            }}
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              activeSlide === 1
+                ? 'w-7 bg-[#FBBF24] shadow-md shadow-[#FBBF24]/50'
+                : 'w-2 bg-white/40 hover:bg-white/80'
+            }`}
+            title="Slide 02 • Proven Results"
+            aria-label="Slide 02 • Proven Results"
+          />
+        </div>
+
+        {/* Slide Down to Explore Button */}
         <button
           type="button"
           onClick={handleScrollDown}
-          className="pointer-events-auto group inline-flex flex-col items-center gap-1.5 px-4 py-2 rounded-full bg-[#0A1628]/60 hover:bg-[#0A1628]/90 border border-white/10 hover:border-[#D4A853]/60 backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg"
+          className="pointer-events-auto group inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0A1628]/60 hover:bg-[#0A1628]/90 border border-white/10 hover:border-[#FBBF24]/60 backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg"
         >
-          <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-white/70 group-hover:text-[#FBBF24] transition-colors">
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70 group-hover:text-[#FBBF24] transition-colors">
             Slide Down To Explore
           </span>
-          <MoveDown className="w-4 h-4 text-[#D4A853] animate-bounce" />
+          <MoveDown className="w-3.5 h-3.5 text-[#FBBF24] animate-bounce" />
         </button>
       </div>
 
