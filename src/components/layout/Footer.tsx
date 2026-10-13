@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, ChevronRight, Play, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, ChevronRight, Play } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon, WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { replayIntroVideo } from '@/components/ui/CinematicIntro';
 
@@ -10,216 +10,178 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A1628] dark:bg-[#050D1A] text-white pt-20 pb-10 border-t-[6px] border-[#D4A853] transition-colors duration-200">
-      <div className="container mx-auto px-4 md:px-6">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pb-12 border-b border-white/10 gap-8">
-          <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-2xl p-2 border border-white/15 shrink-0 shadow-lg overflow-hidden flex items-center justify-center">
+    <footer className="bg-[#03101E] text-white pt-16 pb-8 border-t-[4px] border-[#D8A53C]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Header Block matching reference */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-10 border-b border-white/10 gap-6">
+          <div className="flex items-center gap-4 text-left">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-2xl p-1.5 border border-white/15 shrink-0 shadow-lg flex items-center justify-center">
               <Image
                 src="/images/logo/valmeeki_emblem_v3.png"
-                alt="Sree Valmeeki E.M High School Crest"
+                alt="Sree Valmeeki Crest"
                 fill
-                sizes="80px"
-                className="object-contain rounded-xl"
+                sizes="64px"
+                className="object-contain rounded-xl p-1"
                 unoptimized
               />
             </div>
-            <div className="flex flex-col">
-              <h2 className="font-[family-name:var(--font-heading)] font-bold text-xl sm:text-2xl md:text-3xl text-white tracking-wide">
-                Sree Valmeeki E.M High School
+            <div>
+              <h2 className="font-[family-name:var(--font-heading)] font-black text-lg sm:text-xl md:text-2xl text-white tracking-wide">
+                SREE VALMEEKI ENGLISH MEDIUM HIGH SCHOOL
               </h2>
-              <span className="text-[#D4A853] text-xs sm:text-sm md:text-base font-semibold tracking-wider mt-1">
-                (Est. 1999 - 27 Years of Excellence)
-              </span>
-              <span className="text-white/60 text-xs tracking-widest uppercase mt-0.5">
-                Education • Discipline • Confidence
-              </span>
+              <p className="text-white/60 text-xs tracking-wider mt-0.5">
+                Kadiri, Sri Sathya Sai District, Andhra Pradesh • Estd. 1999
+              </p>
+              <p className="text-[#D8A53C] text-[11px] font-bold tracking-widest uppercase mt-0.5">
+                Discipline • Knowledge • Character • Service
+              </p>
             </div>
           </div>
-          
+
           {/* Social Icons */}
           <div className="flex items-center gap-3">
-            <a 
-              href="https://www.instagram.com/sree_valmeekischool_kadiri/" 
+            <a
+              href="https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow Sree Valmeeki School on Instagram"
-              className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-[#FD1D1D] hover:via-[#E1306C] hover:to-[#833AB4] hover:border-transparent transition-all duration-300 shadow-lg hover:scale-105"
+              aria-label="Facebook"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all"
             >
-              <InstagramIcon className="w-5 h-5" />
+              <FacebookIcon className="w-4 h-4" />
             </a>
-            <a 
-              href="https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/" 
+            <a
+              href="https://www.instagram.com/sree_valmeekischool_kadiri/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit Sree Valmeeki School Facebook page"
-              className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 shadow-lg hover:scale-105"
+              aria-label="Instagram"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-pink-600 transition-all"
             >
-              <FacebookIcon className="w-5 h-5" />
+              <InstagramIcon className="w-4 h-4" />
             </a>
-            <a 
-              href="https://www.youtube.com/@valmeekischoolkadiri7987" 
+            <a
+              href="https://www.youtube.com/@valmeekischoolkadiri7987"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Watch Sree Valmeeki School YouTube channel"
-              className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300 shadow-lg hover:scale-105"
+              aria-label="YouTube"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-red-600 transition-all"
             >
-              <YoutubeIcon className="w-5 h-5" />
+              <YoutubeIcon className="w-4 h-4" />
             </a>
-            <a 
-              href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
+            <a
+              href="https://wa.me/919440468838"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Chat with Sree Valmeeki School on WhatsApp"
-              className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 shadow-lg hover:scale-105"
+              aria-label="WhatsApp"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-[#25D366] transition-all"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4" />
             </a>
           </div>
         </div>
 
-        {/* Middle Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
-          {/* About Column */}
-          <div className="space-y-6">
-            <h3 className="font-[family-name:var(--font-heading)] text-[#D4A853] text-xl font-bold uppercase tracking-wide">
-              About Our School
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed font-[family-name:var(--font-body)]">
-              Established in 1999, Sree Valmeeki E.M High School has fostered 27 years of academic distinction, disciplined character building, and holistic child development in Kadiri.
-            </p>
-            <div className="pt-2">
-              <Link 
-                href="/about" 
-                className="inline-flex items-center text-[#D4A853] hover:text-white transition-colors text-sm font-semibold gap-1"
-              >
-                <span>Read Full School History</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-6 lg:pl-6">
-            <h3 className="font-[family-name:var(--font-heading)] text-[#D4A853] text-xl font-bold uppercase tracking-wide">
+        {/* 4 Columns Grid matching reference */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-10 py-12 text-left">
+          {/* Col 1: Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#D8A53C]">
               Quick Links
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-xs">
               {[
-                { name: 'About School', href: '/about' },
-                { name: 'Leadership & Governance', href: '/leadership' },
-                { name: 'Academic Curriculum', href: '/academics' },
-                { name: 'IIT Foundation Program', href: '/academics/iit-foundation' },
+                { name: 'Home', href: '/#home' },
+                { name: 'About Us', href: '/about' },
+                { name: 'Academics', href: '/academics' },
+                { name: 'Results & Toppers', href: '/achievements' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/70 hover:text-[#D8A53C] transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 2: Institutional Wings */}
+          <div className="space-y-4">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#D8A53C]">
+              Campus &amp; Wings
+            </h3>
+            <ul className="space-y-2 text-xs">
+              {[
                 { name: 'Campus Facilities', href: '/campus' },
                 { name: 'Photo Gallery', href: '/gallery' },
                 { name: 'Admissions 2026–27', href: '/admissions' },
-                { name: 'Online Enquiry', href: '/admissions#enquiry' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link 
-                    href={item.href}
-                    className="text-gray-300 hover:text-[#D4A853] hover:pl-1.5 transition-all duration-200 flex items-center"
-                  >
-                    <ChevronRight className="w-3 h-3 mr-2 opacity-50 text-[#D4A853]" />
-                    {item.name}
+                { name: 'Contact & Directions', href: '/contact' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/70 hover:text-[#D8A53C] transition-colors">
+                    {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Explore Programs & Media */}
-          <div className="space-y-6">
-            <h3 className="font-[family-name:var(--font-heading)] text-[#D4A853] text-xl font-bold uppercase tracking-wide">
-              Media & Highlights
-            </h3>
-            <ul className="space-y-2.5 text-sm">
-              {[
-                { name: 'Valmeeki Premier League (VPL)', href: '/#news-events' },
-                { name: 'Science Fair & STEM Expo', href: '/gallery' },
-                { name: 'Campus Video Tour', href: '/#campus-tour' },
-                { name: 'Student Achievements', href: '/#achievements' },
-                { name: 'News & Announcements', href: '/news' },
-                { name: 'School Bus Transport Routes', href: '/#transport' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link 
-                    href={item.href}
-                    className="text-gray-300 hover:text-[#D4A853] hover:pl-1.5 transition-all duration-200 flex items-center"
-                  >
-                    <ChevronRight className="w-3 h-3 mr-2 opacity-50 text-[#D4A853]" />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="font-[family-name:var(--font-heading)] text-[#D4A853] text-xl font-bold uppercase tracking-wide">
+          {/* Col 3: Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#D8A53C]">
               Contact Us
             </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start">
-                <MapPin className="w-5 h-5 text-[#D4A853] mr-3 mt-1 shrink-0" />
-                <span className="text-gray-300 leading-relaxed font-[family-name:var(--font-body)]">
-                  <strong className="text-white block">Sree Valmeeki E.M High School</strong>
-                  Kadiri, Sri Sathya Sai District,<br />
-                  Andhra Pradesh 515591
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="w-5 h-5 text-[#D4A853] mr-3 shrink-0" />
-                <a 
-                  href="tel:+919440468838" 
-                  className="text-gray-300 hover:text-[#D4A853] transition-colors font-medium"
-                >
+            <ul className="space-y-2.5 text-xs text-white/70">
+              <li className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#D8A53C] shrink-0" />
+                <a href="tel:+919440468838" className="hover:text-white transition-colors">
                   +91 94404 68838
                 </a>
               </li>
-              <li className="flex items-center">
-                <WhatsAppIcon className="w-5 h-5 mr-3 shrink-0" />
-                <a 
-                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-[#25D366] transition-colors font-medium flex items-center gap-1.5"
-                >
-                  WhatsApp: +91 94404 68838
-                </a>
+              <li className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#D8A53C] shrink-0 mt-0.5" />
+                <span>Kadiri, Sri Sathya Sai District, Andhra Pradesh - 515591</span>
               </li>
-              <li className="flex items-center">
-                <Mail className="w-5 h-5 text-[#D4A853] mr-3 shrink-0" />
-                <a 
-                  href="mailto:info@sreevalmeekischool.edu.in" 
-                  className="text-gray-300 hover:text-[#D4A853] transition-colors break-all"
-                >
-                  info@sreevalmeekischool.edu.in
+              <li className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#D8A53C] shrink-0" />
+                <a href="mailto:sreevalmeekischool@gmail.com" className="hover:text-white transition-colors">
+                  sreevalmeekischool@gmail.com
                 </a>
               </li>
             </ul>
+          </div>
+
+          {/* Col 4: Decorative Vision Script (Matching Reference Mockup) */}
+          <div className="flex flex-col justify-between space-y-4">
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-left">
+              <span className="block text-[10px] font-black uppercase tracking-wider text-[#D8A53C]">
+                Institutional Vision
+              </span>
+              <p className="mt-2 font-serif italic text-sm text-[#F0C66A] leading-relaxed">
+                “Nurturing Today for a Brighter Tomorrow”
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={replayIntroVideo}
+              className="text-left text-xs text-white/60 hover:text-[#D8A53C] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+            >
+              <Play className="w-3 h-3 fill-current text-[#D8A53C]" />
+              <span>Replay Intro Experience</span>
+            </button>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-[family-name:var(--font-body)] gap-4">
-          <p>© {currentYear} Sree Valmeeki E.M High School (Est. 1999). All rights reserved.</p>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
-            <button
-              type="button"
-              onClick={replayIntroVideo}
-              className="text-[#D4A853] hover:text-white transition-colors cursor-pointer inline-flex items-center gap-1.5 font-medium"
-            >
-              <Play className="w-3.5 h-3.5 fill-[#D4A853]" /> Replay Intro Video
-            </button>
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+          <p>© {currentYear} Sree Valmeeki English Medium High School, Kadiri. All Rights Reserved.</p>
+          <div className="flex items-center gap-4">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact & Directions</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <span>•</span>
+            <Link href="/admissions" className="hover:text-white transition-colors">Admissions</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
