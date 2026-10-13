@@ -290,7 +290,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   fill
                   priority
                   sizes="100vw"
-                  className="object-cover w-full h-full md:scale-105 opacity-90 brightness-100 contrast-105"
+                  className="object-cover w-full h-full md:scale-105 opacity-100 brightness-105 contrast-100"
                 />
                 <video
                   ref={videoRef}
@@ -299,16 +299,16 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   loop
                   playsInline
                   preload="metadata"
-                  className="object-cover w-full h-full md:scale-105 opacity-90 brightness-100 contrast-105 filter"
+                  className="object-cover w-full h-full md:scale-105 opacity-100 brightness-105 contrast-100"
                 >
                   <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
                   <source src="/hero-desktop.mp4" type="video/mp4" />
                 </video>
 
-                {/* Overlays: Desktop Scrim vs Mobile Subtle Bottom Scrim (Exact Blue Moon: 180deg transparent to dark) */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#050D1A]/85 via-[#050D1A]/40 to-transparent" />
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#050D1A]/95 via-transparent to-black/20" />
-                <div className="block md:hidden absolute inset-0 bg-gradient-to-t from-[#021129]/95 via-[#021129]/30 to-transparent" />
+                {/* Overlays: Refined Transparent Scrims for Maximum Visual Clarity & Text Contrast */}
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#050D1A]/75 via-[#050D1A]/25 to-transparent" />
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#050D1A]/85 via-transparent to-transparent" />
+                <div className="block md:hidden absolute inset-0 bg-gradient-to-t from-[#021129]/85 via-[#021129]/15 to-transparent" />
               </div>
 
               {/* Mobile Top-Right Audio & Playback Controls inside 16:9 video frame */}
