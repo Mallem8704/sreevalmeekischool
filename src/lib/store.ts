@@ -269,7 +269,7 @@ export const useAdminStore = create<AdminStore>((set) => ({
   },
   contactInfo: {
     phone: '+91 94404 68838',
-    email: 'info@sreevalmeekischool.com',
+    email: 'info@sreevalmeekischool.in',
     address: 'Madanapalli Road / NH-205, Near Chowdeswari Temple, Kadiri, Andhra Pradesh – 515591',
   },
   socialLinks: {
@@ -281,7 +281,7 @@ export const useAdminStore = create<AdminStore>((set) => ({
     contact: {
       phone1: '+91 94404 68838',
       phone2: '+91 98492 56838',
-      email: 'info@sreevalmeekischool.com',
+      email: 'info@sreevalmeekischool.in',
       address: 'Madanapalli Road / NH-205, Near Chowdeswari Temple, Kadiri, Andhra Pradesh – 515591',
     },
     hero: {

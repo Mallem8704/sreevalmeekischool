@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Sree Valmeeki High School | English Medium School in Kadiri",
     description:
       "Sree Valmeeki High School is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, and Olympiad preparation.",
-    url: "https://www.sreevalmeekischool.com",
+    url: "https://www.sreevalmeekischool.in",
     siteName: "Sree Valmeeki High School",
     locale: "en_IN",
     type: "website",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.sreevalmeekischool.com",
+    canonical: "https://www.sreevalmeekischool.in",
   },
 };
 
@@ -91,7 +91,7 @@ export default function RootLayout({
               name: "Sree Valmeeki High School",
               description:
                 "English-medium co-educational school in Kadiri offering education from Nursery to Class 10",
-              url: "https://www.sreevalmeekischool.com",
+              url: "https://www.sreevalmeekischool.in",
               telephone: "+919440468838",
               foundingDate: "1999",
               address: {
