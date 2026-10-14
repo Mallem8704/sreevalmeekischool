@@ -163,7 +163,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
               className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[#D4A853]/50 bg-[#D4A853]/10 shadow-[0_0_60px_rgba(212,168,83,0.35)] flex items-center justify-center p-2 mb-4"
             >
               <Image
-                src="/images/logo/valmeeki_emblem_v3.png"
+                src="/images/logo/valmeeki_emblem.svg"
                 alt="Sree Valmeeki High School Emblem"
                 fill
                 sizes="112px"
@@ -267,7 +267,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
             <div className="flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-full p-1 border border-[#D4A853]/40 bg-[#D4A853]/10 shadow-md">
                 <Image
-                  src="/images/logo/valmeeki_emblem_v3.png"
+                  src="/images/logo/valmeeki_emblem.svg"
                   alt="Sree Valmeeki School Crest"
                   fill
                   sizes="40px"

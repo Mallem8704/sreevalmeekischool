@@ -90,7 +90,7 @@ export default function PremiumStudentCardModal({
           <div className="pt-6 sm:pt-8 px-6 sm:px-8 pb-4 text-center border-b border-[#D4A853]/30 bg-white dark:bg-[#0A1628]">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1">
               <div className="w-8 h-8 relative rounded-full overflow-hidden border border-[#D4A853] bg-white dark:bg-white/10 p-0.5 shadow-sm">
-                <Image src="/images/logo/valmeeki_emblem_v3.png" alt="Sree Valmeeki Logo" fill className="object-contain" unoptimized />
+                <Image src="/images/logo/valmeeki_emblem.svg" alt="Sree Valmeeki Logo" fill className="object-contain" unoptimized />
               </div>
               <h2 className="text-base sm:text-xl font-black font-[family-name:var(--font-heading)] uppercase tracking-wider text-[#B8860B] dark:text-[#FBBF24]">
                 SREE VALMEEKI E.M SCHOOL

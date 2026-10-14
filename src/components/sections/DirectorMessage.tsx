@@ -38,7 +38,7 @@ export default function DirectorMessage() {
               <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-[#D4A853] shadow-xl overflow-hidden bg-[#0F2044]">
                 <Image
                   src="/images/leadership/mr_pavan_kumar_reddy_director_square.png"
-                  alt="Mr. Pavan Kumar Reddy - Director"
+                  alt="Dr. P.V Pavan Kumar Reddy - Director of Valmeeki School and Founder Abhigna Foundation"
                   fill
                   className="object-cover"
                 />
@@ -61,8 +61,8 @@ export default function DirectorMessage() {
               
               <div className="mb-8">
                 <div className="w-16 h-px bg-[#D4A853] mb-4 mx-auto md:mx-0" />
-                <h4 className="text-lg font-bold text-[#0F2044] dark:text-white font-[family-name:var(--font-body)]">Mr. Pavan Kumar Reddy</h4>
-                <p className="text-[#64748B] dark:text-slate-400 text-sm font-[family-name:var(--font-body)] uppercase tracking-wide mt-1">Director, Sree Valmeeki High School</p>
+                <h4 className="text-lg font-bold text-[#0F2044] dark:text-white font-[family-name:var(--font-body)]">Dr. P.V Pavan Kumar Reddy</h4>
+                <p className="text-[#64748B] dark:text-slate-400 text-sm font-[family-name:var(--font-body)] uppercase tracking-wide mt-1">Director of Valmeeki School and Founder Abhigna Foundation</p>
               </div>
 
               <Link

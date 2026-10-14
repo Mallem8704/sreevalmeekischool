@@ -135,7 +135,7 @@ export default function IntroVideoLauncher({
         <div className="flex items-center gap-3">
           <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-1 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(212,168,83,0.35)] shrink-0">
             <Image
-              src="/images/logo/valmeeki_emblem_v3.png"
+              src="/images/logo/valmeeki_emblem.svg"
               alt="Sree Valmeeki School Crest"
               fill
               sizes="44px"
@@ -148,7 +148,7 @@ export default function IntroVideoLauncher({
               SREE VALMEEKI E.M. SCHOOL
             </span>
             <span className="text-[#D4A853] text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase">
-              EST. 1999 • 27 YEARS OF EXCELLENCE
+              EST. 1999 • 28 YEARS OF EXCELLENCE
             </span>
           </div>
         </div>

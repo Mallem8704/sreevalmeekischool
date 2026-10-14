@@ -164,7 +164,7 @@ export default function VisualAcademicExcellence({ onOpenAdmissions }: VisualAca
                         </div>
 
                         <span className="text-[9px] sm:text-[10px] font-bold text-[#69778A] dark:text-slate-400 uppercase tracking-wider block">
-                          SSC 2024–25
+                          SSC 2025–26
                         </span>
 
                         {/* Rank Label Pill */}

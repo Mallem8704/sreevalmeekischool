@@ -210,8 +210,8 @@ export const peopleOfValmeeki: PersonProfile[] = [
     image: '/images/founder/sri_p_jaya_rami_reddy_founder.png',
   },
   {
-    name: 'Mr. Pavan Kumar Reddy',
-    role: 'Director, Sree Valmeeki High School',
+    name: 'Dr. P.V Pavan Kumar Reddy',
+    role: 'Director of Valmeeki School and Founder Abhigna Foundation',
     quote:
       'Education is the most powerful tool to transform lives, empower communities, and build a brighter future.',
     image: '/images/leadership/mr_pavan_kumar_reddy_director_square.png',

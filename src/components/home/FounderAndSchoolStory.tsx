@@ -275,7 +275,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                       <div className="relative w-32 h-44 sm:w-36 sm:h-48 rounded-xl overflow-hidden bg-[#0A1628] border border-white/40">
                         <Image
                           src="/images/leadership/mr_pavan_kumar_reddy_director_portrait.png"
-                          alt="Mr. Pavan Kumar Reddy - Director"
+                          alt="Dr. P.V Pavan Kumar Reddy - Director of Valmeeki School and Founder Abhigna Foundation"
                           fill
                           sizes="150px"
                           className="object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
@@ -288,13 +288,13 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                   {/* Leader Name & Title */}
                   <div className="text-center sm:text-left space-y-1.5 flex-1">
                     <span className="text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] block">
-                      DIRECTOR • SREE VALMEEKI HIGH SCHOOL
+                      DIRECTOR &amp; FOUNDER
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
-                      Mr. Pavan Kumar Reddy
+                      Dr. P.V Pavan Kumar Reddy
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      Passionate Educationist • Visionary Leader • Dedicated Mentor
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
+                      Director of Valmeeki School and Founder Abhigna Foundation
                     </p>
 
                     {/* Director Quote Pill */}
@@ -308,7 +308,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                 {/* Director Detailed Profile */}
                 <div className="space-y-3 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                   <p>
-                    <strong>Mr. Pavan Kumar Reddy</strong> believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki High School, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
+                    <strong>Dr. P.V Pavan Kumar Reddy</strong> believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki High School and Founder of Abhigna Foundation, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
                   </p>
                   <p>
                     With a deep understanding of transformative education, he has consistently cultivated a culture of learning that goes beyond textbooks and examinations—developing confident, responsible, and compassionate individuals equipped with values, skills, and character.
@@ -615,17 +615,17 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#D4A853]">
                     <Image
                       src="/images/leadership/mr_pavan_kumar_reddy_director_portrait.png"
-                      alt="Mr. Pavan Kumar Reddy"
+                      alt="Dr. P.V Pavan Kumar Reddy"
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-black text-[#0A1628] dark:text-white uppercase font-[family-name:var(--font-heading)]">
-                      Mr. Pavan Kumar Reddy
+                      Dr. P.V Pavan Kumar Reddy
                     </h3>
                     <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-bold">
-                      Director, Sree Valmeeki High School
+                      Director of Valmeeki School and Founder Abhigna Foundation
                     </p>
                   </div>
                 </div>
@@ -644,11 +644,11 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                 </div>
 
                 <p>
-                  Mr. Pavan Kumar Reddy is a passionate educationist, visionary leader, and dedicated mentor who believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki High School, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
+                  <strong>Dr. P.V Pavan Kumar Reddy</strong> is a passionate educationist, visionary leader, and dedicated mentor who believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki High School and Founder of Abhigna Foundation, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
                 </p>
 
                 <p>
-                  With a deep understanding of the transformative power of education, Mr. Pavan Kumar Reddy has consistently worked towards building a culture of learning that goes beyond textbooks and examinations. His vision is to develop confident, responsible, and compassionate individuals who are equipped not only with knowledge but also with the values, skills, and character needed to succeed in an ever-changing world.
+                  With a deep understanding of the transformative power of education, Dr. P.V Pavan Kumar Reddy has consistently worked towards building a culture of learning that goes beyond textbooks and examinations. His vision is to develop confident, responsible, and compassionate individuals who are equipped not only with knowledge but also with the values, skills, and character needed to succeed in an ever-changing world.
                 </p>
 
                 <p>

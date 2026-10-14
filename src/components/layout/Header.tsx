@@ -130,42 +130,46 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        {/* Top Info Bar (collapses smoothly on scroll, matching reference mockup) */}
+        {/* Top Info Bar (collapses smoothly on scroll) */}
         {showAnnouncement && !isScrolled && (
-          <div className="w-full bg-[#03101E] text-white py-1.5 px-4 text-xs border-b border-white/10 hidden sm:block">
+          <div className="w-full bg-[#0A1628] text-white py-1 px-4 text-xs border-b border-white/10 hidden sm:block">
             <div className="container mx-auto flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="text-white/80 font-medium text-xs">
-                  A Legacy of Excellence in Education <span className="text-[#D8A53C]">|</span> Sree Valmeeki English Medium High School, Kadiri
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FBBF24] text-[#0A1628] font-black text-[10px] tracking-wider uppercase">
+                  Admissions Open 2026–27
+                </span>
+                <span className="text-white/90 font-medium text-xs">
+                  Sree Valmeeki E.M School • 28 Years of Educational Excellence • Kadiri
                 </span>
               </div>
 
               <div className="flex items-center gap-4 text-xs">
-                <Link href="/news" className="text-white/70 hover:text-white transition-colors hidden md:inline">
-                  News &amp; Events
-                </Link>
-                <span className="text-white/20 hidden md:inline">|</span>
-                <Link href="/about" className="text-white/70 hover:text-white transition-colors hidden lg:inline">
-                  Alumni
-                </Link>
-                <span className="text-white/20 hidden lg:inline">|</span>
-                <a
-                  href="tel:+919440468838"
-                  className="text-white/90 hover:text-[#F0C66A] transition-colors inline-flex items-center gap-1 font-bold"
-                >
-                  <Phone className="w-3 h-3 text-[#D8A53C]" />
-                  <span>+91 94404 68838</span>
-                </a>
                 <Link
                   href="/admissions"
-                  className="px-3 py-0.5 rounded-full bg-[#D8A53C] hover:bg-[#F0C66A] text-[#03101E] font-black text-[11px] uppercase tracking-wider transition-colors inline-flex items-center gap-1"
+                  className="text-[#FBBF24] hover:text-white font-bold transition-colors inline-flex items-center gap-1"
                 >
-                  <span>Enquire Now</span>
-                  <ArrowRight className="w-3 h-3" />
+                  Enroll Now <ArrowRight className="w-3 h-3" />
                 </Link>
+                <a
+                  href="tel:+919440468838"
+                  className="text-white/80 hover:text-[#FBBF24] transition-colors inline-flex items-center gap-1"
+                >
+                  <Phone className="w-3 h-3 text-[#FBBF24]" />
+                  <span>+91 94404 68838</span>
+                </a>
+                <a
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-[#25D366] transition-colors inline-flex items-center gap-1"
+                  title="Chat on WhatsApp"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">WhatsApp</span>
+                </a>
                 <button
                   onClick={() => setShowAnnouncement(false)}
-                  className="text-white/50 hover:text-white transition-colors cursor-pointer ml-1"
+                  className="text-white/60 hover:text-white transition-colors cursor-pointer"
                   aria-label="Dismiss notice"
                 >
                   <X className="w-3 h-3" />
@@ -175,19 +179,19 @@ export default function Header() {
           </div>
         )}
 
-        {/* Main Navbar - Pure Crisp White / Navy Header matching reference */}
+        {/* Main Navbar - Pure Crisp White Floating Header matching reference */}
         <div
-          className={`w-full bg-white/95 dark:bg-[#03101E]/95 backdrop-blur-md transition-all duration-300 border-b border-slate-100 dark:border-white/10 ${
+          className={`w-full bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md transition-all duration-300 border-b border-slate-100 dark:border-white/10 ${
             isScrolled ? 'shadow-md py-2' : 'shadow-sm py-2.5 sm:py-3'
           }`}
         >
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between">
-              {/* Main Official Logo (Header Brand matching reference mockup) */}
-              <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-w-0">
+              {/* Main Official Logo (Header Brand) */}
+              <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
                 <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/15 bg-white dark:bg-white/10 shrink-0 flex items-center justify-center p-0.5">
                   <Image
-                    src="/images/logo/valmeeki_emblem_v3.png"
+                    src="/images/logo/valmeeki_emblem.svg"
                     alt="Sree Valmeeki E.M High School"
                     fill
                     sizes="48px"
@@ -196,12 +200,12 @@ export default function Header() {
                     unoptimized
                   />
                 </div>
-                <div className="flex flex-col min-w-0 text-left">
-                  <span className="font-[family-name:var(--font-heading)] font-black text-xs sm:text-base md:text-lg text-[#0A1C31] dark:text-white leading-tight tracking-tight group-hover:text-[#D8A53C] transition-colors truncate max-w-[160px] sm:max-w-none">
-                    SREE VALMEEKI ENGLISH MEDIUM HIGH SCHOOL
+                <div className="flex flex-col min-w-0">
+                  <span className="font-[family-name:var(--font-heading)] font-black text-xs sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors truncate max-w-[145px] sm:max-w-none">
+                    Sree Valmeeki High School
                   </span>
-                  <span className="text-[9px] sm:text-[10px] font-bold text-[#D8A53C] tracking-wider uppercase truncate">
-                    KADIRI • AP STATE BOARD • ESTD. 1999
+                  <span className="text-[9px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider truncate">
+                    (Est. 1999 • 28 Yrs of Excellence)
                   </span>
                 </div>
               </Link>

@@ -134,7 +134,7 @@ export default function LeadershipPage() {
         {/* =========================================================================
             FEATURED EXECUTIVE LEADERSHIP FRAME:
             Founder Sri Palavala Jaya Rami Reddy (Top)
-            Director Mr. Pavan Kumar Reddy (Bottom Left)
+            Director Dr. P.V Pavan Kumar Reddy (Bottom Left)
             Correspondent Sri P. Anil Kumar Reddy (Bottom Right)
             Abhigna Foundation Humanitarian Initiatives (Bottom)
         ========================================================================= */}

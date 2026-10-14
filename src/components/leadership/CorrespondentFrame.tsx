@@ -168,7 +168,7 @@ export default function CorrespondentFrame({
               </p>
 
               <p>
-                Working hand in hand with Founder Sri Palavala Jaya Rami Reddy and Director Mr. Pavan Kumar Reddy, Sri Anil Kumar Reddy manages institutional operations, government regulatory liaison, and community relations. His core mission is to uphold the sacred school motto: <em>providing world-class, value-based education with an accessible fee structure</em> so that quality learning remains within reach of every family across Kadiri and neighboring rural regions.
+                Working hand in hand with Founder Sri Palavala Jaya Rami Reddy and Director Dr. P.V Pavan Kumar Reddy, Sri Anil Kumar Reddy manages institutional operations, government regulatory liaison, and community relations. His core mission is to uphold the sacred school motto: <em>providing world-class, value-based education with an accessible fee structure</em> so that quality learning remains within reach of every family across Kadiri and neighboring rural regions.
               </p>
 
               {showExtendedBio && (

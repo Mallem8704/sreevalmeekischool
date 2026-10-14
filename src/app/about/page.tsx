@@ -75,7 +75,7 @@ const leadershipQuotes = [
     quote:
       'Education should not only prepare children for examinations, but help them develop confidence, discipline, curiosity and character. Valmeeki stands committed to nurturing every child with parental care.',
     name: 'Dr. P.V Pavan Kumar Reddy',
-    role: 'Director, Sree Valmeeki School • A.P Private Schools Association Working President',
+    role: 'Director of Valmeeki School and Founder Abhigna Foundation',
     image: '/extracted/leadership/director_pavan_reddy_portrait.jpg',
   },
   {
@@ -512,7 +512,7 @@ export default function AboutPage() {
         {/* =========================================================================
             EXECUTIVE LEADERSHIP FRAME (Directly After About Section)
             Founder Sri Palavala Jaya Rami Reddy (Top)
-            Director Mr. Pavan Kumar Reddy (Bottom Left)
+            Director Dr. P.V Pavan Kumar Reddy (Bottom Left)
             Correspondent Sri P. Anil Kumar Reddy (Bottom Right)
         ========================================================================= */}
         <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />

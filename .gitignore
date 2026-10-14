@@ -40,4 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# backups
+_backup_images_pre_hd/
+public/images_backup/
+
 .vercel

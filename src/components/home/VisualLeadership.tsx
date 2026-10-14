@@ -62,7 +62,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
               >
                 <Image
                   src="/images/leadership/mr_pavan_kumar_reddy_director_portrait.png"
-                  alt="Mr. P. Pavan Kumar Reddy - Director & Correspondent"
+                  alt="Dr. P.V Pavan Kumar Reddy - Director of Valmeeki School and Founder Abhigna Foundation"
                   fill
                   sizes="(max-width: 640px) 320px, 400px"
                   className="object-cover object-top"
@@ -72,11 +72,14 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
 
                 <div className="absolute bottom-4 left-4 right-4 text-white text-left">
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#F0C66A] block">
-                    DIRECTOR &amp; CORRESPONDENT
+                    DIRECTOR &amp; FOUNDER
                   </span>
                   <h3 className="text-lg font-black font-[family-name:var(--font-heading)]">
-                    Mr. P. Pavan Kumar Reddy
+                    Dr. P.V Pavan Kumar Reddy
                   </h3>
+                  <p className="text-[10px] text-white/80 font-medium leading-tight mt-0.5">
+                    Director of Valmeeki School and Founder Abhigna Foundation
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -93,10 +96,10 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
 
               <div className="pt-2 border-t border-slate-200/80 dark:border-white/10">
                 <span className="text-sm font-black text-[#0A1C31] dark:text-white block">
-                  — Sri P. Pavan Kumar Reddy
+                  — Dr. P.V Pavan Kumar Reddy
                 </span>
                 <span className="text-xs text-[#69778A] dark:text-slate-400 block font-medium">
-                  Director &amp; Correspondent, Sree Valmeeki English Medium High School, Kadiri
+                  Director of Valmeeki School and Founder Abhigna Foundation
                 </span>
               </div>
 
@@ -143,7 +146,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                     <div className="relative w-14 h-18 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-[#D8A53C]/40 shrink-0">
                       <Image
                         src="/images/founder/sri_p_jaya_rami_reddy_founder.png"
-                        alt="Late Sri P. Jaya Rami Reddy - Founder & Chairman"
+                        alt="Sri P. Jaya Rami Reddy - Founder & Chairman"
                         fill
                         sizes="70px"
                         className="object-cover object-top"
@@ -154,7 +157,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                         FOUNDER &amp; CHAIRMAN
                       </span>
                       <h4 className="text-base font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                        Late Sri P. Jaya Rami Reddy
+                        Sri P. Jaya Rami Reddy
                       </h4>
                       <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium">
                         Estd. 6th June, 1999
@@ -318,7 +321,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
               </div>
 
               <p className="mt-4 text-xs text-[#69778A] dark:text-slate-300 leading-relaxed italic">
-                “This authentic founding brochure marks the historic inception of Sree Valmeeki High School on 6th June, 1999 under the visionary leadership of Late Sri P. Jaya Rami Reddy.”
+                “This authentic founding brochure marks the historic inception of Sree Valmeeki High School on 6th June, 1999 under the visionary leadership of Founder Sri P. Jaya Rami Reddy.”
               </p>
             </motion.div>
           </div>
@@ -341,8 +344,11 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                     LEADERSHIP DESK
                   </span>
                   <h3 className="text-xl font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                    Mr. P. Pavan Kumar Reddy — Director &amp; Correspondent
+                    Dr. P.V Pavan Kumar Reddy
                   </h3>
+                  <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold mt-0.5">
+                    Director of Valmeeki School and Founder Abhigna Foundation
+                  </p>
                 </div>
                 <button
                   type="button"
