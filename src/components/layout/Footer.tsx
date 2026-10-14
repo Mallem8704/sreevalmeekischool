@@ -25,14 +25,17 @@ export default function Footer() {
                 unoptimized
               />
             </div>
-            <div className="flex flex-col">
-              <h2 className="font-[family-name:var(--font-heading)] font-bold text-xl sm:text-2xl md:text-3xl text-white tracking-wide">
-                Sree Valmeeki E.M High School
-              </h2>
-              <span className="text-[#D4A853] text-xs sm:text-sm md:text-base font-semibold tracking-wider mt-1">
-                (Est. 1999 • 28 Years of Excellence)
+            <div className="flex flex-col leading-none">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[#D4A853] mb-1">
+                SREE
               </span>
-              <span className="text-white/60 text-xs tracking-widest uppercase mt-0.5">
+              <h2 className="font-[family-name:var(--font-heading)] font-bold text-xl sm:text-2xl md:text-3xl text-white tracking-wide">
+                VALMEEKI E.M SCHOOL
+              </h2>
+              <span className="text-white/80 text-xs sm:text-sm font-semibold tracking-wider mt-1.5">
+                Nursery to 10th Class • (Est. 1999 • 28 Years of Excellence)
+              </span>
+              <span className="text-white/60 text-xs tracking-widest uppercase mt-1">
                 Education • Discipline • Confidence
               </span>
             </div>
@@ -68,7 +71,7 @@ export default function Footer() {
               <YoutubeIcon className="w-5 h-5" />
             </a>
             <a 
-              href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
+              href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28" 
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with Sree Valmeeki School on WhatsApp"
@@ -87,7 +90,7 @@ export default function Footer() {
               About Our School
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed font-[family-name:var(--font-body)]">
-              Established in 1999, Sree Valmeeki E.M High School has fostered 27 years of academic distinction, disciplined character building, and holistic child development in Kadiri.
+              Established in 1999, Sree Valmeeki E.M School – Nursery to 10th Class has fostered 28 years of academic distinction, disciplined character building, and holistic child development in Kadiri.
             </p>
             <div className="pt-2">
               <Link 
@@ -113,7 +116,7 @@ export default function Footer() {
                 { name: 'IIT Foundation Program', href: '/academics/iit-foundation' },
                 { name: 'Campus Facilities', href: '/campus' },
                 { name: 'Photo Gallery', href: '/gallery' },
-                { name: 'Admissions 2026–27', href: '/admissions' },
+                { name: 'Admissions 2027–28', href: '/admissions' },
                 { name: 'Online Enquiry', href: '/admissions#enquiry' },
               ].map((item) => (
                 <li key={item.name}>
@@ -165,7 +168,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-[#D4A853] mr-3 mt-1 shrink-0" />
                 <span className="text-gray-300 leading-relaxed font-[family-name:var(--font-body)]">
-                  <strong className="text-white block">Sree Valmeeki E.M High School</strong>
+                  <strong className="text-white block">Sree Valmeeki E.M School – Nursery to 10th Class</strong>
                   Kadiri, Sri Sathya Sai District,<br />
                   Andhra Pradesh 515591
                 </span>
@@ -182,7 +185,7 @@ export default function Footer() {
               <li className="flex items-center">
                 <WhatsAppIcon className="w-5 h-5 mr-3 shrink-0" />
                 <a 
-                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27" 
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-[#25D366] transition-colors font-medium flex items-center gap-1.5"
@@ -205,7 +208,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-[family-name:var(--font-body)] gap-4">
-          <p>© {currentYear} Sree Valmeeki E.M High School (Est. 1999). All rights reserved.</p>
+          <p>© {currentYear} Sree Valmeeki E.M School – Nursery to 10th Class (Est. 1999). All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
             <button
               type="button"

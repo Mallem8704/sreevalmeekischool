@@ -65,7 +65,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                   alt="Dr. P.V Pavan Kumar Reddy - Director of Valmeeki School and Founder Abhigna Foundation"
                   fill
                   sizes="(max-width: 640px) 320px, 400px"
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
@@ -143,20 +143,20 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3.5">
-                    <div className="relative w-14 h-18 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-[#D8A53C]/40 shrink-0">
+                    <div className="relative w-16 h-20 sm:w-20 sm:h-24 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-[#D8A53C]/50 shadow-md shrink-0">
                       <Image
                         src="/images/founder/sri_p_jaya_rami_reddy_founder.png"
                         alt="Sri P. Jaya Rami Reddy - Founder & Chairman"
                         fill
-                        sizes="70px"
-                        className="object-cover object-top"
+                        sizes="90px"
+                        className="object-cover object-center"
                       />
                     </div>
                     <div>
                       <span className="text-[10px] font-black uppercase tracking-wider text-[#D8A53C] block">
                         FOUNDER &amp; CHAIRMAN
                       </span>
-                      <h4 className="text-base font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
+                      <h4 className="text-base sm:text-lg font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
                         Sri P. Jaya Rami Reddy
                       </h4>
                       <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium">
@@ -189,24 +189,24 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3.5">
-                    <div className="relative w-14 h-18 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-[#D8A53C]/40 shrink-0">
+                    <div className="relative w-16 h-20 sm:w-20 sm:h-24 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-[#D8A53C]/50 shadow-md shrink-0">
                       <Image
                         src="/images/leadership/sri_p_anil_kumar_reddy_correspondent_portrait.jpg"
                         alt="Sri P. Anil Kumar Reddy - Correspondent"
                         fill
-                        sizes="70px"
-                        className="object-cover object-top"
+                        sizes="90px"
+                        className="object-cover object-center"
                       />
                     </div>
                     <div>
                       <span className="text-[10px] font-black uppercase tracking-wider text-[#D8A53C] block">
                         CORRESPONDENT
                       </span>
-                      <h4 className="text-base font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
+                      <h4 className="text-base sm:text-lg font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
                         Sri P. Anil Kumar Reddy
                       </h4>
                       <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium">
-                        Administrative Oversight
+                        Sree Valmeeki E.M School – Nursery to 10th Class
                       </span>
                     </div>
                   </div>

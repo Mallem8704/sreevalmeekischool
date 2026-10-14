@@ -136,10 +136,10 @@ export default function Header() {
             <div className="container mx-auto flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FBBF24] text-[#0A1628] font-black text-[10px] tracking-wider uppercase">
-                  Admissions Open 2026–27
+                  Admissions Open 2027–28
                 </span>
                 <span className="text-white/90 font-medium text-xs">
-                  Sree Valmeeki E.M School • 28 Years of Educational Excellence • Kadiri
+                  Sree Valmeeki E.M School – Nursery to 10th Class • 28 Years of Educational Excellence • Kadiri
                 </span>
               </div>
 
@@ -158,7 +158,7 @@ export default function Header() {
                   <span>+91 94404 68838</span>
                 </a>
                 <a
-                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-[#25D366] transition-colors inline-flex items-center gap-1"
@@ -200,12 +200,15 @@ export default function Header() {
                     unoptimized
                   />
                 </div>
-                <div className="flex flex-col min-w-0">
-                  <span className="font-[family-name:var(--font-heading)] font-black text-xs sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors truncate max-w-[145px] sm:max-w-none">
-                    Sree Valmeeki High School
+                <div className="flex flex-col min-w-0 leading-none">
+                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-[#B8860B] dark:text-[#D4A853] leading-none mb-0.5">
+                    SREE
                   </span>
-                  <span className="text-[9px] sm:text-[11px] font-bold text-[#B8860B] dark:text-[#D4A853] tracking-wider truncate">
-                    (Est. 1999 • 28 Yrs of Excellence)
+                  <span className="font-[family-name:var(--font-heading)] font-black text-xs sm:text-base md:text-lg text-[#0A1628] dark:text-white leading-tight tracking-tight group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors truncate max-w-[155px] sm:max-w-none">
+                    VALMEEKI E.M SCHOOL
+                  </span>
+                  <span className="text-[9px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 tracking-wider truncate mt-0.5">
+                    Nursery to 10th Class
                   </span>
                 </div>
               </Link>

@@ -150,7 +150,7 @@ export default function GrowthJourney() {
                 href="#admissions"
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D4A853] via-[#E8C97D] to-[#B8860B] text-[#0A1628] font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-105 transition-all cursor-pointer"
               >
-                <span>Admissions 2026–27</span>
+                <span>Admissions 2027–28</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>

@@ -357,7 +357,7 @@ export default function AcademicsPage() {
                   href="/admissions"
                   className="inline-flex items-center gap-2 bg-[#0A1628] dark:bg-[#FBBF24] text-[#D4A853] dark:text-[#0A1628] hover:text-white dark:hover:text-[#0A1628] hover:bg-[#1E3A8A] dark:hover:bg-[#F59E0B] font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:scale-[1.02] border border-[#0A1628] dark:border-[#FBBF24]"
                 >
-                  <span>Enroll for 2026–27</span>
+                  <span>Enroll for 2027–28</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
@@ -820,7 +820,7 @@ export default function AcademicsPage() {
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
             <div className="bg-white dark:bg-[#0A1628] border border-slate-200/90 dark:border-white/10 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
               <span className="inline-block px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-xs font-bold uppercase tracking-wider mb-4">
-                ADMISSIONS OPEN 2026–27
+                ADMISSIONS OPEN 2027–28
               </span>
               <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1628] dark:text-white mb-6">
                 Give Your Child the Valmeeki Academic Edge.

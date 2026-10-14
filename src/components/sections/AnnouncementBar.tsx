@@ -20,7 +20,7 @@ export default function AnnouncementBar() {
       >
         <div className="container mx-auto px-4 py-2.5 flex items-center justify-between text-xs md:text-sm font-medium">
           <div className="flex-1 flex justify-center items-center gap-2">
-            <span>Admissions Open 2026–27 | Nursery to Class 10</span>
+            <span>Admissions Open 2027–28 | Nursery to Class 10</span>
             <span className="hidden sm:inline">|</span>
             <Link href="/admissions" className="hidden sm:flex items-center gap-1 hover:underline font-bold">
               Enquire Now <ArrowRight size={14} />

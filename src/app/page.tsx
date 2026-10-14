@@ -24,6 +24,7 @@ const AcademicSystemStory = dynamic(() => import('@/components/home/AcademicSyst
 const VisualLearningSequence = dynamic(() => import('@/components/home/VisualLearningSequence'));
 const StarAchieversSection = dynamic(() => import('@/components/home/StarAchieversSection'));
 const TopperShowcase = dynamic(() => import('@/components/home/TopperShowcase'));
+const OfficialPamphletShowcase = dynamic(() => import('@/components/home/OfficialPamphletShowcase'));
 const ResultsTimeline = dynamic(() => import('@/components/home/ResultsTimeline'));
 const ExploreValmeekiSection = dynamic(() => import('@/components/home/campus/ExploreValmeekiSection'));
 const OneDayAtValmeeki = dynamic(() => import('@/components/home/OneDayAtValmeeki'));
@@ -121,6 +122,9 @@ export default function HomePage() {
 
             {/* Signature Section: 3 Years of Consistent Results */}
             <TopperShowcase />
+
+            {/* Official Board Results Pamphlets Archive (Exact Images as Published) */}
+            <OfficialPamphletShowcase />
 
             {/* Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
             <ResultsTimeline />

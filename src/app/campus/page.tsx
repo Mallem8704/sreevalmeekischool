@@ -145,7 +145,7 @@ export default function CampusPage() {
                 onClick={() => setIsAdmissionsModalOpen(true)}
                 className="px-8 py-3.5 rounded-full bg-[#0A1628] dark:bg-[#FBBF24] hover:bg-[#1E3A8A] dark:hover:bg-[#F59E0B] text-[#D4A853] dark:text-[#0A1628] hover:text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform hover:scale-105 border border-[#0A1628] dark:border-[#FBBF24] cursor-pointer"
               >
-                Enroll Now for 2026–27
+                Enroll Now for 2027–28
               </button>
               <a
                 href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20book%20a%20Campus%20Tour"

@@ -56,7 +56,7 @@ export default function AdmissionsClimax() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/50 text-[#D4A853] text-xs font-bold uppercase tracking-[0.25em] mb-6 shadow-lg backdrop-blur-md"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>ADMISSIONS 2026–27 • NURSERY TO CLASS 10</span>
+          <span>ADMISSIONS 2027–28 • NURSERY TO CLASS 10</span>
         </motion.div>
 
         {/* Main Emotional Headline */}

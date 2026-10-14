@@ -102,7 +102,7 @@ export default function AchievementHero({ onOpenAdmissions }: AchievementHeroPro
                 onClick={onOpenAdmissions}
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm tracking-wider uppercase border border-white/25 backdrop-blur-md transition-all cursor-pointer hover:border-white/50"
               >
-                <span>Admissions 2026–27</span>
+                <span>Admissions 2027–28</span>
               </button>
             </motion.div>
           </div>

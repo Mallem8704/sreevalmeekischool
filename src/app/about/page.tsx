@@ -185,7 +185,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-slate-600 dark:text-slate-300 text-lg sm:text-xl font-normal leading-relaxed mb-8 max-w-2xl"
               >
-                For over 28 years, Sree Valmeeki E.M High School has forged a trusted tradition of academic excellence, moral discipline, and communicative confidence in Kadiri, Sri Sathya Sai District.
+                For over 28 years, Sree Valmeeki E.M School – Nursery to 10th Class has forged a trusted tradition of academic excellence, moral discipline, and communicative confidence in Kadiri, Sri Sathya Sai District.
               </motion.p>
 
               {/* Action Buttons */}
@@ -199,7 +199,7 @@ export default function AboutPage() {
                   href="/admissions"
                   className="inline-flex items-center gap-2 bg-[#D4A853] hover:bg-[#C49A3C] text-[#0A1628] font-black px-7 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:scale-[1.02]"
                 >
-                  <span>Admissions 2026–27</span>
+                  <span>Admissions 2027–28</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
@@ -523,7 +523,7 @@ export default function AboutPage() {
           
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
             <span className="inline-block px-3 py-1 rounded-full bg-[#D4A853]/20 text-[#D4A853] text-xs font-black uppercase tracking-wider mb-4 border border-[#D4A853]/40">
-              ADMISSIONS OPEN 2026–27
+              ADMISSIONS OPEN 2027–28
             </span>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6">
               Give Your Child the Valmeeki Foundation.

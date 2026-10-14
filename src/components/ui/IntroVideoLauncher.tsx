@@ -197,7 +197,7 @@ export default function IntroVideoLauncher({
           </span>
           <span className="hidden md:inline text-white/30">•</span>
           <span className="hidden md:inline text-[#D4A853] text-xs font-medium">
-            Admissions Open 2026–27
+            Admissions Open 2027–28
           </span>
         </div>
 

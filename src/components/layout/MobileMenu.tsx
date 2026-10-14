@@ -92,12 +92,15 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                     unoptimized
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-[family-name:var(--font-heading)] font-black text-sm text-[#0A1628] dark:text-white leading-tight">
-                    Sree Valmeeki E.M High School
+                <div className="flex flex-col leading-none">
+                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#B8860B] dark:text-[#D4A853] leading-none mb-0.5">
+                    SREE
                   </span>
-                  <span className="text-[10px] font-bold text-[#B8860B] dark:text-[#D4A853]">
-                    (Est. 1999 • 28 Years of Excellence)
+                  <span className="font-[family-name:var(--font-heading)] font-black text-sm text-[#0A1628] dark:text-white leading-tight">
+                    VALMEEKI E.M SCHOOL
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                    Nursery to 10th Class
                   </span>
                 </div>
               </Link>
@@ -174,7 +177,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-bold text-sm uppercase tracking-wider rounded-full shadow-md transition-colors"
               >
                 <GraduationCap className="w-5 h-5" />
-                <span>Enroll Now 2026–27</span>
+                <span>Enroll Now 2027–28</span>
               </Link>
 
               <div className="grid grid-cols-2 gap-2.5">
@@ -186,7 +189,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                   <span>Call Direct</span>
                 </a>
                 <a
-                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20am%20interested%20in%20Admissions%20for%202026-27"
+                  href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20am%20interested%20in%20Admissions%20for%202027-28"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#25D366] text-white rounded-xl text-xs font-semibold shadow-xs hover:brightness-105 transition-colors"

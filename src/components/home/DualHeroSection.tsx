@@ -299,13 +299,21 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   className="space-y-0.5 sm:space-y-1"
                 >
                   <span className="block text-[#FBBF24] font-black text-[10px] sm:text-xs uppercase tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                    ADMISSIONS OPEN 2026–27
+                    ADMISSIONS OPEN 2027–28
                   </span>
-                  <h1 className="block text-white font-black text-base sm:text-xl font-[family-name:var(--font-heading)] leading-none tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-                    Sree Valmeeki High School
-                  </h1>
+                  <div className="flex flex-col">
+                    <span className="block text-[#FBBF24] font-black text-[11px] sm:text-xs uppercase tracking-[0.25em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      SREE
+                    </span>
+                    <h1 className="block text-white font-black text-base sm:text-xl font-[family-name:var(--font-heading)] leading-none tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+                      VALMEEKI E.M SCHOOL
+                    </h1>
+                    <span className="block text-amber-200/90 font-bold text-[10px] sm:text-xs tracking-wider mt-0.5 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+                      Nursery to 10th Class
+                    </span>
+                  </div>
                   <p className="block text-[#EEF6FF] font-bold text-[10px] sm:text-xs leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                    Nursery to Class 10 • AP State Board • Kadiri
+                    AP State Board • Kadiri
                   </p>
                   <div className="pt-1.5 flex items-center gap-2">
                     <button
@@ -338,15 +346,22 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   {/* Yellow/Gold Eyebrow Badge (Exact Blue Moon Style) */}
                   <div className="flex items-center gap-2">
                     <span className="text-[#FBBF24] font-black text-xs sm:text-sm tracking-[0.2em] uppercase drop-shadow-md">
-                      ADMISSIONS OPEN 2026–27
+                      ADMISSIONS OPEN 2027–28
                     </span>
                   </div>
 
-                  {/* Main Institution Title (Bold, Monumental, Crisp) */}
-                  <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-white tracking-tight leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-                    Sree Valmeeki <br className="hidden sm:inline" />
-                    <span className="text-white">High School</span>
-                  </h1>
+                  {/* Main Institution Title with SREE above VALMEEKI E.M SCHOOL */}
+                  <div className="space-y-1">
+                    <span className="block text-[#FBBF24] font-black text-xl sm:text-3xl tracking-[0.3em] uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+                      SREE
+                    </span>
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] text-white tracking-tight leading-[1.05] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                      VALMEEKI E.M SCHOOL
+                    </h1>
+                    <span className="block text-amber-200/95 font-bold text-lg sm:text-2xl tracking-wide drop-shadow-md">
+                      Nursery to 10th Class
+                    </span>
+                  </div>
 
                   {/* Subtitle / Focus Areas (Exact Blue Moon Style) */}
                   <p className="text-sm sm:text-base md:text-lg text-white/95 font-bold tracking-wide drop-shadow-md">
@@ -354,7 +369,7 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   </p>
 
                   <p className="text-xs sm:text-sm text-white/80 font-semibold tracking-wider uppercase drop-shadow-sm">
-                    Nursery to Class 10 • AP State Board • IIT Foundation &amp; Olympiad Academy • Kadiri
+                    AP State Board • IIT Foundation &amp; Olympiad Academy • Kadiri
                   </p>
 
                   {/* Action CTA Buttons (Vibrant Gold Rounded Pill like Blue Moon) */}

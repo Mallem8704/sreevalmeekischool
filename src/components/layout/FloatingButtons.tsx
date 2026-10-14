@@ -63,7 +63,7 @@ export default function FloatingButtons() {
 
           {/* 2. WhatsApp Official Chat */}
           <a
-            href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+            href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-transform"
@@ -90,7 +90,7 @@ export default function FloatingButtons() {
             href="/admissions"
             onClick={handleEnquireClick}
             className="flex flex-col items-center justify-center gap-0.5 h-12 min-h-[48px] rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] font-black text-[10px] uppercase tracking-wider shadow-md shadow-[#D4A853]/30 active:scale-95 transition-transform cursor-pointer"
-            aria-label="Enquire for Admissions 2026-27"
+            aria-label="Enquire for Admissions 2027-28"
           >
             <GraduationCap className="w-4 h-4 text-[#0A1628]" />
             <span>Apply</span>
@@ -149,7 +149,7 @@ export default function FloatingButtons() {
               whileTap={{ scale: 0.92 }}
             >
               <Link
-                href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-xl hover:shadow-[0_8px_25px_rgba(37,211,102,0.5)] border-2 border-white transition-all duration-300"

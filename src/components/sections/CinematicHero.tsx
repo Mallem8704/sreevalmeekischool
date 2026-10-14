@@ -57,7 +57,7 @@ export default function CinematicHero() {
               className="mb-3 sm:mb-4"
             >
               <span className="text-[#FBBF24] text-xs sm:text-sm font-black tracking-[0.2em] uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                ADMISSIONS OPEN 2026–27
+                ADMISSIONS OPEN 2027–28
               </span>
             </motion.div>
 
@@ -154,7 +154,7 @@ export default function CinematicHero() {
                 </button>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBBF24]/20 border border-[#FBBF24]/40 text-[#FBBF24] font-black text-[11px] uppercase tracking-wider mb-2">
                   <GraduationCap className="w-3.5 h-3.5" />
-                  <span>Admissions Open 2026–27</span>
+                  <span>Admissions Open 2027–28</span>
                 </div>
                 <h3 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-white">
                   Quick Admission Enquiry

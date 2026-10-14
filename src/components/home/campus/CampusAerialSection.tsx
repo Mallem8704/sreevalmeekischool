@@ -109,7 +109,7 @@ export default function CampusAerialSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 font-medium max-w-2xl mx-auto"
           >
-            A high-resolution aerial glimpse of Sree Valmeeki High School — where sprawling grounds, academic blocks, and quiet natural surroundings unite.
+            A high-resolution aerial glimpse of Sree Valmeeki E.M School – Nursery to 10th Class — where sprawling grounds, academic blocks, and quiet natural surroundings unite.
           </motion.p>
         </div>
 

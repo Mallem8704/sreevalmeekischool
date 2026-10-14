@@ -10,6 +10,7 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 import { Sparkles, Trophy, Award, X, ChevronRight, ChevronLeft, Filter } from 'lucide-react';
 import { verifiedAchievements, academicToppers, AchievementItem } from '@/lib/data';
 import StarAchieversSection from '@/components/home/StarAchieversSection';
+import OfficialPamphletShowcase from '@/components/home/OfficialPamphletShowcase';
 import GirinathReddyHeroSpotlight from '@/components/sports/GirinathReddyHeroSpotlight';
 
 const ceremonyPhotos = [
@@ -302,6 +303,9 @@ export default function AchievementsPage() {
 
       {/* Official Star Achievers & Hall of 250 Scholars Interactive Section */}
       <StarAchieversSection />
+
+      {/* Official Board Results Pamphlets Archive (Exact Images as Published) */}
+      <OfficialPamphletShowcase />
 
       {/* Categories & Year Timeline Filter Controls */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-slate-200 dark:border-white/10 transition-colors duration-200">

@@ -21,7 +21,7 @@ export default function VisualAdmissionsBanner({ onOpenAdmissions }: VisualAdmis
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D8A53C]/15 border border-[#D8A53C]/30 text-[#F0C66A] text-[10px] sm:text-xs font-black uppercase tracking-widest">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>ADMISSIONS OPEN 2026–27</span>
+              <span>ADMISSIONS OPEN 2027–28</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black font-[family-name:var(--font-heading)] tracking-tight leading-[1.08] text-white drop-shadow-md">

@@ -189,8 +189,8 @@ export const useAdminStore = create<AdminStore>((set) => ({
   announcements: [
     {
       id: '1',
-      title: 'Admissions Open 2026–27',
-      content: 'Admissions are now open for Nursery to Class 10 for the academic year 2026–27.',
+      title: 'Admissions Open 2027–28',
+      content: 'Admissions are now open for Nursery to Class 10 for the academic year 2027–28.',
       type: 'admission',
       active: true,
       date: '2026-01-15',

@@ -161,7 +161,7 @@ export default function SchoolVideo() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[11px] uppercase tracking-wider text-[#D4A853] font-bold">
-                  Admissions Open 2026–27
+                  Admissions Open 2027–28
                 </span>
               </div>
             </div>

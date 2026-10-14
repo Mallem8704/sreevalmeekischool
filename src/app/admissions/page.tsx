@@ -75,7 +75,7 @@ export default function AdmissionsPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/20 border border-[#D4A853]/40 text-[#FBBF24] text-xs font-black uppercase tracking-[0.2em] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Admissions Open 2026–27</span>
+            <span>Admissions Open 2027–28</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-[family-name:var(--font-heading)] leading-tight text-white mb-4">

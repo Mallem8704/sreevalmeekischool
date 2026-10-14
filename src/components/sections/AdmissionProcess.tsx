@@ -63,7 +63,7 @@ export default function AdmissionProcess() {
         </div>
 
         <div className="mt-20 text-center">
-          <p className="text-[#1A1A2E] font-medium mb-8">Admissions 2026–27 | Nursery – Class 10</p>
+          <p className="text-[#1A1A2E] font-medium mb-8">Admissions 2027–28 | Nursery – Class 10</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#enquiry"

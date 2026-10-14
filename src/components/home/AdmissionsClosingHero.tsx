@@ -70,7 +70,7 @@ export default function AdmissionsClosingHero({ onOpenAdmissions }: AdmissionsCl
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/35 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-xs font-black tracking-widest uppercase shadow-sm"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>ADMISSIONS OPEN 2026–27 • NURSERY TO CLASS 10</span>
+          <span>ADMISSIONS OPEN 2027–28 • NURSERY TO CLASS 10</span>
         </motion.div>
 
         {/* Giant Headline: "THE NEXT SUCCESS STORY COULD BEGIN HERE." */}
@@ -95,7 +95,7 @@ export default function AdmissionsClosingHero({ onOpenAdmissions }: AdmissionsCl
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg font-normal max-w-xl mx-auto leading-relaxed"
         >
-          Give your child the gift of strong academic foundations, stage speaking confidence, and 27 years of proven educational excellence.
+          Give your child the gift of strong academic foundations, stage speaking confidence, and 28 years of proven educational excellence.
         </motion.p>
 
         {/* High-Impact Actions Bar */}
@@ -139,7 +139,7 @@ export default function AdmissionsClosingHero({ onOpenAdmissions }: AdmissionsCl
           transition={{ duration: 0.6, delay: 0.5 }}
           className="pt-8 text-xs sm:text-sm font-bold tracking-[0.2em] text-[#B8860B] dark:text-[#FBBF24] uppercase"
         >
-          27 Years of Excellence. The journey continues.
+          28 Years of Excellence. The journey continues.
         </motion.div>
       </div>
     </section>

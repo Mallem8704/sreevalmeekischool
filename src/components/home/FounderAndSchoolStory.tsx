@@ -142,7 +142,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           alt="Sri Palavala Jaya Rami Reddy - Founder & Chairman"
                           fill
                           sizes="(max-width: 640px) 280px, 360px"
-                          className="object-cover object-top filter contrast-[1.05]"
+                          className="object-cover object-center filter contrast-[1.05]"
                         />
                         {/* Gradient Overlay for Readability */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
@@ -278,7 +278,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           alt="Dr. P.V Pavan Kumar Reddy - Director of Valmeeki School and Founder Abhigna Foundation"
                           fill
                           sizes="150px"
-                          className="object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       </div>
@@ -308,7 +308,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                 {/* Director Detailed Profile */}
                 <div className="space-y-3 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                   <p>
-                    <strong>Dr. P.V Pavan Kumar Reddy</strong> believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki High School and Founder of Abhigna Foundation, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
+                    <strong>Dr. P.V Pavan Kumar Reddy</strong> believes that every child possesses unique potential waiting to be discovered and nurtured. As the Director of Sree Valmeeki School and Founder of Abhigna Foundation, he is committed to creating an environment where students are inspired to dream big, think creatively, and achieve excellence in all aspects of life.
                   </p>
                   <p>
                     With a deep understanding of transformative education, he has consistently cultivated a culture of learning that goes beyond textbooks and examinations—developing confident, responsible, and compassionate individuals equipped with values, skills, and character.
@@ -390,7 +390,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           alt="Sri P. Anil Kumar Reddy - Correspondent"
                           fill
                           sizes="150px"
-                          className="object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       </div>
@@ -400,13 +400,13 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                   {/* Leader Name & Title */}
                   <div className="text-center sm:text-left space-y-1.5 flex-1">
                     <span className="text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] block">
-                      CORRESPONDENT • SREE VALMEEKI HIGH SCHOOL
+                      CORRESPONDENT
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
                       Sri P. Anil Kumar Reddy
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      Operational Oversight • Student Welfare • Parent Trust
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
+                      Sree Valmeeki E.M School – Nursery to 10th Class
                     </p>
 
                     {/* Correspondent Quote Pill */}

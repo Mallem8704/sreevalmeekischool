@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   const newsItems = [
     {
-      title: 'Admissions Open for Academic Year 2026–27 (Nursery to Class 10)',
+      title: 'Admissions Open for Academic Year 2027–28 (Nursery to Class 10)',
       date: 'March 2026',
       type: 'Admissions',
       description: 'Applications are actively invited for 2026-27 academic session. Campus tours and counselor interactions available daily.',

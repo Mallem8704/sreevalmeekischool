@@ -58,8 +58,8 @@ const events: SchoolEvent[] = [
     actionLabel: 'Discover STEM Exhibits',
   },
   {
-    id: 'admissions-2026-27',
-    title: 'Admissions Open for Academic Year 2026–27',
+    id: 'admissions-2027-28',
+    title: 'Admissions Open for Academic Year 2027–28',
     date: 'Active Now • Limited Seats',
     badge: 'Enroll Now',
     category: 'Admissions',

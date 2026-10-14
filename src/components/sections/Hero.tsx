@@ -228,7 +228,7 @@ export default function Hero() {
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="inline-block px-3 py-0.5 rounded-full bg-[#D4A853]/25 border border-[#D4A853]/50 text-[#D4A853] text-[11px] font-bold tracking-widest uppercase">
-                    ADMISSIONS 2026–27
+                    ADMISSIONS 2027–28
                   </span>
                   <span className="text-[11px] text-white/70 flex items-center gap-1">
                     <Calendar className="w-3 h-3 text-[#D4A853]" />

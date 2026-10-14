@@ -21,7 +21,7 @@ interface TopperProfile {
 
 const toppers: TopperProfile[] = [
   {
-    year: '2026 BATCH',
+    year: '2025–26 BATCH',
     name: 'D. Janani',
     marks: '595',
     total: '/ 600',
@@ -33,7 +33,7 @@ const toppers: TopperProfile[] = [
     quote: '“Valmeeki taught us to understand every concept deeply rather than memorizing. That made scoring 595/600 a natural result.”',
   },
   {
-    year: '2025 BATCH',
+    year: '2024–25 BATCH',
     name: 'V. Keerthana',
     marks: '592',
     total: '/ 600',
@@ -45,7 +45,7 @@ const toppers: TopperProfile[] = [
     quote: '“Valmeeki teachers built our fundamental concepts so deeply that board exams felt like routine class practice.”',
   },
   {
-    year: '2024 BATCH',
+    year: '2023–24 BATCH',
     name: 'G. Tejaswini',
     marks: '588',
     total: '/ 600',
@@ -57,7 +57,7 @@ const toppers: TopperProfile[] = [
     quote: '“Daily spoken English assemblies and early IIT foundation coaching gave me self-belief to aim for the state top rank.”',
   },
   {
-    year: '2023 BATCH',
+    year: '2022–23 BATCH',
     name: 'K. Bhanu Prakash',
     marks: '585',
     total: '/ 600',
@@ -69,7 +69,7 @@ const toppers: TopperProfile[] = [
     quote: '“The faculty never treated education as memorization; they trained us to solve problems logically with calm discipline.”',
   },
   {
-    year: '2022 BATCH',
+    year: '2021–22 BATCH',
     name: 'M. Sneha Latha',
     marks: '582',
     total: '/ 600',
@@ -105,9 +105,15 @@ export default function TopperShowcase() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase mb-3 shadow-sm">
-              <Award className="w-3.5 h-3.5" />
-              <span>CONSISTENCY • 28 YEARS</span>
+            <div className="flex flex-wrap items-center gap-2.5 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black tracking-widest uppercase shadow-sm">
+                <Award className="w-3.5 h-3.5" />
+                <span>CONSISTENCY • 28 YEARS</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 text-[11px] font-bold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>2026–27 Academic Session in Progress • Latest Board Results: 2025–26</span>
+              </div>
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-[#0A1628] dark:text-white">
@@ -131,7 +137,7 @@ export default function TopperShowcase() {
                       : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10'
                   }`}
                 >
-                  {t.year.split(' ')[0]}
+                  {t.year.replace(' BATCH', '')}
                 </button>
               ))}
             </div>

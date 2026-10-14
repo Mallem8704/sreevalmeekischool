@@ -129,7 +129,7 @@ export default function AdmissionForm() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/30 mb-4 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
               <span className="text-xs font-bold tracking-widest text-[#B8860B] uppercase font-[family-name:var(--font-body)]">
-                Admissions Open 2026–2027
+                Admissions Open 2027–2028
               </span>
             </div>
 

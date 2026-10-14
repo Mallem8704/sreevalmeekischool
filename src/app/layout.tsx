@@ -28,10 +28,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sree Valmeeki High School | English Medium School in Kadiri",
+  title: "Sree Valmeeki E.M School – Nursery to 10th Class | English Medium School in Kadiri",
   description:
-    "Sree Valmeeki High School is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, Olympiad preparation, Spoken English and transport facilities.",
+    "Sree Valmeeki E.M School – Nursery to 10th Class is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, Olympiad preparation, Spoken English and transport facilities.",
   keywords: [
+    "Sree Valmeeki E.M School – Nursery to 10th Class",
     "Sree Valmeeki High School",
     "Kadiri school",
     "English medium school Kadiri",
@@ -43,19 +44,19 @@ export const metadata: Metadata = {
     "school admissions Kadiri",
     "Andhra Pradesh school",
   ],
-  authors: [{ name: "Sree Valmeeki High School" }],
+  authors: [{ name: "Sree Valmeeki E.M School – Nursery to 10th Class" }],
   openGraph: {
-    title: "Sree Valmeeki High School | English Medium School in Kadiri",
+    title: "Sree Valmeeki E.M School – Nursery to 10th Class | English Medium School in Kadiri",
     description:
-      "Sree Valmeeki High School is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, and Olympiad preparation.",
+      "Sree Valmeeki E.M School – Nursery to 10th Class is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, and Olympiad preparation.",
     url: "https://www.sreevalmeekischool.in",
-    siteName: "Sree Valmeeki High School",
+    siteName: "Sree Valmeeki E.M School – Nursery to 10th Class",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sree Valmeeki High School | English Medium School in Kadiri",
+    title: "Sree Valmeeki E.M School – Nursery to 10th Class | English Medium School in Kadiri",
     description:
       "English-medium co-educational school in Kadiri. Nursery to Class 10. Smart learning, IIT Foundation, Olympiad preparation.",
   },

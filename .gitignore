@@ -43,5 +43,6 @@ next-env.d.ts
 # backups
 _backup_images_pre_hd/
 public/images_backup/
+_backup_leadership_pre_tight/
 
 .vercel

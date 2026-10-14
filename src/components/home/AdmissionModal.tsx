@@ -38,7 +38,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
       email: '',
       location: 'Kadiri',
       transportRequired: false,
-      message: formData.message || 'Admissions 2026–27 quick enquiry from homepage',
+      message: formData.message || 'Admissions 2027–28 quick enquiry from homepage',
       status: 'New',
       notes: 'Submitted via Homepage Quick Modal',
       date: new Date().toISOString().split('T')[0],
@@ -108,7 +108,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                   Thank you. The Sree Valmeeki Admissions Office in Kadiri will call you shortly.
                 </p>
                 <div className="text-xs text-[#B8860B] dark:text-[#D4A853] font-semibold tracking-wider uppercase">
-                  Admissions 2026–27 • Nursery to Class 10
+                  Admissions 2027–28 • Nursery to Class 10
                 </div>
               </motion.div>
             ) : (
@@ -117,7 +117,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                 <div className="mb-6">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/20 border border-[#D4A853]/30 dark:border-[#D4A853]/40 text-[#B8860B] dark:text-[#FBBF24] text-xs font-bold tracking-widest uppercase mb-3">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Admissions 2026–27</span>
+                    <span>Admissions 2027–28</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white leading-tight">
                     Start Your Child&apos;s Journey
@@ -208,7 +208,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                   <span>Prefer instant conversation?</span>
                   <div className="flex items-center gap-3">
                     <a
-                      href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202026-27"
+                      href="https://wa.me/919440468838?text=Hello%20Sree%20Valmeeki%20School,%20I%20would%20like%20to%20enquire%20about%20Admissions%20for%202027-28"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[#25D366] font-bold hover:underline"

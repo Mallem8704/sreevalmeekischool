@@ -92,11 +92,19 @@ export default function PremiumStudentCardModal({
               <div className="w-8 h-8 relative rounded-full overflow-hidden border border-[#D4A853] bg-white dark:bg-white/10 p-0.5 shadow-sm">
                 <Image src="/images/logo/valmeeki_emblem.svg" alt="Sree Valmeeki Logo" fill className="object-contain" unoptimized />
               </div>
-              <h2 className="text-base sm:text-xl font-black font-[family-name:var(--font-heading)] uppercase tracking-wider text-[#B8860B] dark:text-[#FBBF24]">
-                SREE VALMEEKI E.M SCHOOL
-              </h2>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#B8860B] dark:text-[#D4A853] mb-0.5">
+                  SREE
+                </span>
+                <h2 className="text-sm sm:text-lg font-black font-[family-name:var(--font-heading)] uppercase tracking-wider text-[#0A1628] dark:text-white leading-tight">
+                  VALMEEKI E.M SCHOOL
+                </h2>
+                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider">
+                  Nursery to 10th Class
+                </span>
+              </div>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 font-bold tracking-widest uppercase">
+            <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 font-bold tracking-widest uppercase mt-1">
               28 Years of Excellence • Kadiri, Sri Sathya Sai Dist • Estd 1999
             </p>
           </div>
@@ -186,7 +194,7 @@ export default function PremiumStudentCardModal({
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] hover:from-[#E8C97D] hover:to-[#D4A853] text-[#0A1628] text-xs font-black tracking-wider uppercase shadow-md transition-all cursor-pointer ml-auto"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Enquire For Admission 2026–27</span>
+                  <span>Enquire For Admission 2027–28</span>
                 </button>
               )}
             </div>

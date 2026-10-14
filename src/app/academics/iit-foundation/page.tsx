@@ -79,7 +79,7 @@ export default function IITFoundationPage() {
               href="/admissions"
               className="px-7 py-3 rounded-xl bg-[#D4A853] hover:bg-[#C49A3C] text-[#0A1628] font-bold text-xs uppercase tracking-wider shadow-md hover:scale-105 transition-all"
             >
-              Enquire for Batch 2026–27
+              Enquire for Batch 2027–28
             </Link>
             <a
               href="tel:+919440468838"

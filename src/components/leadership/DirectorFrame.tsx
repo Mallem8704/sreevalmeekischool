@@ -220,7 +220,7 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FBBF24] hover:bg-[#F59E0B] text-[#0A1628] font-black text-xs uppercase tracking-wider transition-all shadow-md hover:scale-105"
               >
                 <GraduationCap className="w-4 h-4" />
-                <span>Admissions 2026–27</span>
+                <span>Admissions 2027–28</span>
               </Link>
 
               <a

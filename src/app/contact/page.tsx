@@ -72,7 +72,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto font-medium">
-            Visit our campus, connect with our principal, or enquire about 2026–27 admissions.
+            Visit our campus, connect with our principal, or enquire about 2027–28 admissions.
           </p>
         </div>
       </section>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                   Sri P. Anil Kumar Reddy
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 font-bold">
-                  Correspondent, Sree Valmeeki High School
+                  Correspondent, Sree Valmeeki E.M School – Nursery to 10th Class
                 </p>
                 <p className="text-xs text-slate-600 dark:text-slate-300 italic hidden sm:block pt-1">
                   “We welcome parents to visit our campus and experience the warmth, discipline, and dedication that defines Sree Valmeeki.”
