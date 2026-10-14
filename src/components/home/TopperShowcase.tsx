@@ -16,7 +16,7 @@ import {
   ZoomOut,
   CheckCircle2,
   Sparkles,
-  ExternalLink
+  Users
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,6 +33,13 @@ interface PamphletData {
     src: string;
     label: string;
     subtitle: string;
+  };
+  stats?: {
+    rank1: string;
+    above590?: string;
+    above580?: string;
+    above550?: string;
+    totalPassed?: string;
   };
 }
 
@@ -59,50 +66,64 @@ const toppers: TopperProfile[] = [
     marks: '595',
     total: '/ 600',
     percentage: '99.2%',
-    rankBadge: 'Town 1st Rank',
+    rankBadge: 'Town 1st Rank (2025–26)',
     board: 'SSC Board • Andhra Pradesh',
     subjects: '100 in Maths • 100 in Physical Science • 99 in Social • 99 in English',
     image: '/extracted/star_achievers/janani_pure_person.jpg',
     quote: '“Valmeeki taught us to understand every concept deeply rather than memorizing. That made scoring 595/600 a natural result.”',
     pamphlet: {
       title: '2025–26 SSC Results Official Pamphlet',
-      description: 'Official results brochure featuring Town 1st Rank C. Pujitha (597/600), Y. Jashmitha (594/600), Subject 100/100 toppers, and complete list of 263 successful candidates.',
+      description: 'Official results brochure featuring Town 1st Rank D. Janani (595/600), Town 2nd Rank (594/600), Subject 100/100 toppers, and 27 years of academic distinction.',
       front: {
         src: '/images/pamphlets/pamphlet_2025_26_front.jpg',
-        label: 'Front Side — Town 1st, 2nd & Subject Toppers',
-        subtitle: 'C. Pujitha 597/600, Y. Jashmitha 594/600, 100/100 Subject Achievers',
+        label: 'Front Side — Town 1st Rank D. Janani (595/600) & Star Achievers',
+        subtitle: 'D. Janani 595/600, Town 2nd Rank 594/600, 100/100 Subject Achievers',
       },
       back: {
         src: '/images/pamphlets/pamphlet_2025_26_back.jpg',
-        label: 'Back Side — Complete Batch Results Table (263 Students)',
-        subtitle: 'Complete list of all 263 candidates with marks, grades, and photo proofs',
+        label: 'Back Side — Complete Batch Results Table',
+        subtitle: 'Complete list of all candidates with marks, grades, and photo proofs',
+      },
+      stats: {
+        rank1: 'D. Janani (595/600)',
+        above590: '8+ Students',
+        above580: '28+ Students',
+        above550: '125+ Students',
+        totalPassed: '100% Pass Record',
       },
     },
   },
   {
     year: '2024–25 BATCH',
     yearShort: '2024–25',
-    name: 'V. Keerthana',
-    marks: '592',
+    name: 'C. Pujitha',
+    marks: '597',
     total: '/ 600',
-    percentage: '98.7%',
-    rankBadge: 'District 1st Rank',
+    percentage: '99.5%',
+    rankBadge: 'Town 1st Rank (2024–25)',
     board: 'SSC Board • Andhra Pradesh',
-    subjects: '100 in Maths • 100 in Physical Science • 98 in English',
-    image: '/images/school/school-event-7.jpg',
-    quote: '“Valmeeki teachers built our fundamental concepts so deeply that board exams felt like routine class practice.”',
+    subjects: '100 in Mathematics • 100 in Science • 99 in Social • 99 in English',
+    image: '/extracted/star_achievers/c_pujitha_portrait.jpg',
+    quote: '“Scoring 597/600 in SSC was possible because Valmeeki teachers gave personal guidance and regular test analysis every single week.”',
     pamphlet: {
       title: '2024–25 SSC Results Official Pamphlet',
-      description: 'Official results brochure for 2024–25 academic year displaying town & mandal rankers, distinction holders, and comprehensive results breakdown.',
+      description: 'Official results brochure for 2024–25 featuring Town 1st Rank C. Pujitha (597/600), R. Jahnavi (593/600), S. Vaishnavi (592/600), 10 students above 590, 32 above 580, and 263 passed.',
       front: {
         src: '/images/pamphlets/pamphlet_2024_25_front.jpg',
-        label: 'Front Side — Top Rankers & Highlights',
-        subtitle: 'Outstanding performers and distinction rank holders',
+        label: 'Front Side — Town 1st Rank C. Pujitha (597/600) & Top Rankers',
+        subtitle: 'C. Pujitha 597/600, R. Jahnavi 593/600, S. Vaishnavi 592/600 • 10 Above 590, 32 Above 580',
       },
       back: {
         src: '/images/pamphlets/pamphlet_2024_25_back.jpg',
-        label: 'Back Side — Student Roll & Marks Directory',
-        subtitle: 'Official marks roll and academic achievements summary',
+        label: 'Back Side — Complete 263 Students Marks Directory',
+        subtitle: 'Official 263 candidates marks roll (590+ 10 students, 580+ 32 students, 550+ 130 students)',
+      },
+      stats: {
+        rank1: 'C. Pujitha (597/600)',
+        above590: '10 Students',
+        above580: '32 Students',
+        above550: '130 Students',
+        totalPassed: '263 Students (100% Pass)',
       },
     },
   },
@@ -113,14 +134,14 @@ const toppers: TopperProfile[] = [
     marks: '588',
     total: '/ 600',
     percentage: '98.0%',
-    rankBadge: 'District 2nd Rank',
+    rankBadge: 'District 2nd Rank (2023–24)',
     board: 'SSC Board • Andhra Pradesh',
     subjects: '100 in Maths • 99 in Social Studies • 97 in Science',
     image: '/images/school/school-event-8.jpg',
     quote: '“Daily spoken English assemblies and early IIT foundation coaching gave me self-belief to aim for the state top rank.”',
     pamphlet: {
       title: '2023–24 SSC Results Official Pamphlet',
-      description: 'Original board examination results pamphlet for the 2023–24 batch documenting continuous 100% pass record and state distinctions.',
+      description: 'Original board examination results pamphlet for the 2023–24 batch documenting continuous 100% pass record, 30 students 580+, 132 students 550+.',
       front: {
         src: '/images/pamphlets/pamphlet_2023_24_front.jpg',
         label: 'Front Side — State & Town Distinction Achievers',
@@ -129,7 +150,13 @@ const toppers: TopperProfile[] = [
       back: {
         src: '/images/pamphlets/pamphlet_2023_24_back.jpg',
         label: 'Back Side — Complete Batch Directory',
-        subtitle: 'Official student directory and merit records',
+        subtitle: 'Official student directory and merit records (30 students 580+, 132 students 550+)',
+      },
+      stats: {
+        rank1: 'G. Tejaswini (588/600)',
+        above580: '30 Students',
+        above550: '132 Students',
+        totalPassed: '100% Pass Record',
       },
     },
   },
@@ -162,8 +189,9 @@ const toppers: TopperProfile[] = [
 ];
 
 export default function TopperShowcase() {
+  // Default to 2024–25 batch (index 1) or 2025–26 batch (index 0)
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeView, setActiveView] = useState<'topper' | 'pamphlet'>('topper');
+  const [activeView, setActiveView] = useState<'pamphlet' | 'topper'>('pamphlet');
   const [pamphletSide, setPamphletSide] = useState<'front' | 'back'>('front');
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
@@ -247,8 +275,23 @@ export default function TopperShowcase() {
 
           {/* Controls: Mode Switcher + Year Tabs + Chevrons */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            {/* View Mode Toggle: Topper Profile vs Official Pamphlet */}
+            {/* View Mode Toggle: Official Pamphlet vs Topper Spotlight */}
             <div className="inline-flex items-center bg-slate-100 dark:bg-white/5 p-1 rounded-xl border border-slate-200 dark:border-white/10 shadow-xs">
+              <button
+                onClick={() => setActiveView('pamphlet')}
+                className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  activeView === 'pamphlet'
+                    ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] shadow-sm font-black'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5 text-[#0A1628] dark:text-[#0A1628]" />
+                <span>Official Pamphlet</span>
+                {hasPamphlet && (
+                  <span className="w-2 h-2 rounded-full bg-emerald-700 animate-pulse" />
+                )}
+              </button>
+
               <button
                 onClick={() => setActiveView('topper')}
                 className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
@@ -258,22 +301,7 @@ export default function TopperShowcase() {
                 }`}
               >
                 <Award className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                <span>Topper Spotlight</span>
-              </button>
-
-              <button
-                onClick={() => setActiveView('pamphlet')}
-                className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeView === 'pamphlet'
-                    ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] shadow-sm font-black'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white'
-                }`}
-              >
-                <FileText className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                <span>Official Pamphlet</span>
-                {hasPamphlet && (
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                )}
+                <span>Topper Profile</span>
               </button>
             </div>
 
@@ -290,7 +318,7 @@ export default function TopperShowcase() {
                       ? 'bg-[#D4A853] text-[#0A1628] shadow-md font-black'
                       : 'text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10'
                   }`}
-                  title={`${t.yearShort} Board Results & Pamphlet`}
+                  title={`${t.yearShort} Results & Official Pamphlet`}
                 >
                   <span>{t.yearShort}</span>
                   {t.pamphlet && (
@@ -321,149 +349,7 @@ export default function TopperShowcase() {
         </div>
 
         {/* =========================================================================
-            VIEW 1: TOPPER PROFILE SPOTLIGHT
-        ========================================================================= */}
-        {activeView === 'topper' && (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current.year}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="relative bg-gradient-to-br from-white via-[#FDFBF7] to-white dark:from-[#0A1628] dark:via-[#0F2044] dark:to-[#0A1628] border-2 border-[#D4A853]/40 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl overflow-hidden text-[#0A1628] dark:text-white"
-            >
-              {/* Subtle Editorial Watermark Number */}
-              <div className="absolute top-4 right-8 text-[120px] sm:text-[200px] font-black font-[family-name:var(--font-heading)] text-slate-900/[0.03] dark:text-white/[0.03] select-none pointer-events-none leading-none">
-                {current.marks}
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Left Side: Large Clean Portrait (Luxury Editorial Framing) */}
-                <div className="lg:col-span-5 relative">
-                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853]/50 bg-slate-100 dark:bg-slate-900 shadow-xl group">
-                    <Image
-                      src={current.image}
-                      alt={`${current.name} - ${current.rankBadge}`}
-                      fill
-                      className="object-cover object-top brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-
-                    {/* Clean Bottom Label */}
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="inline-block px-3 py-1 rounded bg-[#D4A853] text-[#0A1628] text-xs font-black tracking-widest uppercase mb-1 shadow-md">
-                        {current.rankBadge}
-                      </span>
-                      <h3 className="text-2xl font-black font-[family-name:var(--font-heading)]">
-                        {current.name}
-                      </h3>
-                      <p className="text-xs text-white/90 font-medium">{current.board}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Side: Oversized Result Typography & Editorial Story */}
-                <div className="lg:col-span-7 space-y-6 text-left">
-                  {/* Year + Board Tag */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="px-3 py-1 rounded-md bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] font-black text-xs tracking-widest uppercase border border-[#D4A853]/30 dark:border-[#D4A853]/40">
-                      {current.year}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                      {current.board}
-                    </span>
-                    {hasPamphlet && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 text-[11px] font-bold">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                        <span>Official Pamphlet Available</span>
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Oversized Result Number */}
-                  <div>
-                    <span className="block text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400 font-bold mb-1">
-                      Aggregate Board Score
-                    </span>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-[#0A1628] via-[#0A1628] to-[#B8860B] dark:from-white dark:via-white dark:to-[#FBBF24] leading-none">
-                        {current.marks}
-                      </span>
-                      <span className="text-2xl sm:text-3xl font-bold text-slate-500 dark:text-slate-400">{current.total}</span>
-                      <span className="ml-4 px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300 text-sm sm:text-base font-black">
-                        {current.percentage}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Subject Distinctions */}
-                  <div className="p-4 rounded-xl bg-[#FDFBF7] dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-1">
-                    <span className="block text-[10px] uppercase font-bold tracking-widest text-[#B8860B] dark:text-[#FBBF24]">
-                      Verified Subject Distinction
-                    </span>
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
-                      {current.subjects}
-                    </p>
-                  </div>
-
-                  {/* Student Quote (Magazine Style) */}
-                  <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                    {current.quote}
-                  </blockquote>
-
-                  {/* Year-Wise Pamphlet Open Action & Archive Links */}
-                  <div className="pt-2 flex flex-wrap items-center gap-3">
-                    {hasPamphlet ? (
-                      <button
-                        onClick={() => {
-                          setActiveView('pamphlet');
-                        }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] hover:from-[#B8860B] hover:to-[#8C6D23] text-[#0A1628] font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
-                      >
-                        <FileText className="w-4 h-4" />
-                        <span>Open {current.yearShort} Official Pamphlet</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => {
-                          setCurrentIndex(0);
-                          setActiveView('pamphlet');
-                        }}
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-200 dark:border-white/10 transition-all cursor-pointer"
-                      >
-                        <FileText className="w-4 h-4" />
-                        <span>View Latest Published Pamphlet</span>
-                      </button>
-                    )}
-
-                    {hasPamphlet && (
-                      <button
-                        onClick={() => setIsLightboxOpen(true)}
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/10 text-xs font-bold transition-all cursor-pointer"
-                      >
-                        <Maximize2 className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                        <span>Zoom Ultra-HD</span>
-                      </button>
-                    )}
-
-                    <Link
-                      href="/achievements"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] hover:text-[#0A1628] dark:hover:text-white uppercase tracking-wider transition-colors ml-auto cursor-pointer"
-                    >
-                      <span>Full Archive</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* =========================================================================
-            VIEW 2: YEAR-WISE OFFICIAL PAMPHLET DISPLAY (EXACT PUBLISHED IMAGES)
+            PRIMARY VIEW: THE OFFICIAL RESULTS PAMPHLET (PLACED DIRECTLY IN SECTION)
         ========================================================================= */}
         {activeView === 'pamphlet' && (
           <AnimatePresence mode="wait">
@@ -477,7 +363,7 @@ export default function TopperShowcase() {
             >
               {hasPamphlet && activePamphletData ? (
                 <div>
-                  {/* Pamphlet Action Bar */}
+                  {/* Pamphlet Top Action Bar */}
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-6 border-b border-slate-200 dark:border-white/10">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -485,11 +371,11 @@ export default function TopperShowcase() {
                           {current.yearShort} Batch
                         </span>
                         <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30">
-                          {pamphletSide === 'front' ? 'Front Side (Rankers)' : 'Back Side (All Students)'}
+                          {pamphletSide === 'front' ? 'Front Side (Toppers & Rankers)' : 'Back Side (Complete Marks List)'}
                         </span>
                         <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                           <CheckCircle2 className="w-3.5 h-3.5" />
-                          <span>Original Published Scan • 3200px Ultra-HD</span>
+                          <span>Original Published Scan • Ultra-HD 3600px</span>
                         </span>
                       </div>
                       <h3 className="text-xl sm:text-2xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
@@ -550,10 +436,10 @@ export default function TopperShowcase() {
                     </div>
                   </div>
 
-                  {/* Main Scanned Pamphlet Image Container */}
+                  {/* Main Scanned Pamphlet Image Container (Placed Directly in Section) */}
                   <div
                     onClick={() => setIsLightboxOpen(true)}
-                    className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/10] max-h-[750px] rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 border-2 border-slate-200 dark:border-white/10 shadow-lg group"
+                    className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/10] max-h-[800px] rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 border-2 border-[#D4A853]/40 shadow-xl group"
                   >
                     <Image
                       src={activePamphletData.src}
@@ -562,7 +448,7 @@ export default function TopperShowcase() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                       priority
                       className="object-contain transition-transform duration-500 group-hover:scale-[1.015]"
-                      quality={95}
+                      quality={96}
                       unoptimized
                     />
 
@@ -570,7 +456,7 @@ export default function TopperShowcase() {
                     <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                       <div className="px-4 py-2 rounded-full bg-[#0A1628]/90 text-white border border-[#D4A853]/40 shadow-xl flex items-center gap-2 text-xs font-bold backdrop-blur-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
                         <Maximize2 className="w-4 h-4 text-[#FBBF24]" />
-                        <span>Click for Fullscreen Ultra-HD Zoom</span>
+                        <span>Click for Fullscreen Ultra-HD Zoom (Inspect Individual Marks)</span>
                       </div>
                     </div>
 
@@ -589,10 +475,54 @@ export default function TopperShowcase() {
                       className="absolute right-3 top-3 px-3 py-1.5 rounded-lg bg-[#0A1628]/85 hover:bg-[#0A1628] text-white text-xs font-bold border border-white/15 flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                       title="Flip to other side"
                     >
-                      <span>Flip to {pamphletSide === 'front' ? 'Back' : 'Front'}</span>
+                      <span>Flip to {pamphletSide === 'front' ? 'Back Side' : 'Front Side'}</span>
                       <RotateCcw className="w-3.5 h-3.5 text-[#FBBF24]" />
                     </button>
                   </div>
+
+                  {/* Verified Results Highlights Bar for this Pamphlet */}
+                  {current.pamphlet?.stats && (
+                    <div className="mt-4 p-4 rounded-2xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 shadow-xs flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+                        <div>
+                          <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">Town 1st Topper</span>
+                          <strong className="text-[#0A1628] dark:text-white font-black">{current.pamphlet.stats.rank1}</strong>
+                        </div>
+                        {current.pamphlet.stats.above590 && (
+                          <div>
+                            <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">590+ Marks</span>
+                            <strong className="text-[#B8860B] dark:text-[#FBBF24] font-black">{current.pamphlet.stats.above590}</strong>
+                          </div>
+                        )}
+                        {current.pamphlet.stats.above580 && (
+                          <div>
+                            <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">580+ Marks</span>
+                            <strong className="text-[#B8860B] dark:text-[#FBBF24] font-black">{current.pamphlet.stats.above580}</strong>
+                          </div>
+                        )}
+                        {current.pamphlet.stats.above550 && (
+                          <div>
+                            <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">550+ Marks</span>
+                            <strong className="text-emerald-600 dark:text-emerald-400 font-black">{current.pamphlet.stats.above550}</strong>
+                          </div>
+                        )}
+                        {current.pamphlet.stats.totalPassed && (
+                          <div>
+                            <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">Total Pass</span>
+                            <strong className="text-emerald-600 dark:text-emerald-400 font-black">{current.pamphlet.stats.totalPassed}</strong>
+                          </div>
+                        )}
+                      </div>
+
+                      <button
+                        onClick={() => setActiveView('topper')}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-[#0A1628] dark:text-white text-xs font-bold transition-colors cursor-pointer"
+                      >
+                        <Award className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                        <span>View {current.name} Profile</span>
+                      </button>
+                    </div>
+                  )}
 
                   {/* Bottom Footer Strip */}
                   <div className="mt-4 pt-3 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
@@ -602,18 +532,11 @@ export default function TopperShowcase() {
 
                     <div className="flex items-center gap-3">
                       <button
-                        onClick={() => setActiveView('topper')}
-                        className="text-slate-600 dark:text-slate-300 hover:text-[#0A1628] dark:hover:text-white font-bold flex items-center gap-1 cursor-pointer"
-                      >
-                        <Award className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                        <span>Switch to Topper Spotlight</span>
-                      </button>
-                      <button
                         onClick={() => setIsLightboxOpen(true)}
                         className="text-[#B8860B] dark:text-[#FBBF24] font-bold flex items-center gap-1 hover:underline cursor-pointer"
                       >
                         <Maximize2 className="w-3.5 h-3.5" />
-                        <span>Inspect Names & Marks in HD</span>
+                        <span>Inspect Names & Marks in Fullscreen HD</span>
                       </button>
                     </div>
                   </div>
@@ -655,21 +578,21 @@ export default function TopperShowcase() {
                   <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                     <button
                       onClick={() => {
-                        setCurrentIndex(0); // Switch to 2025-26
+                        setCurrentIndex(1); // Switch to 2024-25
                         setActiveView('pamphlet');
                       }}
                       className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] font-bold text-xs uppercase tracking-wider shadow-md hover:scale-[1.02] transition-all cursor-pointer"
                     >
-                      View 2025–26 Results Pamphlet
+                      View 2024–25 Results Pamphlet
                     </button>
                     <button
                       onClick={() => {
-                        setCurrentIndex(1); // Switch to 2024-25
+                        setCurrentIndex(0); // Switch to 2025-26
                         setActiveView('pamphlet');
                       }}
                       className="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-[#0A1628] dark:text-white font-bold text-xs uppercase tracking-wider border border-slate-200 dark:border-white/10 transition-all cursor-pointer"
                     >
-                      View 2024–25 Results Pamphlet
+                      View 2025–26 Results Pamphlet
                     </button>
                     <button
                       onClick={() => setActiveView('topper')}
@@ -680,6 +603,148 @@ export default function TopperShowcase() {
                   </div>
                 </div>
               )}
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {/* =========================================================================
+            SECONDARY VIEW: TOPPER MAGAZINE PROFILE SPOTLIGHT
+        ========================================================================= */}
+        {activeView === 'topper' && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.year}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="relative bg-gradient-to-br from-white via-[#FDFBF7] to-white dark:from-[#0A1628] dark:via-[#0F2044] dark:to-[#0A1628] border-2 border-[#D4A853]/40 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl overflow-hidden text-[#0A1628] dark:text-white"
+            >
+              {/* Subtle Editorial Watermark Number */}
+              <div className="absolute top-4 right-8 text-[120px] sm:text-[200px] font-black font-[family-name:var(--font-heading)] text-slate-900/[0.03] dark:text-white/[0.03] select-none pointer-events-none leading-none">
+                {current.marks}
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Left Side: Large Clean Portrait (Luxury Editorial Framing) */}
+                <div className="lg:col-span-5 relative">
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4A853]/50 bg-slate-100 dark:bg-slate-900 shadow-xl group">
+                    <Image
+                      src={current.image}
+                      alt={`${current.name} - ${current.rankBadge}`}
+                      fill
+                      className="object-cover object-top brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+                    {/* Clean Bottom Label */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <span className="inline-block px-3 py-1 rounded bg-[#D4A853] text-[#0A1628] text-xs font-black tracking-widest uppercase mb-1 shadow-md">
+                        {current.rankBadge}
+                      </span>
+                      <h3 className="text-2xl font-black font-[family-name:var(--font-heading)]">
+                        {current.name}
+                      </h3>
+                      <p className="text-xs text-white/90 font-medium">{current.board}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Oversized Result Typography & Editorial Story */}
+                <div className="lg:col-span-7 space-y-6 text-left">
+                  {/* Year + Board Tag */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="px-3 py-1 rounded-md bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] font-black text-xs tracking-widest uppercase border border-[#D4A853]/30 dark:border-[#D4A853]/40">
+                      {current.year}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                      {current.board}
+                    </span>
+                    {hasPamphlet && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 text-[11px] font-bold">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                        <span>Official Results Pamphlet Included</span>
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Oversized Result Number */}
+                  <div>
+                    <span className="block text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400 font-bold mb-1">
+                      Aggregate Board Score
+                    </span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-5xl sm:text-7xl lg:text-8xl font-black font-[family-name:var(--font-heading)] text-transparent bg-clip-text bg-gradient-to-r from-[#0A1628] via-[#0A1628] to-[#B8860B] dark:from-white dark:via-white dark:to-[#FBBF24] leading-none">
+                        {current.marks}
+                      </span>
+                      <span className="text-2xl sm:text-3xl font-bold text-slate-500 dark:text-slate-400">{current.total}</span>
+                      <span className="ml-4 px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300 text-sm sm:text-base font-black">
+                        {current.percentage}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Subject Distinctions */}
+                  <div className="p-4 rounded-xl bg-[#FDFBF7] dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-1">
+                    <span className="block text-[10px] uppercase font-bold tracking-widest text-[#B8860B] dark:text-[#FBBF24]">
+                      Verified Subject Distinction
+                    </span>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                      {current.subjects}
+                    </p>
+                  </div>
+
+                  {/* Student Quote (Magazine Style) */}
+                  <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                    {current.quote}
+                  </blockquote>
+
+                  {/* Year-Wise Pamphlet Open Action & Archive Links */}
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                    {hasPamphlet ? (
+                      <button
+                        onClick={() => {
+                          setActiveView('pamphlet');
+                        }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8860B] hover:from-[#B8860B] hover:to-[#8C6D23] text-[#0A1628] font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
+                      >
+                        <FileText className="w-4 h-4" />
+                        <span>View {current.yearShort} Official Results Pamphlet</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setCurrentIndex(1); // Jump to 2024-25
+                          setActiveView('pamphlet');
+                        }}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-200 dark:border-white/10 transition-all cursor-pointer"
+                      >
+                        <FileText className="w-4 h-4" />
+                        <span>View 2024–25 Pamphlet</span>
+                      </button>
+                    )}
+
+                    {hasPamphlet && (
+                      <button
+                        onClick={() => setIsLightboxOpen(true)}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/10 text-xs font-bold transition-all cursor-pointer"
+                      >
+                        <Maximize2 className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                        <span>Zoom Ultra-HD</span>
+                      </button>
+                    )}
+
+                    <Link
+                      href="/achievements"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] hover:text-[#0A1628] dark:hover:text-white uppercase tracking-wider transition-colors ml-auto cursor-pointer"
+                    >
+                      <span>Full Archive</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
         )}
@@ -702,7 +767,7 @@ export default function TopperShowcase() {
               <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                 {/* Year Switcher inside Modal */}
                 <div className="flex items-center bg-white/10 p-0.5 rounded-lg border border-white/15 shrink-0">
-                  {toppers.filter(t => t.pamphlet).map((t, idx) => (
+                  {toppers.filter(t => t.pamphlet).map((t) => (
                     <button
                       key={t.year}
                       onClick={() => {
@@ -835,7 +900,7 @@ export default function TopperShowcase() {
                 <span>Flip to {pamphletSide === 'front' ? 'Back Side' : 'Front Side'}</span>
               </button>
               <span className="hidden sm:inline">
-                Use Zoom buttons to inspect individual student marks, town ranks & faculty honors.
+                Use Zoom buttons to inspect individual student marks, town ranks & faculty honors in 3600px Ultra-HD.
               </span>
               <button
                 onClick={() => setIsLightboxOpen(false)}
