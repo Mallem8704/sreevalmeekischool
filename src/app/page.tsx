@@ -33,19 +33,11 @@ const ParentTrustAndLeadership = dynamic(() => import('@/components/home/ParentT
 const AdmissionsClosingHero = dynamic(() => import('@/components/home/AdmissionsClosingHero'));
 
 export default function HomePage() {
-  const [introComplete, setIntroComplete] = useState(false);
+  // Visitors directly enter the website without blocking on an intro screen
+  const [introComplete, setIntroComplete] = useState(true);
   const [isAdmissionsModalOpen, setIsAdmissionsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Check if visitor has already experienced the intro in this session
-    try {
-      if (sessionStorage.getItem('svhs_intro_seen') === 'true') {
-        setIntroComplete(true);
-      }
-    } catch {
-      // ignore storage errors
-    }
-
     const handleReplay = () => {
       setIntroComplete(false);
     };
@@ -63,10 +55,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Cinematic Quick Intro Sequence (Session-Cached, Non-Intrusive) */}
+      {/* On-Demand Replay Intro (When explicitly launched from footer/button) */}
       <AnimatePresence mode="wait">
         {!introComplete && (
-          <CinematicIntro onComplete={() => setIntroComplete(true)} />
+          <CinematicIntro key="cinematic-intro" onComplete={() => setIntroComplete(true)} />
         )}
       </AnimatePresence>
 

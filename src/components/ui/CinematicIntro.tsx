@@ -34,8 +34,6 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
   const completedRef = useRef(false);
 
   const handleFinish = useCallback(() => {
-    if (completedRef.current) return;
-    completedRef.current = true;
     try {
       sessionStorage.setItem('svhs_intro_seen', 'true');
     } catch {
@@ -69,28 +67,22 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleFinish]);
 
-  // Cinematic timer (3 seconds total for the brand reveal)
+  // Cinematic timer (strict 2.2s auto-dismiss with guaranteed setTimeout fallback)
   useEffect(() => {
     if (mode !== 'cinematic') return;
 
-    const DURATION = 3000;
-    const startTime = performance.now();
-    let frameId: number;
+    const autoDismissTimer = setTimeout(() => {
+      handleFinish();
+    }, 2200);
 
-    const tick = (now: number) => {
-      const elapsed = now - startTime;
-      const left = Math.max(0, Math.ceil((DURATION - elapsed) / 1000));
-      setSecondsRemaining(left);
+    const interval = setInterval(() => {
+      setSecondsRemaining((prev) => Math.max(0, prev - 1));
+    }, 700);
 
-      if (elapsed >= DURATION) {
-        handleFinish();
-      } else {
-        frameId = requestAnimationFrame(tick);
-      }
+    return () => {
+      clearTimeout(autoDismissTimer);
+      clearInterval(interval);
     };
-
-    frameId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frameId);
   }, [mode, handleFinish]);
 
   // Video playback tracking
@@ -112,17 +104,30 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
   return (
     <motion.div
+      key="cinematic-intro-root"
       initial={{ opacity: 1 }}
       exit={{
         opacity: 0,
-        scale: 1.04,
-        filter: 'blur(8px)',
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        scale: 1.02,
+        transition: { duration: 0.35, ease: 'easeOut' },
       }}
-      onClick={mode === 'cinematic' ? handleFinish : undefined}
+      onClick={handleFinish}
       className="fixed inset-0 z-[100] bg-[#050D1A] flex items-center justify-center overflow-hidden select-none cursor-pointer"
       aria-label="Welcome to Sree Valmeeki School - Click anywhere to enter website"
     >
+      {/* Top Right Instant Skip / Enter Button */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleFinish();
+        }}
+        className="absolute top-4 right-4 z-50 px-4 py-2 rounded-full bg-white/15 hover:bg-[#D4A853] hover:text-[#0A1628] text-white border border-white/20 text-xs font-bold tracking-wider uppercase backdrop-blur-md transition-all flex items-center gap-1.5 cursor-pointer shadow-lg active:scale-95"
+      >
+        <span>Enter Website</span>
+        <ArrowRight className="w-3.5 h-3.5" />
+      </button>
+
       {/* =========================================================================
           MODE A: THE PRESTIGE CINEMATIC BRAND REVEAL (Default)
       ========================================================================= */}
