@@ -73,15 +73,15 @@ export default function ContactSection() {
           </div>
 
           <div className="h-[500px] lg:h-[600px] w-full bg-gray-100 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-            {/* Google Maps placeholder */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3ba32d00139bcfab%3A0x6b490d1f7d716298!2sSREE%20VALMEEKI%20HIGH%20SCHOOL!5e0!3m2!1sen!2sin!4v1709214305886!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15440.06173291583!2d78.15610816977539!3d14.111812899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba32d00139bcfab%3A0x6b490d1f7d716298!2sSREE%20VALMEEKI%20HIGH%20SCHOOL!5e0!3m2!1sen!2sin!4v1709214305886!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
               allowFullScreen 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
+              title="Sree Valmeeki High School Location on Google Maps"
             ></iframe>
           </div>
           

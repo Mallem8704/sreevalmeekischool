@@ -32,8 +32,26 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
   const [direction, setDirection] = useState<number>(1);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Respect user bandwidth saver and reduced motion preferences
+    const nav = typeof navigator !== 'undefined' ? (navigator as any) : null;
+    const isSaveData = nav?.connection?.saveData === true;
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isSaveData && !prefersReducedMotion) {
+      // Defer video initialization to prioritize critical CSS/JS & instant poster image paint
+      const timer = setTimeout(() => {
+        setShouldLoadVideo(true);
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Touch Swipe Handling for Mobile
   const touchStartX = useRef<number | null>(null);
@@ -247,18 +265,20 @@ export default function DualHeroSection({ onOpenAdmissions }: DualHeroSectionPro
                   sizes="100vw"
                   className="object-cover w-full h-full md:scale-105 opacity-100 brightness-105 contrast-100"
                 />
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted={isMuted}
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="object-cover w-full h-full md:scale-105 opacity-100 brightness-105 contrast-100"
-                >
-                  <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
-                  <source src="/hero-desktop.mp4" type="video/mp4" />
-                </video>
+                {shouldLoadVideo && (
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    muted={isMuted}
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="object-cover w-full h-full md:scale-105 opacity-100 brightness-105 contrast-100 transition-opacity duration-700"
+                  >
+                    <source src="/hero-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+                    <source src="/hero-desktop.mp4" type="video/mp4" />
+                  </video>
+                )}
 
                 {/* Overlays: Refined Transparent Scrims for Maximum Visual Clarity & Text Contrast */}
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#050D1A]/75 via-[#050D1A]/25 to-transparent" />

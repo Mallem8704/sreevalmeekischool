@@ -372,8 +372,7 @@ export default function OfficialPamphletShowcase() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority={selectedYearIndex === 0}
                     className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                    quality={92}
-                    unoptimized
+                    quality={88}
                   />
 
                   {/* Desktop Hover Overlay */}
@@ -454,8 +453,7 @@ export default function OfficialPamphletShowcase() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority={selectedYearIndex === 0}
                     className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                    quality={92}
-                    unoptimized
+                    quality={88}
                   />
 
                   {/* Desktop Hover Overlay */}
@@ -559,8 +557,7 @@ export default function OfficialPamphletShowcase() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 priority={selectedYearIndex === 0}
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.015]"
-                quality={92}
-                unoptimized
+                quality={88}
               />
 
               {/* Hover Floating Overlay */}
@@ -660,7 +657,7 @@ export default function OfficialPamphletShowcase() {
                         fill
                         sizes="240px"
                         className="object-cover"
-                        unoptimized
+                        quality={80}
                       />
                       <div className="absolute top-1.5 left-1.5 px-2 py-0.5 rounded bg-[#0A1628]/90 text-white text-[9px] font-black uppercase">
                         {batch.year}
