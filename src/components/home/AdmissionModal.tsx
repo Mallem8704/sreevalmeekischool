@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Phone, Sparkles, Send } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { useAdminStore } from '@/lib/store';
+import { track } from '@/lib/analytics';
 
 interface AdmissionModalProps {
   isOpen: boolean;
@@ -14,6 +16,8 @@ interface AdmissionModalProps {
 export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps) {
   const addEnquiry = useAdminStore((state) => state.addEnquiry);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [honeypot, setHoneypot] = useState('');
   const dialogRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     parentName: '',
@@ -63,6 +67,24 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
     e.preventDefault();
     if (!formData.parentName || !formData.phone) return;
 
+    // Honeypot spam trap: if filled by a bot, silently exit
+    if (honeypot) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        onClose();
+      }, 1000);
+      return;
+    }
+
+    // Validate 10-digit Indian mobile number
+    const cleanDigits = formData.phone.replace(/[\s\-()+]/g, '').replace(/^91/, '').replace(/^0/, '');
+    if (!/^[6-9]\d{9}$/.test(cleanDigits)) {
+      setPhoneError('Please enter a valid 10-digit Indian phone number (e.g. 94404 68838)');
+      return;
+    }
+    setPhoneError('');
+
     // Add to zustand store
     addEnquiry({
       id: Date.now().toString(),
@@ -71,7 +93,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
       studentAge: '—',
       classSeeking: formData.classSeeking,
       currentSchool: '—',
-      phone: formData.phone,
+      phone: cleanDigits,
       email: '',
       location: 'Kadiri',
       transportRequired: false,
@@ -79,6 +101,12 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
       status: 'New',
       notes: 'Submitted via Homepage Quick Modal',
       date: new Date().toISOString().split('T')[0],
+    });
+
+    // Fire analytics
+    track('admission_modal_submit', {
+      classSeeking: formData.classSeeking,
+      hasStudentName: Boolean(formData.studentName),
     });
 
     setIsSubmitted(true);
@@ -92,6 +120,8 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
         classSeeking: 'Class 1',
         message: '',
       });
+      setPhoneError('');
+      setHoneypot('');
     }, 2400);
   };
 
@@ -219,6 +249,17 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                     </div>
                   </div>
 
+                  {/* Honeypot field (hidden from real users) */}
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    className="hidden"
+                    aria-hidden="true"
+                  />
+
                   <div>
                     <label className="block text-xs font-bold text-slate-700 dark:text-white/80 uppercase tracking-wider mb-1.5">
                       Phone Number *
@@ -230,9 +271,17 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                       required
                       placeholder="+91 94404 68838"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-base sm:text-sm outline-none transition-all"
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        if (phoneError) setPhoneError('');
+                      }}
+                      className={`w-full px-4 py-3 min-h-[46px] rounded-xl bg-slate-50 dark:bg-white/5 border ${
+                        phoneError ? 'border-red-500' : 'border-slate-200 dark:border-white/15'
+                      } focus:border-[#D4A853] focus:ring-1 focus:ring-[#D4A853] text-[#0A1628] dark:text-white placeholder-slate-400 dark:placeholder-white/40 text-base sm:text-sm outline-none transition-all`}
                     />
+                    {phoneError && (
+                      <p className="text-red-500 text-xs mt-1.5 font-medium">{phoneError}</p>
+                    )}
                   </div>
 
                   <button
@@ -242,6 +291,18 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                     <span>Request Admission Callback</span>
                     <Send className="w-4 h-4" />
                   </button>
+
+                  {/* DPDP Act Compliance Notice */}
+                  <p className="text-center text-[11px] text-slate-500 dark:text-slate-400 mt-2.5 leading-snug">
+                    🔒 By submitting, you consent to receive admission updates from Sree Valmeeki School under the Digital Personal Data Protection (DPDP) Act. Read our{' '}
+                    <Link
+                      href="/privacy-policy"
+                      onClick={onClose}
+                      className="underline hover:text-[#B8860B] dark:hover:text-[#FBBF24]"
+                    >
+                      Privacy Policy
+                    </Link>.
+                  </p>
                 </form>
 
                 {/* Direct Call & WhatsApp Link */}

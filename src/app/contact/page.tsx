@@ -20,9 +20,13 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
+import { useAdminStore } from '@/lib/store';
+import { track } from '@/lib/analytics';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [honeypot, setHoneypot] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -32,10 +36,44 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 2000);
+      return;
+    }
+
+    const cleanDigits = formData.phone.replace(/[\s\-()+]/g, '').replace(/^91/, '').replace(/^0/, '');
+    if (!/^[6-9]\d{9}$/.test(cleanDigits)) {
+      setPhoneError('Please enter a valid 10-digit Indian mobile number');
+      return;
+    }
+    setPhoneError('');
+
+    useAdminStore.getState().addEnquiry({
+      id: Date.now().toString(),
+      parentName: formData.name,
+      studentName: 'Student',
+      studentAge: '—',
+      classSeeking: formData.grade,
+      currentSchool: '—',
+      phone: cleanDigits,
+      email: '',
+      location: 'Kadiri',
+      transportRequired: false,
+      message: formData.message || 'Submitted via Contact Us page',
+      status: 'New',
+      notes: `Contact Page Enquiry for ${formData.grade}`,
+      date: new Date().toISOString().split('T')[0],
+    });
+
+    track('contact_form_submit', { grade: formData.grade });
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', phone: '', grade: 'Class 1', message: '' });
+      setPhoneError('');
+      setHoneypot('');
     }, 4000);
   };
 
@@ -268,6 +306,17 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Honeypot anti-spam field */}
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    className="hidden"
+                    aria-hidden="true"
+                  />
+
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-white/80 mb-1.5">
                       Your Name *
@@ -294,10 +343,18 @@ export default function ContactPage() {
                         autoComplete="tel"
                         required
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 min-h-[48px] rounded-xl bg-slate-50 dark:bg-white/10 border border-slate-200 dark:border-white/20 text-[#0A1628] dark:text-white text-base sm:text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors"
+                        onChange={(e) => {
+                          setFormData({ ...formData, phone: e.target.value });
+                          if (phoneError) setPhoneError('');
+                        }}
+                        placeholder="+91 94404 68838"
+                        className={`w-full px-4 py-3 min-h-[48px] rounded-xl bg-slate-50 dark:bg-white/10 border ${
+                          phoneError ? 'border-red-500' : 'border-slate-200 dark:border-white/20'
+                        } text-[#0A1628] dark:text-white text-base sm:text-sm placeholder:text-slate-400 dark:placeholder:text-white/40 focus:outline-none focus:border-[#B8860B] dark:focus:border-[#FBBF24] focus:ring-1 focus:ring-[#B8860B] dark:focus:ring-[#FBBF24] transition-colors`}
                       />
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">{phoneError}</p>
+                      )}
                     </div>
 
                     <div>
@@ -337,6 +394,14 @@ export default function ContactPage() {
                     <span>Submit Query</span>
                     <Send className="w-4 h-4" />
                   </button>
+
+                  {/* DPDP Act Compliance Text */}
+                  <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-3 leading-relaxed">
+                    🔒 By submitting, you consent to receive communication regarding your query from Sree Valmeeki School under the DPDP Act. Read our{' '}
+                    <Link href="/privacy-policy" className="underline hover:text-[#B8860B] dark:hover:text-[#FBBF24]">
+                      Privacy Policy
+                    </Link>.
+                  </p>
                 </form>
               )}
             </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -19,8 +20,10 @@ import {
 } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/SocialIcons';
 import { useAdminStore } from '@/lib/store';
+import { track } from '@/lib/analytics';
 
 const formSchema = z.object({
+  botField: z.string().optional(),
   studentName: z.string().min(2, 'Student full name is required'),
   class: z.string().min(1, 'Please select a grade/class'),
   parentName: z.string().min(2, 'Parent / Guardian name is required'),
@@ -78,6 +81,12 @@ export default function AdmissionForm() {
   };
 
   const onSubmit = async (data: FormData) => {
+    // If bot filled honeypot field, silently simulate success
+    if (data.botField) {
+      setIsSuccess(true);
+      return;
+    }
+
     // Simulate brief network submission for polished UX
     await new Promise((resolve) => setTimeout(resolve, 800));
 
@@ -102,6 +111,11 @@ export default function AdmissionForm() {
         status: 'New',
         notes: `Submitted via Homepage Admission Form. Student: ${data.studentName}, Class: ${data.class}, WhatsApp: ${finalWhatsapp}`,
         date: new Date().toISOString().split('T')[0],
+      });
+
+      track('admission_form_submit', {
+        class: data.class,
+        transport: data.transport,
       });
     } catch {
       // ignore
@@ -312,6 +326,16 @@ export default function AdmissionForm() {
                     </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                      {/* Honeypot anti-spam field */}
+                      <input
+                        {...register('botField')}
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        className="hidden"
+                        aria-hidden="true"
+                      />
+
                       <div>
                         <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)] mb-1">
                           Student Admission Details
@@ -568,8 +592,11 @@ export default function AdmissionForm() {
                           )}
                         </button>
 
-                        <p className="text-center text-xs text-[#64748B] dark:text-slate-400 mt-3">
-                          🔒 Your information is confidential and will only be used by Sree Valmeeki Admissions.
+                        <p className="text-center text-xs text-[#64748B] dark:text-slate-400 mt-3 leading-relaxed">
+                          🔒 By submitting, you consent to receive admission updates from Sree Valmeeki School under the Digital Personal Data Protection (DPDP) Act. Read our{' '}
+                          <Link href="/privacy-policy" className="underline hover:text-[#B8860B] dark:hover:text-[#FBBF24]">
+                            Privacy Policy
+                          </Link>.
                         </p>
                       </div>
                     </form>
