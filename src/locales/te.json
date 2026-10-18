@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "language": "te",
+    "locale": "te-IN",
+    "version": "1.0.0",
+    "description": "Draft Telugu translation dictionary for Sree Valmeeki English Medium High School website.",
+    "disclaimer": "[NEEDS HUMAN REVIEW: All Telugu phrases are professional drafts and must be reviewed and officially approved by school leadership before deployment as a live localized language toggle]"
+  },
+  "common": {
+    "schoolName": "శ్రీ వాల్మీకి ఉన్నత పాఠశాల [NEEDS HUMAN REVIEW]",
+    "schoolFullName": "శ్రీ వాల్మీకి ఇంగ్లీష్ మీడియం ఉన్నత పాఠశాల [NEEDS HUMAN REVIEW]",
+    "tagline": "విద్య • క్రమశిక్షణ • ఆత్మవిశ్వాసం [NEEDS HUMAN REVIEW]",
+    "estd": "స్థాపన: 1999 • కదిరి [NEEDS HUMAN REVIEW]",
+    "experience": "28 సంవత్సరాల విద్యా ప్రస్థానం [NEEDS HUMAN REVIEW]",
+    "callNow": "కాల్ చేయండి [NEEDS HUMAN REVIEW]",
+    "enquireNow": "ప్రవేశాల వివరాలు తెలుసుకోండి [NEEDS HUMAN REVIEW]",
+    "learnMore": "మరింత తెలుసుకోండి [NEEDS HUMAN REVIEW]",
+    "backToHome": "ప్రధాన పేజీకి తిరిగి వెళ్లండి [NEEDS HUMAN REVIEW]"
+  },
+  "navigation": {
+    "home": "హోమ్ [NEEDS HUMAN REVIEW]",
+    "about": "మా గురించి [NEEDS HUMAN REVIEW]",
+    "academics": "విద్యా విధానం [NEEDS HUMAN REVIEW]",
+    "campus": "క్యాంపస్ & సదుపాయాలు [NEEDS HUMAN REVIEW]",
+    "achievements": "విజయాలు & ఫలితాలు [NEEDS HUMAN REVIEW]",
+    "leadership": "యాజమాన్యం [NEEDS HUMAN REVIEW]",
+    "gallery": "గ్యాలరీ [NEEDS HUMAN REVIEW]",
+    "events": "కార్యక్రమాలు [NEEDS HUMAN REVIEW]",
+    "news": "తాజా వార్తలు [NEEDS HUMAN REVIEW]",
+    "admissions": "ప్రవేశాలు 2026–27 [NEEDS HUMAN REVIEW]",
+    "contact": "సంప్రదించండి [NEEDS HUMAN REVIEW]"
+  },
+  "hero": {
+    "titleLine1": "బలమైన పునాది నిర్మాణం. [NEEDS HUMAN REVIEW]",
+    "titleLine2": "ఉజ్వల భవిష్యత్తుకు నాంది. [NEEDS HUMAN REVIEW]",
+    "subtitle": "రెండు దశాబ్దాలకు పైగా కదిరిలో నాణ్యమైన విద్య, క్రమశిక్షణ మరియు ఆత్మవిశ్వాసాన్ని అందిస్తూ విద్యార్థులను భావి భారత పౌరులుగా తీర్చిదిద్దుతున్న విద్యా సంస్థ. [NEEDS HUMAN REVIEW]",
+    "badge": "స్థాపన 1999 • 28 ఏళ్ల అంకితభావం [NEEDS HUMAN REVIEW]",
+    "exploreCampus": "క్యాంపస్ వీక్షించండి [NEEDS HUMAN REVIEW]",
+    "applyAdmissions": "అడ్మిషన్ల కొరకు దరఖాస్తు చేయండి [NEEDS HUMAN REVIEW]"
+  },
+  "leadership": {
+    "founderTitle": "వ్యవస్థాపక అధ్యక్షులు [NEEDS HUMAN REVIEW]",
+    "founderName": "శ్రీ పాలవాల జయరామిరెడ్డి (రిటైర్డ్ MEO) [NEEDS HUMAN REVIEW]",
+    "directorTitle": "డైరెక్టర్ [NEEDS HUMAN REVIEW]",
+    "directorName": "డాక్టర్ పి.వి. పవన్ కుమార్ రెడ్డి [NEEDS HUMAN REVIEW]",
+    "correspondentTitle": "కరస్పాండెంట్ [NEEDS HUMAN REVIEW]",
+    "correspondentName": "శ్రీ పి. అనిల్ కుమార్ రెడ్డి [NEEDS HUMAN REVIEW]",
+    "principalTitle": "ప్రిన్సిపాల్ [NEEDS HUMAN REVIEW]",
+    "principalPlaceholder": "[OWNER TO PROVIDE: ప్రధానోపాధ్యాయుల వివరాలు [NEEDS HUMAN REVIEW]]",
+    "abhignaTitle": "అభిజ్ఞ ఫౌండేషన్ [NEEDS HUMAN REVIEW]",
+    "abhignaDesc": "ఆర్థికంగా వెనుకబడిన విద్యార్థులకు ఉచిత విద్యా సహాయం మరియు సామాజిక సేవా కార్యక్రమాలు. [NEEDS HUMAN REVIEW]"
+  },
+  "academics": {
+    "prePrimary": "పూర్వ ప్రాథమిక విభాగం (నర్సరీ, ఎల్‌కేజీ, యూకేజీ) [NEEDS HUMAN REVIEW]",
+    "primary": "ప్రాథమిక విభాగం (1 నుండి 5వ తరగతి) [NEEDS HUMAN REVIEW]",
+    "middleSchool": "మాధ్యమిక విభాగం (6 నుండి 8వ తరగతి) [NEEDS HUMAN REVIEW]",
+    "highSchool": "ఉన్నత పాఠశాల విభాగం (9 మరియు 10వ తరగతి - ఎస్.ఎస్.సి బోర్డు) [NEEDS HUMAN REVIEW]",
+    "iitFoundation": "ఐఐటీ & ఒలింపియాడ్ ఫౌండేషన్ ప్రోగ్రామ్ [NEEDS HUMAN REVIEW]",
+    "spokenEnglish": "స్పోకెన్ ఇంగ్లీష్ & కమ్యూనికేషన్ స్కిల్స్ [NEEDS HUMAN REVIEW]",
+    "smartClassrooms": "స్మార్ట్ డిజిటల్ తరగతి గదులు [NEEDS HUMAN REVIEW]"
+  },
+  "admissions": {
+    "admissionsOpen": "2026–27 విద్యా సంవత్సర ప్రవేశాలు ప్రారంభమైనవి [NEEDS HUMAN REVIEW]",
+    "classesOffered": "నర్సరీ నుండి 10వ తరగతి వరకు [NEEDS HUMAN REVIEW]",
+    "parentName": "తల్లిదండ్రుల పేరు [NEEDS HUMAN REVIEW]",
+    "studentName": "విద్యార్థి పేరు [NEEDS HUMAN REVIEW]",
+    "phone": "మొబైల్ నంబర్ [NEEDS HUMAN REVIEW]",
+    "gradeSeeking": "కోరుకుంటున్న తరగతి [NEEDS HUMAN REVIEW]",
+    "submitEnquiry": "వివరాలు సమర్పించండి [NEEDS HUMAN REVIEW]"
+  },
+  "contact": {
+    "addressTitle": "పాఠశాల చిరునామా [NEEDS HUMAN REVIEW]",
+    "address": "వాల్మీకి సర్కిల్ వెనుక, బైపాస్ రోడ్డు ప్రక్కన, కదిరి, శ్రీ సత్యసాయి జిల్లా, ఆంధ్రప్రదేశ్ - 515591 [NEEDS HUMAN REVIEW]",
+    "phoneTitle": "ఫోన్ నంబర్లు [NEEDS HUMAN REVIEW]",
+    "emailTitle": "ఈమెయిల్ [NEEDS HUMAN REVIEW]",
+    "officeHours": "కార్యాలయ వేళలు: సోమవారం – శనివారం (ఉదయం 8:30 నుండి సాయంత్రం 5:30 వరకు) [NEEDS HUMAN REVIEW]"
+  }
+}

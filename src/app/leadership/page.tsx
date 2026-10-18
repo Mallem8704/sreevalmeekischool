@@ -126,6 +126,13 @@ export default function LeadershipPage() {
                   <Heart className="w-3.5 h-3.5 text-red-500" />
                   <span>Abhigna Foundation</span>
                 </a>
+                <a
+                  href="#principal-profile"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/15 text-xs font-bold text-[#0A1628] dark:text-white border border-slate-200 dark:border-white/10 transition-colors"
+                >
+                  <GraduationCap className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#FBBF24]" />
+                  <span>Principal</span>
+                </a>
               </motion.div>
             </div>
           </div>
@@ -139,6 +146,80 @@ export default function LeadershipPage() {
             Abhigna Foundation Humanitarian Initiatives (Bottom)
         ========================================================================= */}
         <FounderAndSchoolStory onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
+
+        {/* =========================================================================
+            ACADEMIC PRINCIPAL & HEAD OF SCHOOL FRAME (PLACEHOLDER)
+        ========================================================================= */}
+        <section id="principal-profile" className="py-16 sm:py-20 border-t border-slate-200 dark:border-white/10 bg-[#FDFBF7] dark:bg-[#081220] transition-colors duration-200">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <div className="p-1 rounded-[2.2rem] bg-gradient-to-br from-[#E8C97D] via-[#D4A853] to-[#996515] shadow-xl">
+              <div className="rounded-[2rem] bg-white dark:bg-[#0A1628] p-6 sm:p-10 border border-white/60 dark:border-white/10 relative overflow-hidden">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-white/10 mb-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] text-[11px] font-black uppercase tracking-wider">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                    <span>ACADEMIC HEAD &amp; PEDAGOGICAL LEADERSHIP</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Principal</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
+                  {/* Portrait Placeholder */}
+                  <div className="relative group shrink-0">
+                    <div className="p-2 rounded-2xl bg-gradient-to-br from-[#E8C97D] via-[#D4A853] to-[#996515] shadow-lg">
+                      <div className="relative w-36 h-48 sm:w-44 sm:h-56 rounded-xl overflow-hidden bg-slate-100 dark:bg-white/5 border border-white/40 flex flex-col items-center justify-center text-center p-4">
+                        <GraduationCap className="w-12 h-12 text-[#B8860B] dark:text-[#FBBF24] mb-2" />
+                        <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                          [OWNER TO PROVIDE: Principal Portrait]
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Leader Info */}
+                  <div className="text-center sm:text-left space-y-3 flex-1">
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] block">
+                      ACADEMIC PRINCIPAL
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
+                      [OWNER TO PROVIDE: Principal Name]
+                    </h3>
+                    <p className="font-mono text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold">
+                      [OWNER TO PROVIDE: Qualifications (e.g., M.Sc., M.Ed., B.Ed.)]
+                    </p>
+
+                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/5 border-l-4 border-[#D4A853] text-slate-700 dark:text-slate-200 text-xs sm:text-sm italic font-medium leading-relaxed">
+                      “[OWNER TO PROVIDE: Official Principal&apos;s Message to Parents regarding classroom excellence, individual attention, and character building at Sree Valmeeki High School]”
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-center">
+                        <span className="block text-xs font-bold text-[#0A1628] dark:text-white">Pedagogical Experience</span>
+                        <span className="block font-mono text-[10px] text-[#B8860B] dark:text-[#FBBF24] mt-0.5 font-bold">
+                          [OWNER TO PROVIDE: Years Exp]
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-center">
+                        <span className="block text-xs font-bold text-[#0A1628] dark:text-white">Curriculum Focus</span>
+                        <span className="block text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                          SSC &amp; Olympiad Rigor
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-center">
+                        <span className="block text-xs font-bold text-[#0A1628] dark:text-white">Student Welfare</span>
+                        <span className="block text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                          Mentorship &amp; Discipline
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* =========================================================================
             FINAL ADMISSIONS CALLOUT
