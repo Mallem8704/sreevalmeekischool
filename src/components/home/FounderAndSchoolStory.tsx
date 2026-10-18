@@ -280,7 +280,6 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           sizes="150px"
                           className="object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       </div>
                     </div>
                   </div>
@@ -392,7 +391,6 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           sizes="150px"
                           className="object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       </div>
                     </div>
                   </div>
