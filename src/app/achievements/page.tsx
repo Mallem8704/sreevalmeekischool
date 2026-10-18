@@ -20,7 +20,7 @@ const ceremonyPhotos = [
     title: 'Town 1st Rank Felicitation',
     student: 'D. Janani • 595 / 600',
     description:
-      'Receiving the official 2026 AP SSC felicitation memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jaya Rami Reddy & Director Dr. P.V Pavan Kumar Reddy.',
+      'Receiving the official 2026 AP SSC felicitation memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jayarami Reddy (Retired MEO) & Director Dr. P.V Pavan Kumar Reddy.',
     tag: '595 / 600 • TOWN 1ST RANK',
   },
   {

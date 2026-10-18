@@ -502,7 +502,7 @@ export const PHOTO_MOSAIC: MosaicPhoto[] = [
     title: 'Faculty Saraswathi Pooja Assembly',
     category: 'EVENTS',
     caption: 'United academic leadership and teaching faculty honoring values.',
-    image: '/extracted/champions/faculty_saraswathi_pooja_group.jpg',
+    image: '/images/faculty/faculty_stage_celebration_saraswati_puja.jpg',
     span: 'col-span-1 row-span-1',
   },
 ];

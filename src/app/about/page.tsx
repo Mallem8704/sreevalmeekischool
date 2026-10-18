@@ -510,8 +510,105 @@ export default function AboutPage() {
         </section>
 
         {/* =========================================================================
+            FACULTY & MENTORSHIP SHOWCASE
+            High quality, face-centered authentic faculty cards with luxury styling
+        ========================================================================= */}
+        <section className="py-16 sm:py-24 bg-[#F8FAFC] dark:bg-[#071322] border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] text-xs font-black uppercase tracking-wider mb-3 border border-[#D4A853]/30">
+                <Users className="w-3.5 h-3.5" />
+                <span>EXPERIENCED MENTORSHIP BODY</span>
+              </div>
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1628] dark:text-white uppercase tracking-tight mb-4">
+                Our Dedicated Faculty.
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Over 40+ seasoned educators with up to 15+ years of pedagogical expertise, committed to personalized attention, moral values, and student success.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Card 1: Faculty Grand Assembly */}
+              <div className="group rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/faculty/faculty_grand_assembly_saraswati_puja.jpg"
+                    alt="Sree Valmeeki School Faculty Grand Assembly"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/85 via-transparent to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-[#0A1628]/85 backdrop-blur-md text-[#D4A853] text-[11px] font-black uppercase tracking-wider border border-[#D4A853]/40 shadow-sm">
+                      ACADEMIC MENTORSHIP BODY
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] text-[#D4A853] font-bold uppercase tracking-widest block">
+                      CAMPUS ASSEMBLY
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-black text-white font-[family-name:var(--font-heading)]">
+                      Faculty Grand Assembly &amp; Mentorship Team
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-6 sm:p-7 space-y-3">
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Our esteemed teaching faculty assembled on stage at the main campus. Each mentor brings deep subject expertise across Mathematics, Sciences, Social Studies, and Languages, guiding students with genuine parental care.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-white/10 text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">1:20 Mentor Ratio</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">Subject Authorities</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">Daily Doubt Clearing</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Faculty Saraswathi Pooja Celebration */}
+              <div className="group rounded-3xl bg-white dark:bg-[#0A1628] border border-slate-200 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/faculty/faculty_stage_celebration_saraswati_puja.jpg"
+                    alt="Sree Valmeeki School Faculty Saraswathi Pooja Celebration"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/85 via-transparent to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-[#0A1628]/85 backdrop-blur-md text-[#D4A853] text-[11px] font-black uppercase tracking-wider border border-[#D4A853]/40 shadow-sm">
+                      TRADITION &amp; VALUES
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] text-[#D4A853] font-bold uppercase tracking-widest block">
+                      STAGE CELEBRATION
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-black text-white font-[family-name:var(--font-heading)]">
+                      Faculty Saraswathi Pooja &amp; Academic Honors
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-6 sm:p-7 space-y-3">
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Celebrating Saraswathi Pooja together on the floral-decorated grand stage. Valmeeki educators uphold our sacred tradition: combining rigorous modern academics with deep moral discipline and cultural values.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-white/10 text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">28-Year Heritage</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">Character Building</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5">Holistic Guidance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
             EXECUTIVE LEADERSHIP FRAME (Directly After About Section)
-            Founder Sri Palavala Jaya Rami Reddy (Top)
+            Founder Sri Palavala Jayarami Reddy, Retired MEO (Top)
             Director Dr. P.V Pavan Kumar Reddy (Bottom Left)
             Correspondent Sri P. Anil Kumar Reddy (Bottom Right)
         ========================================================================= */}

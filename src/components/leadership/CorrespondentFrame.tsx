@@ -168,7 +168,7 @@ export default function CorrespondentFrame({
               </p>
 
               <p>
-                Working hand in hand with Founder Sri Palavala Jaya Rami Reddy and Director Dr. P.V Pavan Kumar Reddy, Sri Anil Kumar Reddy manages institutional operations, government regulatory liaison, and community relations. His core mission is to uphold the sacred school motto: <em>providing world-class, value-based education with an accessible fee structure</em> so that quality learning remains within reach of every family across Kadiri and neighboring rural regions.
+                Working hand in hand with Founder Sri Palavala Jayarami Reddy (Retired MEO) and Director Dr. P.V Pavan Kumar Reddy, Sri Anil Kumar Reddy manages institutional operations, government regulatory liaison, and community relations. His core mission is to uphold the sacred school motto: <em>providing world-class, value-based education with an accessible fee structure</em> so that quality learning remains within reach of every family across Kadiri and neighboring rural regions.
               </p>
 
               {showExtendedBio && (
@@ -402,7 +402,7 @@ export default function CorrespondentFrame({
                   </p>
 
                   <p>
-                    From its humble foundation on <strong>6th June, 1999</strong>, under Founder Sri Palavala Jaya Rami Reddy, Sree Valmeeki High School has grown into one of the most respected educational landmarks in Sri Sathya Sai District. Sri Anil Kumar Reddy ensures that the school maintains its founding promise: providing the highest standard of English medium education, IIT Foundation, and holistic character building within an accessible fee structure.
+                    From its humble foundation on <strong>6th June, 1999</strong>, under Founder Sri Palavala Jayarami Reddy (Retired MEO), Sree Valmeeki High School has grown into one of the most respected educational landmarks in Sri Sathya Sai District. Sri Anil Kumar Reddy ensures that the school maintains its founding promise: providing the highest standard of English medium education, IIT Foundation, and holistic character building within an accessible fee structure.
                   </p>
 
                   <p>

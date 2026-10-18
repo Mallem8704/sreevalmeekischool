@@ -161,8 +161,11 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                             ESTABLISHED 6TH JUNE, 1999
                           </span>
                           <h4 className="text-lg sm:text-xl font-black font-[family-name:var(--font-heading)] uppercase">
-                            Sri P. Jaya Rami Reddy
+                            Sri P. Jayarami Reddy
                           </h4>
+                          <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#D4A853] block mt-0.5">
+                            RETIRED MEO
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -170,7 +173,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                     {/* Honorific Pill Below Portrait */}
                     <div className="mt-4 text-center">
                       <span className="inline-block px-3.5 py-1 rounded-full bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-200 text-[11px] font-bold uppercase tracking-wider border border-slate-200 dark:border-white/10">
-                        Chairman • Educational Pioneer • Philanthropist
+                        Retired MEO • Founder & Chairman
                       </span>
                     </div>
                   </motion.div>
@@ -189,7 +192,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
 
                   <div className="space-y-4 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
                     <p>
-                      <strong>Sri Palavala Jaya Rami Reddy</strong> is the founder of Sree Valmeeki School. A visionary with far-reaching goals, he firmly believes that honest hard work is the cornerstone of every enduring educational institution.
+                      <strong>Sri Palavala Jayarami Reddy</strong>, Retired MEO, is the founder and visionary behind Sree Valmeeki School. He firmly believes that honest hard work is the cornerstone of every enduring educational institution.
                     </p>
                     <p>
                       His conviction of starting a school dedicated to discipline and character paved the way for the establishment of <strong>Sree Valmeeki High School on 6th June, 1999</strong>. Through continuous perseverance and dedication, Valmeeki School has reached its zenith in the field of education.
@@ -472,7 +475,21 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
 
           <div className="relative z-10 space-y-10">
             {/* Foundation Header */}
-            <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              {/* Official Abhigna Foundation Logo */}
+              <div className="flex justify-center mb-2">
+                <div className="relative w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#D4A853]/60 p-1 bg-[#09355C]">
+                  <Image
+                    src="/images/foundation/abhigna_foundation_logo.png"
+                    alt="Abhigna Foundation Official Logo"
+                    fill
+                    sizes="(max-width: 640px) 96px, 112px"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#D4A853] text-[11px] font-black uppercase tracking-widest border border-white/15">
                 <Heart className="w-3.5 h-3.5 text-red-400" />
                 <span>COMMUNITY SERVICE & PHILANTHROPY</span>

@@ -31,7 +31,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'SMART CLASSROOMS',
     title: 'Interactive Technology',
     description: 'Visual learning panels, 3D simulations, and multimedia resources that engage curiosity.',
-    image: '/images/campus/digital_classroom.jpg',
+    image: '/images/campus/smart_classroom_interactive_technology.jpg',
     href: '/campus',
   },
   {

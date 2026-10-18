@@ -157,9 +157,12 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                         FOUNDER &amp; CHAIRMAN
                       </span>
                       <h4 className="text-base sm:text-lg font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                        Sri P. Jaya Rami Reddy
+                        Sri P. Jayarami Reddy
                       </h4>
-                      <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium">
+                      <span className="text-[11px] text-[#D8A53C] dark:text-[#FBBF24] font-black uppercase tracking-wider block mt-0.5">
+                        RETIRED MEO
+                      </span>
+                      <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium block">
                         Estd. 6th June, 1999
                       </span>
                     </div>
@@ -235,13 +238,13 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3.5">
-                    <div className="relative w-14 h-18 rounded-xl overflow-hidden bg-[#F8F5EE] dark:bg-white/10 border border-[#D8A53C]/40 flex items-center justify-center shrink-0 p-1">
+                    <div className="relative w-14 h-18 rounded-xl overflow-hidden bg-[#09355C] border border-[#D8A53C]/50 flex items-center justify-center shrink-0 p-1">
                       <Image
                         src="/images/foundation/abhigna_foundation_logo.png"
                         alt="Abhigna Social Development & Educational Society"
                         fill
                         sizes="70px"
-                        className="object-contain p-1"
+                        className="object-contain p-0.5"
                       />
                     </div>
                     <div>

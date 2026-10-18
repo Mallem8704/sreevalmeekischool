@@ -55,9 +55,9 @@ const classroomItems: ClassroomVisualItem[] = [
   {
     id: 'faculty-mentorship',
     label: 'FACULTY MENTORSHIP',
-    title: 'Experienced Hands-on Lab Guidance',
-    caption: 'Dedicated science educators guiding individual experiments in optics, biology specimens, and chemical reactions.',
-    image: '/images/campus/science_lab_faculty.jpg',
+    title: 'Dedicated Academic Mentorship Body',
+    caption: 'Over 40+ seasoned educators guiding every child with concept clarity, moral discipline, and personal attention.',
+    image: '/images/faculty/faculty_grand_assembly_saraswati_puja.jpg',
     category: 'FACULTY EXCELLENCE',
     stats: '15+ Yrs Avg Experience',
   },

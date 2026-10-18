@@ -203,8 +203,8 @@ export interface PersonProfile {
 
 export const peopleOfValmeeki: PersonProfile[] = [
   {
-    name: 'Sri P. Jaya Rami Reddy',
-    role: 'Founder & Chairman, Sree Valmeeki School',
+    name: 'Sri P. Jayarami Reddy',
+    role: 'Retired MEO • Founder & Chairman, Sree Valmeeki School',
     quote:
       'The sacred motto of our institution is to provide quality education with a basic fee structure, ensuring financial background never limits any child.',
     image: '/images/founder/sri_p_jaya_rami_reddy_founder.png',

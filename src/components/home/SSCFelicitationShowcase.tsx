@@ -37,7 +37,7 @@ const FELICITATION_PHOTOS: FelicitationPhoto[] = [
     badge: '595 / 600 • TOWN 1ST RANK',
     title: 'Recognizing Town Benchmark Excellence',
     description:
-      'D. Janani receiving the official AP SSC 2026 felicitation memento (595/600) from Kadiri MLA Sri Kandikunta Venkata Prasad alongside Founder Sri P. Jaya Rami Reddy, Director Dr. P.V Pavan Kumar Reddy, and Correspondent Sri P. Anil Kumar Reddy.',
+      'D. Janani receiving the official AP SSC 2026 felicitation memento (595/600) from Kadiri MLA Sri Kandikunta Venkata Prasad alongside Founder Sri P. Jayarami Reddy (Retired MEO), Director Dr. P.V Pavan Kumar Reddy, and Correspondent Sri P. Anil Kumar Reddy.',
     caption: 'D. Janani (595/600) • Kadiri Town 1st Rank Felicitation with MLA Kandikunta Venkata Prasad',
   },
   {
@@ -226,7 +226,7 @@ export default function SSCFelicitationShowcase() {
                   D. Janani • 595 / 600
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm mt-1 max-w-lg line-clamp-2">
-                  Receiving the official 2026 honor memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jaya Rami Reddy & Director Dr. P.V Pavan Kumar Reddy.
+                  Receiving the official 2026 honor memento from MLA Kandikunta Venkata Prasad with Founder Sri P. Jayarami Reddy (Retired MEO) & Director Dr. P.V Pavan Kumar Reddy.
                 </p>
                 <div className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] text-[#D4A853] font-semibold">
                   <span>Click to view full photograph</span>

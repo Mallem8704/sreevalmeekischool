@@ -72,7 +72,7 @@ const systems: AcademicSystem[] = [
     ],
     metricLabel: 'Faculty Pedagogy',
     metricValue: '15+ Years Avg. Experience',
-    image: '/images/academic_systems/system_02_faculty.jpg',
+    image: '/images/faculty/faculty_grand_assembly_saraswati_puja.jpg',
     icon: Users,
     actionText: 'Meet Our Educators',
     actionHref: '/about',
@@ -161,6 +161,7 @@ const systems: AcademicSystem[] = [
 
 export default function AcademicSystemStory() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [facultyPhotoIndex, setFacultyPhotoIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -324,8 +325,20 @@ export default function AcademicSystemStory() {
                 {/* Left Visual Image Column (5 Cols) */}
                 <div className="lg:col-span-5 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto min-h-[260px] sm:min-h-[300px] lg:min-h-[460px] overflow-hidden bg-slate-100 dark:bg-black/50">
                   <Image
-                    src={currentItem.image}
-                    alt={currentItem.title}
+                    src={
+                      currentItem.num === '02'
+                        ? facultyPhotoIndex === 0
+                          ? '/images/faculty/faculty_grand_assembly_saraswati_puja.jpg'
+                          : '/images/faculty/faculty_stage_celebration_saraswati_puja.jpg'
+                        : currentItem.image
+                    }
+                    alt={
+                      currentItem.num === '02'
+                        ? facultyPhotoIndex === 0
+                          ? 'Sree Valmeeki School Faculty Grand Assembly'
+                          : 'Sree Valmeeki School Faculty Saraswathi Pooja Celebration'
+                        : currentItem.title
+                    }
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover transition-transform duration-700 ease-out hover:scale-105"
@@ -334,7 +347,7 @@ export default function AcademicSystemStory() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0A1628]/40 hidden lg:block" />
 
                   {/* Badges on Top of Image */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
                     <span className="w-10 h-10 rounded-2xl bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-sm font-black text-[#0A1628] dark:text-white shadow-md font-[family-name:var(--font-heading)]">
                       {currentItem.num}
                     </span>
@@ -342,6 +355,40 @@ export default function AcademicSystemStory() {
                       {currentItem.badge}
                     </span>
                   </div>
+
+                  {/* Top-right Photo Switcher for Faculty */}
+                  {currentItem.num === '02' && (
+                    <div className="absolute top-4 right-4 z-20 flex items-center gap-1 bg-[#0A1628]/90 dark:bg-black/80 backdrop-blur-md p-1 rounded-full border border-white/20 shadow-lg">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFacultyPhotoIndex(0);
+                        }}
+                        className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
+                          facultyPhotoIndex === 0
+                            ? 'bg-[#D4A853] text-[#0A1628]'
+                            : 'text-white/80 hover:text-white'
+                        }`}
+                      >
+                        Assembly
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFacultyPhotoIndex(1);
+                        }}
+                        className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
+                          facultyPhotoIndex === 1
+                            ? 'bg-[#D4A853] text-[#0A1628]'
+                            : 'text-white/80 hover:text-white'
+                        }`}
+                      >
+                        Celebration
+                      </button>
+                    </div>
+                  )}
 
                   {/* Corner Floating Metric Pill */}
                   <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs p-3 rounded-2xl bg-white/95 dark:bg-[#0A1628]/90 backdrop-blur-md border border-slate-200 dark:border-white/15 shadow-lg">
@@ -405,6 +452,56 @@ export default function AcademicSystemStory() {
                         </div>
                       ))}
                     </div>
+
+                    {/* Faculty photo switcher for System 02 */}
+                    {currentItem.num === '02' && (
+                      <div className="pt-2 pb-1 border-t border-slate-100 dark:border-white/10">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-2">
+                          Official Faculty Photographs:
+                        </span>
+                        <div className="grid grid-cols-2 gap-2.5">
+                          <button
+                            type="button"
+                            onClick={() => setFacultyPhotoIndex(0)}
+                            className={`relative aspect-[16/9] rounded-xl overflow-hidden border-2 transition-all cursor-pointer text-left ${
+                              facultyPhotoIndex === 0
+                                ? 'border-[#D4A853] shadow-md ring-2 ring-[#D4A853]/40'
+                                : 'border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100'
+                            }`}
+                          >
+                            <Image
+                              src="/images/faculty/faculty_grand_assembly_saraswati_puja.jpg"
+                              alt="Faculty Grand Assembly"
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end p-2">
+                              <span className="text-[11px] text-white font-bold leading-tight drop-shadow-sm">Grand Assembly</span>
+                            </div>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setFacultyPhotoIndex(1)}
+                            className={`relative aspect-[16/9] rounded-xl overflow-hidden border-2 transition-all cursor-pointer text-left ${
+                              facultyPhotoIndex === 1
+                                ? 'border-[#D4A853] shadow-md ring-2 ring-[#D4A853]/40'
+                                : 'border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100'
+                            }`}
+                          >
+                            <Image
+                              src="/images/faculty/faculty_stage_celebration_saraswati_puja.jpg"
+                              alt="Faculty Stage Celebration"
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end p-2">
+                              <span className="text-[11px] text-white font-bold leading-tight drop-shadow-sm">Saraswathi Pooja</span>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Bottom Action & Sliding Navigation Controls */}
