@@ -29,6 +29,7 @@ const ResultsTimeline = dynamic(() => import('@/components/home/ResultsTimeline'
 const ExploreValmeekiSection = dynamic(() => import('@/components/home/campus/ExploreValmeekiSection'));
 const OneDayAtValmeeki = dynamic(() => import('@/components/home/OneDayAtValmeeki'));
 const MomentsGalleryPreview = dynamic(() => import('@/components/home/MomentsGalleryPreview'));
+const SchoolMediaYouTube = dynamic(() => import('@/components/home/SchoolMediaYouTube'));
 const ParentTrustAndLeadership = dynamic(() => import('@/components/home/ParentTrustAndLeadership'));
 const AdmissionsClosingHero = dynamic(() => import('@/components/home/AdmissionsClosingHero'));
 
@@ -138,6 +139,13 @@ export default function HomePage() {
           ========================================================================= */}
           <section id="gallery" className="scroll-mt-24 section-content-visibility">
             <MomentsGalleryPreview />
+          </section>
+
+          {/* =========================================================================
+              7. SCHOOL MEDIA: YouTube Stories in Motion & Video Archive
+          ========================================================================= */}
+          <section id="media" className="scroll-mt-24 section-content-visibility">
+            <SchoolMediaYouTube />
           </section>
 
           {/* =========================================================================

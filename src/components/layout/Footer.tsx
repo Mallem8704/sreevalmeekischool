@@ -62,7 +62,7 @@ export default function Footer() {
               <FacebookIcon className="w-5 h-5" />
             </a>
             <a 
-              href="https://www.youtube.com/@valmeekischoolkadiri7987" 
+              href="https://www.youtube.com/@Dhanunjay-t5v" 
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Watch Sree Valmeeki School YouTube channel"

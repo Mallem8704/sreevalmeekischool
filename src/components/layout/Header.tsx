@@ -39,7 +39,7 @@ export default function Header() {
           return;
         }
 
-        const sectionIds = ['home', 'about', 'academics', 'results', 'campus', 'gallery', 'contact'];
+        const sectionIds = ['home', 'about', 'academics', 'results', 'campus', 'gallery', 'media', 'contact'];
         const scrollPosition = window.scrollY + 180; // Offset for header height and margin
 
         for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -115,6 +115,7 @@ export default function Header() {
 
   const isLinkActive = (link: { id: string; href: string }) => {
     if (pathname === '/') {
+      if (link.id === 'gallery' && activeSection === 'media') return true;
       return activeSection === link.id;
     }
     // Subpage matching

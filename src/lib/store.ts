@@ -273,9 +273,9 @@ export const useAdminStore = create<AdminStore>((set) => ({
     address: 'Madanapalli Road / NH-205, Near Chowdeswari Temple, Kadiri, Andhra Pradesh – 515591',
   },
   socialLinks: {
-    instagram: '#',
-    facebook: '#',
-    youtube: '#',
+    instagram: 'https://instagram.com',
+    facebook: 'https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/',
+    youtube: 'https://www.youtube.com/@Dhanunjay-t5v',
   },
   siteSettings: {
     contact: {
@@ -292,9 +292,9 @@ export const useAdminStore = create<AdminStore>((set) => ({
       showAdmissionBanner: true,
     },
     social: {
-      facebook: 'https://facebook.com',
+      facebook: 'https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/',
       instagram: 'https://instagram.com',
-      youtube: 'https://youtube.com',
+      youtube: 'https://www.youtube.com/@Dhanunjay-t5v',
     },
   },
 

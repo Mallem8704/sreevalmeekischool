@@ -15,7 +15,7 @@ import {
   Sparkles,
   ArrowRight,
 } from 'lucide-react';
-import { WhatsAppIcon } from '@/components/ui/SocialIcons';
+import { WhatsAppIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
@@ -167,6 +167,31 @@ export default function ContactPage() {
                   Open in Google Maps ›
                 </span>
               </div>
+            </a>
+          </div>
+
+          {/* Official YouTube Channel Strip */}
+          <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#152D5E] text-white border border-[#D4A853]/30 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-500 shrink-0">
+                <YoutubeIcon className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#FBBF24]">Official YouTube Channel</span>
+                  <span className="px-2 py-0.5 rounded-full bg-white/10 text-white/90 text-[10px] font-bold">@Dhanunjay-t5v</span>
+                </div>
+                <p className="text-xs text-white/80 mt-0.5">Watch campus celebrations, cultural recitals, and student talent videos.</p>
+              </div>
+            </div>
+            <a
+              href="https://www.youtube.com/@Dhanunjay-t5v"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-full bg-[#D4A853] hover:bg-[#B8860B] text-[#0A1628] font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors shadow-sm"
+            >
+              <span>Visit YouTube Channel</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

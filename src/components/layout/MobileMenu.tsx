@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X, Phone, MapPin, GraduationCap, ArrowRight } from 'lucide-react';
-import { WhatsAppIcon } from '@/components/ui/SocialIcons';
+import { WhatsAppIcon, YoutubeIcon, FacebookIcon, InstagramIcon } from '@/components/ui/SocialIcons';
 import { navLinks } from '@/lib/data';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
@@ -199,7 +199,37 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                 </a>
               </div>
 
-              <div className="pt-2 text-center text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+              <div className="pt-2 flex items-center justify-center gap-3">
+                <a
+                  href="https://www.youtube.com/@Dhanunjay-t5v"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Sree Valmeeki School YouTube"
+                  className="w-9 h-9 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-red-600 hover:scale-105 transition-transform"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Sree Valmeeki School Facebook"
+                  className="w-9 h-9 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#1877F2] hover:scale-105 transition-transform"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Sree Valmeeki School Instagram"
+                  className="w-9 h-9 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#E1306C] hover:scale-105 transition-transform"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+              </div>
+
+              <div className="pt-1 text-center text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#D4A853]" />
                 <span>Bypass Road, Kadiri, Andhra Pradesh</span>
               </div>
