@@ -56,7 +56,7 @@ const mosaicPhotos: MosaicPhoto[] = [
     id: 'm-7',
     title: 'Collaborative Classrooms',
     category: 'Daily Life',
-    src: '/images/campus/classroom_interaction.jpg',
+    src: '/images/academic_systems/system_05_spoken_english.jpg',
   },
 ];
 

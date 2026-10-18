@@ -31,7 +31,7 @@ const academicWings: WingCard[] = [
     title: 'Primary Wing',
     theme: 'Build Strong Basics',
     classes: 'Class I – V',
-    image: '/images/campus/classroom_interaction.jpg',
+    image: '/images/academic_systems/system_01_foundations.jpg',
     href: '/academics',
   },
   {

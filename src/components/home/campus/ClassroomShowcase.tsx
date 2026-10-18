@@ -39,7 +39,7 @@ const classroomItems: ClassroomVisualItem[] = [
     label: 'STUDENT PARTICIPATION',
     title: 'Active Questioning & Spoken Confidence',
     caption: 'Small batch sizes ensure every student speaks up, clarifies doubts, and presents on stage without hesitation.',
-    image: '/images/campus/classroom_interaction.jpg',
+    image: '/images/academic_systems/system_05_spoken_english.jpg',
     category: 'CLASSROOM ENGAGEMENT',
     stats: '1:20 Mentor Ratio',
   },
@@ -67,7 +67,7 @@ export default function ClassroomShowcase() {
   const [activeLightboxItem, setActiveLightboxItem] = useState<ClassroomVisualItem | null>(null);
 
   const heroItem = classroomItems[0]; // smart_learning_panel.jpg
-  const portraitItem = classroomItems[1]; // classroom_interaction.jpg
+  const portraitItem = classroomItems[1]; // system_05_spoken_english.jpg
   const supporting1 = classroomItems[2]; // digital_classroom.jpg
   const supporting2 = classroomItems[3]; // science_lab_faculty.jpg
 
@@ -254,7 +254,7 @@ export default function ClassroomShowcase() {
             </div>
           </div>
 
-          {/* Right Column (4 Columns): Tall Portrait Image: classroom_interaction.jpg */}
+          {/* Right Column (4 Columns): Tall Portrait Image: system_05_spoken_english.jpg */}
           <div className="lg:col-span-4 flex flex-col">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

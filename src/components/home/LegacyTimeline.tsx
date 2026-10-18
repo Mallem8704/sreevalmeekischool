@@ -22,7 +22,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'ACADEMIC RIGOR',
     title: 'Concept-First Learning',
     description: 'Deep understanding, analytical thinking, and academic discipline in every classroom.',
-    image: '/images/campus/classroom_interaction.jpg',
+    image: '/images/academic_systems/system_01_foundations.jpg',
     href: '/academics',
   },
   {
