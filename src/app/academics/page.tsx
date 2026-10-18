@@ -299,7 +299,7 @@ export default function AcademicsPage() {
       <ScrollProgress />
       <Header />
 
-      <main className="pt-24 sm:pt-28">
+      <main id="main-content" className="pt-24 sm:pt-28">
         {/* HERO SECTION */}
         <section className="relative overflow-hidden py-16 sm:py-24 border-b border-slate-200/80 dark:border-white/10 bg-gradient-to-b from-[#F8FAFC] via-[#FDFBF7] to-[#F5F3EE] dark:from-[#050D1A] dark:via-[#0A1628] dark:to-[#050D1A] transition-colors duration-200">
           <div className="absolute inset-0 z-0">

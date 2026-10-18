@@ -32,7 +32,7 @@ export default function CampusPage() {
   const [isAdmissionsModalOpen, setIsAdmissionsModalOpen] = useState(false);
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
+    <main id="main-content" className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
       <ScrollProgress />
       <Header />
 

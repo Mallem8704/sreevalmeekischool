@@ -125,6 +125,13 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
             <nav className="flex-1 px-4 py-4 flex flex-col space-y-1">
               {navLinks.map((link, i) => {
                 const isActive = isLinkActive(link);
+                const href = pathname === '/'
+                  ? link.href
+                  : (link.id === 'home'
+                      ? '/'
+                      : link.id === 'results'
+                      ? '/achievements'
+                      : `/${link.id}`);
 
                 return (
                   <motion.div
@@ -134,8 +141,9 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
                     transition={{ delay: 0.05 + i * 0.03 }}
                   >
                     <Link
-                      href={link.href}
+                      href={href}
                       onClick={(e) => handleMobileNavClick(e, link.id)}
+                      aria-current={isActive ? 'page' : undefined}
                       className={`flex items-center justify-between px-4 py-3 min-h-[48px] rounded-xl font-semibold transition-all cursor-pointer ${
                         isActive
                           ? 'bg-amber-100 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] font-bold'

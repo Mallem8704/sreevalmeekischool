@@ -112,7 +112,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </header>
 
         {/* Main content area */}
-        <main className="flex-1 overflow-y-auto bg-gray-50 dark:bg-[#050D1A] p-4 sm:p-6 lg:p-8 transition-colors duration-200">
+        <main id="main-content" className="flex-1 overflow-y-auto bg-gray-50 dark:bg-[#050D1A] p-4 sm:p-6 lg:p-8 transition-colors duration-200">
           {children}
         </main>
       </div>

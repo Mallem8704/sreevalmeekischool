@@ -151,7 +151,7 @@ export default function AboutPage() {
       <ScrollProgress />
       <Header />
 
-      <main className="pt-24 sm:pt-28">
+      <main id="main-content" className="pt-24 sm:pt-28">
         {/* HERO SECTION */}
         <section className="relative overflow-hidden py-16 sm:py-24 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A1628] transition-colors duration-200">
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">

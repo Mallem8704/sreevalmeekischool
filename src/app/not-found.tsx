@@ -6,7 +6,7 @@ import { Home, Compass } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#FBBF24] selection:text-[#0A1628] transition-colors duration-200">
+    <main id="main-content" className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#FBBF24] selection:text-[#0A1628] transition-colors duration-200">
       <Header />
       
       <section className="flex-grow flex flex-col items-center justify-center text-center px-4 py-36">

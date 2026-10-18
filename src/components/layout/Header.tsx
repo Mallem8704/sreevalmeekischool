@@ -131,6 +131,13 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        {/* Accessible Skip Link for Keyboard / Screen Readers */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#0A1628] focus:text-[#FBBF24] focus:rounded-lg focus:shadow-xl focus:border-2 focus:border-[#D4A853] focus:text-xs focus:font-black focus:uppercase focus:tracking-wider focus:outline-none"
+        >
+          Skip to content
+        </a>
         {/* Top Info Bar (collapses smoothly on scroll) */}
         {showAnnouncement && !isScrolled && (
           <div className="w-full bg-[#0A1628] text-white py-1 px-4 text-xs border-b border-white/10 hidden sm:block">
@@ -218,12 +225,20 @@ export default function Header() {
               <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
                 {navLinks.map((link) => {
                   const isActive = isLinkActive(link);
+                  const href = pathname === '/'
+                    ? link.href
+                    : (link.id === 'home'
+                        ? '/'
+                        : link.id === 'results'
+                        ? '/achievements'
+                        : `/${link.id}`);
 
                   return (
                     <Link
                       key={link.name}
-                      href={link.href}
+                      href={href}
                       onClick={(e) => handleNavClick(e, link.id)}
+                      aria-current={isActive ? 'page' : undefined}
                       className={`text-sm font-semibold tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full cursor-pointer ${
                         isActive
                           ? 'bg-amber-100/90 dark:bg-[#D4A853]/20 text-[#0A1628] dark:text-[#FBBF24] border border-amber-300/80 dark:border-[#D4A853]/40 shadow-xs font-bold scale-[1.02]'

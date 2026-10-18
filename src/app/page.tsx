@@ -73,7 +73,7 @@ export default function HomePage() {
         <ScrollProgress />
         <Header />
 
-        <main>
+        <main id="main-content">
           {/* =========================================================================
               1. HOME: Slidable Dual Hero Experience (Film & Proven Results)
           ========================================================================= */}

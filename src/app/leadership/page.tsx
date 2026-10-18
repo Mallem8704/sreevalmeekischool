@@ -30,7 +30,7 @@ export default function LeadershipPage() {
       <ScrollProgress />
       <Header />
 
-      <main className="pt-24 sm:pt-28">
+      <main id="main-content" className="pt-24 sm:pt-28">
         {/* =========================================================================
             LEADERSHIP HERO BANNER
         ========================================================================= */}
