@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Pause, Play } from 'lucide-react';
 
 const testimonials = [
   {
@@ -21,13 +21,23 @@ const testimonials = [
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsPaused(true);
+      return;
+    }
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -76,7 +86,7 @@ export default function Testimonials() {
             >
               <ChevronLeft size={24} />
             </button>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
@@ -87,6 +97,15 @@ export default function Testimonials() {
                   aria-label={`Go to testimonial ${idx + 1}`}
                 />
               ))}
+              <button
+                type="button"
+                onClick={() => setIsPaused((prev) => !prev)}
+                className="w-7 h-7 rounded-full border border-white/20 hover:border-[#D4A853] text-white/70 hover:text-[#D4A853] flex items-center justify-center transition-colors ml-1"
+                aria-label={isPaused ? 'Resume testimonials auto-sliding' : 'Pause testimonials auto-sliding'}
+                title={isPaused ? 'Play' : 'Pause'}
+              >
+                {isPaused ? <Play size={12} /> : <Pause size={12} />}
+              </button>
             </div>
             <button 
               onClick={next}

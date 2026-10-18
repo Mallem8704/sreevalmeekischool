@@ -20,6 +20,8 @@ import {
   Sparkles,
   Trophy,
   Users,
+  Pause,
+  Play,
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -112,6 +114,13 @@ export default function AboutPage() {
   };
 
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsPillarPaused(true);
+      return;
+    }
     if (isPillarPaused) return;
     const interval = setInterval(() => {
       setPillarDirection(1);
@@ -479,6 +488,15 @@ export default function AboutPage() {
                             aria-label="Next pillar"
                           >
                             <ChevronRight className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setIsPillarPaused((prev) => !prev)}
+                            className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-[#D4A853] hover:bg-slate-50 dark:hover:bg-white/5 text-slate-700 dark:text-slate-200 transition-all cursor-pointer"
+                            aria-label={isPillarPaused ? 'Resume pillar auto-sliding' : 'Pause pillar auto-sliding'}
+                            title={isPillarPaused ? 'Play' : 'Pause'}
+                          >
+                            {isPillarPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
                           </button>
                           <span className="text-xs font-bold text-slate-500 dark:text-slate-400 ml-2">
                             0{activePillarIndex + 1} / 04

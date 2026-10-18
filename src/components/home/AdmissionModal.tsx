@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Phone, Sparkles, Send } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/SocialIcons';
@@ -14,6 +14,7 @@ interface AdmissionModalProps {
 export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps) {
   const addEnquiry = useAdminStore((state) => state.addEnquiry);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     parentName: '',
     studentName: '',
@@ -21,6 +22,42 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
     classSeeking: 'Class 1',
     message: '',
   });
+
+  // Focus trap & Escape key listener
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key === 'Tab') {
+        if (!dialogRef.current) return;
+        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,6 +110,10 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
 
           {/* Modal Dialog */}
           <motion.div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="admission-modal-title"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -119,7 +160,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Admissions 2027–28</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white leading-tight">
+                  <h3 id="admission-modal-title" className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white leading-tight">
                     Start Your Child&apos;s Journey
                   </h3>
                   <p className="text-slate-600 dark:text-white/70 text-xs sm:text-sm mt-1">

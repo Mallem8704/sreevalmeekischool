@@ -49,8 +49,15 @@ export default function BlockShowcase() {
     setActiveIndex((prev) => (prev + 1) % total);
   };
 
-  // Auto-slide every 6 seconds, pausing on hover
+  // Auto-slide every 6 seconds, pausing on hover or if reduced motion preferred
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsPaused(true);
+      return;
+    }
     if (isPaused) return;
     const interval = setInterval(() => {
       setDirection(1);
@@ -311,6 +318,15 @@ export default function BlockShowcase() {
                             aria-label={`Go to slide ${dotIdx + 1}`}
                           />
                         ))}
+                        <button
+                          type="button"
+                          onClick={() => setIsPaused((prev) => !prev)}
+                          className="w-6 h-6 rounded-full bg-transparent hover:bg-slate-200 dark:hover:bg-white/10 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center justify-center transition-colors cursor-pointer ml-1"
+                          aria-label={isPaused ? 'Resume block auto-sliding' : 'Pause block auto-sliding'}
+                          title={isPaused ? 'Play' : 'Pause'}
+                        >
+                          {isPaused ? <Play className="w-3 h-3" /> : <Pause className="w-3 h-3" />}
+                        </button>
                       </div>
 
                       <div className="flex items-center gap-1 sm:hidden">

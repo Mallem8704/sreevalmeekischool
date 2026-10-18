@@ -189,6 +189,16 @@ export default function AcademicSystemStory() {
     setProgress(0);
   };
 
+  // Check for prefers-reduced-motion
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsPaused(true);
+    }
+  }, []);
+
   // Auto-advance interval
   useEffect(() => {
     if (isPaused) return;
