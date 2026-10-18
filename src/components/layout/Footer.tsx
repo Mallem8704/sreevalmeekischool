@@ -15,13 +15,13 @@ export default function Footer() {
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pb-12 border-b border-white/10 gap-8">
           <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-2xl p-2 border border-white/15 shrink-0 shadow-lg overflow-hidden flex items-center justify-center">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-[#07101E] rounded-2xl p-2 border border-[#D4A853]/40 shrink-0 shadow-xl overflow-hidden flex items-center justify-center">
               <Image
                 src="/images/logo/valmeeki_emblem.svg"
                 alt="Sree Valmeeki E.M High School Crest"
                 fill
                 sizes="80px"
-                className="object-contain rounded-xl"
+                className="object-contain rounded-xl drop-shadow-md"
                 unoptimized
               />
             </div>

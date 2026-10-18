@@ -134,12 +134,33 @@ const yearRecords: Record<string, YearResultRecord> = {
       { subject: 'Science', score: '96 / 100', students: 'Full Batch Pass' },
     ],
   },
+  '2021': {
+    year: '2021',
+    batchTag: 'HISTORIC HAT-TRICK BATCH',
+    topStudent: {
+      name: 'U. Bhavana',
+      score: '589 / 600 (98.2%)',
+      rank: 'SSC Kadiri Town 1st Rank',
+      image: '/images/school/school-event-5.jpg',
+      quote: '“Secured town 1st rank with 589/600 and completed the historic hat-trick record for Sree Valmeeki.”',
+    },
+    metrics: {
+      passRate: '95%',
+      distinctions: '85%',
+      perfectCentums: '49 Scored 550+',
+    },
+    subjectToppers: [
+      { subject: 'Mathematics & Science', score: '100 / 100', students: 'Top Honors' },
+      { subject: 'Telugu First Language', score: '99 / 100', students: 'Board Distinction' },
+      { subject: 'English & Social', score: '98 / 100', students: 'Full Batch Merit' },
+    ],
+  },
 };
 
 export default function ResultsTimeline() {
   const [selectedYear, setSelectedYear] = useState('2025');
   const record = yearRecords[selectedYear] || yearRecords['2025'];
-  const years = ['2026', '2025', '2024', '2023', '2022'];
+  const years = ['2026', '2025', '2024', '2023', '2022', '2021'];
 
   return (
     <section className="relative w-full py-20 sm:py-28 bg-[#F8FAFC] dark:bg-[#050D1A] text-[#0A1628] dark:text-white border-t border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-200">
@@ -273,6 +294,17 @@ export default function ResultsTimeline() {
                 <blockquote className="border-l-2 border-[#D4A853] pl-4 italic text-slate-600 dark:text-slate-300 text-xs sm:text-sm">
                   {record.topStudent.quote}
                 </blockquote>
+
+                {/* Pamphlet Archive Link */}
+                <div className="pt-2">
+                  <a
+                    href="#official-pamphlets"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] hover:underline"
+                  >
+                    <span>View Official Published Results Pamphlets Archive (5 Batches)</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>

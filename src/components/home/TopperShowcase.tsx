@@ -163,15 +163,35 @@ const toppers: TopperProfile[] = [
   {
     year: '2022–23 BATCH',
     yearShort: '2022–23',
-    name: 'K. Bhanu Prakash',
+    name: 'Ramalingi Chowdary',
     marks: '585',
     total: '/ 600',
     percentage: '97.5%',
-    rankBadge: 'Town 1st Rank',
+    rankBadge: 'Mass Vijayabheri Town 1st Rank',
     board: 'SSC Board • Andhra Pradesh',
     subjects: '99 in Mathematics • 98 in General Science • 97 in Telugu',
     image: '/images/school/school-event-1.jpg',
     quote: '“The faculty never treated education as memorization; they trained us to solve problems logically with calm discipline.”',
+    pamphlet: {
+      title: '2022–23 SSC Results Official Pamphlet',
+      description: 'Official SSC 2022–23 results pamphlet celebrating Valmeeki\'s Mass Vijayabheri: 96% pass record among 350 students, 57 scored 550+, 147 scored 500+, led by Ramalingi Chowdary (585/600) and B. Hemalatha (584/600).',
+      front: {
+        src: '/images/pamphlets/pamphlet_2022_23_front.jpg',
+        label: 'Front Side — Mass Vijayabheri & 585/600 Star Achievers',
+        subtitle: 'Ramalingi Chowdary 585/600, B. Hemalatha 584/600, Yamini Devi 580/600 • 57 Above 550, 147 Above 500',
+      },
+      back: {
+        src: '/images/pamphlets/pamphlet_2022_23_back.jpg',
+        label: 'Back Side — Complete Batch Merit Directory',
+        subtitle: 'Official student directory with photographs, scores and distinction rolls',
+      },
+      stats: {
+        rank1: 'Ramalingi Chowdary (585/600)',
+        above580: '12+ Students',
+        above550: '57 Students',
+        totalPassed: '350 Candidates (96% Pass)',
+      },
+    },
   },
   {
     year: '2021–22 BATCH',
@@ -185,6 +205,39 @@ const toppers: TopperProfile[] = [
     subjects: '99 in Mathematics • 98 in English • 96 in Science',
     image: '/images/school/school-event-3.jpg',
     quote: '“Valmeeki gave us an environment where girls were encouraged to lead, speak on stage, and excel in every competitive exam.”',
+  },
+  {
+    year: '2020–21 BATCH',
+    yearShort: '2020–21',
+    name: 'U. Bhavana',
+    marks: '589',
+    total: '/ 600',
+    percentage: '98.2%',
+    rankBadge: 'Town 1st Rank (Hat-Trick Record)',
+    board: 'SSC Board • Andhra Pradesh',
+    subjects: '100 in Mathematics • 99 in Science • 98 in Social',
+    image: '/images/school/school-event-5.jpg',
+    quote: '“Valmeeki gave us an unstoppable foundation to secure the town top rank and complete the historic hat-trick record.”',
+    pamphlet: {
+      title: '2020–21 SSC Results Official Pamphlet',
+      description: 'Official SSC 2020–21 results pamphlet celebrating Valmeeki\'s historic hat-trick record: 95% pass rate among 301 students, 49 scored 550+, 128 scored 500+, led by U. Bhavana (589/600) and Himaja (586/600).',
+      front: {
+        src: '/images/pamphlets/pamphlet_2020_21_front.jpg',
+        label: 'Front Side — Hat-Trick Record & 589/600 Top Achievers',
+        subtitle: 'U. Bhavana 589/600, Himaja 586/600, Gothika 585/600, Shilpa 585/600 • 49 Above 550, 128 Above 500',
+      },
+      back: {
+        src: '/images/pamphlets/pamphlet_2020_21_back.jpg',
+        label: 'Back Side — Complete Batch Distinction Roll',
+        subtitle: 'Official student marks and photo directory commemorating the distinction batch',
+      },
+      stats: {
+        rank1: 'U. Bhavana (589/600)',
+        above580: '11+ Students',
+        above550: '49 Students',
+        totalPassed: '301 Candidates (95% Pass)',
+      },
+    },
   },
 ];
 
@@ -266,7 +319,7 @@ export default function TopperShowcase() {
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-[family-name:var(--font-heading)] leading-[1.05] tracking-tight uppercase text-[#0A1628] dark:text-white">
-              5 YEARS. <br />
+              6 YEARS. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8860B] via-[#D4A853] to-[#8C6D23] dark:from-[#FBBF24] dark:via-[#D4A853] dark:to-[#E8C97D]">
                 A CONSISTENT STANDARD.
               </span>

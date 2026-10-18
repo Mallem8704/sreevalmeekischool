@@ -14,7 +14,10 @@ import {
   CheckCircle2, 
   ZoomIn, 
   ZoomOut,
-  RotateCcw
+  RotateCcw,
+  Sparkles,
+  Layers,
+  Eye
 } from 'lucide-react';
 
 interface PamphletBatch {
@@ -71,7 +74,7 @@ const PAMPHLETS: PamphletBatch[] = [
     year: '2023–24',
     badge: 'Verified Archive',
     title: '2023–24 SSC Results Pamphlet',
-    description: 'Original board examination results pamphlet for the 2023–24 batch documenting continuous 100% pass record and state distinctions.',
+    description: 'Original board examination results pamphlet for the 2023–24 batch documenting continuous 100% pass record, state distinctions, and town toppers.',
     front: {
       src: '/images/pamphlets/pamphlet_2023_24_front.jpg',
       label: 'Front Side — State & Town Distinction Achievers',
@@ -80,7 +83,39 @@ const PAMPHLETS: PamphletBatch[] = [
     back: {
       src: '/images/pamphlets/pamphlet_2023_24_back.jpg',
       label: 'Back Side — Complete Batch Directory',
-      subtitle: 'Official student directory and merit records',
+      subtitle: 'Official student directory and merit records (30 students 580+, 132 students 550+)',
+    },
+  },
+  {
+    year: '2022–23',
+    badge: 'Mass Vijayabheri • Verified Archive',
+    title: '2022–23 SSC Results Pamphlet',
+    description: 'Official SSC 2022–23 results pamphlet celebrating Valmeeki\'s mass triumph: out of 350 students, 96% pass record, 57 scored 550+, 147 scored 500+, led by Ramalingi Chowdary (585/600) and B. Hemalatha (584/600).',
+    front: {
+      src: '/images/pamphlets/pamphlet_2022_23_front.jpg',
+      label: 'Front Side — Mass Vijayabheri & 585/600 Star Achievers',
+      subtitle: 'Ramalingi Chowdary 585/600, B. Hemalatha 584/600, Yamini Devi 580/600 • 57 Above 550, 147 Above 500',
+    },
+    back: {
+      src: '/images/pamphlets/pamphlet_2022_23_back.jpg',
+      label: 'Back Side — Complete Batch Merit Directory',
+      subtitle: 'Official student directory with photographs, scores and distinction rolls for the 2022–23 batch',
+    },
+  },
+  {
+    year: '2020–21',
+    badge: 'Historic Hat-Trick Record',
+    title: '2020–21 SSC Results Pamphlet',
+    description: 'Official SSC 2020–21 results pamphlet celebrating Valmeeki\'s historic hat-trick record: 95% pass rate among 301 students, 49 scored 550+, 128 scored 500+, led by U. Bhavana (589/600) and Himaja (586/600).',
+    front: {
+      src: '/images/pamphlets/pamphlet_2020_21_front.jpg',
+      label: 'Front Side — Hat-Trick Record & 589/600 Top Achievers',
+      subtitle: 'U. Bhavana 589/600, Himaja 586/600, Gothika 585/600, Shilpa 585/600 • 49 Above 550, 128 Above 500',
+    },
+    back: {
+      src: '/images/pamphlets/pamphlet_2020_21_back.jpg',
+      label: 'Back Side — Complete Batch Distinction Roll',
+      subtitle: 'Official student marks and photo directory commemorating the distinction batch',
     },
   },
 ];
@@ -88,11 +123,28 @@ const PAMPHLETS: PamphletBatch[] = [
 export default function OfficialPamphletShowcase() {
   const [selectedYearIndex, setSelectedYearIndex] = useState(0);
   const [selectedSide, setSelectedSide] = useState<'front' | 'back'>('front');
+  const [viewMode, setViewMode] = useState<'both' | 'single'>('both');
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
 
   const currentBatch = PAMPHLETS[selectedYearIndex];
   const currentSideData = selectedSide === 'front' ? currentBatch.front : currentBatch.back;
+
+  const openLightbox = (side: 'front' | 'back') => {
+    setSelectedSide(side);
+    setZoomLevel(1);
+    setIsLightboxOpen(true);
+  };
+
+  const nextBatch = () => {
+    setSelectedYearIndex((prev) => (prev + 1) % PAMPHLETS.length);
+    setZoomLevel(1);
+  };
+
+  const prevBatch = () => {
+    setSelectedYearIndex((prev) => (prev - 1 + PAMPHLETS.length) % PAMPHLETS.length);
+    setZoomLevel(1);
+  };
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -134,7 +186,7 @@ export default function OfficialPamphletShowcase() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/35 dark:border-[#D4A853]/50 text-[#B8860B] dark:text-[#FBBF24] text-xs font-black tracking-widest uppercase mb-4 shadow-xs">
             <Award className="w-3.5 h-3.5" />
-            <span>OFFICIAL RESULTS PAMPHLETS • ORIGINAL PRINTS</span>
+            <span>OFFICIAL RESULTS PAMPHLETS • 5 BATCH ARCHIVE</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-[family-name:var(--font-heading)] leading-tight tracking-tight uppercase text-[#0A1628] dark:text-white">
@@ -145,17 +197,17 @@ export default function OfficialPamphletShowcase() {
           </h2>
 
           <p className="mt-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-[family-name:var(--font-body)]">
-            Explore the authentic, published school pamphlets exactly as released to parents and public. Every topper score, rank certificate, and individual student mark is documented with 100% transparency.
+            Explore authentic, published school pamphlets exactly as printed and released to parents. Every topper score, rank certificate, and individual student mark is documented with 100% transparency.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 text-xs font-semibold">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>2027–28 Academic Session Currently in Progress • Admissions Open 2027–28</span>
+            <span>2026–27 Academic Session Currently in Progress • Admissions Open</span>
           </div>
         </div>
 
         {/* Batch & Side Controls Bar */}
-        <div className="bg-white dark:bg-[#0A1628] rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-white/10 shadow-lg shadow-black/5 mb-8">
+        <div className="bg-white dark:bg-[#0A1628] rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-white/10 shadow-lg shadow-black/5 mb-6 sm:mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Batch Year Switcher Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
@@ -167,7 +219,10 @@ export default function OfficialPamphletShowcase() {
                 return (
                   <button
                     key={batch.year}
-                    onClick={() => setSelectedYearIndex(index)}
+                    onClick={() => {
+                      setSelectedYearIndex(index);
+                      setZoomLevel(1);
+                    }}
                     className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
                       isSelected
                         ? 'bg-gradient-to-r from-[#D4A853] to-[#B8860B] text-[#0A1628] shadow-md shadow-[#D4A853]/25 font-black scale-[1.02]'
@@ -180,171 +235,468 @@ export default function OfficialPamphletShowcase() {
                         Latest
                       </span>
                     )}
+                    {(batch.year === '2022–23' || batch.year === '2020–21') && (
+                      <span className="px-1.5 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-bold uppercase">
+                        Added
+                      </span>
+                    )}
                   </button>
                 );
               })}
             </div>
 
-            {/* Front / Back Side Toggle */}
+            {/* View Mode & Side Toggle */}
             <div className="flex items-center gap-2">
               <div className="inline-flex bg-slate-100 dark:bg-white/5 p-1 rounded-xl border border-slate-200 dark:border-white/10 w-full sm:w-auto">
                 <button
-                  onClick={() => setSelectedSide('front')}
-                  className={`flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                    selectedSide === 'front'
+                  onClick={() => setViewMode('both')}
+                  className={`flex-1 sm:flex-initial px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                    viewMode === 'both'
                       ? 'bg-white dark:bg-[#152D5E] text-[#0A1628] dark:text-white shadow-xs font-black'
                       : 'text-slate-600 dark:text-slate-400 hover:text-[#0A1628] dark:hover:text-white'
                   }`}
+                  title="Show both Front and Back pamphlets side-by-side"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                  <span>Front Side (Rankers)</span>
+                  <Layers className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                  <span>Both Sides</span>
                 </button>
                 <button
-                  onClick={() => setSelectedSide('back')}
-                  className={`flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                    selectedSide === 'back'
+                  onClick={() => setViewMode('single')}
+                  className={`flex-1 sm:flex-initial px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                    viewMode === 'single'
                       ? 'bg-white dark:bg-[#152D5E] text-[#0A1628] dark:text-white shadow-xs font-black'
                       : 'text-slate-600 dark:text-slate-400 hover:text-[#0A1628] dark:hover:text-white'
                   }`}
+                  title="Focus on one side at a time"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                  <span>Back Side (All Students)</span>
+                  <Eye className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                  <span>Single Focus</span>
                 </button>
               </div>
 
-              {/* Lightbox Trigger Button */}
-              <button
-                onClick={() => setIsLightboxOpen(true)}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/10 text-xs font-bold transition-colors cursor-pointer"
-                title="Fullscreen Zoom View"
-              >
-                <Maximize2 className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
-                <span>Zoom HD</span>
-              </button>
-
-              {/* Direct Download Button */}
-              <a
-                href={currentSideData.src}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#0A1628] dark:bg-white/10 hover:bg-[#152D5E] dark:hover:bg-white/20 text-white text-xs font-bold transition-colors cursor-pointer"
-                title="Download High-Resolution Image"
-              >
-                <Download className="w-3.5 h-3.5 text-[#FBBF24]" />
-                <span>Download</span>
-              </a>
+              {/* Prev / Next Chevrons */}
+              <div className="hidden sm:flex items-center gap-1">
+                <button
+                  onClick={prevBatch}
+                  className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 transition-all cursor-pointer"
+                  title="Previous Academic Batch"
+                  aria-label="Previous Batch"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={nextBatch}
+                  className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 transition-all cursor-pointer"
+                  title="Next Academic Batch"
+                  aria-label="Next Batch"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Current Pamphlet Info Strip */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-2 mb-4">
-          <div>
-            <h3 className="text-base sm:text-lg font-bold text-[#0A1628] dark:text-white flex items-center gap-2">
-              <span>{currentBatch.title}</span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30">
-                {selectedSide === 'front' ? 'Front Side' : 'Back Side'}
-              </span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-              {currentSideData.subtitle}
-            </p>
-          </div>
+        {/* Selected Batch Meta Header */}
+        <div className="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent dark:from-[#D4A853]/15 dark:via-[#D4A853]/5 dark:to-transparent rounded-2xl p-4 sm:p-5 border border-[#D4A853]/30 mb-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div>
+              <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#D4A853] text-[#0A1628] font-black text-xs uppercase tracking-wider">
+                  {currentBatch.year} Batch
+                </span>
+                <span className="px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 text-xs font-bold">
+                  {currentBatch.badge}
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Ultra-HD Scanned Original Print</span>
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
+                {currentBatch.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-4xl leading-relaxed">
+                {currentBatch.description}
+              </p>
+            </div>
 
-          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>Ultra-HD 3200px Scanned Original</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => openLightbox('front')}
+                className="px-3.5 py-2 rounded-xl bg-[#0A1628] dark:bg-white/10 hover:bg-[#152D5E] dark:hover:bg-white/20 text-white text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shadow-sm"
+              >
+                <Maximize2 className="w-3.5 h-3.5 text-[#FBBF24]" />
+                <span>Fullscreen Gallery</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Main Pamphlet Image Display Card */}
-        <div className="relative group bg-white dark:bg-[#0A1628] rounded-2xl sm:rounded-3xl border-2 border-slate-200 dark:border-white/10 p-2 sm:p-4 shadow-xl shadow-black/5 overflow-hidden">
-          {/* Clickable Image with Zoom Overlay Hint */}
-          <div 
-            onClick={() => setIsLightboxOpen(true)}
-            className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/11.5] max-h-[820px] rounded-xl sm:rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 flex items-center justify-center group"
-          >
-            <Image
-              src={currentSideData.src}
-              alt={`${currentBatch.title} - ${currentSideData.label}`}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-              priority={selectedYearIndex === 0}
-              className="object-contain transition-transform duration-500 group-hover:scale-[1.015]"
-              quality={95}
-              unoptimized
-            />
+        {/* =========================================================================
+            VIEW MODE 1: BOTH SIDES (SIDE-BY-SIDE ON DESKTOP, STACKED ON MOBILE)
+        ========================================================================= */}
+        {viewMode === 'both' ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* 1. FRONT SIDE PAMPHLET CARD */}
+            <div className="bg-white dark:bg-[#0A1628] rounded-2xl sm:rounded-3xl border-2 border-slate-200 dark:border-white/10 p-3 sm:p-5 shadow-xl shadow-black/5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-white/10">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 text-xs font-black uppercase tracking-wider">
+                      <FileText className="w-3 h-3" />
+                      <span>1. FRONT SIDE • TOPPERS & STAR ACHIEVERS</span>
+                    </span>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
+                      {currentBatch.front.subtitle}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openLightbox('front')}
+                    className="p-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+                    title="Fullscreen Zoom"
+                  >
+                    <Maximize2 className="w-4 h-4 text-[#B8860B] dark:text-[#D4A853]" />
+                  </button>
+                </div>
 
-            {/* Hover Floating Overlay */}
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-              <div className="px-4 py-2 rounded-full bg-[#0A1628]/90 text-white border border-[#D4A853]/40 shadow-xl flex items-center gap-2 text-xs font-bold backdrop-blur-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <Maximize2 className="w-4 h-4 text-[#FBBF24]" />
-                <span>Click for Fullscreen Ultra-HD Zoom</span>
+                {/* Pamphlet Image with Subtle Hover Zoom */}
+                <div 
+                  onClick={() => openLightbox('front')}
+                  className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-xl sm:rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-md group flex items-center justify-center"
+                >
+                  <Image
+                    src={currentBatch.front.src}
+                    alt={`${currentBatch.title} - Front Side`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={selectedYearIndex === 0}
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    quality={92}
+                    unoptimized
+                  />
+
+                  {/* Desktop Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                    <div className="px-4 py-2 rounded-full bg-[#0A1628]/95 text-white border border-[#D4A853]/50 shadow-2xl flex items-center gap-2 text-xs font-bold backdrop-blur-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                      <Maximize2 className="w-4 h-4 text-[#FBBF24]" />
+                      <span>Click for Fullscreen Ultra-HD Zoom</span>
+                    </div>
+                  </div>
+
+                  {/* Corner Badge */}
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#0A1628]/85 backdrop-blur-md text-white text-[10px] font-bold border border-white/15 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FBBF24]" />
+                    <span>Front Side</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Card Actions */}
+              <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-2 text-xs">
+                <span className="text-slate-500 dark:text-slate-400 truncate max-w-[220px] sm:max-w-none">
+                  {currentBatch.front.label}
+                </span>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <a
+                    href={currentBatch.front.src}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
+                    title="Download Front Pamphlet"
+                  >
+                    <Download className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                  </a>
+                  <button
+                    onClick={() => openLightbox('front')}
+                    className="px-3 py-1.5 rounded-lg bg-[#D4A853] hover:bg-[#B8860B] text-[#0A1628] font-black transition-colors cursor-pointer flex items-center gap-1"
+                  >
+                    <Maximize2 className="w-3 h-3" />
+                    <span>Zoom HD</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Corner Badge */}
-            <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-[#0A1628]/80 backdrop-blur-md text-white text-[11px] font-bold border border-white/15 flex items-center gap-1.5 shadow-md">
-              <span className="w-2 h-2 rounded-full bg-[#FBBF24]" />
-              <span>{currentBatch.year} SSC Results Pamphlet</span>
+            {/* 2. BACK SIDE PAMPHLET CARD */}
+            <div className="bg-white dark:bg-[#0A1628] rounded-2xl sm:rounded-3xl border-2 border-slate-200 dark:border-white/10 p-3 sm:p-5 shadow-xl shadow-black/5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-white/10">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30 text-xs font-black uppercase tracking-wider">
+                      <FileText className="w-3 h-3" />
+                      <span>2. BACK SIDE • COMPLETE MERIT & MARKS ROLL</span>
+                    </span>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
+                      {currentBatch.back.subtitle}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openLightbox('back')}
+                    className="p-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+                    title="Fullscreen Zoom"
+                  >
+                    <Maximize2 className="w-4 h-4 text-[#B8860B] dark:text-[#D4A853]" />
+                  </button>
+                </div>
+
+                {/* Pamphlet Image with Subtle Hover Zoom */}
+                <div 
+                  onClick={() => openLightbox('back')}
+                  className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-xl sm:rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-md group flex items-center justify-center"
+                >
+                  <Image
+                    src={currentBatch.back.src}
+                    alt={`${currentBatch.title} - Back Side`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={selectedYearIndex === 0}
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    quality={92}
+                    unoptimized
+                  />
+
+                  {/* Desktop Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                    <div className="px-4 py-2 rounded-full bg-[#0A1628]/95 text-white border border-[#D4A853]/50 shadow-2xl flex items-center gap-2 text-xs font-bold backdrop-blur-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                      <Maximize2 className="w-4 h-4 text-[#FBBF24]" />
+                      <span>Click for Fullscreen Ultra-HD Zoom</span>
+                    </div>
+                  </div>
+
+                  {/* Corner Badge */}
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#0A1628]/85 backdrop-blur-md text-white text-[10px] font-bold border border-white/15 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FBBF24]" />
+                    <span>Back Side</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Card Actions */}
+              <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-2 text-xs">
+                <span className="text-slate-500 dark:text-slate-400 truncate max-w-[220px] sm:max-w-none">
+                  {currentBatch.back.label}
+                </span>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <a
+                    href={currentBatch.back.src}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
+                    title="Download Back Pamphlet"
+                  >
+                    <Download className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                  </a>
+                  <button
+                    onClick={() => openLightbox('back')}
+                    className="px-3 py-1.5 rounded-lg bg-[#D4A853] hover:bg-[#B8860B] text-[#0A1628] font-black transition-colors cursor-pointer flex items-center gap-1"
+                  >
+                    <Maximize2 className="w-3 h-3" />
+                    <span>Zoom HD</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          /* =========================================================================
+              VIEW MODE 2: SINGLE FOCUS VIEW (WITH SWITCH TABS)
+          ========================================================================= */
+          <div className="relative group bg-white dark:bg-[#0A1628] rounded-2xl sm:rounded-3xl border-2 border-slate-200 dark:border-white/10 p-3 sm:p-5 shadow-xl shadow-black/5 overflow-hidden">
+            {/* Top Toggle Strip */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-100 dark:border-white/10">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-[#0A1628] dark:text-white flex items-center gap-2">
+                  <span>{currentBatch.title}</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-[#D4A853]/20 text-[#B8860B] dark:text-[#FBBF24] border border-[#D4A853]/30">
+                    {selectedSide === 'front' ? 'Front Side (Toppers)' : 'Back Side (Complete Directory)'}
+                  </span>
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                  {currentSideData.subtitle}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="inline-flex bg-slate-100 dark:bg-white/5 p-1 rounded-xl border border-slate-200 dark:border-white/10">
+                  <button
+                    onClick={() => setSelectedSide('front')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                      selectedSide === 'front'
+                        ? 'bg-white dark:bg-[#152D5E] text-[#0A1628] dark:text-white shadow-xs font-black'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-[#0A1628] dark:hover:text-white'
+                    }`}
+                  >
+                    <span>1. Front Side</span>
+                  </button>
+                  <button
+                    onClick={() => setSelectedSide('back')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                      selectedSide === 'back'
+                        ? 'bg-white dark:bg-[#152D5E] text-[#0A1628] dark:text-white shadow-xs font-black'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-[#0A1628] dark:hover:text-white'
+                    }`}
+                  >
+                    <span>2. Back Side</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Side Switch Arrow Overlays (Mobile / Quick Click) */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedSide(selectedSide === 'front' ? 'back' : 'front');
-              }}
-              className="absolute right-3 top-3 px-3 py-1.5 rounded-lg bg-[#0A1628]/85 hover:bg-[#0A1628] text-white text-xs font-bold border border-white/15 flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
-              title="Flip to other side"
+            {/* Clickable Image Container */}
+            <div 
+              onClick={() => openLightbox(selectedSide)}
+              className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/11.5] max-h-[820px] rounded-xl sm:rounded-2xl overflow-hidden cursor-zoom-in bg-slate-100 dark:bg-slate-900 flex items-center justify-center group"
             >
-              <span>Flip to {selectedSide === 'front' ? 'Back Side' : 'Front Side'}</span>
-              <RotateCcw className="w-3.5 h-3.5 text-[#FBBF24]" />
-            </button>
+              <Image
+                src={currentSideData.src}
+                alt={`${currentBatch.title} - ${currentSideData.label}`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                priority={selectedYearIndex === 0}
+                className="object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+                quality={92}
+                unoptimized
+              />
+
+              {/* Hover Floating Overlay */}
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                <div className="px-4 py-2 rounded-full bg-[#0A1628]/90 text-white border border-[#D4A853]/40 shadow-xl flex items-center gap-2 text-xs font-bold backdrop-blur-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <Maximize2 className="w-4 h-4 text-[#FBBF24]" />
+                  <span>Click for Fullscreen Ultra-HD Zoom</span>
+                </div>
+              </div>
+
+              {/* Corner Badge */}
+              <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-[#0A1628]/80 backdrop-blur-md text-white text-[11px] font-bold border border-white/15 flex items-center gap-1.5 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-[#FBBF24]" />
+                <span>{currentBatch.year} SSC Results Pamphlet</span>
+              </div>
+
+              {/* Side Switch Overlay */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedSide(selectedSide === 'front' ? 'back' : 'front');
+                }}
+                className="absolute right-3 top-3 px-3 py-1.5 rounded-lg bg-[#0A1628]/85 hover:bg-[#0A1628] text-white text-xs font-bold border border-white/15 flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
+                title="Flip to other side"
+              >
+                <span>Flip to {selectedSide === 'front' ? 'Back Side' : 'Front Side'}</span>
+                <RotateCcw className="w-3.5 h-3.5 text-[#FBBF24]" />
+              </button>
+            </div>
+
+            {/* Bottom Card Footer */}
+            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <span className="text-slate-500 dark:text-slate-400">
+                Showing: <strong className="text-[#0A1628] dark:text-white">{currentSideData.label}</strong>
+              </span>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href={currentSideData.src}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 font-bold transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#B8860B] dark:text-[#D4A853]" />
+                  <span>Download</span>
+                </a>
+                <button
+                  onClick={() => openLightbox(selectedSide)}
+                  className="px-3.5 py-1.5 rounded-lg bg-[#D4A853] text-[#0A1628] font-black shadow-xs hover:bg-[#B8860B] transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <Maximize2 className="w-3 h-3" />
+                  <span>Fullscreen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            BROWSE ALL 5 BATCHES GALLERY GRID (COMPREHENSIVE ACCESS)
+        ========================================================================= */}
+        <div className="mt-12 sm:mt-16">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="text-lg sm:text-xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
+                5 Academic Batches In The Archive
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                Click any academic year to inspect its original published front and back results pamphlets.
+              </p>
+            </div>
           </div>
 
-          {/* Bottom Card Action Footer */}
-          <div className="mt-3 sm:mt-4 pt-3 border-t border-slate-100 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
-            <span className="text-slate-500 dark:text-slate-400">
-              Showing: <strong className="text-[#0A1628] dark:text-white">{currentSideData.label}</strong>
-            </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {PAMPHLETS.map((batch, index) => {
+              const isSelected = selectedYearIndex === index;
+              return (
+                <div
+                  key={batch.year}
+                  onClick={() => {
+                    setSelectedYearIndex(index);
+                    window.scrollTo({ top: document.getElementById('official-pamphlets')?.offsetTop ?? 0, behavior: 'smooth' });
+                  }}
+                  className={`rounded-2xl p-3 border transition-all cursor-pointer flex flex-col justify-between ${
+                    isSelected
+                      ? 'bg-amber-500/10 dark:bg-[#D4A853]/15 border-[#D4A853] shadow-md ring-2 ring-[#D4A853]/40'
+                      : 'bg-white dark:bg-[#0A1628] border-slate-200 dark:border-white/10 hover:border-[#D4A853]/50 hover:shadow-lg'
+                  }`}
+                >
+                  <div>
+                    {/* Mini Image Preview */}
+                    <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 mb-2.5">
+                      <Image
+                        src={batch.front.src}
+                        alt={`${batch.year} Pamphlet Thumbnail`}
+                        fill
+                        sizes="240px"
+                        className="object-cover"
+                        unoptimized
+                      />
+                      <div className="absolute top-1.5 left-1.5 px-2 py-0.5 rounded bg-[#0A1628]/90 text-white text-[9px] font-black uppercase">
+                        {batch.year}
+                      </div>
+                      {index === 0 && (
+                        <div className="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded bg-[#D4A853] text-[#0A1628] text-[8px] font-black uppercase">
+                          Latest
+                        </div>
+                      )}
+                    </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setSelectedSide('front')}
-                className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition-colors cursor-pointer ${
-                  selectedSide === 'front'
-                    ? 'bg-amber-100 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border-[#D4A853]/40'
-                    : 'border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                1. Front (Rankers)
-              </button>
-              <button
-                onClick={() => setSelectedSide('back')}
-                className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition-colors cursor-pointer ${
-                  selectedSide === 'back'
-                    ? 'bg-amber-100 dark:bg-[#D4A853]/25 text-[#B8860B] dark:text-[#FBBF24] border-[#D4A853]/40'
-                    : 'border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                2. Back (All Marks)
-              </button>
-              <button
-                onClick={() => setIsLightboxOpen(true)}
-                className="px-3 py-1.5 rounded-lg bg-[#D4A853] text-[#0A1628] font-bold shadow-xs hover:bg-[#B8860B] transition-colors cursor-pointer flex items-center gap-1"
-              >
-                <Maximize2 className="w-3 h-3" />
-                <span>Fullscreen</span>
-              </button>
-            </div>
+                    <h4 className="text-xs sm:text-sm font-black text-[#0A1628] dark:text-white line-clamp-1">
+                      {batch.year} Batch
+                    </h4>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-1 leading-snug">
+                      {batch.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-[#B8860B] dark:text-[#FBBF24]">
+                      2 Sides Scanned
+                    </span>
+                    <span className="font-semibold text-slate-400 group-hover:text-[#0A1628] dark:group-hover:text-white">
+                      {isSelected ? 'Viewing' : 'Explore →'}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
 
       {/* =======================================================================
-          FULLSCREEN LIGHTBOX MODAL WITH ZOOM & PAN CAPABILITIES
+          FULLSCREEN LIGHTBOX MODAL WITH ZOOM, FLIP & PAN CAPABILITIES
       ======================================================================= */}
       <AnimatePresence>
         {isLightboxOpen && (
@@ -356,24 +708,24 @@ export default function OfficialPamphletShowcase() {
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col"
           >
             {/* Lightbox Top Control Bar */}
-            <div className="flex items-center justify-between p-3 sm:p-4 bg-black/60 border-b border-white/10 text-white shrink-0 z-20">
+            <div className="flex items-center justify-between p-3 sm:p-4 bg-black/70 border-b border-white/10 text-white shrink-0 z-20">
               <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                 <div className="px-2.5 py-1 rounded-md bg-[#D4A853] text-[#0A1628] text-xs font-black uppercase tracking-wider shrink-0">
                   {currentBatch.year} Batch
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-sm sm:text-base font-bold text-white truncate">
+                  <h4 className="text-xs sm:text-base font-bold text-white truncate">
                     {currentBatch.title} • {selectedSide === 'front' ? 'Front Side' : 'Back Side'}
                   </h4>
-                  <p className="text-xs text-white/60 truncate hidden sm:block">
+                  <p className="text-[11px] sm:text-xs text-white/60 truncate hidden sm:block">
                     {currentSideData.subtitle}
                   </p>
                 </div>
               </div>
 
-              {/* Controls: Zoom, Side Switch, Download, Close */}
+              {/* Controls: Zoom, Side Switch, Batch Switch, Download, Close */}
               <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                {/* Side Toggle inside modal */}
+                {/* Front / Back Toggle inside modal */}
                 <div className="inline-flex bg-white/10 p-0.5 rounded-lg border border-white/15 mr-1">
                   <button
                     onClick={() => {
@@ -399,18 +751,38 @@ export default function OfficialPamphletShowcase() {
                   </button>
                 </div>
 
-                {/* Zoom In / Out */}
+                {/* Batch Prev/Next in Lightbox */}
+                <button
+                  onClick={prevBatch}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title="Previous Batch"
+                  aria-label="Previous Batch"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={nextBatch}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title="Next Batch"
+                  aria-label="Next Batch"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Zoom Controls */}
                 <button
                   onClick={() => setZoomLevel((prev) => Math.min(prev + 0.5, 3))}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer hidden sm:flex"
                   title="Zoom In"
+                  aria-label="Zoom In"
                 >
                   <ZoomIn className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setZoomLevel((prev) => Math.max(prev - 0.5, 1))}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer hidden sm:flex"
                   title="Zoom Out"
+                  aria-label="Zoom Out"
                 >
                   <ZoomOut className="w-4 h-4" />
                 </button>
@@ -419,12 +791,13 @@ export default function OfficialPamphletShowcase() {
                     onClick={() => setZoomLevel(1)}
                     className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 hover:bg-white/20 text-[#FBBF24] flex items-center justify-center transition-colors cursor-pointer"
                     title="Reset Zoom"
+                    aria-label="Reset Zoom"
                   >
                     <RotateCcw className="w-4 h-4" />
                   </button>
                 )}
 
-                {/* Download */}
+                {/* Direct Download */}
                 <a
                   href={currentSideData.src}
                   download
@@ -432,6 +805,7 @@ export default function OfficialPamphletShowcase() {
                   rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#D4A853] hover:bg-[#B8860B] text-[#0A1628] flex items-center justify-center transition-colors cursor-pointer"
                   title="Download High Resolution"
+                  aria-label="Download Pamphlet"
                 >
                   <Download className="w-4 h-4" />
                 </a>
@@ -449,7 +823,7 @@ export default function OfficialPamphletShowcase() {
             </div>
 
             {/* Scrollable / Zoomable High-Res Image Canvas */}
-            <div className="flex-1 overflow-auto flex items-center justify-center p-2 sm:p-6 bg-black/90 cursor-grab active:cursor-grabbing">
+            <div className="flex-1 overflow-auto flex items-center justify-center p-2 sm:p-6 bg-black/95 cursor-grab active:cursor-grabbing">
               <div 
                 className="relative transition-transform duration-200 ease-out origin-center flex items-center justify-center min-w-full min-h-full"
                 style={{ transform: `scale(${zoomLevel})` }}
@@ -458,24 +832,27 @@ export default function OfficialPamphletShowcase() {
                 <img
                   src={currentSideData.src}
                   alt={`${currentBatch.title} - Fullscreen View`}
-                  className="max-h-[88vh] max-w-[95vw] object-contain rounded-lg shadow-2xl select-none"
+                  className="max-h-[85vh] max-w-[95vw] object-contain rounded-lg shadow-2xl select-none"
                 />
               </div>
             </div>
 
             {/* Bottom Footer inside Lightbox */}
-            <div className="p-3 bg-black/70 border-t border-white/10 text-center text-xs text-white/70 flex items-center justify-between px-4 sm:px-6">
+            <div className="p-3 bg-black/80 border-t border-white/10 text-center text-xs text-white/70 flex items-center justify-between px-4 sm:px-6">
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setSelectedSide(selectedSide === 'front' ? 'back' : 'front')}
+                  onClick={() => {
+                    setSelectedSide(selectedSide === 'front' ? 'back' : 'front');
+                    setZoomLevel(1);
+                  }}
                   className="text-[#FBBF24] hover:underline font-semibold flex items-center gap-1 cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Switch to {selectedSide === 'front' ? 'Back Side' : 'Front Side'}</span>
                 </button>
               </div>
-              <span>
-                Tip: Use Zoom buttons or double-tap to inspect individual marks and names in Ultra-HD.
+              <span className="hidden md:inline">
+                Ultra-HD original scan • Preserved 100% aspect ratio • Arrow keys to flip
               </span>
               <button
                 onClick={() => setIsLightboxOpen(false)}
