@@ -7,8 +7,25 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 import { Sparkles, Brain, CheckCircle2, ChevronRight, Phone, Trophy, Microscope, Calculator, Atom } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'IIT-JEE & NEET Foundation Program | Sree Valmeeki High School',
-  description: 'Specialized IIT-JEE, NEET, and Olympiad Foundation program integrated with the academic curriculum from Class 6 onwards in Kadiri.',
+  title: 'IIT-JEE & NEET Foundation | Sree Valmeeki School Kadiri',
+  description: 'Integrated IIT-JEE, NEET, and Olympiad foundation from Class 6 to 10 at Sree Valmeeki School Kadiri, emphasizing conceptual clarity and competitive edge.',
+  alternates: {
+    canonical: 'https://www.sreevalmeekischool.in/academics/iit-foundation',
+  },
+  openGraph: {
+    title: 'IIT-JEE & NEET Foundation | Sree Valmeeki School Kadiri',
+    description: 'Integrated IIT-JEE, NEET, and Olympiad foundation from Class 6 to 10 at Sree Valmeeki School Kadiri, emphasizing conceptual clarity and competitive edge.',
+    url: 'https://www.sreevalmeekischool.in/academics/iit-foundation',
+    siteName: 'Sree Valmeeki E.M School',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/campus/smart_learning_panel.jpg', width: 1200, height: 630, alt: 'IIT Foundation Smart Learning Panel' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'IIT-JEE & NEET Foundation | Sree Valmeeki School Kadiri',
+    description: 'Integrated IIT-JEE, NEET, and Olympiad foundation from Class 6 to 10 at Sree Valmeeki School Kadiri, emphasizing conceptual clarity and competitive edge.',
+  },
 };
 
 const subjects = [

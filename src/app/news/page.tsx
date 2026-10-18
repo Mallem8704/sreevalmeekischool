@@ -7,8 +7,25 @@ import FloatingButtons from '@/components/layout/FloatingButtons';
 import { Calendar, Bell, ArrowRight, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'News & Announcements | Sree Valmeeki High School',
-  description: 'Latest official notices, circulars, exam schedules, and community news from Sree Valmeeki High School.',
+  title: 'News & Official Circulars | Sree Valmeeki School Kadiri',
+  description: 'Stay updated with official news, admission circulars, academic calendar events, sports meets, and student announcements from Sree Valmeeki E.M School Kadiri.',
+  alternates: {
+    canonical: 'https://www.sreevalmeekischool.in/news',
+  },
+  openGraph: {
+    title: 'News & Official Circulars | Sree Valmeeki School Kadiri',
+    description: 'Stay updated with official news, admission circulars, academic calendar events, sports meets, and student announcements from Sree Valmeeki E.M School Kadiri.',
+    url: 'https://www.sreevalmeekischool.in/news',
+    siteName: 'Sree Valmeeki E.M School',
+    locale: 'en_IN',
+    type: 'website',
+    images: [{ url: '/images/school/school-event-1.jpg', width: 1200, height: 630, alt: 'Sree Valmeeki News' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'News & Official Circulars | Sree Valmeeki School Kadiri',
+    description: 'Stay updated with official news, admission circulars, academic calendar events, sports meets, and student announcements from Sree Valmeeki E.M School Kadiri.',
+  },
 };
 
 export default function NewsPage() {

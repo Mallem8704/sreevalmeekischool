@@ -5,8 +5,24 @@ import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Sree Valmeeki High School',
-  description: 'Privacy Policy and data protection terms of Sree Valmeeki High School, Kadiri.',
+  title: 'Privacy Policy & Data Terms | Sree Valmeeki School Kadiri',
+  description: 'Read the privacy policy, student data safety commitments, and parental consent practices under DPDP guidelines for Sree Valmeeki E.M School in Kadiri, AP.',
+  alternates: {
+    canonical: 'https://www.sreevalmeekischool.in/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy & Data Terms | Sree Valmeeki School Kadiri',
+    description: 'Read the privacy policy, student data safety commitments, and parental consent practices under DPDP guidelines for Sree Valmeeki E.M School in Kadiri, AP.',
+    url: 'https://www.sreevalmeekischool.in/privacy-policy',
+    siteName: 'Sree Valmeeki E.M School',
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy & Data Terms | Sree Valmeeki School Kadiri',
+    description: 'Read the privacy policy, student data safety commitments, and parental consent practices under DPDP guidelines for Sree Valmeeki E.M School in Kadiri, AP.',
+  },
 };
 
 export default function PrivacyPolicyPage() {

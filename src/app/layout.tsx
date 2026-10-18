@@ -28,6 +28,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.sreevalmeekischool.in'),
   title: "Sree Valmeeki E.M School – Nursery to 10th Class | English Medium School in Kadiri",
   description:
     "Sree Valmeeki E.M School – Nursery to 10th Class is an English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart learning, IIT Foundation, Olympiad preparation, Spoken English and transport facilities.",
@@ -106,13 +107,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "EducationalOrganization",
-              name: "Sree Valmeeki High School",
+              "@type": ["EducationalOrganization", "School"],
+              name: "Sree Valmeeki E.M School",
+              alternateName: ["Sree Valmeeki High School", "Valmeeki School Kadiri"],
               description:
-                "English-medium co-educational school in Kadiri offering education from Nursery to Class 10",
+                "English-medium co-educational school in Kadiri offering education from Nursery to Class 10 with smart classrooms, IIT Foundation, and Olympiad mentoring.",
               url: "https://www.sreevalmeekischool.in",
+              logo: "https://www.sreevalmeekischool.in/logo.png",
+              image: "https://www.sreevalmeekischool.in/images/campus/school_entrance_gate.jpg",
               telephone: "+919440468838",
-              foundingDate: "1999",
+              email: "info@sreevalmeekischool.in",
+              foundingDate: "1999-06-06",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Madanapalli Road / NH-205, Near Chowdeswari Temple",
@@ -123,10 +128,14 @@ export default function RootLayout({
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: "14.1155",
-                longitude: "78.1597",
+                latitude: "14.1118",
+                longitude: "78.1561",
               },
-              sameAs: [],
+              sameAs: [
+                "https://www.facebook.com/Sree-valmeeki-high-school-1574341916174521/",
+                "https://www.youtube.com/@Dhanunjay-t5v",
+                "https://instagram.com",
+              ],
             }),
           }}
         />

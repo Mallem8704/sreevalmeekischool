@@ -1,30 +1,81 @@
-'use client';
-
-import { use } from 'react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/layout/ScrollProgress';
 import FloatingButtons from '@/components/layout/FloatingButtons';
-import { ArrowLeft, ArrowRight, Calendar, Sparkles, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Quote } from 'lucide-react';
 import { eventStories } from '@/lib/data';
 import { notFound } from 'next/navigation';
+import { getBreadcrumbJsonLd } from '@/lib/schema';
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function EventStoryPage({ params }: EventPageProps) {
-  const resolvedParams = use(params);
+export function generateStaticParams() {
+  return eventStories.map((event) => ({
+    slug: event.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const event = eventStories.find((e) => e.slug === resolvedParams.slug);
+
+  if (!event) {
+    return {
+      title: 'Event Not Found | Sree Valmeeki High School',
+    };
+  }
+
+  const title = `${event.title} | Sree Valmeeki Kadiri`;
+  const description = event.summary.length > 160 ? `${event.summary.slice(0, 157)}...` : event.summary;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://www.sreevalmeekischool.in/events/${event.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.sreevalmeekischool.in/events/${event.slug}`,
+      siteName: 'Sree Valmeeki E.M School',
+      locale: 'en_IN',
+      type: 'article',
+      images: [{ url: event.coverImage, width: 1200, height: 630, alt: event.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
+}
+
+export default async function EventStoryPage({ params }: EventPageProps) {
+  const resolvedParams = await params;
   const event = eventStories.find((e) => e.slug === resolvedParams.slug) || eventStories[0];
 
   if (!event) {
     notFound();
   }
 
+  const breadcrumbLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: '/' },
+    { name: 'Events', url: '/events' },
+    { name: event.title, url: `/events/${event.slug}` },
+  ]);
+
   return (
     <main className="min-h-screen flex flex-col bg-[#FDFBF7] dark:bg-[#050D1A] text-[#0A1628] dark:text-white selection:bg-[#D4A853] selection:text-[#0A1628] transition-colors duration-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <ScrollProgress />
       <Header />
 
