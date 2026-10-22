@@ -23,9 +23,7 @@ const FounderAndSchoolStory = dynamic(() => import('@/components/home/FounderAnd
 const AcademicSystemStory = dynamic(() => import('@/components/home/AcademicSystemStory'));
 const VisualLearningSequence = dynamic(() => import('@/components/home/VisualLearningSequence'));
 const StarAchieversSection = dynamic(() => import('@/components/home/StarAchieversSection'));
-const TopperShowcase = dynamic(() => import('@/components/home/TopperShowcase'));
 const OfficialPamphletShowcase = dynamic(() => import('@/components/home/OfficialPamphletShowcase'));
-const ResultsTimeline = dynamic(() => import('@/components/home/ResultsTimeline'));
 const ExploreValmeekiSection = dynamic(() => import('@/components/home/campus/ExploreValmeekiSection'));
 const OneDayAtValmeeki = dynamic(() => import('@/components/home/OneDayAtValmeeki'));
 const MomentsGalleryPreview = dynamic(() => import('@/components/home/MomentsGalleryPreview'));
@@ -113,14 +111,8 @@ export default function HomePage() {
             {/* Official Star Achievers & Hall of Fame (Town 1st, Town 2nd, 200+ Interactive Student Cards) */}
             <StarAchieversSection onOpenAdmissions={() => setIsAdmissionsModalOpen(true)} />
 
-            {/* Signature Section: 3 Years of Consistent Results */}
-            <TopperShowcase />
-
             {/* Official Board Results Pamphlets Archive (Exact Images as Published) */}
             <OfficialPamphletShowcase />
-
-            {/* Result Timeline: 2026 - 2022 Interactive Historical Year Tabs */}
-            <ResultsTimeline />
           </section>
 
           {/* =========================================================================
