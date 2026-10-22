@@ -103,17 +103,17 @@ const PAMPHLETS: PamphletBatch[] = [
     },
   },
   {
-    year: '2020–21',
+    year: '2021–22',
     badge: 'Historic Hat-Trick Record',
-    title: '2020–21 SSC Results Pamphlet',
-    description: 'Official SSC 2020–21 results pamphlet celebrating Valmeeki\'s historic hat-trick record: 95% pass rate among 301 students, 49 scored 550+, 128 scored 500+, led by U. Bhavana (589/600) and Himaja (586/600).',
+    title: '2021–22 SSC Results Pamphlet',
+    description: 'Official SSC 2021–22 results pamphlet celebrating Valmeeki\'s historic hat-trick record: 95% pass rate among 301 students, 49 scored 550+, 128 scored 500+, led by U. Bhavana (589/600) and Himaja (586/600).',
     front: {
-      src: '/images/pamphlets/pamphlet_2020_21_front.jpg',
+      src: '/images/pamphlets/pamphlet_2021_22_front.jpg',
       label: 'Front Side — Hat-Trick Record & 589/600 Top Achievers',
       subtitle: 'U. Bhavana 589/600, Himaja 586/600, Gothika 585/600, Shilpa 585/600 • 49 Above 550, 128 Above 500',
     },
     back: {
-      src: '/images/pamphlets/pamphlet_2020_21_back.jpg',
+      src: '/images/pamphlets/pamphlet_2021_22_back.jpg',
       label: 'Back Side — Complete Batch Distinction Roll',
       subtitle: 'Official student marks and photo directory commemorating the distinction batch',
     },
@@ -235,7 +235,7 @@ export default function OfficialPamphletShowcase() {
                         Latest
                       </span>
                     )}
-                    {(batch.year === '2022–23' || batch.year === '2020–21') && (
+                    {(batch.year === '2022–23' || batch.year === '2021–22') && (
                       <span className="px-1.5 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-bold uppercase">
                         Added
                       </span>
