@@ -51,7 +51,7 @@ const experiencePillars: ExperiencePillar[] = [
     category: 'CAMPUS ENVIRONMENT',
     title: 'Spacious Infrastructure',
     description: 'Airy classrooms, green surroundings, and dedicated facilities designed for daily focus.',
-    image: '/images/why_choose/03_campus_spacious_infrastructure.jpg',
+    image: '/images/why_choose/03_campus_valmiki_building_buses.jpg',
     icon: Building2,
     href: '/campus',
   },
