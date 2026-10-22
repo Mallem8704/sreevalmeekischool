@@ -82,10 +82,10 @@ export default function MobileMenu({ isOpen, onClose, activeSection = 'home' }: 
             {/* Header with Official Logo */}
             <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-white/10 bg-white dark:bg-[#0A1628]">
               <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
-                <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs border border-amber-500/20 dark:border-[#D4A853]/30 bg-slate-50/80 dark:bg-[#07101E] shrink-0 flex items-center justify-center p-0.5">
+                <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs border border-slate-200 dark:border-white/10 bg-white shrink-0 flex items-center justify-center p-0.5">
                   <Image
-                    src="/images/logo/valmeeki_emblem.svg"
-                    alt="Sree Valmeeki Emblem"
+                    src="/images/logo/school_logo.png"
+                    alt="Sree Valmeeki Logo"
                     fill
                     sizes="40px"
                     className="object-contain rounded-lg"

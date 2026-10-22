@@ -89,8 +89,8 @@ export default function PremiumStudentCardModal({
           {/* Card Top Brand Header: Official School Seal */}
           <div className="pt-6 sm:pt-8 px-6 sm:px-8 pb-4 text-center border-b border-[#D4A853]/30 bg-white dark:bg-[#0A1628]">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1">
-              <div className="w-8 h-8 relative rounded-full overflow-hidden border border-[#D4A853] bg-white dark:bg-white/10 p-0.5 shadow-sm">
-                <Image src="/images/logo/valmeeki_emblem.svg" alt="Sree Valmeeki Logo" fill className="object-contain" unoptimized />
+              <div className="w-8 h-8 relative rounded-xl overflow-hidden border border-[#D4A853] bg-white p-0.5 shadow-sm">
+                <Image src="/images/logo/school_logo.png" alt="Sree Valmeeki Logo" fill className="object-contain" unoptimized />
               </div>
               <div className="flex flex-col text-left leading-none">
                 <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#B8860B] dark:text-[#D4A853] mb-0.5">

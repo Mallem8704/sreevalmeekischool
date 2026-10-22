@@ -133,13 +133,13 @@ export default function IntroVideoLauncher({
       <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 lg:p-8 flex items-center justify-between z-20 pointer-events-auto">
         {/* Subtle Branding */}
         <div className="flex items-center gap-3">
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-1 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(212,168,83,0.35)] shrink-0">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl p-0.5 bg-white border border-white/40 shadow-[0_0_20px_rgba(212,168,83,0.35)] shrink-0 overflow-hidden">
             <Image
-              src="/images/logo/valmeeki_emblem.svg"
-              alt="Sree Valmeeki School Crest"
+              src="/images/logo/school_logo.png"
+              alt="Sree Valmeeki School Logo"
               fill
               sizes="44px"
-              className="object-contain p-0.5"
+              className="object-contain"
               unoptimized
             />
           </div>

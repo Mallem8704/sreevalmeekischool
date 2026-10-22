@@ -165,14 +165,14 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[#D4A853]/50 bg-[#D4A853]/10 shadow-[0_0_60px_rgba(212,168,83,0.35)] flex items-center justify-center p-2 mb-4"
+              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border border-[#D4A853]/50 bg-white shadow-[0_0_60px_rgba(212,168,83,0.35)] flex items-center justify-center p-2 mb-4 overflow-hidden"
             >
               <Image
-                src="/images/logo/valmeeki_emblem.svg"
-                alt="Sree Valmeeki High School Emblem"
+                src="/images/logo/school_logo.png"
+                alt="Sree Valmeeki High School Logo"
                 fill
                 sizes="112px"
-                className="object-contain p-2 drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]"
+                className="object-contain p-1.5"
                 priority
                 unoptimized
               />
@@ -270,13 +270,13 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           {/* Top Bar with School Crest & Controls */}
           <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 lg:p-8 flex items-center justify-between z-20">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full p-1 border border-[#D4A853]/40 bg-[#D4A853]/10 shadow-md">
+              <div className="relative w-10 h-10 rounded-xl p-0.5 border border-[#D4A853]/40 bg-white shadow-md overflow-hidden">
                 <Image
-                  src="/images/logo/valmeeki_emblem.svg"
-                  alt="Sree Valmeeki School Crest"
+                  src="/images/logo/school_logo.png"
+                  alt="Sree Valmeeki School Logo"
                   fill
                   sizes="40px"
-                  className="object-contain p-0.5"
+                  className="object-contain"
                   unoptimized
                 />
               </div>
