@@ -48,15 +48,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Sree Valmeeki E.M School – Nursery to 10th Class" }],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico?v=20261022', sizes: 'any' },
+      { url: '/favicon-32x32.png?v=20261022', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png?v=20261022', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png?v=20261022', sizes: '180x180', type: 'image/png' },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: '/site.webmanifest?v=20261022',
   openGraph: {
     title: "Sree Valmeeki E.M School – Nursery to 10th Class | English Medium School in Kadiri",
     description:
@@ -89,11 +89,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="icon" href="/favicon.ico?v=20261022" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261022" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261022" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261022" />
+        <link rel="manifest" href="/site.webmanifest?v=20261022" />
         <meta name="apple-mobile-web-app-title" content="Sree Valmeeki" />
         <meta name="application-name" content="Sree Valmeeki" />
         <meta name="msapplication-TileColor" content="#0A1628" />

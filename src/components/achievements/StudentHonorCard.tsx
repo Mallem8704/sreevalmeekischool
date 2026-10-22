@@ -120,11 +120,6 @@ export default function StudentHonorCard({
                 <Star className="w-3.5 h-3.5 fill-[#D4A853] text-[#D4A853]" />
                 <span>{student.honorDetails}</span>
               </p>
-              {student.subjects && (
-                <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
-                  {student.subjects}
-                </p>
-              )}
             </div>
           </div>
         </div>

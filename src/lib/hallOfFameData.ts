@@ -38,8 +38,7 @@ export const starAchievers: HallOfFameStudent[] = [
     "batch": "SSC 2026 Batch",
     "cardImage": "/extracted/star_achievers/janani_card.jpg",
     "portraitImage": "/extracted/star_achievers/janani_face.jpg",
-    "honorDetails": "Town 1st Ranker \u2022 Outstanding Distinction across all subjects",
-    "subjects": "100 in Maths \u2022 100 in Physical Science \u2022 99 in Social \u2022 99 in English"
+    "honorDetails": "Town 1st Ranker \u2022 Outstanding Distinction across all subjects"
   },
   {
     "id": "star-2",
@@ -52,8 +51,7 @@ export const starAchievers: HallOfFameStudent[] = [
     "batch": "SSC 2026 Batch",
     "cardImage": "/extracted/star_achievers/mounika_card.jpg",
     "portraitImage": "/extracted/star_achievers/mounika_face.jpg",
-    "honorDetails": "Town 2nd Ranker \u2022 Excellent Academic Consistency",
-    "subjects": "100 in Maths \u2022 99 in Science \u2022 99 in English \u2022 98 in Telugu"
+    "honorDetails": "Town 2nd Ranker \u2022 Excellent Academic Consistency"
   },
   {
     "id": "star-3",

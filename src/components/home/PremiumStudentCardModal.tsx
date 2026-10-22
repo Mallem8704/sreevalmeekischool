@@ -162,9 +162,6 @@ export default function PremiumStudentCardModal({
                 {/* Honor Details / Subjects */}
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1 font-medium">
                   <p className="text-[#B8860B] dark:text-[#FBBF24] font-bold">{student.honorDetails}</p>
-                  {student.subjects && (
-                    <p className="text-slate-500 dark:text-slate-400 text-xs">{student.subjects}</p>
-                  )}
                 </div>
 
                 {/* Official Verification Seal */}
