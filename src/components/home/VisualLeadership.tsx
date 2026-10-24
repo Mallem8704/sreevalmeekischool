@@ -16,6 +16,8 @@ import {
   Activity,
   Heart,
   Users,
+  Briefcase,
+  Stethoscope,
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -469,6 +471,18 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                   <Activity className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <strong>Covid-19 Relief &amp; Vaikunta Ratham:</strong> 24/7 free ambulance services and emergency food relief throughout the pandemic.
+                  </div>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 flex items-start gap-3">
+                  <Stethoscope className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                  <div>
+                    <strong>Free Mega Medical Camps:</strong> Comprehensive free health checkups, diagnostics, specialist consultations, and free medicines for rural families.
+                  </div>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 flex items-start gap-3">
+                  <Briefcase className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                  <div>
+                    <strong>Abhigna Mega Job Melas:</strong> Career counseling and large recruitment drives connecting rural youth and graduates with leading corporate employers.
                   </div>
                 </div>
               </div>

@@ -410,7 +410,7 @@ export default function CorrespondentFrame({
                   </p>
 
                   <p>
-                    Beyond institutional administration, Sri Anil Kumar Reddy plays an active role in societal upliftment through the <strong>Abhigna Foundation</strong>, organizing drinking water borewells, educational aid, disaster relief during the Kadiri floods, and free community medical initiatives.
+                    Beyond institutional administration, Sri Anil Kumar Reddy plays an active role in societal upliftment through the <strong>Abhigna Foundation</strong>, organizing drinking water borewells, educational aid, disaster relief during the Kadiri floods, free community medical camps, and mega job melas for youth employment.
                   </p>
 
                   <p>

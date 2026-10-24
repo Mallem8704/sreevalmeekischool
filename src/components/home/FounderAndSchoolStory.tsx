@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Award,
+  Briefcase,
+  Stethoscope,
   Sparkles,
   Heart,
   Droplet,
@@ -68,10 +70,17 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
       highlight: 'Crisis Assistance',
     },
     {
-      icon: Users,
-      title: 'Medical Camps & Job Melas',
-      date: 'Youth & Health Welfare',
-      desc: 'Organizing comprehensive free health checkups, medicine distribution, career counseling, and job melas for local youth.',
+      icon: Stethoscope,
+      title: 'Free Mega Medical Camps',
+      date: 'Community Health & Diagnostics',
+      desc: 'Organizing comprehensive free medical camps, diagnostic health checkups, specialist consultations, and free medicine distribution for rural families.',
+      highlight: 'Healthcare Welfare',
+    },
+    {
+      icon: Briefcase,
+      title: 'Abhigna Mega Job Melas',
+      date: 'Youth Employment & Careers',
+      desc: 'Organizing large-scale Mega Job Melas, career counseling workshops, and campus recruitment drives connecting rural youth with leading employers.',
       highlight: 'Youth Empowerment',
     },
   ];
@@ -510,7 +519,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
               </p>
             </div>
 
-            {/* 5 Humanitarian Initiative Cards */}
+            {/* 6 Humanitarian Initiative Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {humanitarianInitiatives.map((item, idx) => {
                 const Icon = item.icon;
