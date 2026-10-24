@@ -627,7 +627,7 @@ export default function OfficialPamphletShowcase() {
                 5 Academic Batches In The Archive
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                Click any academic year to inspect its original published front and back results pamphlets.
+                Click any academic batch to open and inspect its original published front and back results pamphlets in the interactive full-screen viewer.
               </p>
             </div>
           </div>
@@ -640,9 +640,9 @@ export default function OfficialPamphletShowcase() {
                   key={batch.year}
                   onClick={() => {
                     setSelectedYearIndex(index);
-                    window.scrollTo({ top: document.getElementById('official-pamphlets')?.offsetTop ?? 0, behavior: 'smooth' });
+                    openLightbox('front');
                   }}
-                  className={`rounded-2xl p-3 border transition-all cursor-pointer flex flex-col justify-between ${
+                  className={`rounded-2xl p-3 border transition-all cursor-pointer flex flex-col justify-between group hover:scale-[1.02] ${
                     isSelected
                       ? 'bg-amber-500/10 dark:bg-[#D4A853]/15 border-[#D4A853] shadow-md ring-2 ring-[#D4A853]/40'
                       : 'bg-white dark:bg-[#0A1628] border-slate-200 dark:border-white/10 hover:border-[#D4A853]/50 hover:shadow-lg'
@@ -656,7 +656,7 @@ export default function OfficialPamphletShowcase() {
                         alt={`${batch.year} Pamphlet Thumbnail`}
                         fill
                         sizes="240px"
-                        className="object-cover"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
                         quality={80}
                       />
                       <div className="absolute top-1.5 left-1.5 px-2 py-0.5 rounded bg-[#0A1628]/90 text-white text-[9px] font-black uppercase">
@@ -667,22 +667,59 @@ export default function OfficialPamphletShowcase() {
                           Latest
                         </div>
                       )}
+                      {/* Hover Overlay with Open icon */}
+                      <div className="absolute inset-0 bg-[#0A1628]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white text-xs font-bold backdrop-blur-[2px]">
+                        <Maximize2 className="w-4 h-4 text-[#D4A853]" />
+                        <span>Click to Open</span>
+                      </div>
                     </div>
 
-                    <h4 className="text-xs sm:text-sm font-black text-[#0A1628] dark:text-white line-clamp-1">
+                    <h4 className="text-xs sm:text-sm font-black text-[#0A1628] dark:text-white line-clamp-1 group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
                       {batch.year} Batch
                     </h4>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-1 leading-snug">
                       {batch.description}
                     </p>
+
+                    {/* Quick Front / Back Side Buttons */}
+                    <div className="flex items-center gap-1.5 mt-2.5">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedYearIndex(index);
+                          openLightbox('front');
+                        }}
+                        className="flex-1 py-1 rounded-lg bg-slate-100 hover:bg-[#D4A853] dark:bg-white/10 dark:hover:bg-[#D4A853] text-slate-700 dark:text-slate-200 hover:text-[#0A1628] dark:hover:text-[#0A1628] text-[10px] font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        title="Open Front Side in Lightbox"
+                      >
+                        <Eye className="w-3 h-3" />
+                        <span>Front Side</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedYearIndex(index);
+                          openLightbox('back');
+                        }}
+                        className="flex-1 py-1 rounded-lg bg-slate-100 hover:bg-[#D4A853] dark:bg-white/10 dark:hover:bg-[#D4A853] text-slate-700 dark:text-slate-200 hover:text-[#0A1628] dark:hover:text-[#0A1628] text-[10px] font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        title="Open Back Side in Lightbox"
+                      >
+                        <FileText className="w-3 h-3" />
+                        <span>Back Side</span>
+                      </button>
+                    </div>
                   </div>
 
                   <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px]">
-                    <span className="font-bold text-[#B8860B] dark:text-[#FBBF24]">
-                      2 Sides Scanned
+                    <span className="font-bold text-[#B8860B] dark:text-[#FBBF24] flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                      <span>2 Sides Scanned</span>
                     </span>
-                    <span className="font-semibold text-slate-400 group-hover:text-[#0A1628] dark:group-hover:text-white">
-                      {isSelected ? 'Viewing' : 'Explore →'}
+                    <span className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] flex items-center gap-1">
+                      <span>Open Fullscreen</span>
+                      <Maximize2 className="w-3 h-3 text-[#D4A853]" />
                     </span>
                   </div>
                 </div>
