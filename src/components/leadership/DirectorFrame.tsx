@@ -114,8 +114,8 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                     <span className="text-[10px] font-black tracking-widest uppercase text-[#D4A853] block mb-0.5">
                       LEADERSHIP & MENTORSHIP
                     </span>
-                    <h4 className="text-xl sm:text-2xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight">
-                      Dr. P.V Pavan Kumar Reddy
+                    <h4 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight">
+                      <span className="text-[#FBBF24] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                     </h4>
                     <p className="text-xs text-white/90 font-medium mt-0.5">
                       Director of Valmeeki School and Founder Abhigna Foundation
@@ -154,8 +154,8 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                   “Education is the most powerful tool to transform lives, empower communities, and build a brighter future.”
                 </h3>
               </div>
-              <p className="pl-11 sm:pl-13 text-xs sm:text-sm text-[#B8860B] dark:text-[#FBBF24] font-bold uppercase tracking-widest">
-                — Dr. P.V Pavan Kumar Reddy, Director of Valmeeki School and Founder Abhigna Foundation
+              <p className="pl-11 sm:pl-13 text-xs sm:text-sm text-[#B8860B] dark:text-[#FBBF24] font-semibold tracking-wide">
+                — <span className="font-bold">Dr. P.V. Pavan Kumar Reddy</span>, Director of Valmeeki School &amp; Founder, Abhigna Foundation
               </p>
             </div>
 
@@ -413,8 +413,8 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                 {/* Director Signature Block */}
                 <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
                   <div>
-                    <h5 className="text-base font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
-                      Dr. P.V Pavan Kumar Reddy
+                    <h5 className="text-base font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                     </h5>
                     <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold">
                       Director of Valmeeki School and Founder Abhigna Foundation

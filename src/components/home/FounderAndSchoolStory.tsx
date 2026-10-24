@@ -289,14 +289,15 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
 
                   {/* Leader Name & Title */}
                   <div className="text-center sm:text-left space-y-1.5 flex-1">
-                    <span className="text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] block">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/35 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24]">
                       DIRECTOR &amp; FOUNDER
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
-                      Dr. P.V Pavan Kumar Reddy
+                    <h3 className="text-2xl sm:text-3xl lg:text-[1.85rem] font-bold font-[family-name:var(--font-heading)] tracking-tight text-[#0A1628] dark:text-white leading-tight mt-1">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                     </h3>
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-[#D4A853] via-[#B8860B] to-transparent rounded-full mx-auto sm:mx-0 my-1.5" />
                     <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
-                      Director of Valmeeki School and Founder Abhigna Foundation
+                      Director of Valmeeki School &amp; Founder, Abhigna Foundation
                     </p>
 
                     {/* Director Quote Pill */}
@@ -400,12 +401,13 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
 
                   {/* Leader Name & Title */}
                   <div className="text-center sm:text-left space-y-1.5 flex-1">
-                    <span className="text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24] block">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#D4A853]/15 dark:bg-[#D4A853]/25 border border-[#D4A853]/35 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#B8860B] dark:text-[#FBBF24]">
                       CORRESPONDENT
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-[family-name:var(--font-heading)] uppercase text-[#0A1628] dark:text-white">
-                      Sri P. Anil Kumar Reddy
+                    <h3 className="text-2xl sm:text-3xl lg:text-[1.85rem] font-bold font-[family-name:var(--font-heading)] tracking-tight text-[#0A1628] dark:text-white leading-tight mt-1">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Sri P.</span> Anil Kumar Reddy
                     </h3>
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-[#D4A853] via-[#B8860B] to-transparent rounded-full mx-auto sm:mx-0 my-1.5" />
                     <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
                       Sree Valmeeki E.M School – Nursery to 10th Class
                     </p>
@@ -636,8 +638,8 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                     />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#0A1628] dark:text-white uppercase font-[family-name:var(--font-heading)]">
-                      Dr. P.V Pavan Kumar Reddy
+                    <h3 className="text-base sm:text-lg font-bold text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)]">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                     </h3>
                     <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-bold">
                       Director of Valmeeki School and Founder Abhigna Foundation
@@ -720,8 +722,8 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                     />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-black text-[#0A1628] dark:text-white uppercase font-[family-name:var(--font-heading)]">
-                      Sri P. Anil Kumar Reddy
+                    <h3 className="text-base sm:text-lg font-bold text-[#0A1628] dark:text-white font-[family-name:var(--font-heading)]">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Sri P.</span> Anil Kumar Reddy
                     </h3>
                     <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-bold">
                       Correspondent, Sree Valmeeki High School

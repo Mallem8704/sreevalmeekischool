@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Cormorant_Garamond, Cinzel } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 
@@ -19,6 +19,20 @@ const playfair = Playfair_Display({
   variable: "--font-heading",
   display: "swap",
   weight: ["400", "600", "700", "900"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  display: "swap",
+  weight: ["600", "700", "800"],
 });
 
 const inter = Inter({
@@ -87,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${cormorant.variable} ${cinzel.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico?v=20261022" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261022" />

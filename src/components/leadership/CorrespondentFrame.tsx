@@ -116,8 +116,8 @@ export default function CorrespondentFrame({
                     <span className="text-[10px] font-black tracking-widest uppercase text-[#D4A853] block mb-0.5">
                       ADMINISTRATION & GOVERNANCE
                     </span>
-                    <h4 className="text-xl sm:text-2xl font-black font-[family-name:var(--font-heading)] uppercase tracking-tight">
-                      Sri P. Anil Kumar Reddy
+                    <h4 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight">
+                      <span className="text-[#FBBF24] font-semibold">Sri P.</span> Anil Kumar Reddy
                     </h4>
                     <p className="text-xs text-white/90 font-medium mt-0.5">
                       Correspondent, Sree Valmeeki High School
@@ -156,8 +156,8 @@ export default function CorrespondentFrame({
                   “True institutional excellence is built on trust, discipline, and unwavering care for every child who walks through our gates.”
                 </h3>
               </div>
-              <p className="pl-11 sm:pl-13 text-xs sm:text-sm text-[#B8860B] dark:text-[#FBBF24] font-bold uppercase tracking-widest">
-                — Sri P. Anil Kumar Reddy, Correspondent
+              <p className="pl-11 sm:pl-13 text-xs sm:text-sm text-[#B8860B] dark:text-[#FBBF24] font-semibold tracking-wide">
+                — <span className="font-bold">Sri P. Anil Kumar Reddy</span>, Correspondent, Sree Valmeeki High School
               </p>
             </div>
 
@@ -421,8 +421,8 @@ export default function CorrespondentFrame({
                 {/* Correspondent Signature Block */}
                 <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
                   <div>
-                    <h5 className="text-base font-black font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
-                      Sri P. Anil Kumar Reddy
+                    <h5 className="text-base font-bold font-[family-name:var(--font-heading)] text-[#0A1628] dark:text-white">
+                      <span className="text-[#B8860B] dark:text-[#FBBF24] font-semibold">Sri P.</span> Anil Kumar Reddy
                     </h5>
                     <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold">
                       Correspondent, Sree Valmeeki High School, Kadiri

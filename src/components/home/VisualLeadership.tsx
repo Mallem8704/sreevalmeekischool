@@ -74,8 +74,8 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#F0C66A] block">
                     DIRECTOR &amp; FOUNDER
                   </span>
-                  <h3 className="text-lg font-black font-[family-name:var(--font-heading)]">
-                    Dr. P.V Pavan Kumar Reddy
+                  <h3 className="text-lg font-bold font-[family-name:var(--font-heading)]">
+                    <span className="text-[#F0C66A] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                   </h3>
                   <p className="text-[10px] text-white/80 font-medium leading-tight mt-0.5">
                     Director of Valmeeki School and Founder Abhigna Foundation
@@ -96,7 +96,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
 
               <div className="pt-2 border-t border-slate-200/80 dark:border-white/10">
                 <span className="text-sm font-black text-[#0A1C31] dark:text-white block">
-                  — Dr. P.V Pavan Kumar Reddy
+                  — <span className="text-[#D8A53C]">Dr. P.V.</span> Pavan Kumar Reddy
                 </span>
                 <span className="text-xs text-[#69778A] dark:text-slate-400 block font-medium">
                   Director of Valmeeki School and Founder Abhigna Foundation
@@ -205,8 +205,8 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                       <span className="text-[10px] font-black uppercase tracking-wider text-[#D8A53C] block">
                         CORRESPONDENT
                       </span>
-                      <h4 className="text-base sm:text-lg font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                        Sri P. Anil Kumar Reddy
+                      <h4 className="text-base sm:text-lg font-bold text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
+                        <span className="text-[#D8A53C] font-semibold">Sri P.</span> Anil Kumar Reddy
                       </h4>
                       <span className="text-[11px] text-[#69778A] dark:text-slate-400 font-medium">
                         Sree Valmeeki E.M School – Nursery to 10th Class
@@ -346,8 +346,8 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#D8A53C]">
                     LEADERSHIP DESK
                   </span>
-                  <h3 className="text-xl font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                    Dr. P.V Pavan Kumar Reddy
+                  <h3 className="text-xl font-bold text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
+                    <span className="text-[#D8A53C] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                   </h3>
                   <p className="text-xs text-[#B8860B] dark:text-[#FBBF24] font-semibold mt-0.5">
                     Director of Valmeeki School and Founder Abhigna Foundation
@@ -401,7 +401,7 @@ export default function VisualLeadership({ onOpenAdmissions }: VisualLeadershipP
                     ADMINISTRATIVE DESK
                   </span>
                   <h3 className="text-xl font-black text-[#0A1C31] dark:text-white font-[family-name:var(--font-heading)]">
-                    Sri P. Anil Kumar Reddy — Correspondent
+                    <span className="text-[#D8A53C] font-semibold">Sri P.</span> Anil Kumar Reddy — Correspondent
                   </h3>
                 </div>
                 <button
