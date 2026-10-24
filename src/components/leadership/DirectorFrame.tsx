@@ -110,11 +110,11 @@ export default function DirectorFrame({ className = '', showExtendedBio = true }
                   </button>
 
                   {/* Name and Designation Plaque */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white text-center">
+                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-[#0A1628]/90 dark:bg-black/90 backdrop-blur-md border border-[#D4A853]/50 shadow-2xl text-center text-white">
                     <span className="text-[10px] font-black tracking-widest uppercase text-[#D4A853] block mb-0.5">
                       LEADERSHIP & MENTORSHIP
                     </span>
-                    <h4 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight">
+                    <h4 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight text-white !text-white drop-shadow-md">
                       <span className="text-[#FBBF24] font-semibold">Dr. P.V.</span> Pavan Kumar Reddy
                     </h4>
                     <p className="text-xs text-white/90 font-medium mt-0.5">

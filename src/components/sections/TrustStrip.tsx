@@ -7,7 +7,7 @@ const trustStripData = [
   { label: 'EST.', value: '1999' },
   { label: 'MEDIUM', value: 'English' },
   { label: 'CLASSES', value: 'Nursery – X' },
-  { label: 'CURRICULUM', value: 'SSC' },
+  { label: 'CURRICULUM', value: 'SSC', subtext: 'State Board of AP' },
   { label: 'LOCATION', value: 'Kadiri' },
 ]
 
@@ -28,9 +28,14 @@ export default function TrustStrip() {
               <span className="text-[#B8860B] dark:text-[#FBBF24] text-[10px] sm:text-xs font-black tracking-[0.25em] uppercase mb-1.5 font-[family-name:var(--font-body)]">
                 {item.label}
               </span>
-              <span className="text-[#0A1628] dark:text-white text-xl sm:text-2xl lg:text-3xl font-black font-[family-name:var(--font-heading)] group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors">
+              <span className="text-[#0A1628] dark:text-white text-xl sm:text-2xl lg:text-3xl font-black font-[family-name:var(--font-heading)] group-hover:text-[#B8860B] dark:group-hover:text-[#FBBF24] transition-colors leading-tight">
                 {item.value}
               </span>
+              {'subtext' in item && item.subtext && (
+                <span className="text-[11px] sm:text-xs font-bold text-[#B8860B] dark:text-[#FBBF24] tracking-wider uppercase mt-1 block">
+                  {item.subtext}
+                </span>
+              )}
             </motion.div>
           ))}
         </div>

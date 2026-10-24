@@ -154,7 +154,7 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           className="object-cover object-center filter contrast-[1.05]"
                         />
                         {/* Gradient Overlay for Readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
                         {/* Top Verified Plaque */}
                         <div className="absolute top-3 right-3 bg-white/95 dark:bg-[#0A1628]/95 backdrop-blur-md px-3 py-1 rounded-full border border-[#D4A853] shadow-md flex items-center gap-1.5">
@@ -164,15 +164,15 @@ export default function FounderAndSchoolStory({ onOpenAdmissions }: FounderAndSc
                           </span>
                         </div>
 
-                        {/* Bottom Portrait Caption */}
-                        <div className="absolute bottom-4 left-4 right-4 text-white text-center">
-                          <span className="text-[10px] font-black tracking-widest uppercase text-[#D4A853] block">
+                        {/* Bottom Portrait Caption Plaque */}
+                        <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-[#0A1628]/90 dark:bg-black/90 backdrop-blur-md border border-[#D4A853]/50 shadow-2xl text-center">
+                          <span className="text-[10px] font-black tracking-widest uppercase text-[#D4A853] dark:text-[#FBBF24] block mb-0.5">
                             ESTABLISHED 6TH JUNE, 1999
                           </span>
-                          <h4 className="text-lg sm:text-xl font-black font-[family-name:var(--font-heading)] uppercase">
-                            Sri P. Jayarami Reddy
+                          <h4 className="text-lg sm:text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight text-white !text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                            <span className="text-[#FBBF24] font-semibold">Sri P.</span> Jayarami Reddy
                           </h4>
-                          <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#D4A853] block mt-0.5">
+                          <span className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#D4A853] dark:text-[#FBBF24] block mt-0.5">
                             RETIRED MEO
                           </span>
                         </div>
